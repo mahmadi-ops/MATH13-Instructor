@@ -16,7 +16,9 @@
 <p>
 These are the leftover problems from the first four topics of the course,
 collected here for review. They are not assigned, but they are fair game on
-an exam. The topics they cover, with links to the notes:
+an exam. Problems marked with a star (<m>*</m>) are the exception: those are
+for the interested reader and will not be examined. The topics they cover,
+with links to the notes:
 </p>
 
 <p>
@@ -45,20 +47,18 @@ counterexample if it is false.
 <feedback>
 <p>
 First,
-<md xml:id="eq-rw23-cosh2x" number="yes">
+<md>
 \cosh(2x) = \frac12\left(e^{2x} + e^{-2x}\right).
 </md>
 Second,
 <md>
-<mrow>\cosh^2(x) + \sinh^2(x)
-\amp = \frac14\left(e^x + e^{-x}\right)^2
-+ \frac14\left(e^x - e^{-x}\right)^2</mrow>
-<mrow>\amp = \frac14\left(2e^{2x} + 2e^{-2x}\right)</mrow>
-<mrow xml:id="eq-rw23-sum" number="yes">\amp
-= \frac12\left(e^{2x} + e^{-2x}\right).</mrow>
+<mrow>\amp \cosh^2(x) + \sinh^2(x)</mrow>
+<mrow>\amp \quad = \frac14\left(e^x + e^{-x}\right)^2</mrow>
+<mrow>\amp \qquad + \frac14\left(e^x - e^{-x}\right)^2</mrow>
+<mrow>\amp \quad = \frac14\left(2e^{2x} + 2e^{-2x}\right)</mrow>
+<mrow>\amp \quad = \frac12\left(e^{2x} + e^{-2x}\right).</mrow>
 </md>
-Comparing <xref ref="eq-rw23-cosh2x"/> and
-<xref ref="eq-rw23-sum"/> gives
+Comparing the two results gives
 <m>\cosh^2(x) + \sinh^2(x) = \cosh(2x)</m>.
 </p>
 </feedback>
@@ -934,8 +934,58 @@ Therefore
 </solution>
 </exercise>
 
-<exercise xml:id="exer-binomial-three-powers">
+<exercise xml:id="exer-series-limit-arctan">
 <statement>
+<p>
+Use Taylor series to evaluate
+<md>
+\lim_{x\to 0} \frac{\arctan x - x}{\sin x - x} .
+</md>
+</p>
+</statement>
+<solution>
+<p>
+Numerator and denominator both tend to <m>0</m>, and each vanishes to
+third order, so l'H&#xf4;pital's rule would have to be applied three times.
+Replacing each by its Maclaurin series is quicker. From
+<m>\arctan x = x - \dfrac{x^3}{3} + \dfrac{x^5}{5} - \cdots</m> and
+<m>\sin x = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots</m>,
+subtracting <m>x</m> removes the leading term of each:
+<md>
+<mrow>\arctan x - x \amp = -\frac{x^3}{3} + \frac{x^5}{5} - \cdots</mrow>
+<mrow>\sin x - x \amp = -\frac{x^3}{3!} + \frac{x^5}{5!} - \cdots</mrow>
+</md>
+</p>
+<p>
+Both series begin with <m>x^3</m>. The limit never sees <m>x = 0</m>
+itself, so we may cancel a factor of <m>x^3</m> from top and bottom:
+<md>
+<mrow>\lim_{x\to 0} \frac{\arctan x - x}{\sin x - x}
+\amp = \lim_{x\to 0}
+  \frac{-\frac13 + \frac{x^2}{5} - \cdots}
+       {-\frac{1}{3!} + \frac{x^2}{5!} - \cdots}</mrow>
+<mrow>\amp = \frac{\displaystyle\lim_{x\to 0}
+        \left(-\frac13 + \frac{x^2}{5} - \cdots\right)}
+       {\displaystyle\lim_{x\to 0}
+        \left(-\frac{1}{3!} + \frac{x^2}{5!} - \cdots\right)}</mrow>
+<mrow>\amp = \frac{-\frac13}{-\frac{1}{3!}}
+   = \frac{-\frac13}{-\frac16} = 2 .</mrow>
+</md>
+Each of the two remaining series is a power series with a nonzero
+constant term, so it is continuous at <m>0</m> and the limit is just that
+constant term. Only the leading coefficients matter: the answer is the
+ratio <m>\left(-\frac13\right) \big/ \left(-\frac16\right)</m>.
+</p>
+</solution>
+</exercise>
+
+<exercise xml:id="exer-binomial-three-powers">
+<title>*Three Maclaurin series from the binomial series</title>
+<statement>
+<p>
+<em>Starred problem.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 <p>
 Use the binomial series <xref ref="eq-binomial-series"/> to obtain
 the Maclaurin series for each of the following.
@@ -967,9 +1017,9 @@ terms beyond them.
 Here <m>m = 5</m>, a positive integer:
 <md>
 <mrow>(1+x)^5 \amp = 1 + 5x + \frac{(5)(4)}{2!}x^2
-  + \frac{(5)(4)(3)}{3!}x^3
-  + \frac{(5)(4)(3)(2)}{4!}x^4
-  + \frac{(5)(4)(3)(2)(1)}{5!}x^5 + \cdots</mrow>
++ \frac{(5)(4)(3)}{3!}x^3</mrow>
+<mrow>\amp\qquad + \frac{(5)(4)(3)(2)}{4!}x^4
++ \frac{(5)(4)(3)(2)(1)}{5!}x^5 + \cdots</mrow>
 <mrow>\amp = 1 + 5x + 10x^2 + 10x^3 + 5x^4 + x^5 .</mrow>
 </md>
 The <m>k = 6</m> coefficient contains the factor
@@ -1020,7 +1070,12 @@ With <m>m</m> negative the signs alternate, as they did for
 </exercise>
 
 <exercise xml:id="exer-sqrt-cos-product">
+<title>*A product of two series</title>
 <statement>
+<p>
+<em>Starred problem.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 <p>
 Find the first four nonzero terms of the Taylor series about <m>0</m> for
 the function <m>f(x) = \sqrt{1+x}\,\cos(5x)</m>. Note that you may want to
@@ -1049,59 +1104,14 @@ up to <m>x^3</m>,
 <md>
 <mrow>\sqrt{1+x}\,\cos(5x)
 \amp = \left(1 + \frac12 x - \frac18 x^2
-  + \frac{1}{16}x^3 - \cdots\right)
-  \left(1 - \frac{5^2}{2}x^2 + \cdots\right)</mrow>
++ \frac{1}{16}x^3 - \cdots\right)</mrow>
+<mrow>\amp\qquad \times \left(1 - \frac{5^2}{2}x^2 + \cdots\right)</mrow>
 <mrow>\amp = 1 + \frac{x}{2}
   - \left(\frac18 + \frac{5^2}{2}\right)x^2
   + \left(\frac{1}{16} - \frac{5^2}{4}\right)x^3 + \cdots</mrow>
 <mrow>\amp = 1 + \frac{x}{2} - \frac{101}{8}x^2
   - \frac{99}{16}x^3 + \cdots .</mrow>
 </md>
-</p>
-</solution>
-</exercise>
-
-<exercise xml:id="exer-series-limit-arctan">
-<statement>
-<p>
-Use Taylor series to evaluate
-<md>
-\lim_{x\to 0} \frac{\arctan x - x}{\sin x - x} .
-</md>
-</p>
-</statement>
-<solution>
-<p>
-Numerator and denominator both tend to <m>0</m>, and each vanishes to
-third order, so l'H&#xf4;pital's rule would have to be applied three times.
-Replacing each by its Maclaurin series is quicker. From
-<m>\arctan x = x - \dfrac{x^3}{3} + \dfrac{x^5}{5} - \cdots</m> and
-<m>\sin x = x - \dfrac{x^3}{3!} + \dfrac{x^5}{5!} - \cdots</m>,
-subtracting <m>x</m> removes the leading term of each:
-<md>
-<mrow>\arctan x - x \amp = -\frac{x^3}{3} + \frac{x^5}{5} - \cdots</mrow>
-<mrow>\sin x - x \amp = -\frac{x^3}{3!} + \frac{x^5}{5!} - \cdots</mrow>
-</md>
-</p>
-<p>
-Both series begin with <m>x^3</m>. The limit never sees <m>x = 0</m>
-itself, so we may cancel a factor of <m>x^3</m> from top and bottom:
-<md>
-<mrow>\lim_{x\to 0} \frac{\arctan x - x}{\sin x - x}
-\amp = \lim_{x\to 0}
-  \frac{-\frac13 + \frac{x^2}{5} - \cdots}
-       {-\frac{1}{3!} + \frac{x^2}{5!} - \cdots}</mrow>
-<mrow>\amp = \frac{\displaystyle\lim_{x\to 0}
-        \left(-\frac13 + \frac{x^2}{5} - \cdots\right)}
-       {\displaystyle\lim_{x\to 0}
-        \left(-\frac{1}{3!} + \frac{x^2}{5!} - \cdots\right)}</mrow>
-<mrow>\amp = \frac{-\frac13}{-\frac{1}{3!}}
-   = \frac{-\frac13}{-\frac16} = 2 .</mrow>
-</md>
-Each of the two remaining series is a power series with a nonzero
-constant term, so it is continuous at <m>0</m> and the limit is just that
-constant term. Only the leading coefficients matter: the answer is the
-ratio <m>\left(-\frac13\right) \big/ \left(-\frac16\right)</m>.
 </p>
 </solution>
 </exercise>
