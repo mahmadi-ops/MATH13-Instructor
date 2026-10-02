@@ -3,11 +3,11 @@
   Midterm Exam #1, Spring 2026, with solutions.
 
   Transcribed from the instructor's annotated solutions PDF
-  (Midterm_1-MATH13-Spring2026-Solutions.pdf): the five exam questions and
-  their handwritten solutions only.  The pages interleaved between the
-  questions (a lecture-notes page on combining series, the Edfinity
-  homework problems, the "Series and Sequences Problems" list) and the
-  closing formula page were left out.
+  (Midterm_1-MATH13-Spring2026-Solutions.pdf): the five exam questions,
+  their handwritten solutions, and the exam's closing formula sheet (the
+  assemblage at the end).  The pages interleaved between the questions (a
+  lecture-notes page on combining series, the Edfinity homework problems,
+  the "Series and Sequences Problems" list) were left out.
 
   Three slips in the source were corrected while typesetting:
   - Question 5(a): the printed series read "... (ln 3)^3/6 + (minus)(ln 3)^4/24 + ...";
@@ -24,10 +24,11 @@
 <introduction>
 <p>
 The first midterm exam from Spring 2026, with worked solutions. It was a
-65-minute, closed-book exam worth 20 points: no formula sheets, notes,
-phones, tablets, smart watches or similar aids were permitted, and students
+65-minute, closed-book exam worth 20 points: no aids of their own (formula
+sheets, notes, phones, tablets, smart watches or similar) were permitted, and students
 were asked to write their work in a neat and organized format and to fully
-justify every step. Try it under the same conditions before you look at the
+justify every step. The exam's formula sheet is reproduced at the end of
+this page. Try the exam under the same conditions before you look at the
 solutions. The topics it covers, with links to the notes:
 </p>
 
@@ -350,5 +351,47 @@ with <m>r = e^{2}</m>. Hence it diverges, since <m>|r| \gt 1</m>.
 </solution>
 </task>
 </exercise>
+
+<!-- ===================== Formula sheet ===================== -->
+<assemblage xml:id="mt1s26-formula-sheet">
+<title>Formula Sheet</title>
+<p>
+<alert>Taylor's Formula.</alert> If <m>f</m> has derivatives of all orders
+in an open interval <m>I</m> containing <m>a</m>, then for each positive
+integer <m>n</m> and for each <m>x</m> in <m>I</m>,
+<md>
+<mrow>f(x) \amp = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^{2}</mrow>
+<mrow>\amp \qquad + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^{n} + R_n(x)</mrow>
+</md>
+where
+<m>R_n(x) = \dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}</m>
+and <m>c</m> is between <m>a</m> and <m>x</m>.
+</p>
+<p>
+<alert>The Remainder Estimation Theorem.</alert> If there is a positive
+constant <m>M</m> such that <m>\left|f^{(n+1)}(c)\right| \le M</m> for all
+<m>c</m> between <m>x</m> and <m>a</m>, inclusive, then the remainder term
+<m>R_n(x)</m> in Taylor's Theorem satisfies the inequality
+<md>
+\text{Error} = \left|R_n(x)\right| \le M\,\frac{|x-a|^{n+1}}{(n+1)!}.
+</md>
+If this condition holds for every <m>n</m> and the other conditions of
+Taylor's Theorem are satisfied by <m>f</m>, then the series converges to
+<m>f(x)</m>.
+</p>
+<p>
+<alert>Maclaurin series.</alert>
+<md>
+<mrow>\frac{1}{1-x} \amp = \sum_{n=0}^{\infty} x^{n}
+= 1 + x + x^{2} + x^{3} + \cdots</mrow>
+<mrow>e^{x} \amp = \sum_{n=0}^{\infty} \frac{x^{n}}{n!}
+= 1 + \frac{x}{1!} + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots</mrow>
+<mrow>\sin x \amp = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}
+= x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!} + \cdots</mrow>
+<mrow>\cos x \amp = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{(2n)!}
+= 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \frac{x^{6}}{6!} + \cdots</mrow>
+</md>
+</p>
+</assemblage>
 
 </worksheet>
