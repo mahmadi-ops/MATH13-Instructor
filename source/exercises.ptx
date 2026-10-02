@@ -3,9 +3,10 @@
 
 <introduction>
 <p>
-The ten assignments and the four review problem sets, in one place. Worked
-solutions appear beneath each problem once the assignment's due date has
-passed; solutions for the review sets are posted the same way.
+The ten assignments, the four review problem sets, and a past midterm exam,
+in one place. Worked solutions appear beneath each problem once the
+assignment's due date has passed; solutions for the review sets are posted
+the same way.
 </p>
 
 <assemblage xml:id="assemblage-tutor-guide">
@@ -199,6 +200,10 @@ right or wrong, earns nothing.
 <!-- ================= Review Problems #1 ================= -->
 <!-- Everything from the four topics above that was not assigned. -->
 <xi:include href="review-problems-1.ptx"/>
+
+<!-- ================= Midterm Exam #1 (Spring 2026) ================= -->
+<!-- The five exam questions with their worked solutions. -->
+<xi:include href="midterm-1-spring-2026.ptx"/>
 
 <!-- ================= Assignment 4 ================= -->
 <xi:include href="assignment-4-space-vectors-dot-product.ptx"/>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Midterm Exam #1, Spring 2026, with solutions.
+
+  Transcribed from the instructor's annotated solutions PDF
+  (Midterm_1-MATH13-Spring2026-Solutions.pdf): the five exam questions and
+  their handwritten solutions only.  The pages interleaved between the
+  questions (a lecture-notes page on combining series, the Edfinity
+  homework problems, the "Series and Sequences Problems" list) and the
+  closing formula page were left out.
+
+  Three slips in the source were corrected while typesetting:
+  - Question 5(a): the printed series read "... (ln 3)^3/6 + (minus)(ln 3)^4/24 + ...";
+    the fourth term is positive, as the solution (e to the power -ln 3)
+    requires, so the series is set as "... + (ln 3)^4/24 (minus) ...".
+  - Question 2(c): the handwritten bound was written for the sixth
+    derivative; it is the seventh, f^(7) = cosh.
+  - Question 5(b): the handwritten ratio of the sum of e^(2n) was r = e;
+    it is r = e^2.  The conclusion (divergence, since |r| > 1) is unchanged.
+-->
+<worksheet xml:id="worksheet-midterm-1-spring-2026" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Midterm Exam #1 (Spring 2026)</title>
+
+<introduction>
+<p>
+The first midterm exam from Spring 2026, with worked solutions. It was a
+65-minute, closed-book exam worth 20 points: no formula sheets, notes,
+phones, tablets, smart watches or similar aids were permitted, and students
+were asked to write their work in a neat and organized format and to fully
+justify every step. Try it under the same conditions before you look at the
+solutions. The topics it covers, with links to the notes:
+</p>
+
+<p>
+<ul>
+<li><p><xref ref="chapter-hyperbolic-functions" text="title"/></p></li>
+<li><p><xref ref="chapter-infinite-series" text="title"/></p></li>
+<li><p><xref ref="chapter-taylor-maclaurin" text="title"/></p></li>
+<li><p><xref ref="section-taylor" text="title"/></p></li>
+</ul>
+</p>
+</introduction>
+
+<!-- ===================== Question 1 ===================== -->
+<exercise xml:id="mt1s26-q1">
+<title>4 points</title>
+<introduction>
+<p>
+Answer parts (a) and (b) for the following infinite series:
+<md>
+\sum_{k=1}^{\infty} \left(e^{1-k} - e^{-k}\right).
+</md>
+</p>
+</introduction>
+
+<task xml:id="mt1s26-q1-a">
+<statement>
+<p>
+Does the <m>n</m>th-term test apply? Remember to fully justify your answer.
+(2 points)
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\lim_{k\to\infty} a_k = \lim_{k\to\infty} \left(e^{1-k} - e^{-k}\right) = 0,
+</md>
+so the <m>n</m>th-term test does <em>not</em> apply: a limit of
+<m>0</m> is inconclusive.
+</p>
+</solution>
+</task>
+
+<task xml:id="mt1s26-q1-b">
+<statement>
+<p>
+Evaluate the series or show that it diverges. (2 points)
+</p>
+</statement>
+<solution>
+<p>
+The partial sums telescope:
+<md>
+<mrow>S_n \amp = \underbrace{\left(e^{0} - e^{-1}\right)}_{k=1}
++ \underbrace{\left(e^{-1} - e^{-2}\right)}_{k=2}
++ \underbrace{\left(e^{-2} - e^{-3}\right)}_{k=3}</mrow>
+<mrow>\amp \qquad + \cdots
++ \underbrace{\left(e^{2-n} - e^{1-n}\right)}_{k=n-1}
++ \underbrace{\left(e^{1-n} - e^{-n}\right)}_{k=n}</mrow>
+<mrow>\amp = e^{0} - e^{-n} = 1 - \frac{1}{e^{n}}.</mrow>
+</md>
+Hence
+<md>
+\sum_{k=1}^{\infty} \left(e^{1-k} - e^{-k}\right)
+= \lim_{n\to\infty} \left(1 - \frac{1}{e^{n}}\right) = 1.
+</md>
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 2 ===================== -->
+<exercise xml:id="mt1s26-q2">
+<title>5 points</title>
+<introduction>
+<p>
+Consider the Taylor series for the function <m>f(x) = \sinh(x)</m> about
+<m>x = 0</m>.
+</p>
+</introduction>
+
+<task xml:id="mt1s26-q2-a">
+<statement>
+<p>
+Find <m>p_5(x)</m>, i.e. the Taylor polynomial of order 5. (2 points)
+</p>
+</statement>
+<solution>
+<p>
+<md>
+<mrow>f(x) \amp = \sinh(x), \amp f(0) \amp = 0,</mrow>
+<mrow>f'(x) \amp = \cosh(x), \amp f'(0) \amp = 1,</mrow>
+<mrow>f''(x) \amp = \sinh(x), \amp f''(0) \amp = 0,</mrow>
+<mrow>f^{(3)}(x) \amp = \cosh(x), \amp f^{(3)}(0) \amp = 1,</mrow>
+<mrow>f^{(4)}(x) \amp = \sinh(x), \amp f^{(4)}(0) \amp = 0,</mrow>
+<mrow>f^{(5)}(x) \amp = \cosh(x), \amp f^{(5)}(0) \amp = 1.</mrow>
+</md>
+Therefore
+<md>
+<mrow>p_5(x) \amp = f(0) + f'(0)(x-0) + \frac{f''(0)}{2!}(x-0)^2</mrow>
+<mrow>\amp \qquad + \cdots + \frac{f^{(5)}(0)}{5!}(x-0)^5</mrow>
+<mrow>\amp = x + \frac{x^3}{3!} + \frac{x^5}{5!}.</mrow>
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="mt1s26-q2-b">
+<statement>
+<p>
+Express the Taylor series for the function <m>f(x) = \sinh(x)</m> about
+<m>x = 0</m> in sigma notation. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\sum_{k=0}^{\infty} \frac{x^{2k+1}}{(2k+1)!}
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="mt1s26-q2-c">
+<statement>
+<p>
+Assuming that <m>-2 \le x \le 2</m>, find an upper bound on the error in
+estimating <m>f(x)</m> using <m>p_5(x)</m>. (2 points)
+</p>
+<p>
+<em>Note:</em> an answer in the form
+<m>\left(e^{5} + e^{-3}\right)\dfrac{3^{10}}{9!}</m> suffices.
+</p>
+</statement>
+<solution>
+<p>
+Collect the ingredients of the Remainder Estimation Theorem:
+<ol marker="(I)">
+<li>
+<p>
+<m>-2 \le x \le 2</m>, so <m>|x| \le 2</m>.
+</p>
+</li>
+<li>
+<p>
+<m>n = 6</m>, since <m>p_5(x) = p_6(x)</m> for <m>f(x) = \sinh(x)</m>
+(the coefficient of <m>x^6</m> is <m>f^{(6)}(0)/6! = 0</m>).
+</p>
+</li>
+<li>
+<p>
+<m>a = 0</m>.
+</p>
+</li>
+<li>
+<p>
+<m>f^{(n+1)}(t) = f^{(7)}(t) = \cosh(t) = \dfrac{e^{t} + e^{-t}}{2}</m>,
+so for <m>-2 \le t \le 2</m>,
+<md>
+\left|f^{(7)}(t)\right| \le \frac{e^{2} + e^{-2}}{2},
+\qquad\text{and we take}\qquad
+M = \frac{e^{2} + e^{-2}}{2}.
+</md>
+</p>
+</li>
+</ol>
+</p>
+<p>
+Therefore
+<md>
+\text{Error} = \left|R_5(x)\right| = \left|R_6(x)\right|
+\le \frac{M\,|x-0|^{7}}{7!}
+\le \left(\frac{e^{2} + e^{-2}}{2}\right)\frac{2^{7}}{7!},
+</md>
+which is the upper bound on the error.
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 3 ===================== -->
+<exercise xml:id="mt1s26-q3">
+<title>4 points</title>
+<introduction>
+<p>
+Consider the series
+<md>
+\sum_{k=1}^{\infty} \left(\frac{2}{x}\right)^{k}.
+</md>
+</p>
+</introduction>
+
+<task xml:id="mt1s26-q3-a">
+<statement>
+<p>
+For which values of <m>x</m> does the series converge? (2 points)
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\sum_{k=1}^{\infty} \left(\frac{2}{x}\right)^{k}
+= \sum_{k=1}^{\infty} \left(\frac{2}{x}\right)\left(\frac{2}{x}\right)^{k-1}
+</md>
+is a geometric series with <m>r = \dfrac{2}{x}</m> and
+<m>a = \dfrac{2}{x}</m>. It converges when
+<md>
+|r| \lt 1
+\;\Rightarrow\; \left|\frac{2}{x}\right| \lt 1
+\;\Rightarrow\; |x| \gt 2
+\;\Rightarrow\; x \in (-\infty, -2) \cup (2, \infty).
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="mt1s26-q3-b">
+<statement>
+<p>
+Evaluate the series for the <m>x</m> values that you found in part (a).
+(2 points)
+</p>
+</statement>
+<solution>
+<p>
+Since
+<md>
+\sum_{n=1}^{\infty} a r^{n-1} = \frac{a}{1-r} \quad \text{if } |r| \lt 1,
+</md>
+we get
+<md>
+\sum_{k=1}^{\infty} \left(\frac{2}{x}\right)^{k}
+= \frac{\frac{2}{x}}{1 - \frac{2}{x}} = \frac{2}{x-2}.
+</md>
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 4 ===================== -->
+<exercise xml:id="mt1s26-q4">
+<title>3 points</title>
+<statement>
+<p>
+Compute the result of
+<md>
+\sum_{n=1}^{\infty} \frac{2^{(n+1)}}{3^{n}}.
+</md>
+</p>
+</statement>
+<solution>
+<p>
+<md>
+<mrow>\sum_{n=1}^{\infty} \frac{2^{n+1}}{3^{n}}
+\amp = 2\sum_{n=1}^{\infty} \frac{2^{n}}{3^{n}}
+= 2\sum_{n=1}^{\infty} \left(\frac{2}{3}\right)\left(\frac{2}{3}\right)^{n-1}</mrow>
+<mrow>\amp = 2\,\frac{\frac{2}{3}}{1 - \frac{2}{3}}
+= 2\,\frac{\frac{2}{3}}{\frac{1}{3}} = 4.</mrow>
+</md>
+The last sum is a geometric series with <m>a = \dfrac{2}{3}</m> and
+<m>r = \dfrac{2}{3}</m>, which converges to <m>a/(1-r)</m>.
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 5 ===================== -->
+<exercise xml:id="mt1s26-q5">
+<title>4 points</title>
+<introduction>
+<p>
+Find the result of the following series or show that the series diverges.
+</p>
+</introduction>
+
+<task xml:id="mt1s26-q5-a">
+<statement>
+<p>
+<m>\displaystyle -\ln(3) + \frac{(\ln(3))^{2}}{2} - \frac{(\ln(3))^{3}}{6}
++ \frac{(\ln(3))^{4}}{24} - \cdots</m>
+(2 points)
+</p>
+</statement>
+<solution>
+<p>
+Add and subtract <m>1</m>:
+<md>
+<mrow>\amp -\ln(3) + \frac{(\ln(3))^{2}}{2} - \frac{(\ln(3))^{3}}{6}
++ \frac{(\ln(3))^{4}}{24} - \cdots</mrow>
+<mrow>\amp \qquad = -1 + \left[1 - \ln(3) + \frac{(\ln(3))^{2}}{2}
+- \frac{(\ln(3))^{3}}{6} + \frac{(\ln(3))^{4}}{24} - \cdots\right].</mrow>
+</md>
+The bracket is the Maclaurin series
+<md>
+e^{x} = \sum_{n=0}^{\infty} \frac{x^{n}}{n!}
+= 1 + \frac{x}{1!} + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots
+</md>
+with <m>x = -\ln(3)</m>. Hence the series equals
+<md>
+-1 + e^{-\ln(3)} = -1 + \frac{1}{e^{\ln(3)}} = -1 + \frac{1}{3} = -\frac{2}{3}.
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="mt1s26-q5-b">
+<statement>
+<p>
+<m>e + e^{2} + e^{4} + e^{6} + \cdots</m>
+(2 points)
+</p>
+</statement>
+<solution>
+<p>
+<md>
+e + e^{2} + e^{4} + e^{6} + \cdots = e + \sum_{n=1}^{\infty} e^{2n},
+</md>
+and <m>\displaystyle\sum_{n=1}^{\infty} e^{2n}</m> is a geometric series
+with <m>r = e^{2}</m>. Hence it diverges, since <m>|r| \gt 1</m>.
+</p>
+</solution>
+</task>
+</exercise>
+
+</worksheet>

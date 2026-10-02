@@ -86,11 +86,11 @@ body.a4 .diagcess-navigation-controls {
 /* ------------------------------------------------------------------ *
  * The "Assignments and Review Problems" chapter is unnumbered.
  *
- * It holds the assignments and the review problem sets; a number in
- * front of "Assignment 7" only competes with the one the student
- * actually cares about. Its own heading, the worksheet headings, and
- * every table-of-contents or navigation entry pointing into it show the
- * bare title. This is the same treatment the chapter gets in the
+ * It holds the assignments, the review problem sets and the past
+ * midterm; a number in front of "Assignment 7" only competes with the
+ * one the student actually cares about. Its own heading, the worksheet
+ * headings, and every table-of-contents or navigation entry pointing
+ * into it show the bare title. This is the same treatment the chapter gets in the
  * skeletal-notes book (M13-Skeletal-Notes, assets/custom.css), which is
  * where these worksheets came from.
  *
@@ -107,9 +107,13 @@ section.worksheet[id^="worksheet-assignment-"] > .heading .heading-divison-mark,
 section.worksheet[id^="worksheet-review-problems-"] > .heading .type,
 section.worksheet[id^="worksheet-review-problems-"] > .heading .codenumber,
 section.worksheet[id^="worksheet-review-problems-"] > .heading .heading-divison-mark,
+section.worksheet[id^="worksheet-midterm-"] > .heading .type,
+section.worksheet[id^="worksheet-midterm-"] > .heading .codenumber,
+section.worksheet[id^="worksheet-midterm-"] > .heading .heading-divison-mark,
 a[href^="section-exercises.html"] .codenumber,
 a[href^="worksheet-assignment-"] .codenumber,
-a[href^="worksheet-review-problems-"] .codenumber {
+a[href^="worksheet-review-problems-"] .codenumber,
+a[href^="worksheet-midterm-"] .codenumber {
   display: none;
 }
 
