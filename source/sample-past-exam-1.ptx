@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Midterm Exam #1, Spring 2026, with solutions.
+  Sample Past Exam 1, with solutions.
 
-  Transcribed from the instructor's annotated solutions PDF
-  (Midterm_1-MATH13-Spring2026-Solutions.pdf): the five exam questions,
-  their handwritten solutions, and the exam's closing formula sheet (the
-  assemblage at the end).  The pages interleaved between the questions (a
+  Transcribed from the instructor's annotated solutions PDF of a past
+  first midterm: the five exam questions, their handwritten solutions, and
+  the exam's closing formula sheet (the assemblage at the end).  The pages interleaved between the questions (a
   lecture-notes page on combining series, the Edfinity homework problems,
   the "Series and Sequences Problems" list) were left out.
 
@@ -18,18 +17,19 @@
   - Question 5(b): the handwritten ratio of the sum of e^(2n) was r = e;
     it is r = e^2.  The conclusion (divergence, since |r| > 1) is unchanged.
 -->
-<worksheet xml:id="worksheet-midterm-1-spring-2026" xmlns:xi="http://www.w3.org/2001/XInclude">
-<title>Midterm Exam #1 (Spring 2026)</title>
+<worksheet xml:id="worksheet-sample-past-exam-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Sample Past Exam 1</title>
 
 <introduction>
 <p>
-The first midterm exam from Spring 2026, with worked solutions. It was a
-65-minute, closed-book exam worth 20 points: no aids of their own (formula
-sheets, notes, phones, tablets, smart watches or similar) were permitted, and students
-were asked to write their work in a neat and organized format and to fully
-justify every step. The exam's formula sheet is reproduced at the end of
-this page. Try the exam under the same conditions before you look at the
-solutions. The topics it covers, with links to the notes:
+A sample past exam, with worked solutions. It was a 65-minute, closed-book
+exam worth 20 points: no aids of their own (formula sheets, notes, phones,
+tablets, smart watches or similar) were permitted, and students were asked
+to write their work in a neat and organized format and to fully justify
+every step. The formula sheet at the end of this page will be the last page
+of the exam booklet on the day of the exam. Try the exam under the same
+conditions before you look at the solutions. The topics it covers, with
+links to the notes:
 </p>
 
 <p>
@@ -43,7 +43,7 @@ solutions. The topics it covers, with links to the notes:
 </introduction>
 
 <!-- ===================== Question 1 ===================== -->
-<exercise xml:id="mt1s26-q1">
+<exercise xml:id="spe1-q1">
 <title>4 points</title>
 <introduction>
 <p>
@@ -54,7 +54,7 @@ Answer parts (a) and (b) for the following infinite series:
 </p>
 </introduction>
 
-<task xml:id="mt1s26-q1-a">
+<task xml:id="spe1-q1-a">
 <statement>
 <p>
 Does the <m>n</m>th-term test apply? Remember to fully justify your answer.
@@ -72,7 +72,7 @@ so the <m>n</m>th-term test does <em>not</em> apply: a limit of
 </solution>
 </task>
 
-<task xml:id="mt1s26-q1-b">
+<task xml:id="spe1-q1-b">
 <statement>
 <p>
 Evaluate the series or show that it diverges. (2 points)
@@ -101,7 +101,7 @@ Hence
 </exercise>
 
 <!-- ===================== Question 2 ===================== -->
-<exercise xml:id="mt1s26-q2">
+<exercise xml:id="spe1-q2">
 <title>5 points</title>
 <introduction>
 <p>
@@ -110,7 +110,7 @@ Consider the Taylor series for the function <m>f(x) = \sinh(x)</m> about
 </p>
 </introduction>
 
-<task xml:id="mt1s26-q2-a">
+<task xml:id="spe1-q2-a">
 <statement>
 <p>
 Find <m>p_5(x)</m>, i.e. the Taylor polynomial of order 5. (2 points)
@@ -136,7 +136,7 @@ Therefore
 </solution>
 </task>
 
-<task xml:id="mt1s26-q2-b">
+<task xml:id="spe1-q2-b">
 <statement>
 <p>
 Express the Taylor series for the function <m>f(x) = \sinh(x)</m> about
@@ -152,7 +152,7 @@ Express the Taylor series for the function <m>f(x) = \sinh(x)</m> about
 </solution>
 </task>
 
-<task xml:id="mt1s26-q2-c">
+<task xml:id="spe1-q2-c">
 <statement>
 <p>
 Assuming that <m>-2 \le x \le 2</m>, find an upper bound on the error in
@@ -210,7 +210,7 @@ which is the upper bound on the error.
 </exercise>
 
 <!-- ===================== Question 3 ===================== -->
-<exercise xml:id="mt1s26-q3">
+<exercise xml:id="spe1-q3">
 <title>4 points</title>
 <introduction>
 <p>
@@ -221,7 +221,7 @@ Consider the series
 </p>
 </introduction>
 
-<task xml:id="mt1s26-q3-a">
+<task xml:id="spe1-q3-a">
 <statement>
 <p>
 For which values of <m>x</m> does the series converge? (2 points)
@@ -245,7 +245,7 @@ is a geometric series with <m>r = \dfrac{2}{x}</m> and
 </solution>
 </task>
 
-<task xml:id="mt1s26-q3-b">
+<task xml:id="spe1-q3-b">
 <statement>
 <p>
 Evaluate the series for the <m>x</m> values that you found in part (a).
@@ -269,7 +269,7 @@ we get
 </exercise>
 
 <!-- ===================== Question 4 ===================== -->
-<exercise xml:id="mt1s26-q4">
+<exercise xml:id="spe1-q4">
 <title>3 points</title>
 <statement>
 <p>
@@ -295,7 +295,7 @@ The last sum is a geometric series with <m>a = \dfrac{2}{3}</m> and
 </exercise>
 
 <!-- ===================== Question 5 ===================== -->
-<exercise xml:id="mt1s26-q5">
+<exercise xml:id="spe1-q5">
 <title>4 points</title>
 <introduction>
 <p>
@@ -303,7 +303,7 @@ Find the result of the following series or show that the series diverges.
 </p>
 </introduction>
 
-<task xml:id="mt1s26-q5-a">
+<task xml:id="spe1-q5-a">
 <statement>
 <p>
 <m>\displaystyle -\ln(3) + \frac{(\ln(3))^{2}}{2} - \frac{(\ln(3))^{3}}{6}
@@ -333,7 +333,7 @@ with <m>x = -\ln(3)</m>. Hence the series equals
 </solution>
 </task>
 
-<task xml:id="mt1s26-q5-b">
+<task xml:id="spe1-q5-b">
 <statement>
 <p>
 <m>e + e^{2} + e^{4} + e^{6} + \cdots</m>
@@ -353,7 +353,7 @@ with <m>r = e^{2}</m>. Hence it diverges, since <m>|r| \gt 1</m>.
 </exercise>
 
 <!-- ===================== Formula sheet ===================== -->
-<assemblage xml:id="mt1s26-formula-sheet">
+<assemblage xml:id="spe1-formula-sheet">
 <title>Formula Sheet</title>
 <p>
 <alert>Taylor's Formula.</alert> If <m>f</m> has derivatives of all orders

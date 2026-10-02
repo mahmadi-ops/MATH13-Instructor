@@ -3,7 +3,7 @@
 
 <introduction>
 <p>
-The ten assignments, the four review problem sets, and a past midterm exam,
+The ten assignments, the four review problem sets, and a sample past exam,
 in one place. Worked solutions appear beneath each problem once the
 assignment's due date has passed; solutions for the review sets are posted
 the same way.
@@ -201,9 +201,9 @@ right or wrong, earns nothing.
 <!-- Everything from the four topics above that was not assigned. -->
 <xi:include href="review-problems-1.ptx"/>
 
-<!-- ================= Midterm Exam #1 (Spring 2026) ================= -->
+<!-- ================= Sample Past Exam 1 ================= -->
 <!-- The five exam questions with their worked solutions. -->
-<xi:include href="midterm-1-spring-2026.ptx"/>
+<xi:include href="sample-past-exam-1.ptx"/>
 
 <!-- ================= Assignment 4 ================= -->
 <xi:include href="assignment-4-space-vectors-dot-product.ptx"/>
