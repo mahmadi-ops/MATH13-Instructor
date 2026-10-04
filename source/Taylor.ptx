@@ -835,6 +835,95 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
           </p>
         </solution>
       </example>
+
+      <example xml:id="ex-taylor-integral-exp-sin">
+        <title>A non-elementary integral computed exactly</title>
+        <statement>
+          <p>
+            In <xref ref="ex-taylor-integral-exp"/>, term-by-term integration produced a series
+            that we could only <em>estimate</em>. Sometimes, however, the series produced by
+            term-by-term integration is one we already recognize, and then the integral can be
+            evaluated <em>exactly</em>, even though the integrand has no elementary
+            antiderivative. Show that
+            <md>
+              \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx = \frac{\pi}{4}.
+            </md>
+          </p>
+        </statement>
+        <hint>
+          <p>
+            Each power of <m>x</m> has to be integrated against <m>e^{-x}</m> on
+            <m>[0,\infty)</m>. Use the following fact from Calculus II, proved by integration by
+            parts<fn>Let <m>I_k = \int_0^{\infty} x^k e^{-x}\,dx</m>. Then
+            <m>I_0 = \int_0^{\infty} e^{-x}\,dx = 1</m>. For <m>k \ge 1</m>, integration by parts
+            with <m>u = x^k</m> and <m>dv = e^{-x}\,dx</m> gives
+            <m>I_k = \Big[-x^k e^{-x}\Big]_0^{\infty} + k\int_0^{\infty} x^{k-1}e^{-x}\,dx
+            = 0 + k\,I_{k-1}</m>, since <m>x^k e^{-x} \to 0</m> as <m>x \to \infty</m>. By
+            induction, <m>I_k = k(k-1)\cdots 1 \cdot I_0 = k!</m>.</fn>: for every integer
+            <m>k \ge 0</m>,
+            <md xml:id="eq-int-xk-exp" number="yes">
+              I_k = \int_0^{\infty} x^k e^{-x}\,dx = k!.
+            </md>
+          </p>
+        </hint>
+        <solution>
+          <p>
+            The function <m>e^{-x}\,\dfrac{\sin x}{x}</m> has no elementary antiderivative, so we
+            replace <m>\dfrac{\sin x}{x}</m> by its Maclaurin series and integrate term by term.
+          </p>
+          <p>
+            <em>Step 1: A series for the integrand.</em> Dividing the Maclaurin series
+            <xref ref="eq-sin-maclaurin"/> of <m>\sin x</m> by <m>x</m> gives, for all
+            <m>x \neq 0</m>,
+            <md xml:id="eq-sinx-over-x-series" number="yes">
+              \frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots
+              = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n+1)!}.
+            </md>
+          </p>
+          <p>
+            <em>Step 2: Integrate term by term.</em> Multiplying
+            <xref ref="eq-sinx-over-x-series"/> by <m>e^{-x}</m> and integrating each term with
+            <xref ref="eq-int-xk-exp"/>, <m>k = 2n</m>,<fn>Integrating an infinite series term
+            by term over the unbounded interval <m>[0,\infty)</m> needs a justification, and the
+            Remainder Estimation Theorem supplies one. Let
+            <m>S_N(x) = \sum_{n=0}^{N} \frac{(-1)^n x^{2n}}{(2n+1)!}</m> be the partial sum of
+            the series for <m>\frac{\sin x}{x}</m>, a polynomial of degree <m>2N</m>. For
+            <m>f(x) = \sin x</m> every derivative satisfies <m>|f^{(k)}(t)| \le 1</m>. The Taylor
+            polynomial of <m>\sin x</m> of degree <m>2N+2</m> has no <m>x^{2N+2}</m> term, so it
+            equals <m>x\,S_N(x)</m>, and the Remainder Estimation Theorem gives
+            <m>|\sin x - x\,S_N(x)| \le \frac{|x|^{2N+3}}{(2N+3)!}</m>. Dividing by <m>x \gt 0</m>,
+            <m>\left|\frac{\sin x}{x} - S_N(x)\right| \le \frac{x^{2N+2}}{(2N+3)!}</m>. Multiplying
+            by <m>e^{-x}</m>, integrating, and using <m>I_k = k!</m> with <m>k = 2N+2</m>,
+            <m>\left|\int_0^{\infty} e^{-x}\frac{\sin x}{x}\,dx - \sum_{n=0}^{N}\frac{(-1)^n}{2n+1}\right|
+            \le \frac{(2N+2)!}{(2N+3)!} = \frac{1}{2N+3}</m>. The right-hand side tends to
+            <m>0</m> as <m>N \to \infty</m>, so the partial sums of the Leibniz series converge
+            to the integral. Since they also converge to <m>\pi/4</m>, the integral equals
+            <m>\pi/4</m>. A numerical evaluation of the integral gives <m>0.785398\ldots</m>,
+            which agrees with <m>\pi/4 = 0.785398\ldots</m>. The bound <m>\frac{1}{2N+3}</m> also
+            shows why the Leibniz series converges slowly: to guarantee an error below
+            <m>10^{-3}</m> we need roughly <m>500</m> terms.</fn>
+            <md>
+              \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx
+              = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}\int_0^{\infty} x^{2n}e^{-x}\,dx
+              = \sum_{n=0}^{\infty} \frac{(-1)^n\,(2n)!}{(2n+1)!}
+              = \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}.
+            </md>
+            The factorials cancel because <m>(2n+1)! = (2n+1)\cdot(2n)!</m>.
+          </p>
+          <p>
+            <em>Step 3: Recognize the series.</em> The Maclaurin series of the arctangent,
+            <xref ref="eq-arctan-maclaurin"/>, at <m>x = 1</m> becomes the Leibniz series used
+            in <xref ref="ex-approx-pi-arctan"/> to approximate <m>\pi</m>:
+            <md>
+              1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots = \arctan 1 = \frac{\pi}{4}.
+            </md>
+            Therefore
+            <md>
+              \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx = \frac{\pi}{4}.
+            </md>
+          </p>
+        </solution>
+      </example>
 </subsubsection>
 
 <subsubsection>

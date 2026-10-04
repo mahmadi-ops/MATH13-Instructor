@@ -468,6 +468,102 @@ there, so only the two leading coefficients matter.
 </solution>
 </exercise>
 
+<exercise xml:id="exer-integral-sin-ln">
+<statement>
+<p>
+Show that
+<md>
+\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt = \frac{\pi}{4}.
+</md>
+(The integrand is continuous on <m>(0,1)</m>. As <m>t \to 1^-</m> we have
+<m>\ln t \to 0</m>, so the integrand tends to <m>1</m>; as <m>t \to 0^+</m>
+we have <m>\left|\dfrac{\sin(\ln t)}{\ln t}\right| \le \dfrac{1}{|\ln t|} \to 0</m>.
+So the integrand is bounded and the integral exists. Its antiderivative is
+not elementary.)
+</p>
+</statement>
+<hint>
+<p>
+Two facts from Calculus II, both proved by integration by parts<fn>For
+<m>I_k</m>: <m>I_0 = \int_0^{\infty} e^{-x}\,dx = 1</m>, and for
+<m>k \ge 1</m> integration by parts with <m>u = x^k</m> and
+<m>dv = e^{-x}\,dx</m> gives
+<m>I_k = \Big[-x^k e^{-x}\Big]_0^{\infty} + k\int_0^{\infty} x^{k-1}e^{-x}\,dx
+= k\,I_{k-1}</m>, since <m>x^k e^{-x} \to 0</m> as <m>x \to \infty</m>; by
+induction <m>I_k = k!</m>. For <m>J_k</m>: <m>J_0 = 1</m>, and for
+<m>k \ge 1</m> integration by parts with <m>u = (\ln t)^k</m> and
+<m>dv = dt</m>, so <m>du = k(\ln t)^{k-1}\,\frac{dt}{t}</m> and <m>v = t</m>,
+gives <m>J_k = \Big[t(\ln t)^k\Big]_0^1 - k\int_0^1 (\ln t)^{k-1}\,dt
+= 0 - k\,J_{k-1}</m>. The bracket vanishes at <m>t = 1</m> because
+<m>\ln 1 = 0</m>, and at <m>t = 0^+</m> because <m>t(\ln t)^k \to 0</m> (by
+L'Hôpital's rule). By induction,
+<m>J_k = (-k)(-(k-1))\cdots(-1)\,J_0 = (-1)^k k!</m>.</fn>: for every
+integer <m>k \ge 0</m>,
+<md>
+I_k = \int_0^{\infty} x^k e^{-x}\,dx = k!,
+\qquad
+J_k = \int_0^1 (\ln t)^k\,dt = (-1)^k\,k!.
+</md>
+Either substitute <m>t = e^{-x}</m> and use <xref ref="ex-taylor-integral-exp-sin"/>, or
+expand <m>\dfrac{\sin(\ln t)}{\ln t}</m> as a series in <m>\ln t</m> and
+integrate term by term with <m>J_k</m>.
+</p>
+</hint>
+<solution>
+<p>
+<em>Solution 1 (substitution).</em> Let <m>t = e^{-x}</m>, so
+<m>x = -\ln t</m> and <m>dt = -e^{-x}\,dx</m>. As <m>t</m> runs from
+<m>0</m> to <m>1</m>, <m>x</m> runs from <m>\infty</m> to <m>0</m>. Since
+<m>\ln t = -x</m>,
+<md>
+\frac{\sin(\ln t)}{\ln t} = \frac{\sin(-x)}{-x} = \frac{\sin x}{x}.
+</md>
+Therefore
+<md>
+\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt
+= \int_{\infty}^{0} \frac{\sin x}{x}\,\left(-e^{-x}\right)dx
+= \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx
+= \frac{\pi}{4}
+</md>
+by <xref ref="ex-taylor-integral-exp-sin"/>.
+</p>
+<p>
+<em>Solution 2 (directly with series).</em> Substituting <m>u = \ln t</m>
+into the series
+<m>\dfrac{\sin u}{u} = \displaystyle\sum_{n=0}^{\infty} \frac{(-1)^n u^{2n}}{(2n+1)!}</m>,
+<md>
+\frac{\sin(\ln t)}{\ln t} = \sum_{n=0}^{\infty} \frac{(-1)^n (\ln t)^{2n}}{(2n+1)!}.
+</md>
+Integrating term by term and using <m>J_k</m> with <m>k = 2n</m> (so
+<m>(-1)^{2n} = 1</m>),
+<md>
+\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt
+= \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}\,(2n)!
+= \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}
+= \arctan 1 = \frac{\pi}{4}.
+</md>
+</p>
+<p>
+<em>Justification.</em> With
+<m>S_N(x) = \displaystyle\sum_{n=0}^{N} \frac{(-1)^n x^{2n}}{(2n+1)!}</m>, the
+Remainder Estimation Theorem gives
+<m>\left|\dfrac{\sin x}{x} - S_N(x)\right| \le \dfrac{x^{2N+2}}{(2N+3)!}</m>,
+exactly as in <xref ref="ex-taylor-integral-exp-sin"/>. Replacing <m>x</m> by
+<m>u = \ln t</m>,
+<md>
+\left|\frac{\sin(\ln t)}{\ln t} - S_N(\ln t)\right| \le \frac{(\ln t)^{2N+2}}{(2N+3)!}.
+</md>
+Integrating over <m>[0,1]</m> with <m>J_k</m>, <m>k = 2N+2</m>, bounds the
+error after <m>N+1</m> terms by
+<md>
+\frac{(2N+2)!}{(2N+3)!} = \frac{1}{2N+3} \longrightarrow 0,
+</md>
+so the partial sums converge to the integral, and the integral equals
+<m>\pi/4</m>.
+</p>
+</solution>
+</exercise>
+
 <exercise xml:id="exer-dipole-field">
     <title>*Approximating The Electric Field due to an Electric Dipole</title>
     <statement>
