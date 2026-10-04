@@ -488,21 +488,20 @@ Two facts from Calculus II, both proved by integration by parts<fn>For
 <m>I_k</m>: <m>I_0 = \int_0^{\infty} e^{-x}\,dx = 1</m>, and for
 <m>k \ge 1</m> integration by parts with <m>u = x^k</m> and
 <m>dv = e^{-x}\,dx</m> gives
-<m>I_k = \Big[-x^k e^{-x}\Big]_0^{\infty} + k\int_0^{\infty} x^{k-1}e^{-x}\,dx
-= k\,I_{k-1}</m>, since <m>x^k e^{-x} \to 0</m> as <m>x \to \infty</m>; by
+<m>I_k = \Big[-x^k e^{-x}\Big]_0^{\infty} + k\,I_{k-1} = k\,I_{k-1}</m>, since
+<m>x^k e^{-x} \to 0</m> as <m>x \to \infty</m>; by
 induction <m>I_k = k!</m>. For <m>J_k</m>: <m>J_0 = 1</m>, and for
 <m>k \ge 1</m> integration by parts with <m>u = (\ln t)^k</m> and
 <m>dv = dt</m>, so <m>du = k(\ln t)^{k-1}\,\frac{dt}{t}</m> and <m>v = t</m>,
-gives <m>J_k = \Big[t(\ln t)^k\Big]_0^1 - k\int_0^1 (\ln t)^{k-1}\,dt
-= 0 - k\,J_{k-1}</m>. The bracket vanishes at <m>t = 1</m> because
+gives <m>J_k = \Big[t(\ln t)^k\Big]_0^1 - k\,J_{k-1} = -k\,J_{k-1}</m>. The
+bracket vanishes at <m>t = 1</m> because
 <m>\ln 1 = 0</m>, and at <m>t = 0^+</m> because <m>t(\ln t)^k \to 0</m> (by
 L'Hôpital's rule). By induction,
 <m>J_k = (-k)(-(k-1))\cdots(-1)\,J_0 = (-1)^k k!</m>.</fn>: for every
 integer <m>k \ge 0</m>,
 <md>
-I_k = \int_0^{\infty} x^k e^{-x}\,dx = k!,
-\qquad
-J_k = \int_0^1 (\ln t)^k\,dt = (-1)^k\,k!.
+<mrow>I_k \amp = \int_0^{\infty} x^k e^{-x}\,dx = k!,</mrow>
+<mrow>J_k \amp = \int_0^1 (\ln t)^k\,dt = (-1)^k\,k!.</mrow>
 </md>
 Either substitute <m>t = e^{-x}</m> and use <xref ref="ex-taylor-integral-exp-sin"/>, or
 expand <m>\dfrac{\sin(\ln t)}{\ln t}</m> as a series in <m>\ln t</m> and
@@ -520,10 +519,9 @@ integrate term by term with <m>J_k</m>.
 </md>
 Therefore
 <md>
-\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt
-= \int_{\infty}^{0} \frac{\sin x}{x}\,\left(-e^{-x}\right)dx
-= \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx
-= \frac{\pi}{4}
+<mrow>\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt
+\amp = \int_{\infty}^{0} \frac{\sin x}{x}\,\left(-e^{-x}\right)dx</mrow>
+<mrow>\amp = \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx = \frac{\pi}{4}</mrow>
 </md>
 by <xref ref="ex-taylor-integral-exp-sin"/>.
 </p>
@@ -537,10 +535,10 @@ into the series
 Integrating term by term and using <m>J_k</m> with <m>k = 2n</m> (so
 <m>(-1)^{2n} = 1</m>),
 <md>
-\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt
-= \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}\,(2n)!
-= \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}
-= \arctan 1 = \frac{\pi}{4}.
+<mrow>\int_0^1 \frac{\sin(\ln t)}{\ln t}\,dt
+\amp = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}\,(2n)!</mrow>
+<mrow>\amp = \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}
+= \arctan 1 = \frac{\pi}{4}.</mrow>
 </md>
 </p>
 <p>

@@ -630,17 +630,18 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
       <p>
         We will use two Maclaurin series. The series of <m>\sin(x)</m> was found in
         <xref ref="example-taylor-sin"/>:
-        <md xml:id="eq-sin-maclaurin" number="yes">
-          \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots
-                  = x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots, \qquad x \in \R.
+        <md>
+          <mrow xml:id="eq-sin-maclaurin" number="yes">\sin(x) \amp = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots</mrow>
+          <mrow>\amp = x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots, \qquad x \in \R.</mrow>
         </md>
         The series of <m>\arctan(x)</m> is
         <md xml:id="eq-arctan-maclaurin" number="yes">
           \arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots, \qquad |x| \le 1;
         </md>
-        it comes from the geometric series <xref ref="eq-geometric-series"/>, since
-        <m>\frac{d}{dt}\arctan(t) = \frac{1}{1+t^2} = 1 - t^2 + t^4 - t^6 + \cdots</m> for
-        <m>|t| \lt 1</m>, and integrating this from <m>0</m> to <m>x</m> term by term gives
+        it comes from the geometric series <xref ref="eq-geometric-series"/>: since
+        <m>\frac{d}{dt}\arctan(t) = \frac{1}{1+t^2}</m>, and
+        <m>\frac{1}{1+t^2} = 1 - t^2 + t^4 - t^6 + \cdots</m> for <m>|t| \lt 1</m>,
+        integrating this from <m>0</m> to <m>x</m> term by term gives
         <xref ref="eq-arctan-maclaurin"/>.
       </p>
 
@@ -665,16 +666,18 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             Subtracting <m>x</m> from <xref ref="eq-arctan-maclaurin"/> and from
             <xref ref="eq-sin-maclaurin"/>,
             <md>
-              \arctan(x) - x = -\frac{x^3}{3} + \frac{x^5}{5} - \cdots,
-              \qquad
-              \sin(x) - x = -\frac{x^3}{6} + \frac{x^5}{120} - \cdots.
+              <mrow>\arctan(x) - x \amp = -\frac{x^3}{3} + \frac{x^5}{5} - \cdots,</mrow>
+              <mrow>\sin(x) - x \amp = -\frac{x^3}{6} + \frac{x^5}{120} - \cdots.</mrow>
             </md>
             Both differences vanish like <m>x^3</m>, and that is the information the limit needs.
-            Factor <m>x^3</m> out of each and cancel it:
+            Factor <m>x^3</m> out of each,
+            <md>
+              <mrow>\arctan(x) - x \amp = x^3\left(-\frac{1}{3} + \frac{x^2}{5} - \cdots\right),</mrow>
+              <mrow>\sin(x) - x \amp = x^3\left(-\frac{1}{6} + \frac{x^2}{120} - \cdots\right),</mrow>
+            </md>
+            and cancel it:
             <md>
               \frac{\arctan(x) - x}{\sin(x) - x}
-              = \frac{x^3\left(-\frac{1}{3} + \frac{x^2}{5} - \cdots\right)}
-                     {x^3\left(-\frac{1}{6} + \frac{x^2}{120} - \cdots\right)}
               = \frac{-\frac{1}{3} + \frac{x^2}{5} - \cdots}
                      {-\frac{1}{6} + \frac{x^2}{120} - \cdots}.
             </md>
@@ -717,9 +720,8 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             function. For every <m>x</m> in the interval there are numbers <m>c_1</m> and
             <m>c_2</m> between <m>a</m> and <m>x</m> with
             <md>
-              f(x) = f(a) + f'(a)(x-a) + \frac{f''(c_1)}{2}(x-a)^2,
-              \qquad
-              g(x) = g(a) + g'(a)(x-a) + \frac{g''(c_2)}{2}(x-a)^2.
+              <mrow>f(x) \amp = f(a) + f'(a)(x-a) + \frac{f''(c_1)}{2}(x-a)^2,</mrow>
+              <mrow>g(x) \amp = g(a) + g'(a)(x-a) + \frac{g''(c_2)}{2}(x-a)^2.</mrow>
             </md>
             Since <m>f(a) = g(a) = 0</m>, each right-hand side has the common factor
             <m>(x-a)</m>. For <m>x \neq a</m> we cancel it:
@@ -733,9 +735,8 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             closed interval <m>[a-\delta, a+\delta]</m> they are bounded by some constant
             <m>M</m>, and then
             <md>
-              \left|\tfrac{1}{2} f''(c_1)\,(x-a)\right| \le \tfrac{M}{2}\,|x-a| \to 0,
-              \qquad
-              \left|\tfrac{1}{2} g''(c_2)\,(x-a)\right| \le \tfrac{M}{2}\,|x-a| \to 0.
+              <mrow>\left|\tfrac{1}{2} f''(c_1)\,(x-a)\right| \amp \le \tfrac{M}{2}\,|x-a| \to 0,</mrow>
+              <mrow>\left|\tfrac{1}{2} g''(c_2)\,(x-a)\right| \amp \le \tfrac{M}{2}\,|x-a| \to 0.</mrow>
             </md>
             The numerator therefore tends to <m>f'(a)</m> and the denominator to
             <m>g'(a) \neq 0</m>. (In particular the denominator, and with it <m>g(x)</m>, is
@@ -760,9 +761,9 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
           derivatives near <m>a</m>, their first <m>k-1</m> derivatives vanish at <m>a</m>, and
           <m>g^{(k)}(a) \neq 0</m>. Then Taylor's formula with <m>n = k</m> gives
           <md>
-            \frac{f(x)}{g(x)}
-            = \frac{\frac{f^{(k)}(a)}{k!}(x-a)^k + R_k(x)}{\frac{g^{(k)}(a)}{k!}(x-a)^k + \widetilde{R}_k(x)}
-            \longrightarrow \frac{f^{(k)}(a)}{g^{(k)}(a)} \qquad \text{as } x \to a,
+            <mrow>\frac{f(x)}{g(x)}
+            \amp = \frac{\frac{f^{(k)}(a)}{k!}(x-a)^k + R_k(x)}{\frac{g^{(k)}(a)}{k!}(x-a)^k + \widetilde{R}_k(x)}</mrow>
+            <mrow>\amp \longrightarrow \frac{f^{(k)}(a)}{g^{(k)}(a)} \qquad \text{as } x \to a,</mrow>
           </md>
           because each remainder is at most a constant times <m>|x-a|^{k+1}</m>. The limit is the
           ratio of the first nonzero Taylor coefficients, which is exactly what <m>k</m>
@@ -791,26 +792,25 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
           <p>
             By Taylor's formula for <m>e^{u}</m> at <m>a = 0</m> (see <xref ref="subsection-2"/>),
             <md>
-              e^{u} = 1 + u + \frac{u^2}{2!} + \cdots + \frac{u^n}{n!} + R_n(u),
-              \qquad
-              R_n(u) = \frac{e^{c}}{(n+1)!}\,u^{n+1},
+              <mrow>e^{u} \amp = 1 + u + \frac{u^2}{2!} + \cdots + \frac{u^n}{n!} + R_n(u),</mrow>
+              <mrow>R_n(u) \amp = \frac{e^{c}}{(n+1)!}\,u^{n+1},</mrow>
             </md>
             for some <m>c</m> between <m>0</m> and <m>u</m>. Put <m>u = -x^2</m> with
             <m>0 \le x \le 1</m>. Then <m>-1 \le u \le 0</m>, so <m>c \le 0</m> and
             <m>e^{c} \le 1</m>: as in <xref ref="rmk-error-upper-bound"/> we may take
             <m>M = 1</m>, and
             <md>
-              e^{-x^2} = 1 - x^2 + \frac{x^4}{2!} - \cdots + \frac{(-1)^n x^{2n}}{n!} + R_n(-x^2),
-              \qquad
-              \left|R_n(-x^2)\right| \le \frac{x^{2n+2}}{(n+1)!}.
+              <mrow>e^{-x^2} \amp = 1 - x^2 + \frac{x^4}{2!} - \cdots</mrow>
+              <mrow>\amp \qquad + \frac{(-1)^n x^{2n}}{n!} + R_n(-x^2),</mrow>
+              <mrow>\left|R_n(-x^2)\right| \amp \le \frac{x^{2n+2}}{(n+1)!}.</mrow>
             </md>
           </p>
           <p>
             Now integrate from <m>0</m> to <m>1</m>. The polynomial part is a finite sum, so it can
             be integrated term by term:
             <md>
-              I = \sum_{k=0}^{n} \frac{(-1)^k}{k!}\int_0^1 x^{2k}\,dx + E_n
-                = \sum_{k=0}^{n} \frac{(-1)^k}{k!\,(2k+1)} + E_n,
+              <mrow>I \amp = \sum_{k=0}^{n} \frac{(-1)^k}{k!}\int_0^1 x^{2k}\,dx + E_n</mrow>
+              <mrow>\amp = \sum_{k=0}^{n} \frac{(-1)^k}{k!\,(2k+1)} + E_n,</mrow>
             </md>
             where the error <m>E_n = \int_0^1 R_n(-x^2)\,dx</m> satisfies
             <md xml:id="eq-exp-integral-error" number="yes">
@@ -820,9 +820,9 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
           <p>
             With <m>n = 4</m>,
             <md>
-              I \approx 1 - \frac{1}{3} + \frac{1}{10} - \frac{1}{42} + \frac{1}{216} \approx 0.74749,
-              \qquad
-              |E_4| \le \frac{1}{11 \cdot 5!} = \frac{1}{1320} \lt 0.0008.
+              <mrow>I \amp \approx 1 - \frac{1}{3} + \frac{1}{10} - \frac{1}{42} + \frac{1}{216}</mrow>
+              <mrow>\amp \approx 0.74749,</mrow>
+              <mrow>|E_4| \amp \le \frac{1}{11 \cdot 5!} = \frac{1}{1320} \lt 0.0008.</mrow>
             </md>
             For an error of at most <m>10^{-4}</m> we need <m>(2n+3)\,(n+1)! \ge 10^{4}</m>. With
             <m>n = 5</m>, <m>13 \cdot 720 = 9360</m> falls just short; with <m>n = 6</m>,
@@ -857,8 +857,8 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             parts<fn>Let <m>I_k = \int_0^{\infty} x^k e^{-x}\,dx</m>. Then
             <m>I_0 = \int_0^{\infty} e^{-x}\,dx = 1</m>. For <m>k \ge 1</m>, integration by parts
             with <m>u = x^k</m> and <m>dv = e^{-x}\,dx</m> gives
-            <m>I_k = \Big[-x^k e^{-x}\Big]_0^{\infty} + k\int_0^{\infty} x^{k-1}e^{-x}\,dx
-            = 0 + k\,I_{k-1}</m>, since <m>x^k e^{-x} \to 0</m> as <m>x \to \infty</m>. By
+            <m>I_k = \Big[-x^k e^{-x}\Big]_0^{\infty} + k\,I_{k-1} = k\,I_{k-1}</m>, since
+            <m>x^k e^{-x} \to 0</m> as <m>x \to \infty</m>. By
             induction, <m>I_k = k(k-1)\cdots 1 \cdot I_0 = k!</m>.</fn>: for every integer
             <m>k \ge 0</m>,
             <md xml:id="eq-int-xk-exp" number="yes">
@@ -875,9 +875,9 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             <em>Step 1: A series for the integrand.</em> Dividing the Maclaurin series
             <xref ref="eq-sin-maclaurin"/> of <m>\sin x</m> by <m>x</m> gives, for all
             <m>x \neq 0</m>,
-            <md xml:id="eq-sinx-over-x-series" number="yes">
-              \frac{\sin x}{x} = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots
-              = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n+1)!}.
+            <md>
+              <mrow xml:id="eq-sinx-over-x-series" number="yes">\frac{\sin x}{x} \amp = 1 - \frac{x^2}{3!} + \frac{x^4}{5!} - \frac{x^6}{7!} + \cdots</mrow>
+              <mrow>\amp = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n+1)!}.</mrow>
             </md>
           </p>
           <p>
@@ -893,9 +893,9 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             equals <m>x\,S_N(x)</m>, and the Remainder Estimation Theorem gives
             <m>|\sin x - x\,S_N(x)| \le \frac{|x|^{2N+3}}{(2N+3)!}</m>. Dividing by <m>x \gt 0</m>,
             <m>\left|\frac{\sin x}{x} - S_N(x)\right| \le \frac{x^{2N+2}}{(2N+3)!}</m>. Multiplying
-            by <m>e^{-x}</m>, integrating, and using <m>I_k = k!</m> with <m>k = 2N+2</m>,
-            <m>\left|\int_0^{\infty} e^{-x}\frac{\sin x}{x}\,dx - \sum_{n=0}^{N}\frac{(-1)^n}{2n+1}\right|
-            \le \frac{(2N+2)!}{(2N+3)!} = \frac{1}{2N+3}</m>. The right-hand side tends to
+            by <m>e^{-x}</m>, integrating, and using <m>I_k = k!</m> with <m>k = 2N+2</m>, the
+            integral differs from the partial sum <m>\sum_{n=0}^{N}\frac{(-1)^n}{2n+1}</m> by at
+            most <m>\frac{(2N+2)!}{(2N+3)!} = \frac{1}{2N+3}</m>. This bound tends to
             <m>0</m> as <m>N \to \infty</m>, so the partial sums of the Leibniz series converge
             to the integral. Since they also converge to <m>\pi/4</m>, the integral equals
             <m>\pi/4</m>. A numerical evaluation of the integral gives <m>0.785398\ldots</m>,
@@ -903,10 +903,10 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
             shows why the Leibniz series converges slowly: to guarantee an error below
             <m>10^{-3}</m> we need roughly <m>500</m> terms.</fn>
             <md>
-              \int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx
-              = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}\int_0^{\infty} x^{2n}e^{-x}\,dx
-              = \sum_{n=0}^{\infty} \frac{(-1)^n\,(2n)!}{(2n+1)!}
-              = \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}.
+              <mrow>\int_0^{\infty} e^{-x}\,\frac{\sin x}{x}\,dx
+              \amp = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}\,I_{2n}</mrow>
+              <mrow>\amp = \sum_{n=0}^{\infty} \frac{(-1)^n\,(2n)!}{(2n+1)!}
+              = \sum_{n=0}^{\infty} \frac{(-1)^n}{2n+1}.</mrow>
             </md>
             The factorials cancel because <m>(2n+1)! = (2n+1)\cdot(2n)!</m>.
           </p>
