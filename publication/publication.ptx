@@ -9,7 +9,7 @@
              one-paragraph paper stand-ins component="print"; without this
              switch PreTeXt keeps both, so each page would show the figure and
              the note saying the figure is only online. -->
-        <version include="web"/>
+        <version include="web binomial"/>
     </source>
 
     <common>

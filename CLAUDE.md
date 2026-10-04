@@ -164,6 +164,16 @@ an assignment should be made in both books, or copied across from the
 skeletal book, so the two stay identical. The skeletal rule below still
 applies to anything posted here.
 
+**Hidden binomial-series material.** Everything that uses the binomial
+series outside its own section (the starred problems of Assignment 3 and
+Review Problems #1, and the sentences that cite the section) is marked
+`component="binomial"`. The student-facing books' publication files keep
+only the `web`/`print` components, so PreTeXt drops it there; the
+instructor books list `binomial` in their `<version include>` and keep it.
+To show it to students again, add `binomial` to the student publication
+files' `<version include>`. `desk_action.py` drops hidden components
+before its cross-reference check, exactly as the build does.
+
 ## Unposting (the reverse workflows)
 
 Every desk action has an inverse; these are panel/instructor-initiated

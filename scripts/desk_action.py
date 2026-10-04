@@ -66,12 +66,57 @@ def wrapped_re(href):
     )
 
 
+PUBLICATION = "publication/publication.ptx"
+
+
+def published_components():
+    """The @component values the web publication keeps (<version include>),
+    or None when the publication file elects no version scheme."""
+    if not os.path.exists(PUBLICATION):
+        return None
+    m = re.search(r'<version\s+include="([^"]*)"', read(PUBLICATION))
+    return set(m.group(1).split()) if m else None
+
+
+def drop_hidden_components(text):
+    """Remove every element whose @component the publication does not keep,
+    as PreTeXt's assembly does, so that neither its cross-references nor its
+    xml:ids take part in the dangling-reference check.  Elements are matched
+    by tag name, with nesting."""
+    keep = published_components()
+    if keep is None:
+        return text
+    out, pos = [], 0
+    open_tag = re.compile(r'<([A-Za-z][\w:-]*)\b[^>]*\bcomponent="([^"]*)"[^>]*>')
+    for m in open_tag.finditer(text):
+        if m.start() < pos or m.group(2).strip() in keep:
+            continue
+        end = m.end()
+        if not m.group(0).endswith("/>"):
+            tag = re.compile(r"<(/?)%s\b[^>]*?(/?)>" % re.escape(m.group(1)))
+            depth = 1
+            while depth:
+                n = tag.search(text, end)
+                if not n:
+                    end = len(text)
+                    break
+                end = n.end()
+                if n.group(2) == "/":
+                    continue
+                depth += -1 if n.group(1) else 1
+        out.append(text[pos:m.start()])
+        pos = end
+    out.append(text[pos:])
+    return "".join(out)
+
+
 def expand(path, depth=0):
     """Inline xi:includes recursively, dropping XML comments (so wrapped
     includes vanish), for cross-reference checking."""
     if depth > 20 or not os.path.exists(path):
         return ""
     text = re.sub(r"<!--.*?-->", "", read(path), flags=re.S)
+    text = drop_hidden_components(text)
 
     def repl(m):
         return expand(os.path.join(SRC, m.group(1)), depth + 1)

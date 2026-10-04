@@ -8,6 +8,11 @@
   assigned.  Two problems marked for deletion in the instructor's markup
   (the old pp-7, a Maclaurin estimate of the integral of e^(-x^3), and the
   old m1-5, on approximating ln x to within 0.1) were removed.
+
+  Everything here that uses the binomial series carries component="binomial":
+  the student-facing publication files keep only the web/print components, so
+  PreTeXt drops it from the student books, while the instructor books list
+  "binomial" in their <version include> and keep it.
 -->
 <worksheet xml:id="worksheet-review-problems-1" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Review Problems #1</title>
@@ -27,7 +32,7 @@ with links to the notes:
 <li><p><xref ref="chapter-infinite-series" text="title"/></p></li>
 <li><p><xref ref="chapter-taylor-maclaurin" text="title"/></p></li>
 <li><p><xref ref="section-taylor" text="title"/></p></li>
-<li><p><xref ref="chapter-binomial-series" text="title"/></p></li>
+<li component="binomial"><p><xref ref="chapter-binomial-series" text="title"/></p></li>
 </ul>
 </p>
 </introduction>
@@ -979,7 +984,7 @@ ratio <m>\left(-\frac13\right) \big/ \left(-\frac16\right)</m>.
 </solution>
 </exercise>
 
-<exercise xml:id="exer-binomial-three-powers">
+<exercise xml:id="exer-binomial-three-powers" component="binomial">
 <title>*Three Maclaurin series from the binomial series</title>
 <statement>
 <p>
@@ -1069,7 +1074,7 @@ With <m>m</m> negative the signs alternate, as they did for
 </solution>
 </exercise>
 
-<exercise xml:id="exer-sqrt-cos-product">
+<exercise xml:id="exer-sqrt-cos-product" component="binomial">
 <title>*A product of two series</title>
 <statement>
 <p>

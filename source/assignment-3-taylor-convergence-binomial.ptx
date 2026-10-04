@@ -6,6 +6,11 @@
   Problems drawn from the old "Exercises for Taylor Series and its
   convergence" and "Exercises for The Binomial Series" worksheets.
   exer-dipole-tolerance is starred: optional, not examined.
+
+  Everything here that uses the binomial series carries component="binomial":
+  the student-facing publication files keep only the web/print components, so
+  PreTeXt drops it from the student books, while the instructor books list
+  "binomial" in their <version include> and keep it.
 -->
 <worksheet xml:id="worksheet-assignment-3" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Assignment 3</title>
@@ -13,10 +18,14 @@
 <introduction>
 <p>
 These problems bound the error in a Taylor approximation with the Remainder
-Theorem, and then use the binomial series to approximate a physical law.
+Theorem and use Taylor series to compute limits and integrals.
 Problems marked with a star (<m>*</m>) are for the interested reader: they do
 not need to be handed in and will not be examined. If you would like to review the material first, see
-<xref ref="section-taylor" text="title"/> and
+<xref ref="section-taylor" text="title"/>.
+</p>
+<p component="binomial">
+The starred problems at the end use the binomial series to approximate a
+physical law; for those, see
 <xref ref="chapter-binomial-series" text="title"/>.
 </p>
 </introduction>
@@ -562,7 +571,7 @@ so the partial sums converge to the integral, and the integral equals
 </solution>
 </exercise>
 
-<exercise xml:id="exer-dipole-field">
+<exercise xml:id="exer-dipole-field" component="binomial">
     <title>*Approximating The Electric Field due to an Electric Dipole</title>
     <statement>
 <p>
@@ -723,7 +732,7 @@ which shows that the leading term is proportional to <m>d/r^3</m>.</p>
     
 </exercise>
 
-<exercise xml:id="exer-dipole-tolerance">
+<exercise xml:id="exer-dipole-tolerance" component="binomial">
   <title>*How small must the separation be?</title>
   <statement>
 <p>
@@ -797,7 +806,7 @@ be examined.
   </solution>
 </exercise>
 
-<exercise xml:id="rf-1">
+<exercise xml:id="rf-1" component="binomial">
 <title>*A binomial series for a rational function</title>
 <statement>
 <p>
@@ -843,7 +852,7 @@ f(x) = 2x\,\frac{1}{1-x}
 </solution>
 </exercise>
 
-<exercise xml:id="exer-binomial-maclaurin">
+<exercise xml:id="exer-binomial-maclaurin" component="binomial">
 <title>*Maclaurin series from the binomial series</title>
 <statement>
 <p>
@@ -918,7 +927,7 @@ Here <m>m = \frac17</m>, so
 </solution>
 </exercise>
 
-<exercise xml:id="exer-binomial-cube-root">
+<exercise xml:id="exer-binomial-cube-root" component="binomial">
 <title>*Expanding a cube root</title>
 <statement>
 <p>
@@ -961,7 +970,7 @@ Now apply the binomial series with <m>m = \frac13</m> and
 </solution>
 </exercise>
 
-<exercise xml:id="m1-6">
+<exercise xml:id="m1-6" component="binomial">
 <title>*Gravity above the surface of the Earth</title>
 <statement>
 <p>
