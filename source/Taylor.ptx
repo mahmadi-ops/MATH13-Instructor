@@ -601,17 +601,248 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
     <title>Applications of Taylor Series and Remainder Theorem</title>
 <introduction>
 <p>
-      Physicists often use Taylor series to approximate functions in order to 
-      simplify calculations. The first example is the kinetic energy of an object 
-      in relativistic mechanics. The second example is the approximation 
-      of the period of a pendulum. We will discuss the error in using these approximations and 
-      when it is valid to use them. Additionally, we will discuss how to use the taylor series to 
+      We begin with two uses of Taylor series that belong to single-variable calculus:
+      computing limits of the indeterminate form <m>\frac{0}{0}</m>, which along the way
+      gives a proof of L'Hôpital's rule, and approximating definite integrals whose
+      integrands have no elementary antiderivative.
+    </p>
+<p>
+      The remaining three parts of this subsection are starred. Physicists often use Taylor
+      series to approximate functions in order to
+      simplify calculations. The first example is the kinetic energy of an object
+      in relativistic mechanics. The second example is the approximation
+      of the period of a pendulum. We will discuss the error in using these approximations and
+      when it is valid to use them. Additionally, we will discuss how to use the taylor series to
       estimate value of <m>\pi</m> in the last example.
     </p>
 </introduction>
 
+<subsubsection xml:id="subsubsec-taylor-limits-integrals">
+      <title>Computing Limits and Integrals with Taylor Series</title>
+      <p>
+        Taylor's formula <xref ref="Taylor-Formula"/> replaces a function near a point by a
+        polynomial plus a remainder whose size the Remainder Estimation Theorem controls. That is
+        exactly what two problems from single-variable calculus call for: a limit of the
+        indeterminate form <m>\frac{0}{0}</m>, where numerator and denominator both vanish and the
+        question is <em>how fast</em>, and a definite integral whose integrand has no elementary
+        antiderivative.
+      </p>
+      <p>
+        We will use two Maclaurin series. The series of <m>\sin(x)</m> was found in
+        <xref ref="example-taylor-sin"/>:
+        <md xml:id="eq-sin-maclaurin" number="yes">
+          \sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots
+                  = x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots, \qquad x \in \R.
+        </md>
+        The series of <m>\arctan(x)</m> is
+        <md xml:id="eq-arctan-maclaurin" number="yes">
+          \arctan(x) = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots, \qquad |x| \le 1;
+        </md>
+        it comes from the geometric series <xref ref="eq-geometric-series"/>, since
+        <m>\frac{d}{dt}\arctan(t) = \frac{1}{1+t^2} = 1 - t^2 + t^4 - t^6 + \cdots</m> for
+        <m>|t| \lt 1</m>, and integrating this from <m>0</m> to <m>x</m> term by term gives
+        <xref ref="eq-arctan-maclaurin"/>.
+      </p>
+
+      <example xml:id="ex-taylor-limit-arctan-sin">
+        <title>A <m>\frac{0}{0}</m> limit by Taylor series</title>
+        <statement>
+          <p>
+            Compute
+            <md>
+              \lim_{x \to 0} \frac{\arctan(x) - x}{\sin(x) - x}.
+            </md>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Both the numerator and the denominator tend to <m>0</m>, so the limit has the form
+            <m>\frac{0}{0}</m>. L'Hôpital's rule applies, but it would have to be used three times,
+            and the derivatives of <m>\arctan(x)</m> get messy quickly. Taylor series give the
+            answer in one line, because they show exactly how fast each side goes to zero.
+          </p>
+          <p>
+            Subtracting <m>x</m> from <xref ref="eq-arctan-maclaurin"/> and from
+            <xref ref="eq-sin-maclaurin"/>,
+            <md>
+              \arctan(x) - x = -\frac{x^3}{3} + \frac{x^5}{5} - \cdots,
+              \qquad
+              \sin(x) - x = -\frac{x^3}{6} + \frac{x^5}{120} - \cdots.
+            </md>
+            Both differences vanish like <m>x^3</m>, and that is the information the limit needs.
+            Factor <m>x^3</m> out of each and cancel it:
+            <md>
+              \frac{\arctan(x) - x}{\sin(x) - x}
+              = \frac{x^3\left(-\frac{1}{3} + \frac{x^2}{5} - \cdots\right)}
+                     {x^3\left(-\frac{1}{6} + \frac{x^2}{120} - \cdots\right)}
+              = \frac{-\frac{1}{3} + \frac{x^2}{5} - \cdots}
+                     {-\frac{1}{6} + \frac{x^2}{120} - \cdots}.
+            </md>
+            As <m>x \to 0</m> every term after the first in each bracket tends to <m>0</m>, so
+            <md>
+              \lim_{x \to 0} \frac{\arctan(x) - x}{\sin(x) - x} = \frac{-1/3}{-1/6} = 2.
+            </md>
+          </p>
+          <p>
+            Why may the dots be ignored? This is where the Remainder Theorem enters. Taylor's
+            formula <xref ref="eq-taylor-formula"/> with <m>a = 0</m> and <m>n = 4</m> gives
+            <m>\sin(x) = x - \frac{x^3}{6} + R_4(x)</m> with
+            <m>|R_4(x)| \le \frac{|x|^5}{5!}</m>, because every derivative of <m>\sin</m> is
+            bounded by <m>1</m>; hence <m>\left|\frac{R_4(x)}{x^3}\right| \le \frac{x^2}{120} \to 0</m>.
+            Likewise <m>\arctan(x) = x - \frac{x^3}{3} + \widetilde{R}_4(x)</m> with
+            <m>|\widetilde{R}_4(x)| \le \frac{M}{5!}\,|x|^5</m>, where <m>M</m> is a bound for the
+            fifth derivative of <m>\arctan</m> on <m>[-1,1]</m>, so
+            <m>\frac{\widetilde{R}_4(x)}{x^3} \to 0</m> as well. The two brackets above are exactly
+            <m>-\frac{1}{3} + \frac{\widetilde{R}_4(x)}{x^3}</m> and
+            <m>-\frac{1}{6} + \frac{R_4(x)}{x^3}</m>.
+          </p>
+        </solution>
+      </example>
+
+      <example xml:id="ex-taylor-lhopital">
+        <title>Proving L'Hôpital's rule with Taylor's formula</title>
+        <statement>
+          <p>
+            Let <m>f</m> and <m>g</m> have continuous second derivatives on an open interval
+            containing <m>a</m>, with <m>f(a) = g(a) = 0</m> and <m>g'(a) \neq 0</m>. Use Taylor's
+            formula to prove L'Hôpital's rule:
+            <md xml:id="eq-lhopital" number="yes">
+              \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}.
+            </md>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Apply Taylor's formula <xref ref="eq-taylor-formula"/> with <m>n = 1</m> to each
+            function. For every <m>x</m> in the interval there are numbers <m>c_1</m> and
+            <m>c_2</m> between <m>a</m> and <m>x</m> with
+            <md>
+              f(x) = f(a) + f'(a)(x-a) + \frac{f''(c_1)}{2}(x-a)^2,
+              \qquad
+              g(x) = g(a) + g'(a)(x-a) + \frac{g''(c_2)}{2}(x-a)^2.
+            </md>
+            Since <m>f(a) = g(a) = 0</m>, each right-hand side has the common factor
+            <m>(x-a)</m>. For <m>x \neq a</m> we cancel it:
+            <md>
+              \frac{f(x)}{g(x)} = \frac{f'(a) + \frac{1}{2} f''(c_1)\,(x-a)}{g'(a) + \frac{1}{2} g''(c_2)\,(x-a)}.
+            </md>
+          </p>
+          <p>
+            Now let <m>x \to a</m>. As in <xref ref="rmk-error-upper-bound"/>, we do not need to
+            know <m>c_1</m> and <m>c_2</m>: since <m>f''</m> and <m>g''</m> are continuous, on a
+            closed interval <m>[a-\delta, a+\delta]</m> they are bounded by some constant
+            <m>M</m>, and then
+            <md>
+              \left|\tfrac{1}{2} f''(c_1)\,(x-a)\right| \le \tfrac{M}{2}\,|x-a| \to 0,
+              \qquad
+              \left|\tfrac{1}{2} g''(c_2)\,(x-a)\right| \le \tfrac{M}{2}\,|x-a| \to 0.
+            </md>
+            The numerator therefore tends to <m>f'(a)</m> and the denominator to
+            <m>g'(a) \neq 0</m>. (In particular the denominator, and with it <m>g(x)</m>, is
+            nonzero for <m>x \neq a</m> close to <m>a</m>, so the quotient <m>f(x)/g(x)</m> makes
+            sense there.) This proves the first equality in <xref ref="eq-lhopital"/>:
+            <md>
+              \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}.
+            </md>
+            Finally, <m>f'</m> and <m>g'</m> are continuous and <m>g'(a) \neq 0</m>, so
+            <m>\lim_{x \to a} \frac{f'(x)}{g'(x)} = \frac{f'(a)}{g'(a)}</m>, which is the second
+            equality.
+          </p>
+        </solution>
+      </example>
+
+      <remark xml:id="rmk-lhopital-higher-order">
+        <title>Why the rule sometimes has to be applied several times</title>
+        <p>
+          If <m>f'(a) = g'(a) = 0</m> as well, the quotient <m>f'(x)/g'(x)</m> is again of the
+          form <m>\frac{0}{0}</m> and L'Hôpital's rule has to be applied again. Taylor's formula
+          explains what is going on. Suppose <m>f</m> and <m>g</m> have <m>k+1</m> continuous
+          derivatives near <m>a</m>, their first <m>k-1</m> derivatives vanish at <m>a</m>, and
+          <m>g^{(k)}(a) \neq 0</m>. Then Taylor's formula with <m>n = k</m> gives
+          <md>
+            \frac{f(x)}{g(x)}
+            = \frac{\frac{f^{(k)}(a)}{k!}(x-a)^k + R_k(x)}{\frac{g^{(k)}(a)}{k!}(x-a)^k + \widetilde{R}_k(x)}
+            \longrightarrow \frac{f^{(k)}(a)}{g^{(k)}(a)} \qquad \text{as } x \to a,
+          </md>
+          because each remainder is at most a constant times <m>|x-a|^{k+1}</m>. The limit is the
+          ratio of the first nonzero Taylor coefficients, which is exactly what <m>k</m>
+          applications of L'Hôpital's rule compute. In <xref ref="ex-taylor-limit-arctan-sin"/>
+          the first nonzero coefficients were those of <m>x^3</m>: with
+          <m>f(x) = \arctan(x) - x</m> and <m>g(x) = \sin(x) - x</m> we have
+          <m>f'''(0) = -2</m> and <m>g'''(0) = -1</m>, and indeed <m>\frac{-2}{-1} = 2</m>.
+        </p>
+      </remark>
+
+      <example xml:id="ex-taylor-integral-exp">
+        <title>A definite integral with no elementary antiderivative</title>
+        <statement>
+          <p>
+            The function <m>e^{-x^2}</m> has no elementary antiderivative, so the integral
+            <md>
+              I = \int_0^1 e^{-x^2}\,dx
+            </md>
+            cannot be evaluated with the fundamental theorem of calculus. Use the Taylor polynomial
+            of order <m>n</m> of <m>e^{u}</m> to approximate <m>I</m>, bound the error with the
+            Remainder Estimation Theorem, and find a value of <m>n</m> that guarantees an error of
+            at most <m>10^{-4}</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            By Taylor's formula for <m>e^{u}</m> at <m>a = 0</m> (see <xref ref="subsection-2"/>),
+            <md>
+              e^{u} = 1 + u + \frac{u^2}{2!} + \cdots + \frac{u^n}{n!} + R_n(u),
+              \qquad
+              R_n(u) = \frac{e^{c}}{(n+1)!}\,u^{n+1},
+            </md>
+            for some <m>c</m> between <m>0</m> and <m>u</m>. Put <m>u = -x^2</m> with
+            <m>0 \le x \le 1</m>. Then <m>-1 \le u \le 0</m>, so <m>c \le 0</m> and
+            <m>e^{c} \le 1</m>: as in <xref ref="rmk-error-upper-bound"/> we may take
+            <m>M = 1</m>, and
+            <md>
+              e^{-x^2} = 1 - x^2 + \frac{x^4}{2!} - \cdots + \frac{(-1)^n x^{2n}}{n!} + R_n(-x^2),
+              \qquad
+              \left|R_n(-x^2)\right| \le \frac{x^{2n+2}}{(n+1)!}.
+            </md>
+          </p>
+          <p>
+            Now integrate from <m>0</m> to <m>1</m>. The polynomial part is a finite sum, so it can
+            be integrated term by term:
+            <md>
+              I = \sum_{k=0}^{n} \frac{(-1)^k}{k!}\int_0^1 x^{2k}\,dx + E_n
+                = \sum_{k=0}^{n} \frac{(-1)^k}{k!\,(2k+1)} + E_n,
+            </md>
+            where the error <m>E_n = \int_0^1 R_n(-x^2)\,dx</m> satisfies
+            <md xml:id="eq-exp-integral-error" number="yes">
+              |E_n| \le \int_0^1 \frac{x^{2n+2}}{(n+1)!}\,dx = \frac{1}{(2n+3)\,(n+1)!}.
+            </md>
+          </p>
+          <p>
+            With <m>n = 4</m>,
+            <md>
+              I \approx 1 - \frac{1}{3} + \frac{1}{10} - \frac{1}{42} + \frac{1}{216} \approx 0.74749,
+              \qquad
+              |E_4| \le \frac{1}{11 \cdot 5!} = \frac{1}{1320} \lt 0.0008.
+            </md>
+            For an error of at most <m>10^{-4}</m> we need <m>(2n+3)\,(n+1)! \ge 10^{4}</m>. With
+            <m>n = 5</m>, <m>13 \cdot 720 = 9360</m> falls just short; with <m>n = 6</m>,
+            <m>15 \cdot 5040 = 75600</m>. So
+            <md>
+              I \approx \sum_{k=0}^{6} \frac{(-1)^k}{k!\,(2k+1)} \approx 0.74684
+            </md>
+            has error at most <m>\frac{1}{75600} \lt 2 \cdot 10^{-5}</m>. (The true value is
+            <m>I = 0.746824\ldots</m>.)
+          </p>
+        </solution>
+      </example>
+</subsubsection>
+
 <subsubsection>
-      <title>Approximating Relativistic Kinetic Energy</title>
+      <title>*Approximating Relativistic Kinetic Energy</title>
+      <p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+</p>
       <p>
         In relativistic mechanics, the mass of an object moving with velocity <m>v</m> is given by: 
         <md xml:id="eq-relativistic-mass" number="yes">
@@ -863,7 +1094,11 @@ Use the slider to change the value of <m>x_0</m> and see how the error changes.
       </subsubsection>
 
       <subsubsection xml:id="subsubsec-pendulum-small-angle">
-        <title>Small-Angle Approximation for a Pendulum</title>
+        <title>*Small-Angle Approximation for a Pendulum</title>
+<p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 <p>
   We begin this section by briefly reviewing the forces acting on a simple pendulum and how
   the small-angle approximation allows us to treat its motion as simple harmonic motion.
@@ -1151,7 +1386,11 @@ i.e. about <m>1.1\%</m>. So <m>15^\circ</m> is exactly the round-number
 </subsubsection>
 
    <subsubsection xml:id="subsec-approximating-pi-taylor">
-  <title>Approximating the value of <m>\pi</m> using Taylor series</title>
+  <title>*Approximating the value of <m>\pi</m> using Taylor series</title>
+  <p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 
   <p>
     In this subsection, we will discuss how to approximate the value of <m>\pi</m> using
