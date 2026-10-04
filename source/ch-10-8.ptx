@@ -632,6 +632,130 @@ converges exactly when <m>|r| \lt 1</m>, which here says
 </p>
 </solution>
 </exercise>
+
+<paragraphs xml:id="par-taylor-series-list">
+<title>A list of Taylor series</title>
+<p>
+The Maclaurin series below are derived or used throughout this book, and
+the first four are the ones on the formula sheet of the exams. Each of them
+is a Taylor series centered at <m>a = 0</m>, so each can be obtained from
+<xref ref="def-taylor-series"/> by computing derivatives, as we did for <m>e^x</m> and
+<m>\sin(x)</m>. Most of the time, though, it is faster to start from one of
+these and substitute, differentiate, integrate, or multiply: that is how the
+series for <m>\cos(2x)</m>, <m>e^{-x^2}</m>, <m>\dfrac{\sin x}{x}</m>, and
+<m>\arctan(x)</m> are found in this book.
+</p>
+
+<table xml:id="table-taylor-series-list">
+<title>A list of Taylor series: the Maclaurin series derived or used in this book.</title>
+<tabular halign="left" top="minor" bottom="minor" left="minor" right="minor">
+<row header="yes" bottom="major">
+<cell>Series</cell>
+<cell>Converges for</cell>
+<cell>Where in the book</cell>
+</row>
+<row>
+<cell>
+<line><m>\dfrac{1}{1-x} = \displaystyle\sum_{n=0}^{\infty} x^{n}</m></line>
+<line><m>= 1 + x + x^{2} + x^{3} + \cdots</m></line>
+</cell>
+<cell><m>|x| \lt 1</m></cell>
+<cell>
+<line>The geometric series, <xref ref="sec-series-geometric"/>.</line>
+<line>Replacing <m>x</m> by <m>-x</m>, <m>x^2</m>, or <m>-x^2</m> gives the series of <m>\frac{1}{1+x}</m>, <m>\frac{1}{1-x^2}</m>, and <m>\frac{1}{1+x^2}</m>; see <xref ref="exercise-taylor-shifted"/>.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>e^{x} = \displaystyle\sum_{n=0}^{\infty} \frac{x^{n}}{n!}</m></line>
+<line><m>= 1 + x + \dfrac{x^{2}}{2!} + \dfrac{x^{3}}{3!} + \cdots</m></line>
+</cell>
+<cell>all <m>x</m></cell>
+<cell>
+<line>Derived in <xref ref="example-taylor-exp"/>.</line>
+<line>Convergence proved in <xref ref="subsection-2"/>.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>\sin(x) = \displaystyle\sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}</m></line>
+<line><m>= x - \dfrac{x^{3}}{3!} + \dfrac{x^{5}}{5!} - \dfrac{x^{7}}{7!} + \cdots</m></line>
+</cell>
+<cell>all <m>x</m></cell>
+<cell>
+<line>Derived in <xref ref="example-taylor-sin"/>.</line>
+<line>Divided by <m>x</m> in <xref ref="ex-taylor-integral-exp-sin"/>.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>\cos(x) = \displaystyle\sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{(2n)!}</m></line>
+<line><m>= 1 - \dfrac{x^{2}}{2!} + \dfrac{x^{4}}{4!} - \dfrac{x^{6}}{6!} + \cdots</m></line>
+</cell>
+<cell>all <m>x</m></cell>
+<cell>
+<line>The derivative of the series of <m>\sin(x)</m>.</line>
+<line>Used, with <m>2x</m> and <m>5x</m> in place of <m>x</m>, in Assignments 2 and 3 and in Review Problems #1.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>\sinh(x) = \displaystyle\sum_{n=0}^{\infty} \frac{x^{2n+1}}{(2n+1)!}</m></line>
+<line><m>= x + \dfrac{x^{3}}{3!} + \dfrac{x^{5}}{5!} + \cdots</m></line>
+</cell>
+<cell>all <m>x</m></cell>
+<cell>
+<line>Derived in Sample Past Exam 1; it is the odd part of the series of <m>e^{x}</m>.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>\cosh(x) = \displaystyle\sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!}</m></line>
+<line><m>= 1 + \dfrac{x^{2}}{2!} + \dfrac{x^{4}}{4!} + \cdots</m></line>
+</cell>
+<cell>all <m>x</m></cell>
+<cell>
+<line>The derivative of the series of <m>\sinh(x)</m>; it is the even part of the series of <m>e^{x}</m>.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>\ln(1+x) = \displaystyle\sum_{n=1}^{\infty} (-1)^{n+1}\frac{x^{n}}{n}</m></line>
+<line><m>= x - \dfrac{x^{2}}{2} + \dfrac{x^{3}}{3} - \dfrac{x^{4}}{4} + \cdots</m></line>
+</cell>
+<cell><m>-1 \lt x \le 1</m></cell>
+<cell>
+<line>Its Taylor polynomials, for <m>\ln(1+2x)</m> and <m>\ln(1-2x)</m>, are the subject of problems in Assignment 3 and Review Problems #1.</line>
+</cell>
+</row>
+<row>
+<cell>
+<line><m>\arctan(x) = \displaystyle\sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n+1}}{2n+1}</m></line>
+<line><m>= x - \dfrac{x^{3}}{3} + \dfrac{x^{5}}{5} - \dfrac{x^{7}}{7} + \cdots</m></line>
+</cell>
+<cell><m>|x| \le 1</m></cell>
+<cell>
+<line>Obtained by integrating the series of <m>\frac{1}{1+t^2}</m> in <xref ref="subsubsec-taylor-limits-integrals"/>.</line>
+<line>Evaluated at <m>x = 1</m> to approximate <m>\pi</m> in <xref ref="ex-approx-pi-arctan"/>.</line>
+</cell>
+</row>
+</tabular>
+</table>
+
+<p>
+Two more series in this book come from the table by substitution:
+<m>e^{-x^2} = \displaystyle\sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{n!}</m>,
+used in <xref ref="ex-taylor-integral-exp"/> to approximate an integral, and
+<m>\dfrac{\sin x}{x} = \displaystyle\sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{(2n+1)!}</m>,
+used in <xref ref="ex-taylor-integral-exp-sin"/> to evaluate one exactly.
+</p>
+
+<p component="binomial">
+One more standard series, the binomial series
+<m>(1+x)^{m} = \displaystyle\sum_{k=0}^{\infty} \binom{m}{k} x^{k}</m> for
+<m>|x| \lt 1</m>, is the subject of <xref ref="chapter-binomial-series"/>.
+</p>
+</paragraphs>
 </subsection>
 
 </section>
