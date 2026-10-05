@@ -89,10 +89,10 @@ is its length <m>\|\overrightarrow{AB}\|</m>.
 <label at="ds-B-lab" anchor="(3.72,1.94)" alignment="ne" color="#0072B2">
 <m>B</m>
 </label>
-<label at="ds-init" anchor="(0.42,0.72)" alignment="nw">
+<label at="ds-init" anchor="(0.72,0.2)" alignment="se">
 <m>\text{initial point}</m>
 </label>
-<label at="ds-term" anchor="(3.55,1.55)" alignment="se">
+<label at="ds-term" anchor="(3.62,2.04)" alignment="nw">
 <m>\text{terminal point}</m>
 </label>
 <label at="ds-name" anchor="(2.0,1.28)" alignment="nw" color="#0072B2">
