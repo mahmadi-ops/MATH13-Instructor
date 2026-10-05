@@ -142,7 +142,7 @@ at most <m>4\times 10^{-3}</m>.
 <statement>
 <p>
 Use the remainder estimation theorem to estimate the maximum error when
-approximating <m>f(x) = e^x</m> by <m>T_2(x) = 1 + x + x^2</m> on the
+approximating <m>f(x) = e^x</m> by <m>T_2(x) = 1 + x + \dfrac{x^2}{2}</m> on the
 interval <m>\left[-\dfrac56, \dfrac56\right]</m>.
 </p>
 </statement>
@@ -179,7 +179,7 @@ Hence, an estimate for the upper bound of the error is
 
 <figure xml:id="fig-rev-exp-approx">
 <caption>
-The function <m>y = e^x</m> and <m>y = T_2(x) = 1 + x + x^2</m> on the
+The function <m>y = e^x</m> and <m>y = T_2(x) = 1 + x + \tfrac{x^2}{2}</m> on the
 interval <m>\left[-\frac56, \frac56\right]</m>, marked by the dashed
 lines.
 </caption>
@@ -187,7 +187,7 @@ lines.
 <prefigure xmlns="https://prefigure.org" label="prefigure-rev-exp-approx">
 <diagram dimensions="(390,270)" margins="12">
 <definition>f(t) = (t, exp(t))</definition>
-<definition>p(t) = (t, 1 + t + t^2)</definition>
+<definition>p(t) = (t, 1 + t + t^2/2)</definition>
 <coordinates bbox="(-1.6,-0.5,1.6,3.4)">
 <grid-axes xlabel="x" ylabel="y"/>
 <line at="ea-left" endpoints="((-0.8333,-0.25),(-0.8333,3.1))"
@@ -202,7 +202,7 @@ lines.
 <m>y=e^{x}</m>
 </label>
 <label at="ea-p-lab" anchor="(-1.5,2.75)" alignment="e" color="#D55E00">
-<m>y=1+x+x^2</m>
+<m>y=1+x+\tfrac{x^2}{2}</m>
 </label>
 <label at="ea-l-lab" anchor="(-0.88,-0.42)" alignment="w">
 <m>-\frac56</m>
@@ -213,9 +213,9 @@ lines.
 </coordinates>
 
 <annotations>
-<annotation ref="figure" text="The exponential curve, dashed blue, and the quadratic one plus x plus x squared, solid vermillion, plotted together. Dashed gray vertical lines at plus and minus five sixths mark the interval of the approximation; on that interval the two curves stay within about zero point three of each other.">
+<annotation ref="figure" text="The exponential curve, dashed blue, and the quadratic one plus x plus x squared over two, solid vermillion, plotted together. Dashed gray vertical lines at plus and minus five sixths mark the interval of the approximation; on that interval the two curves stay well within the error bound of about zero point three.">
   <annotation ref="ea-f" text="The function y equals e to the x."/>
-  <annotation ref="ea-p" text="The quadratic approximation one plus x plus x squared."/>
+  <annotation ref="ea-p" text="The quadratic approximation one plus x plus x squared over two."/>
   <annotation ref="ea-left" text="The left endpoint, x equals negative five sixths."/>
   <annotation ref="ea-right" text="The right endpoint, x equals five sixths. The error on the interval is at most about zero point two eight nine."/>
 </annotation>
