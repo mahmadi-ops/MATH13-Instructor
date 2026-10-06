@@ -269,14 +269,14 @@ i.e. <m>T_2(x) = 2x - 2x^2</m>.
 </li>
 <li>
 <p>
-We have <m>f^{(3)}(x) = 8(1+2x)^{-3}</m> and
+We have <m>f^{(3)}(x) = 16(1+2x)^{-3}</m> and
 <m>-\frac14 \le x \le \frac14</m>. Note that
-<m>f^{(4)}(x) = -24(1+2x)^{-4}</m> is negative, which means
+<m>f^{(4)}(x) = -96(1+2x)^{-4}</m> is negative, which means
 <m>f^{(3)}</m> is a decreasing function, hence at <m>x = -\frac14</m>
 the value <m>f^{(3)}(c)</m> is maximized, i.e.,
 <md>
 f^{(3)}(c) \le f^{(3)}(-0.25)
-= 8\left(1 - \frac12\right)^{-3} = 64.
+= 16\left(1 - \frac12\right)^{-3} = 128.
 </md>
 Also
 <md>
@@ -288,11 +288,11 @@ and therefore
 <md>
 \text{Error} = |R_2(x)|
 \le \left|\frac{f^{(3)}(c)}{3!}\,x^3\right|
-\le \frac{1}{3!}\cdot\frac{1}{64}\cdot 64 = \frac16.
+\le \frac{1}{3!}\cdot\frac{1}{64}\cdot 128 = \frac13.
 </md>
 This means that the error in estimating <m>f(x) = \ln(1+2x)</m> for
 <m>-\frac14 \le x \le \frac14</m> by <m>T_2(x) = 2x - 2x^2</m> is
-definitely smaller than <m>\frac16</m>. See
+definitely smaller than <m>\frac13</m>. See
 <xref ref="fig-rev-ln-approx"/>.
 </p>
 </li>
@@ -339,7 +339,7 @@ graphs are nearly identical.
   <annotation ref="la-f" text="The function y equals natural log of one plus two x."/>
   <annotation ref="la-p" text="The second order Taylor polynomial two x minus two x squared."/>
   <annotation ref="la-left" text="The left endpoint, x equals negative one quarter."/>
-  <annotation ref="la-right" text="The right endpoint, x equals one quarter. The error on the interval is smaller than one sixth."/>
+  <annotation ref="la-right" text="The right endpoint, x equals one quarter. The error on the interval is smaller than one third."/>
 </annotation>
 </annotations>
 </diagram>
