@@ -110,10 +110,14 @@ section.worksheet[id^="worksheet-review-problems-"] > .heading .heading-divison-
 section.worksheet[id^="worksheet-sample-past-exam-"] > .heading .type,
 section.worksheet[id^="worksheet-sample-past-exam-"] > .heading .codenumber,
 section.worksheet[id^="worksheet-sample-past-exam-"] > .heading .heading-divison-mark,
+section.worksheet[id^="worksheet-exam-"] > .heading .type,
+section.worksheet[id^="worksheet-exam-"] > .heading .codenumber,
+section.worksheet[id^="worksheet-exam-"] > .heading .heading-divison-mark,
 a[href^="section-exercises.html"] .codenumber,
 a[href^="worksheet-assignment-"] .codenumber,
 a[href^="worksheet-review-problems-"] .codenumber,
-a[href^="worksheet-sample-past-exam-"] .codenumber {
+a[href^="worksheet-sample-past-exam-"] .codenumber,
+a[href^="worksheet-exam-"] .codenumber {
   display: none;
 }
 

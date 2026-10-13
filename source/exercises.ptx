@@ -3,8 +3,8 @@
 
 <introduction>
 <p>
-The ten assignments, the four review problem sets, and a sample past exam,
-in one place. Worked solutions appear beneath each problem once the
+The ten assignments, the four review problem sets, a sample past exam, and
+Exam 1, in one place. Worked solutions appear beneath each problem once the
 assignment's due date has passed; solutions for the review sets are posted
 the same way.
 </p>
@@ -204,6 +204,10 @@ right or wrong, earns nothing.
 <!-- ================= Sample Past Exam 1 ================= -->
 <!-- The five exam questions with their worked solutions. -->
 <xi:include href="sample-past-exam-1.ptx"/>
+
+<!-- ================= Exam 1 ================= -->
+<!-- This quarter's Exam 1, with brief solutions. -->
+<xi:include href="exam-1.ptx"/>
 
 <!-- ================= Assignment 4 ================= -->
 <xi:include href="assignment-4-space-vectors-dot-product.ptx"/>
