@@ -556,7 +556,12 @@ Part C: the circle <m>x = 2\cos(t)+2</m>, <m>y = 2\sin(t)</m>,
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-projectile-motion">
-<title>Projectile Motion</title>
+<title>*Projectile Motion</title>
+
+<p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 
 <p>
 A type of parametric equation you may have already seen is the equation of motion for a
@@ -733,7 +738,12 @@ direction as the projectile falls.
 </subsection>
 
 <subsection xml:id="sec-intersection-collision">
-  <title>Intersection Points versus Collision Points</title>
+  <title>*Intersection Points versus Collision Points</title>
+
+  <p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+  </p>
 
   <p>
     A parametrization carries more information than the curve it traces: it also

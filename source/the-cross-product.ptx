@@ -673,7 +673,12 @@ have <m>\|\hat{u}\| = \|\hat{v}\| = 1</m>, which means:
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-torque">
-<title>Application: Torque</title>
+<title>*Application: Torque</title>
+
+<p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 
 <p>
 One of the well known physical applications of the cross product is
@@ -1070,9 +1075,13 @@ variation.
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-circular-motion">
-<title>Application: Circular Motion: Velocity and Angular Velocity</title>
+<title>*Application: Circular Motion: Velocity and Angular Velocity</title>
 
 <introduction>
+<p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+</p>
 <p>
 A second physical application of the cross product describes the motion of
 an object travelling in a circle: a rider on a circular track, a ball whirled
