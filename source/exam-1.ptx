@@ -90,10 +90,8 @@ Justify why this is the maximum. (1 point)
 <solution>
 <p>
 <m>\cosh u \ge 1</m>, with equality only at <m>u = 0</m>, so
-<md>
-y = 50 - 30\cosh\left(\frac{x}{30}\right) \le 50 - 30 = 20,
-</md>
-with equality only at <m>x = 0</m>. Height: <alert>20 m</alert>.
+<m>y = 50 - 30\cosh\left(\frac{x}{30}\right) \le 50 - 30 = 20</m>, with
+equality only at <m>x = 0</m>. Height: <alert>20 m</alert>.
 </p>
 </solution>
 </task>
@@ -107,14 +105,9 @@ Find the width of the arch at ground level. (2 points)
 <solution>
 <p>
 <m>y = 0 \iff \cosh\frac{x}{30} = \frac{u + u^{-1}}{2} = \frac53</m>, where
-<m>u = e^{x/30} \gt 0</m>. So
-<md>
-3u^2 - 10u + 3 = (3u - 1)(u - 3) = 0,
-</md>
+<m>u = e^{x/30} \gt 0</m>. So <m>3u^2 - 10u + 3 = (3u - 1)(u - 3) = 0</m>,
 <m>u = 3</m> or <m>\frac13</m>, and <m>x = 30\ln u = \pm 30\ln 3</m>. Width:
-<md>
-30\ln 3 - (-30\ln 3) = 60\ln 3\ \text{m} \quad (\approx 66\ \text{m}).
-</md>
+<m>30\ln 3 - (-30\ln 3) = 60\ln 3</m> <alert>m</alert> (<m>\approx 66</m> m).
 </p>
 </solution>
 </task>
@@ -155,9 +148,7 @@ converges, find its sum. Remember to fully justify your answers.
 </statement>
 <solution>
 <p>
-<md>
-a_n = \frac{\sinh n}{e^{n}} = \frac{e^{n} - e^{-n}}{2e^{n}} = \frac{1 - e^{-2n}}{2} \to \frac12 \ne 0,
-</md>
+<m>a_n = \frac{\sinh n}{e^{n}} = \frac{e^{n} - e^{-n}}{2e^{n}} = \frac{1 - e^{-2n}}{2} \to \frac12 \ne 0</m>,
 so the series <alert>diverges</alert> by the <m>n</m>th Term Test.
 </p>
 </solution>
@@ -171,13 +162,9 @@ so the series <alert>diverges</alert> by the <m>n</m>th Term Test.
 </statement>
 <solution>
 <p>
-<md>
-\frac{\sinh n}{e^{3n}} = \frac{e^{n} - e^{-n}}{2e^{3n}} = \frac12\left(e^{-2n} - e^{-4n}\right),
-</md>
+<m>\frac{\sinh n}{e^{3n}} = \frac{e^{n} - e^{-n}}{2e^{3n}} = \frac12\left(e^{-2n} - e^{-4n}\right)</m>,
 and for <m>k = 2, 4</m>,
-<md>
-\sum_{n=1}^{\infty} e^{-kn} = \frac{e^{-k}}{1 - e^{-k}} = \frac{1}{e^{k} - 1}
-</md>
+<m>\sum_{n=1}^{\infty} e^{-kn} = \frac{e^{-k}}{1 - e^{-k}} = \frac{1}{e^{k} - 1}</m>
 (geometric, <m>a = r = e^{-k}</m>, <m>|r| \lt 1</m>). By the difference and
 constant multiple rules, the series <alert>converges</alert> to
 <md>
@@ -216,9 +203,7 @@ Find a formula for <m>Q_n</m> that does not contain a sum (no
 <solution>
 <p>
 <m>Q_n = 60 + \frac14 Q_{n-1}</m> (the new dose plus the quarter left), so
-<md>
-Q_n = 60 + 60\left(\tfrac14\right) + \cdots + 60\left(\tfrac14\right)^{n-1},
-</md>
+<m>Q_n = 60 + 60\left(\frac14\right) + \cdots + 60\left(\frac14\right)^{n-1}</m>,
 the <m>n</m>th partial sum of the geometric series with <m>a = 60</m>,
 <m>r = \frac14</m>:
 <md>
@@ -240,10 +225,7 @@ What happens to <m>Q_n</m> in the long run? (1 point)
 <p>
 <m>\left(\frac14\right)^{n} \to 0</m>, so <m>Q_n \to 80</m> mg: the amount
 just after a dose levels off at (approaches, but never exceeds) 80 mg, the
-sum
-<md>
-\sum_{k=1}^{\infty} 60\left(\tfrac14\right)^{k-1} = \frac{60}{1 - \frac14}.
-</md>
+sum <m>\sum_{k=1}^{\infty} 60\left(\frac14\right)^{k-1} = \frac{60}{1 - \frac14}</m>.
 </p>
 </solution>
 </task>
@@ -290,12 +272,10 @@ guarantees that the absolute value of the error in approximating
 </statement>
 <solution>
 <p>
-<m>f^{(k)}(x) = (-1)^{k-1}\dfrac{(k-1)!}{x^{k}}</m> (<m>k \ge 1</m>). For
+<m>f^{(k)}(x) = (-1)^{k-1}\frac{(k-1)!}{x^{k}}</m> (<m>k \ge 1</m>). For
 <m>x \in \left[1, \frac32\right]</m>, <m>c</m> is between <m>1</m> and
 <m>x</m>, so <m>1 \le c \le \frac32</m> and
-<md>
-\left|f^{(n+1)}(c)\right| = \frac{n!}{c^{n+1}} \le n! = M
-</md>
+<m>\left|f^{(n+1)}(c)\right| = \frac{n!}{c^{n+1}} \le n! = M</m>
 (largest at <m>c = 1</m>). With <m>|x - 1| \le \frac12</m>, the Remainder
 Estimation Theorem gives
 <md>
