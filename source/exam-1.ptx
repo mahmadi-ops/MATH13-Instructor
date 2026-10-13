@@ -6,8 +6,8 @@
   the instructions, the five problems with their brief solutions, and the
   answers at a glance (moved to the end, so that they do not give the
   problems away). The score table and the page headers were left out. The
-  booklet's formula sheet is not part of the answer key and is not
-  reproduced here. The arch in Problem 1 is redrawn with PreFigure.
+  booklet's formula sheet, which the answer key does not include, is the
+  one from Sample Past Exam 1, copied in at the instructor's request. The arch in Problem 1 is redrawn with PreFigure.
 -->
 <worksheet xml:id="worksheet-exam-1" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Exam 1</title>
@@ -25,7 +25,7 @@ instructions on the exam:
 <li><p>Write your work in a neat and organized format and <alert>fully justify every step</alert>. An answer without supporting work may receive little or no credit.</p></li>
 <li><p>Give exact answers. Decimal approximations are not required.</p></li>
 <li><p>If you need more room, use the blank page at the end of the booklet and say so on the page of the problem.</p></li>
-<li><p>The last page of the booklet is a formula sheet.</p></li>
+<li><p>The last page of the booklet is a formula sheet. It is reproduced at the end of this page.</p></li>
 <li><p>Any violation of academic integrity, such as the use of AI, calculators, etc., may result in receiving an F and being reported to the Office of Student Life.</p></li>
 </ul>
 </p>
@@ -344,6 +344,49 @@ converge.)
 </solution>
 </task>
 </exercise>
+
+<!-- ===================== Formula sheet ===================== -->
+<assemblage xml:id="ex1-formula-sheet">
+<title>Formula Sheet</title>
+<p>
+<alert>Taylor's Formula.</alert> If <m>f</m> has derivatives of all orders
+in an open interval <m>I</m> containing <m>a</m>, then for each positive
+integer <m>n</m> and for each <m>x</m> in <m>I</m>,
+<md>
+<mrow>f(x) \amp = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^{2}</mrow>
+<mrow>\amp \qquad + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^{n} + R_n(x)</mrow>
+</md>
+where
+<m>R_n(x) = \dfrac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}</m>
+and <m>c</m> is between <m>a</m> and <m>x</m>.
+</p>
+<p>
+<alert>The Remainder Estimation Theorem.</alert> If there is a positive
+constant <m>M</m> such that <m>\left|f^{(n+1)}(c)\right| \le M</m> for all
+<m>c</m> between <m>x</m> and <m>a</m>, inclusive, then the remainder term
+<m>R_n(x)</m> in Taylor's Theorem satisfies the inequality
+<md>
+\text{Error} = \left|R_n(x)\right| \le M\,\frac{|x-a|^{n+1}}{(n+1)!}.
+</md>
+If this condition holds for every <m>n</m> and the other conditions of
+Taylor's Theorem are satisfied by <m>f</m>, then the series converges to
+<m>f(x)</m>.
+</p>
+<p>
+<alert>Maclaurin series.</alert>
+<md>
+<mrow>\frac{1}{1-x} \amp = \sum_{n=0}^{\infty} x^{n}
+= 1 + x + x^{2} + x^{3} + \cdots,
+\quad x \in (-1, 1)</mrow>
+<mrow>e^{x} \amp = \sum_{n=0}^{\infty} \frac{x^{n}}{n!}
+= 1 + \frac{x}{1!} + \frac{x^{2}}{2!} + \frac{x^{3}}{3!} + \cdots</mrow>
+<mrow>\sin x \amp = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n+1}}{(2n+1)!}
+= x - \frac{x^{3}}{3!} + \frac{x^{5}}{5!} - \frac{x^{7}}{7!} + \cdots</mrow>
+<mrow>\cos x \amp = \sum_{n=0}^{\infty} (-1)^{n}\frac{x^{2n}}{(2n)!}
+= 1 - \frac{x^{2}}{2!} + \frac{x^{4}}{4!} - \frac{x^{6}}{6!} + \cdots</mrow>
+</md>
+</p>
+</assemblage>
 
 <!-- ===================== Answers at a glance ===================== -->
 <assemblage xml:id="ex1-answers">
