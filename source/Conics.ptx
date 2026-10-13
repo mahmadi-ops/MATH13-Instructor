@@ -954,7 +954,13 @@ so the foci are <m>(\pm 5, 0)</m>, the vertices are <m>(\pm 4, 0)</m>, and the
 
   <!-- ============== APPLICATION: PARABOLIC REFLECTOR ============== -->
   <subsection xml:id="subsec-app-reflector">
-    <title>Application: Parabolic Reflectors</title>
+    <title>*Application: Parabolic Reflectors</title>
+
+    <p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+    </p>
+
     <p>
       Satellite dishes, radio telescopes, headlights, and solar cookers are all parabolic in
       cross-section, and for one reason: a parabola has a <term>reflection property</term>.
@@ -1047,7 +1053,13 @@ so the foci are <m>(\pm 5, 0)</m>, the vertices are <m>(\pm 4, 0)</m>, and the
 
   <!-- ============== APPLICATION: WHISPERING GALLERY ============== -->
   <subsection xml:id="subsec-app-whisper">
-    <title>Application: Whispering Galleries</title>
+    <title>*Application: Whispering Galleries</title>
+
+    <p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+    </p>
+
     <p>
       An ellipse has a reflection property of its own: a ray leaving one focus reflects off the
       ellipse and passes through the <em>other</em> focus. In a room whose ceiling is a
@@ -1171,7 +1183,13 @@ A hand-coloured aquatint from 1809 showing the interior of Saint
 
     <!-- ============== APPLICATION: HYPERBOLIC NAVIGATION ============== -->
   <subsection xml:id="subsec-app-loran">
-    <title>Application: Hyperbolic Navigation (LORAN)</title>
+    <title>*Application: Hyperbolic Navigation (LORAN)</title>
+
+    <p>
+<em>Starred section.</em> This one is for the interested reader. It will not
+be examined.
+    </p>
+
     <p>
       Progress in electrical engineering enabled navigation systems based on the transmission
       of electromagnetic waves. One example is LORAN-C marine navigation, developed in the
