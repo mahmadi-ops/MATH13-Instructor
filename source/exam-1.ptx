@@ -7,7 +7,8 @@
   answers at a glance (moved to the end, so that they do not give the
   problems away). The score table and the page headers were left out. The
   booklet's formula sheet, which the answer key does not include, is the
-  one from Sample Past Exam 1, copied in at the instructor's request. The arch in Problem 1 is redrawn with PreFigure.
+  one from Sample Past Exam 1 with the geometric series added in front, as
+  on this quarter's sheet (at the instructor's request). The arch in Problem 1 is redrawn with PreFigure.
 -->
 <worksheet xml:id="worksheet-exam-1" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Exam 1</title>
@@ -348,6 +349,15 @@ converge.)
 <!-- ===================== Formula sheet ===================== -->
 <assemblage xml:id="ex1-formula-sheet">
 <title>Formula Sheet</title>
+<p>
+<alert>Geometric series.</alert> The geometric series converges to
+<m>\dfrac{a}{1-r}</m> if <m>|r| \lt 1</m>, i.e.
+<md>
+\sum_{n=1}^{\infty} ar^{n-1} = a + ar + ar^{2} + \cdots = \frac{a}{1-r},
+\qquad |r| \lt 1,
+</md>
+and diverges if <m>|r| \ge 1</m>.
+</p>
 <p>
 <alert>Taylor's Formula.</alert> If <m>f</m> has derivatives of all orders
 in an open interval <m>I</m> containing <m>a</m>, then for each positive
