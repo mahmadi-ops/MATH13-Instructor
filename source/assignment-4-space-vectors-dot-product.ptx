@@ -297,101 +297,93 @@ to the point zero, seven, zero on the y axis.
 </exercise>
 
 <exercise xml:id="ex-3d-nonconvex-solid">
-<title>A Solid Bounded by a Paraboloid, a Plane, and a Cylinder</title>
+<title>A Solid Bounded by a Hemisphere, a Plane, and a Cylinder</title>
 <statement>
 <p>
-Consider the solid region bounded below by the paraboloid
-<m>z = 1-x^2-y^2</m>, above by the plane <m>z=1</m>, and on the outside
-by the cylinder <m>x^2+y^2=1</m>. Describe this solid.
+Consider the solid region bounded below by the hemisphere
+<m>z = -\sqrt{1-x^2-y^2}</m>, above by the plane <m>z=1</m>, and on the
+outside by the cylinder <m>x^2+y^2=1</m>. Describe this solid.
 </p>
 </statement>
 
 <solution>
 <p>
-The paraboloid <m>z=1-x^2-y^2</m> opens downward from its vertex
-<m>(0,0,1)</m>, reaching <m>z=0</m> exactly on the circle
+Squaring <m>z=-\sqrt{1-x^2-y^2}</m> gives <m>x^2+y^2+z^2=1</m>, and the
+minus sign keeps only the points with <m>z \le 0</m>: the surface is the
+lower half of the unit sphere centered at the origin, with its lowest
+point at <m>(0,0,-1)</m>. It reaches <m>z=0</m> exactly on the circle
 <m>x^2+y^2=1</m>, the same circle where the cylinder meets the
-<m>xy</m>-plane. The plane <m>z=1</m> is tangent to the paraboloid at
-its vertex.
+<m>xy</m>-plane.
 </p>
 <p>
 The solid consists of the points inside the cylinder that lie
-<em>above</em> the paraboloid and <em>below</em> the plane:
+<em>above</em> the hemisphere and <em>below</em> the plane:
 <md>
-x^2+y^2 \le 1, \qquad 1-x^2-y^2 \le z \le 1.
+x^2+y^2 \le 1, \qquad -\sqrt{1-x^2-y^2} \le z \le 1.
 </md>
-At the center <m>(x,y)=(0,0)</m>, this range for <m>z</m> collapses to
-the single point <m>z=1</m>, since the paraboloid already reaches the
-plane there. At the rim <m>x^2+y^2=1</m>, the range is the full
-interval <m>0 \le z \le 1</m>. The solid is therefore a disk-shaped
-shell that thins to a single point at its center, as though a
-dome-shaped cavity bounded by the paraboloid had been hollowed out from
-the top of the solid cylinder <m>x^2+y^2\le1</m>, <m>0\le z\le 1</m>,
-shown in <xref ref="fig-ex3d-nonconvex-solid"/>.
+At the center <m>(x,y)=(0,0)</m>, this range for <m>z</m> is the full
+interval <m>-1 \le z \le 1</m>. At the rim <m>x^2+y^2=1</m>, it shrinks
+to <m>0 \le z \le 1</m>. The part with <m>z \ge 0</m> is the solid
+cylinder <m>x^2+y^2\le1</m>, <m>0\le z\le 1</m>, and the part with
+<m>z \le 0</m> is the solid lower half of the unit ball,
+<m>x^2+y^2+z^2 \le 1</m>, <m>z \le 0</m>. The solid is therefore a can
+of radius <m>1</m> and height <m>1</m> with a hemispherical bowl
+attached beneath it along the unit disk in the <m>xy</m>-plane, like
+the rounded end of a test tube, shown in
+<xref ref="fig-ex3d-nonconvex-solid"/>.
 </p>
 
 <figure xml:id="fig-ex3d-nonconvex-solid">
 <caption>
-The solid bounded below by the paraboloid <m>z=1-x^2-y^2</m>, above by
-the plane <m>z=1</m>, and on the outside by the cylinder
-<m>x^2+y^2=1</m>. The paraboloid hollows out a dome-shaped cavity from
-the top of the solid, which is thin at the center and full height at
-the rim.
+The solid bounded below by the hemisphere
+<m>z=-\sqrt{1-x^2-y^2}</m>, above by the plane <m>z=1</m>, and on the
+outside by the cylinder <m>x^2+y^2=1</m>: a solid cylinder of height
+<m>1</m> sitting on a solid half-ball, the two joined along the unit
+disk in the <m>xy</m>-plane.
 </caption>
 <image width="50%">
 <description>
 <p>
-A short solid cylinder whose flat top has a dome-shaped dent scooped
-out of it. The dent is bounded by a downward-curving paraboloid that
-touches the flat top at the center and meets the bottom rim of the
-cylinder at its edge, leaving a thin shell of material near the rim and
-almost none at the center.
+A short solid cylinder whose bottom is closed off by a rounded bowl.
+The flat top of the cylinder lies in the plane z equals 1 and its side
+is the cylinder x squared plus y squared equals 1. Below the xy-plane
+the solid continues as the lower half of the unit sphere, reaching down
+to the point zero, zero, negative one, like the rounded end of a test
+tube.
 </p>
 </description>
 <latex-image><![CDATA[
 \usetikzlibrary{patterns, math}
 \tdplotsetmaincoords{60}{110}
 \begin{tikzpicture}[tdplot_main_coords,scale=2.0]
-\pgfmathsetmacro{\tini}{0.5*pi}
-\pgfmathsetmacro{\tfin}{1.85*pi}
-\pgfmathsetmacro{\tend}{2.5*pi}
 \pgfmathsetmacro{\final}{2.0*pi}
 \coordinate (A) at (1.25,1.25,1);
 \coordinate (B) at (-1.25,1.25,1);
 \coordinate (C) at (-1.25,-1.5,1);
 \coordinate (D) at (1.25,-1.5,1);
-% node indicating the equation of the circumference
-\draw[white] (1.35,0,0) -- (0,1.35,0) node [black,below,midway,sloped] {$x^2 + y^2 = 1$};
 % coordinate axes
 \draw[thick,->] (0,0,0) -- (1.5,0,0) node [below left] {\footnotesize$x$};
 \draw[dashed] (0,0,0) -- (-1.25,0,0);
 \draw[thick,->] (0,0,0) -- (0,1.5,0) node [right] {\footnotesize$y$};
 \draw[dashed] (0,0,0) -- (0,-1.25,0);
+\draw[dashed] (0,0,0) -- (0,0,-1.0);
 \draw[thick] (0,0,0) -- (0,0,1.0);
-% the base disk
+% the hemisphere z = -sqrt(1-x^2-y^2): meridians
+\foreach \angulo in {0,4,...,356}{
+  \draw[cyan,very thick,rotate around z=\angulo,opacity=0.15] plot[domain=0:90,smooth,variable=\a] ({0},{sin(\a)},{-cos(\a)});
+}
+% the hemisphere: circles of constant height
+\foreach \polar in {6,12,...,84}{
+  \draw[cyan,thick,opacity=0.35] plot[domain=0:360,smooth,variable=\t] ({sin(\polar)*cos(\t)},{sin(\polar)*sin(\t)},{-cos(\polar)});
+}
+% the curves slicing the hemisphere
+\draw[blue,thick,opacity=0.5] plot[domain=-90:90,smooth,variable=\a] ({sin(\a)},0,{-cos(\a)});
+\draw[blue,thick,opacity=0.5] plot[domain=-90:90,smooth,variable=\a] (0,{sin(\a)},{-cos(\a)});
+\fill[blue] (0,0,-1) circle (0.6pt) node[below=1pt] {\footnotesize$(0,0,-1)$};
+\node[blue,right] at (0,1.0,-0.6) {$z = -\sqrt{1 - x^2 - y^2}$};
+% the unit disk where the hemisphere meets the cylinder
 \fill[yellow,opacity=0.35] plot[domain=0:6.2832,smooth,variable=\t] ({cos(\t r)},{sin(\t r)},{0.0});
-\draw[gray,thick] plot[domain=0:6.2832,smooth,variable=\t] ({cos(\t r)},{sin(\t r)},{0.0});
 \draw[black,thick,opacity=0.75] plot[domain=0:6.2832,smooth,variable=\t] ({cos(\t r)},{sin(\t r)},{0.0});
-% the curves slicing the paraboloid
-\draw[blue,thick,opacity=0.5] plot[domain=-1:1,smooth,variable=\t] ({\t},0,{1.0 - \t*\t});
-\draw[blue,thick,opacity=0.5] plot[domain=-1:1,smooth,variable=\t] (0,{\t},{1.0 - \t*\t});
-\foreach \angulo in {0,2,...,358}{
-  \draw[cyan,very thick,rotate around z=\angulo,opacity=0.15] plot[domain=0:1,smooth,variable=\t] ({0},{\t},{1.0 - \t*\t});
-}
-% the paraboloid (drawn as circles of constant height)
-\foreach \altura in {0.0125,0.025,...,1.0}{
-  \pgfmathparse{sqrt(\altura)}
-  \pgfmathsetmacro{\radio}{\pgfmathresult}
-  \draw[cyan,thick,opacity=0.35] plot[domain=\tini:\tfin,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{1.0 - \altura});
-}
-% first part of the z axis
-\draw[thick,->] (0,0,1.0) -- (0,0,1.5) node [above] {\footnotesize$z$};
-\foreach \altura in {0.0125,0.025,...,1.0}{
-  \pgfmathparse{sqrt(\altura)}
-  \pgfmathsetmacro{\radio}{\pgfmathresult}
-  \draw[cyan,thick,opacity=0.35] plot[domain=\tfin:\tend,smooth,variable=\t] ({\radio*cos(\t r)},{\radio*sin(\t r)},{1.0 - \altura});
-}
-\node[blue,right] at (0,0.5,1.125) {$z = 1 - x^2 - y^2$};
 % the outer cylinder wall
 \foreach \angulo in {0,0.01,...,\final}{
   \pgfmathparse{cos(\angulo r)}
@@ -400,6 +392,7 @@ almost none at the center.
   \pgfmathsetmacro{\py}{\pgfmathresult}
   \draw[gray,opacity=0.5] (\px,\py,0) -- (\px,\py,1.0);
 }
+\node[black,right] at (0,1.0,0.5) {$x^2 + y^2 = 1$};
 % the circle at z = 1
 \draw[black,thick,opacity=0.75] plot[domain=0:6.2832,smooth,variable=\t] ({cos(\t r)},{sin(\t r)},{1.0});
 % the plane z = 1
