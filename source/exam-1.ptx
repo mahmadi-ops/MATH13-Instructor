@@ -350,7 +350,12 @@ converge.)
 <assemblage xml:id="ex1-formula-sheet">
 <title>Formula Sheet</title>
 <p>
-<alert>Geometric series.</alert> The geometric series converges to
+<alert>Geometric series.</alert> The sum of the first <m>n</m> terms is
+<md>
+s_n = a + ar + ar^{2} + \cdots + ar^{n-1} = a\,\frac{1-r^{n}}{1-r},
+\qquad r \ne 1.
+</md>
+The geometric series converges to
 <m>\dfrac{a}{1-r}</m> if <m>|r| \lt 1</m>, i.e.
 <md>
 \sum_{n=1}^{\infty} ar^{n-1} = a + ar + ar^{2} + \cdots = \frac{a}{1-r},
