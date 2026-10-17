@@ -724,8 +724,131 @@ with foci <m>A</m> and <m>B</m>. (The curve exists because
 <m>120 \gt |AB|</m>: the distance between the attachment points is
 <m>\sqrt{100^2 + 50^2} \approx 111.8 \lt 120</m> feet.) So the path is
 an arc of an <term>ellipse</term>, lying in the vertical plane
-containing the two trees.
+containing the two trees. Since the bottle hangs below the rope,
+<m>P</m> stays on the lower half of the ellipse. See <xref ref="fig-rope-trees"/> and
+<xref ref="fig-rope-ellipse"/>.
 </p>
+
+<figure xml:id="fig-rope-trees">
+<caption>
+The two trees, with the rope tied at <m>A</m>, 100 feet up the first
+tree, and at <m>B</m>, 50 feet up the second, and the taut rope at
+three moments. The point <m>P</m> where the bottle folds over the rope
+traces the blue curve.
+</caption>
+<image width="66%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-rope-trees">
+<diagram dimensions="(320,300)" margins="12">
+<definition>ell(t) = (50 + 53.6656*cos(t) + 9.7468*sin(t), 75 - 26.8328*cos(t) + 19.4936*sin(t))</definition>
+<coordinates bbox="(-20,-12,120,119.25)">
+<line at="rt-ground" endpoints="((-20,0),(120,0))" stroke="#7F7F7F" thickness="1.5"/>
+<line at="rt-dim" endpoints="((0,-5),(100,-5))" stroke="#7F7F7F" thickness="1"/>
+<line at="rt-dim-l" endpoints="((0,-7),(0,-3))" stroke="#7F7F7F" thickness="1"/>
+<line at="rt-dim-r" endpoints="((100,-7),(100,-3))" stroke="#7F7F7F" thickness="1"/>
+<label at="rt-dim-lab" anchor="(50,-6)" alignment="s" color="#7F7F7F">
+<m>100\text{ ft}</m>
+</label>
+<line at="rt-tree1" endpoints="((0,0),(0,106))" stroke="#8B5A2B" thickness="5"/>
+<circle at="rt-top1" center="(0,111)" radius="6.5" fill="#8FCB8A" stroke="#4F8F4B" thickness="1"/>
+<line at="rt-tree2" endpoints="((100,0),(100,62))" stroke="#8B5A2B" thickness="5"/>
+<circle at="rt-top2" center="(100,67)" radius="6.5" fill="#8FCB8A" stroke="#4F8F4B" thickness="1"/>
+<line at="rt-rope1a" endpoints="((0,100),(10.57,75))" stroke="#555555" thickness="1.5"/>
+<line at="rt-rope1b" endpoints="((10.57,75),(100,50))" stroke="#555555" thickness="1.5"/>
+<line at="rt-rope2a" endpoints="((0,100),(48.76,51.55))" stroke="#555555" thickness="1.5"/>
+<line at="rt-rope2b" endpoints="((48.76,51.55),(100,50))" stroke="#555555" thickness="1.5"/>
+<line at="rt-rope3a" endpoints="((0,100),(87.69,41.83))" stroke="#555555" thickness="1.5"/>
+<line at="rt-rope3b" endpoints="((87.69,41.83),(100,50))" stroke="#555555" thickness="1.5"/>
+<parametric-curve at="rt-path" function="ell" domain="(3.7356,6.0532)"
+                  stroke="#0072B2" thickness="3"/>
+<point at="rt-A" p="(0,100)" fill="#D55E00"/>
+<point at="rt-B" p="(100,50)" fill="#D55E00"/>
+<point at="rt-P1" p="(10.57,75)" fill="#D55E00"/>
+<point at="rt-P2" p="(48.76,51.55)" fill="#D55E00"/>
+<point at="rt-P3" p="(87.69,41.83)" fill="#D55E00"/>
+<label at="rt-A-lab" anchor="(-3.5,100)" alignment="w" color="#D55E00">
+<m>A</m>
+</label>
+<label at="rt-B-lab" anchor="(103.5,50)" alignment="e" color="#D55E00">
+<m>B</m>
+</label>
+<label at="rt-P-lab" anchor="(48.76,48.5)" alignment="s" color="#D55E00">
+<m>P</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="Two tree trunks one hundred feet apart on level ground. A rope is tied to the left tree at point A, one hundred feet up, and to the right tree at point B, fifty feet up. The taut rope is drawn at three moments, each time as two straight pieces meeting at a point P below the rope's chord, and the three points P lie on a blue curve that sags between the trees, bending down like the lower half of an oval.">
+  <annotation ref="rt-tree1" text="The first tree, one hundred and six feet tall, with the rope tied to it at A."/>
+  <annotation ref="rt-tree2" text="The second tree, sixty-two feet tall, with the rope tied to it at B."/>
+  <annotation ref="rt-A" text="The point A, one hundred feet up the first tree."/>
+  <annotation ref="rt-B" text="The point B, fifty feet up the second tree."/>
+  <annotation ref="rt-rope2a" text="One of the three rope positions: the piece from A down to the bottle at P."/>
+  <annotation ref="rt-rope2b" text="The other piece of the same rope position, from P up to B."/>
+  <annotation ref="rt-path" text="The blue curve traced by the point P, from the first tree down and across to the second tree."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<figure xml:id="fig-rope-ellipse">
+<caption>
+The curve of <xref ref="fig-rope-trees"/> is part of the ellipse with
+foci <m>A</m> and <m>B</m>: wherever <m>P</m> is, the two straight
+pieces of rope add up to <m>|AP| + |PB| = 120</m> feet. The bottle
+only travels the solid part, between the two trees; the dashed rest of
+the ellipse is out of its reach.
+</caption>
+<image width="66%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-rope-ellipse">
+<diagram dimensions="(320,240)" margins="12">
+<definition>ell(t) = (50 + 53.6656*cos(t) + 9.7468*sin(t), 75 - 26.8328*cos(t) + 19.4936*sin(t))</definition>
+<coordinates bbox="(-20,22,120,127)">
+<line at="re-tree1" endpoints="((0,22),(0,127))" stroke="#D9CBBD" thickness="3"/>
+<line at="re-tree2" endpoints="((100,22),(100,127))" stroke="#D9CBBD" thickness="3"/>
+<parametric-curve at="re-rest1" function="ell" domain="(0,3.7356)"
+                  stroke="#7F7F7F" dash="6 4" thickness="1.5"/>
+<parametric-curve at="re-rest2" function="ell" domain="(6.0532,6.2832)"
+                  stroke="#7F7F7F" dash="6 4" thickness="1.5"/>
+<parametric-curve at="re-path" function="ell" domain="(3.7356,6.0532)"
+                  stroke="#0072B2" thickness="3"/>
+<line at="re-AP" endpoints="((0,100),(10.57,75))" stroke="#009E73" thickness="2"/>
+<line at="re-PB" endpoints="((10.57,75),(100,50))" stroke="#009E73" thickness="2"/>
+<point at="re-A" p="(0,100)" fill="#D55E00"/>
+<point at="re-B" p="(100,50)" fill="#D55E00"/>
+<point at="re-P" p="(10.57,75)" fill="#D55E00"/>
+<label at="re-A-lab" anchor="(-3,102.5)" alignment="nw" color="#D55E00">
+<m>A</m>
+</label>
+<label at="re-B-lab" anchor="(103,52.5)" alignment="ne" color="#D55E00">
+<m>B</m>
+</label>
+<label at="re-P-lab" anchor="(10.57,72)" alignment="s" color="#D55E00">
+<m>P</m>
+</label>
+<label at="re-AP-lab" anchor="(9.5,85)" alignment="e" color="#009E73">
+<m>|AP|</m>
+</label>
+<label at="re-PB-lab" anchor="(55,60)" alignment="s" color="#009E73">
+<m>|PB|</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="An ellipse tilted so that its long axis runs from the upper left down to the lower right, with its two foci marked A and B at the places where the rope is tied to the trees. The lower arc of the ellipse between the two faint tree trunks is drawn solid in blue; the rest of the ellipse is dashed gray. A point P on the solid arc is joined to A and to B by two green segments, the two straight pieces of the rope.">
+  <annotation ref="re-path" text="The solid blue arc: the part of the ellipse the bottle actually travels, between the two trees."/>
+  <annotation ref="re-rest1" text="The dashed rest of the ellipse, which the bottle never reaches."/>
+  <annotation ref="re-A" text="The focus A, where the rope is tied to the first tree."/>
+  <annotation ref="re-B" text="The focus B, where the rope is tied to the second tree."/>
+  <annotation ref="re-AP" text="The green segment from A to P, one straight piece of the rope."/>
+  <annotation ref="re-PB" text="The green segment from P to B, the other piece; the two lengths add up to one hundred and twenty feet."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
 </solution>
 </exercise>
 
