@@ -340,7 +340,8 @@ perpendicular, so <m>\theta = 90^\circ</m> and <m>\sin\theta = 1</m>. Both
 lie in the <m>xy</m>-plane, so the unit vector orthogonal to both is either
 <m>\hat{k}</m> or <m>-\hat{k}</m>; curling the fingers of the right hand
 from <m>\hat{\imath}</m> toward <m>\hat{\jmath}</m> points the thumb along
-<m>+\hat{k}</m>, so <m>\hat{n} = \hat{k}</m> and
+<m>+\hat{k}</m> (<xref ref="fig-cross-first-definition-ij"/>), so
+<m>\hat{n} = \hat{k}</m> and
 <md>
 \hat{\imath} \times \hat{\jmath}
 = \left(\|\hat{\imath}\|\|\hat{\jmath}\|\sin 90^\circ\right)\hat{k}
@@ -372,8 +373,81 @@ As a check on the magnitude, <xref ref="fact-parallelogram-area"/> says
 <m>\|\mathbf u \times \mathbf v\|</m> is the area of the parallelogram built
 on <m>\mathbf u</m> and <m>\mathbf v</m>: its base is
 <m>\|\mathbf u\| = 4</m> and its height is
-<m>\|\mathbf v\|\sin 30^\circ = 1.5</m>, giving an area of <m>6</m>.
+<m>\|\mathbf v\|\sin 30^\circ = 1.5</m>, giving an area of <m>6</m>
+(<xref ref="fig-cross-first-definition-uv"/>).
 </p>
+<figure xml:id="fig-cross-first-definition">
+<caption>
+The two cross products of <xref ref="example-cross-geometric"/>, computed
+from the first definition: the length comes from
+<m>\|\mathbf u\|\|\mathbf v\|\sin\theta</m>, the direction from the
+right-hand rule.
+</caption>
+<sidebyside widths="54% 42%" margins="2%">
+<figure xml:id="fig-cross-first-definition-ij">
+<caption>Curling from <m>\hat{\imath}</m> toward <m>\hat{\jmath}</m> gives
+<m>\hat{k}</m>; curling the other way gives <m>-\hat{k}</m>.</caption>
+<image width="100%">
+<latex-image><![CDATA[
+\begin{tikzpicture}[x={(0.94cm,-0.26cm)}, y={(0.34cm,0.72cm)}, z={(0cm,0.64cm)},
+                    scale=1.2, >=stealth]
+\begin{scope}
+\draw[->, thin, gray] (0,0,0) -- (2.0,0,0) node[right] {$x$};
+\draw[->, thin, gray] (0,0,0) -- (0,2.0,0) node[above right] {$y$};
+\draw[->, thin, gray] (0,0,0) -- (0,0,1.9) node[above] {$z$};
+\fill[msky!25] (0,0,0) -- (1,0,0) -- (1,1,0) -- (0,1,0) -- cycle;
+\draw[->, thick, black!60] (0.8,0.2,0) .. controls (0.8,0.6,0) and (0.6,0.8,0) .. (0.2,0.8,0);
+\draw[->, mred, very thick] (0,0,0) -- (1,0,0) node[below] {$\hat{\imath}$};
+\draw[->, mblue, very thick] (0,0,0) -- (0,1,0) node[left] {$\hat{\jmath}$};
+\draw[->, black, very thick] (0,0,0) -- (0,0,1) node[left] {$\hat{\imath}\times\hat{\jmath}=\hat{k}$};
+\fill (0,0,0) circle (1.2pt);
+\end{scope}
+\begin{scope}[xshift=4.6cm]
+\draw[->, thin, gray] (0,0,0) -- (2.0,0,0) node[right] {$x$};
+\draw[->, thin, gray] (0,0,0) -- (0,2.0,0) node[above right] {$y$};
+\draw[->, thin, gray] (0,0,0) -- (0,0,1.9) node[above] {$z$};
+\fill[msky!25] (0,0,0) -- (1,0,0) -- (1,1,0) -- (0,1,0) -- cycle;
+\draw[->, thick, black!60] (0.2,0.8,0) .. controls (0.6,0.8,0) and (0.8,0.6,0) .. (0.8,0.2,0);
+\draw[->, mred, very thick] (0,0,0) -- (1,0,0) node[below] {$\hat{\imath}$};
+\draw[->, mblue, very thick] (0,0,0) -- (0,1,0) node[left] {$\hat{\jmath}$};
+\draw[->, black, very thick] (0,0,0) -- (0,0,-1) node[below] {$\hat{\jmath}\times\hat{\imath}=-\hat{k}$};
+\fill (0,0,0) circle (1.2pt);
+\end{scope}
+\end{tikzpicture}
+]]></latex-image>
+<shortdescription>Two copies of the coordinate axes with the unit square in the xy-plane shaded. In the first, a curved arrow turns from i toward j and the cross product k points up the z-axis. In the second, the arrow turns from j toward i and the cross product minus k points down.</shortdescription>
+</image>
+</figure>
+<figure xml:id="fig-cross-first-definition-uv">
+<caption>The parallelogram on <m>\mathbf u</m> and <m>\mathbf v</m> has base
+<m>4</m> and height <m>3\sin 30^\circ = 1.5</m>, so
+<m>\|\mathbf u\times\mathbf v\| = 6</m>.</caption>
+<image width="100%">
+<latex-image><![CDATA[
+\begin{tikzpicture}[x={(0.94cm,-0.26cm)}, y={(0.34cm,0.72cm)}, z={(0cm,0.64cm)},
+                    scale=0.7, >=stealth]
+\draw[->, thin, gray] (0,0,0) -- (7.4,0,0) node[right] {$x$};
+\draw[->, thin, gray] (0,0,0) -- (0,3.0,0) node[above right] {$y$};
+\draw[->, thin, gray] (0,0,0) -- (0,0,7.2) node[above] {$z$};
+\fill[msky!30] (0,0,0) -- (4,0,0) -- (6.598,1.5,0) -- (2.598,1.5,0) -- cycle;
+\draw[gray, dashed] (4,0,0) -- (6.598,1.5,0) -- (2.598,1.5,0);
+\draw[gray, dashed] (2.598,1.5,0) -- (2.598,0,0);
+\draw[gray] (2.598,0.22,0) -- (2.82,0.22,0) -- (2.82,0,0);
+\node[gray, font=\scriptsize, anchor=west] at (2.72,0.72,0) {$1.5$};
+\node[black!70, font=\footnotesize] at (5.0,0.75,0) {Area $=6$};
+\draw[->, mred, very thick] (0,0,0) -- (4,0,0) node[pos=0.55, below=2pt] {$\mathbf u=4\hat{\imath}$};
+\draw[->, mblue, very thick] (0,0,0) -- (2.598,1.5,0) node[pos=0.5, above left=-2pt] {$\mathbf v$};
+\draw[black!60] (1.3,0,0) arc[start angle=0, end angle=30, radius=1.3];
+\node[font=\scriptsize] at (2.0,0.5,0) {$30^\circ$};
+\draw[->, black, very thick] (0,0,0) -- (0,0,6) node[right] {$\mathbf u\times\mathbf v=6\hat{k}$};
+\fill (0,0,0) circle (1.2pt);
+\end{tikzpicture}
+]]></latex-image>
+<shortdescription>The vector u of length 4 along the x-axis and the vector v of length 3 at 30 degrees from it in the xy-plane, with the parallelogram they span shaded, its height 1.5 marked by a dashed segment, and the cross product u cross v of length 6 pointing up the z-axis.</shortdescription>
+</image>
+</figure>
+</sidebyside>
+</figure>
 </solution>
 </example>
 
