@@ -543,7 +543,8 @@ theorem twice: first in the base triangle <m>P_1AB</m>, then in the
 vertical triangle <m>P_1BP_2</m>.
 </caption>
 <video xml:id="video-distance-formula"
-       source="videos/DistanceFormulaProof.mp4" width="85%"/>
+       source="videos/DistanceFormulaProof.mp4"
+       preview="videos/previews/DistanceFormulaProof.jpg" width="85%"/>
 </figure>
 
 </subsection>

@@ -188,6 +188,7 @@ the tangent line, whose slope is the directional derivative
 </caption>
 <video xml:id="video-dirderiv-setup"
        source="videos/dirderiv_secant_tangent_manim.mp4"
+       preview="videos/previews/dirderiv_secant_tangent_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
 
@@ -1594,6 +1595,7 @@ slope of the resulting tangent line to that slice.
 </caption>
 <video xml:id="video-dirderiv-definition-2d-3d"
        source="videos/dirderiv_definition_2D_3D.mp4"
+       preview="videos/previews/dirderiv_definition_2D_3D.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 

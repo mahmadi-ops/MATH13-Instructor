@@ -200,6 +200,7 @@
       always equals its distance to the directrix.</caption>
       <video xml:id="video-parabola-focus"
              source="videos/parabola_focus_directrix_1080p.mp4"
+             preview="videos/previews/parabola_focus_directrix_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -422,6 +423,7 @@ and the directrix is the horizontal line <m>y = -p = \tfrac{1}{2}</m>.</p>
       of its distances to the two foci stays fixed at <m>2a = 6</m>.</caption>
       <video xml:id="video-ellipse-sum"
              source="videos/ellipse_constant_sum_1080p.mp4"
+             preview="videos/previews/ellipse_constant_sum_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -449,6 +451,7 @@ which identifies the constant in the definition as <m>2a</m>; equivalently
       triangle giving <m>a^2 = b^2 + c^2</m>.</caption>
       <video xml:id="video-ellipse-formula-a"
              source="videos/ellipse_formula_a_1080p.mp4"
+             preview="videos/previews/ellipse_formula_a_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -516,6 +519,7 @@ so the foci are <m>F_1(\sqrt{5},0)</m> and <m>F_2(-\sqrt{5},0)</m>.</p>
         from the center to a vertex.</caption>
         <video xml:id="video-ellipse-find-a"
                source="videos/ellipse_find_a_1080p.mp4"
+               preview="videos/previews/ellipse_find_a_1080p.jpg"
                width="90%" aspect="16:9"/>
       </figure>
     </solution>
@@ -674,6 +678,7 @@ so the foci are <m>F_1(\sqrt{5},0)</m> and <m>F_2(-\sqrt{5},0)</m>.</p>
       the branch hugs its asymptotes.</caption>
       <video xml:id="video-hyperbola-diff"
              source="videos/hyperbola_constant_difference_1080p.mp4"
+             preview="videos/previews/hyperbola_constant_difference_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -700,6 +705,7 @@ identifying the constant as <m>2a</m>, or <m>a = \frac{1}{2}\,|r_1 - r_2|</m>. F
       giving <m>c^2 = a^2 + b^2</m>.</caption>
       <video xml:id="video-hyperbola-formula-a"
              source="videos/hyperbola_formula_a_1080p.mp4"
+             preview="videos/previews/hyperbola_formula_a_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -867,6 +873,7 @@ so the foci are <m>(\pm 5, 0)</m>, the vertices are <m>(\pm 4, 0)</m>, and the
         the transverse axis, from the center to a vertex.</caption>
         <video xml:id="video-hyperbola-find-a"
                source="videos/hyperbola_find_a_1080p.mp4"
+               preview="videos/previews/hyperbola_find_a_1080p.jpg"
                width="90%" aspect="16:9"/>
       </figure>
     </solution>
@@ -1022,6 +1029,7 @@ be examined.
       through the single focus.</caption>
       <video xml:id="video-parabolic-reflector"
              source="videos/parabolic_reflector_1080p.mp4"
+             preview="videos/previews/parabolic_reflector_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -1149,6 +1157,7 @@ A hand-coloured aquatint from 1809 showing the interior of Saint
       reconverges at the other focus<mdash/>every path the same length <m>2a</m>.</caption>
       <video xml:id="video-whispering-gallery"
              source="videos/whispering_gallery_1080p.mp4"
+             preview="videos/previews/whispering_gallery_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 
@@ -1263,6 +1272,7 @@ where <m>v</m> is the signal speed. The set of points with a constant difference
       <m>r_2</m> change<mdash/>but their difference does not, tracing out the hyperbola.</caption>
       <video xml:id="video-hyperbolic-navigation"
              source="videos/hyperbolic_navigation_1080p.mp4"
+             preview="videos/previews/hyperbolic_navigation_1080p.jpg"
              width="90%" aspect="16:9"/>
     </figure>
 

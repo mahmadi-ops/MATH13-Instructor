@@ -87,6 +87,7 @@ the trajectory of the motion.
 </caption>
 <video xml:id="video-parametric-motion"
        source="videos/parametric_motion_1080p.mp4"
+       preview="videos/previews/parametric_motion_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -162,6 +163,7 @@ table appear first, and then the moving point traces out the parabola
 </caption>
 <video xml:id="video-parabola-param"
        source="videos/parabola_param_1080p.mp4"
+       preview="videos/previews/parabola_param_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -248,6 +250,7 @@ at <m>t = 0</m>, <m>\pi/2</m>, <m>\pi</m>, and <m>3\pi/2</m>.
 </caption>
 <video xml:id="video-unit-circle-param"
        source="videos/unit_circle_param_1080p.mp4"
+       preview="videos/previews/unit_circle_param_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -367,6 +370,7 @@ The line segment from <m>(0,1)</m> to <m>(1,0)</m>, traced by
 </caption>
 <video xml:id="video-segment-param"
        source="videos/segment_param_1080p.mp4"
+       preview="videos/previews/segment_param_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -432,6 +436,7 @@ marked.
 </caption>
 <video xml:id="video-ellipse-param"
        source="videos/ellipse_param_1080p.mp4"
+       preview="videos/previews/ellipse_param_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -509,6 +514,7 @@ The circle of radius <m>2</m> centered at <m>(2,0)</m>, traced by
 </caption>
 <video xml:id="video-shifted-circle-param"
        source="videos/shifted_circle_param_1080p.mp4"
+       preview="videos/previews/shifted_circle_param_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -730,6 +736,7 @@ direction as the projectile falls.
 </caption>
 <video xml:id="video-projectile-motion"
        source="videos/projectile_motion_1080p.mp4"
+       preview="videos/previews/projectile_motion_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -870,7 +877,7 @@ be examined.
       <m>(-1,1)</m> and <m>(2,4)</m>, but the clock shows that the two particles
       are never at either crossing at the same time.
     </caption>
-    <video source="videos/no_collision_1080p.mp4" width="80%"/>
+    <video source="videos/no_collision_1080p.mp4" preview="videos/previews/no_collision_1080p.jpg" width="80%"/>
   </figure>
 
   <figure xml:id="fig-no-collision">
@@ -1003,7 +1010,7 @@ be examined.
       line as before, but on a different schedule. It misses the first particle at
       <m>(-1,1)</m> and collides with it at <m>(2,4)</m> when <m>t = 2</m>.
     </caption>
-    <video source="videos/collision_1080p.mp4" width="80%"/>
+    <video source="videos/collision_1080p.mp4" preview="videos/previews/collision_1080p.jpg" width="80%"/>
   </figure>
 
   <figure xml:id="fig-collision">

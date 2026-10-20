@@ -315,6 +315,7 @@ as well, the two gradients are collinear there,
 </caption>
 <video xml:id="video-lagrange-collinear"
        source="videos/lagrange_collinear_manim.mp4"
+       preview="videos/previews/lagrange_collinear_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
 
@@ -706,6 +707,7 @@ both the gradients <m>\nabla f</m> and <m>\nabla g</m> line up,
 </caption>
 <video xml:id="video-lagrange-example3"
        source="videos/lagrange_circle_extrema_manim.mp4"
+       preview="videos/previews/lagrange_circle_extrema_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
 </solution>

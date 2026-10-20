@@ -240,6 +240,7 @@ together.
 </caption>
 <video xml:id="video-pd-two-tangents"
        source="videos/pd_two_tangents_manim.mp4"
+       preview="videos/previews/pd_two_tangents_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
 
@@ -729,6 +730,7 @@ sum <m>\Delta</m>, so shrinking the rectangle to the point gives
 </caption>
 <video xml:id="video-pd-mixed-commute"
        source="videos/mixed_partials_commute_manim.mp4"
+       preview="videos/previews/mixed_partials_commute_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
 

@@ -189,6 +189,7 @@ above all, the signs of those that do not.
   </caption>
   <video xml:id="video-elliptical-paraboloid-slices"
          source="videos/elliptical_paraboloid_slices_manim.mp4"
+         preview="videos/previews/elliptical_paraboloid_slices_manim.jpg"
          width="100%" aspect="16:9"/>
  </figure>
 
@@ -339,6 +340,7 @@ above all, the signs of those that do not.
   </caption>
   <video xml:id="video-hyperbolic-paraboloid-slices"
          source="videos/hyperbolic_paraboloid_slices_manim.mp4"
+         preview="videos/previews/hyperbolic_paraboloid_slices_manim.jpg"
          width="100%" aspect="16:9"/>
  </figure>
 
@@ -482,6 +484,7 @@ above all, the signs of those that do not.
   </caption>
   <video xml:id="video-ellipsoid-slices"
          source="videos/ellipsoid_slices_manim.mp4"
+         preview="videos/previews/ellipsoid_slices_manim.jpg"
          width="100%" aspect="16:9"/>
  </figure>
 
@@ -636,6 +639,7 @@ above all, the signs of those that do not.
   </caption>
   <video xml:id="video-elliptic-cone-slices"
          source="videos/elliptic_cone_slices_manim.mp4"
+         preview="videos/previews/elliptic_cone_slices_manim.jpg"
          width="100%" aspect="16:9"/>
  </figure>
 
@@ -829,6 +833,7 @@ from a hyperboloid of two sheets.
   </caption>
   <video xml:id="video-hyperboloid-one-sheet-slices"
          source="videos/hyperboloid_one_sheet_slices_manim.mp4"
+         preview="videos/previews/hyperboloid_one_sheet_slices_manim.jpg"
          width="100%" aspect="16:9"/>
  </figure>
 
@@ -982,6 +987,7 @@ from a hyperboloid of two sheets.
   </caption>
   <video xml:id="video-hyperboloid-two-sheets-slices"
          source="videos/hyperboloid_two_sheets_slices_manim.mp4"
+         preview="videos/previews/hyperboloid_two_sheets_slices_manim.jpg"
          width="100%" aspect="16:9"/>
  </figure>
 

@@ -97,6 +97,7 @@ value of the function, so <m>f(0,0)</m> is a local minimum.
 </caption>
 <video xml:id="video-local-min"
        source="videos/local_min_paraboloid_1080p.mp4"
+       preview="videos/previews/local_min_paraboloid_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -150,6 +151,7 @@ every other value of the function, so <m>f(0,0)</m> is a local maximum.
 </caption>
 <video xml:id="video-local-max"
        source="videos/local_max_paraboloid_1080p.mp4"
+       preview="videos/previews/local_max_paraboloid_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -293,6 +295,7 @@ point.
 </caption>
 <video xml:id="video-saddle-point"
        source="videos/saddle_point_1080p.mp4"
+       preview="videos/previews/saddle_point_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -504,6 +507,7 @@ The surface <m>z = x^4 + y^4 - 4xy</m> has a saddle point at
 </caption>
 <video xml:id="video-quartic-extrema"
        source="videos/quartic_extrema_1080p.mp4"
+       preview="videos/previews/quartic_extrema_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -744,6 +748,7 @@ critical point <m>(1,1)</m> in its interior.
 </caption>
 <video xml:id="video-rectangle-region"
        source="videos/rectangle_region_1080p.mp4"
+       preview="videos/previews/rectangle_region_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -813,6 +818,7 @@ absolute maximum <m>f(3,0) = 9</m> and the absolute minimum
 </caption>
 <video xml:id="video-absolute-extrema-surface"
        source="videos/absolute_extrema_surface_1080p.mp4"
+       preview="videos/previews/absolute_extrema_surface_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 
@@ -974,6 +980,7 @@ away along the <m>x</m>-direction (unstable).
 </caption>
 <video xml:id="video-marble-stability"
        source="videos/stability_marble_1080p.mp4"
+       preview="videos/previews/stability_marble_1080p.jpg"
        width="70%" aspect="16:9"/>
 </figure>
 

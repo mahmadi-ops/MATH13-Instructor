@@ -120,6 +120,7 @@ The vectors <m>\mathbf u</m>, <m>\mathbf v</m>, and
   whose hypotenuse is <m>\mathbf w = \mathbf u - \mathbf v</m>.</caption>
   <video xml:id="video-law-of-cosines"
          source="videos/law_of_cosines_1080p.mp4"
+         preview="videos/previews/law_of_cosines_1080p.jpg"
          width="90%" aspect="16:9"/>
 </figure>
 </proof>
@@ -518,6 +519,7 @@ we can write <m>\mathbf u</m> as
   <caption>The projection of <m>\overrightarrow{u}</m> onto <m>\overrightarrow{v}</m> as a shadow cast by light from above.</caption>
   <video xml:id="video-projection-shadow"
          source="videos/projection_formula_1080p.mp4"
+         preview="videos/previews/projection_formula_1080p.jpg"
          width="90%" aspect="16:9"/>
 </figure>
 
@@ -563,6 +565,7 @@ To achieve a visual understanding of this decomposition, watch the video below.
   pointing straight up.</caption>
   <video xml:id="video-decompose-3d"
          source="videos/decompose_3d_v3_1080p.mp4"
+         preview="videos/previews/decompose_3d_v3_1080p.jpg"
          width="90%" aspect="16:9"/>
 </figure>
 </solution>
@@ -683,6 +686,7 @@ is the magnitude of the force in the direction of motion, as computed in
   <caption>A constant force <m>\mathbf F</m> acting on an object causing a displacement from <m>A</m> to <m>B</m>.</caption>
   <video xml:id="video-work-force"
          source="videos/work_force_1080p.mp4"
+         preview="videos/previews/work_force_1080p.jpg"
          width="90%" aspect="16:9"/>
 </figure>
 
@@ -750,6 +754,7 @@ and moves a particle from the point <m>A(0,10,8)</m> to the point
   <caption>Set up the work computation: build the displacement vector first, then take the dot product. What do you get?</caption>
   <video xml:id="video-work-hint"
          source="videos/work_hint_v2_1080p.mp4"
+         preview="videos/previews/work_hint_v2_1080p.jpg"
          width="90%" aspect="16:9"/>
 </figure>
   </hint>
@@ -787,6 +792,7 @@ so by <xref ref="eq-work"/>, evaluated with <xref ref="eq-5"/>, the work done is
   <m>\overrightarrow{F}_{\perp} = \overrightarrow{F} - \overrightarrow{F}_{\parallel}</m> presses it into the surface.</caption>
   <video xml:id="video-inclined-plane"
          source="videos/inclined_plane_1080p.mp4"
+         preview="videos/previews/inclined_plane_1080p.jpg"
          width="100%" aspect="16:9"/>
 </figure>
 

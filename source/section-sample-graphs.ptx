@@ -24,6 +24,7 @@
   </caption>
   <video xml:id="video-hyperboloid-slices"
          source="videos/hyperboloid_slices_manim.mp4"
+         preview="videos/previews/hyperboloid_slices_manim.jpg"
          width="100%" aspect="16:9"/>
 </figure>
 

@@ -2316,6 +2316,7 @@ be examined.
         </caption>
         <video xml:id="video-collision-directrix"
                source="videos/projectile_collision_directrix_1080p.mp4"
+               preview="videos/previews/projectile_collision_directrix_1080p.jpg"
                width="100%" aspect="16:9"/>
       </figure>
     </sidebyside>
