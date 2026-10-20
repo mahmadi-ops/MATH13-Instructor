@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Exam 1 (Fall 2026), with brief solutions.
+  Exam 1 (Fall 2026), with solutions.
 
   Transcribed from the instructor's answer key, MATH13-Exam1-Brief-Solutions:
-  the instructions, the five problems with their brief solutions, and the
-  answers at a glance (moved to the end, so that they do not give the
+  the instructions, the five problems, and the answers at a glance (moved to the end, so that they do not give the
   problems away). The score table and the page headers were left out. The
   booklet's formula sheet, which the answer key does not include, is the
   one from Sample Past Exam 1 with the geometric series added in front, as
   on this quarter's sheet (at the instructor's request). The arch in Problem 1 is redrawn with PreFigure.
+
+  The solutions were later replaced, at the instructor's request, by the
+  fuller ones of the revised key, MATH13-Exam1-Key-Solutions-Only-revised-2.
 -->
 <worksheet xml:id="worksheet-exam-1" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Exam 1</title>
 
 <introduction>
 <p>
-Exam 1 of this quarter (Fall 2026), with brief solutions. These were the
+Exam 1 of this quarter (Fall 2026), with solutions. These were the
 instructions on the exam:
 </p>
 
@@ -90,9 +92,13 @@ Justify why this is the maximum. (1 point)
 </statement>
 <solution>
 <p>
-<m>\cosh u \ge 1</m>, with equality only at <m>u = 0</m>, so
-<m>y = 50 - 30\cosh\left(\frac{x}{30}\right) \le 50 - 30 = 20</m>, with
-equality only at <m>x = 0</m>. Height: <alert>20 m</alert>.
+Since <m>\cosh u \ge 1</m> for every real <m>u</m>, with equality only at
+<m>u = 0</m> (the range of <m>\cosh</m> is <m>[1, \infty)</m> and its
+minimum is at <m>0</m>),
+<md>
+y = 50 - 30\cosh\left(\tfrac{x}{30}\right) \le 50 - 30 = 20,
+</md>
+with equality exactly when <m>x = 0</m>. The arch is <alert>20 m</alert> tall.
 </p>
 </solution>
 </task>
@@ -105,10 +111,25 @@ Find the width of the arch at ground level. (2 points)
 </statement>
 <solution>
 <p>
-<m>y = 0 \iff \cosh\frac{x}{30} = \frac{u + u^{-1}}{2} = \frac53</m>, where
-<m>u = e^{x/30} \gt 0</m>. So <m>3u^2 - 10u + 3 = (3u - 1)(u - 3) = 0</m>,
-<m>u = 3</m> or <m>\frac13</m>, and <m>x = 30\ln u = \pm 30\ln 3</m>. Width:
-<m>30\ln 3 - (-30\ln 3) = 60\ln 3</m> <alert>m</alert> (<m>\approx 66</m> m).
+The arch meets the ground where <m>y = 0</m>, that is, where
+<m>\cosh\left(\frac{x}{30}\right) = \frac53</m>. Put
+<m>u = e^{x/30} \gt 0</m>, so that <m>e^{-x/30} = \frac1u</m>:
+<md>
+\frac{e^{x/30} + e^{-x/30}}{2} = \frac53
+\quad\iff\quad
+u + \frac1u = \frac{10}{3}.
+</md>
+Multiplying by <m>3u</m>:
+<md>
+<mrow>3u^2 - 10u + 3 = 0
+\amp \implies (3u - 1)(u - 3) = 0</mrow>
+<mrow>\amp \implies u = 3 \ \text{ or } \ u = \tfrac13.</mrow>
+</md>
+So <m>\frac{x}{30} = \ln 3</m> or <m>\frac{x}{30} = \ln\frac13 = -\ln 3</m>,
+i.e. the arch meets the ground at <m>x = \pm 30\ln 3</m>. The width is
+<md>
+30\ln 3 - (-30\ln 3) = 60\ln 3 \text{ m} \quad (\approx 66 \text{ m}).
+</md>
 </p>
 </solution>
 </task>
@@ -121,10 +142,15 @@ Find the slope of the arch where it meets the ground on the right. (1 point)
 </statement>
 <solution>
 <p>
-<m>y' = -30\sinh\frac{x}{30}\cdot\frac{1}{30} = -\sinh\frac{x}{30}</m>; at the
-right base <m>x = 30\ln 3</m>,
 <md>
-y' = -\sinh(\ln 3) = -\frac{e^{\ln 3} - e^{-\ln 3}}{2} = -\frac{3 - \frac13}{2} = -\frac43.
+\frac{dy}{dx} = -30\sinh\left(\frac{x}{30}\right)\cdot\frac{1}{30}
+= -\sinh\left(\frac{x}{30}\right).
+</md>
+At the right base <m>x = 30\ln 3</m>,
+<md>
+<mrow>\left.\frac{dy}{dx}\right|_{x = 30\ln 3}
+\amp = -\sinh(\ln 3) = -\frac{e^{\ln 3} - e^{-\ln 3}}{2}</mrow>
+<mrow>\amp = -\frac{3 - \frac13}{2} = -\frac43.</mrow>
 </md>
 </p>
 </solution>
@@ -149,8 +175,13 @@ converges, find its sum. Remember to fully justify your answers.
 </statement>
 <solution>
 <p>
-<m>a_n = \frac{\sinh n}{e^{n}} = \frac{e^{n} - e^{-n}}{2e^{n}} = \frac{1 - e^{-2n}}{2} \to \frac12 \ne 0</m>,
-so the series <alert>diverges</alert> by the <m>n</m>th Term Test.
+Using the definition of <m>\sinh</m>,
+<md>
+<mrow>a_n = \frac{\sinh(n)}{e^{n}} = \frac{e^{n} - e^{-n}}{2e^{n}}
+\amp = \frac{1 - e^{-2n}}{2}</mrow>
+<mrow>\amp \longrightarrow \frac12 \ne 0 \quad (n \to \infty).</mrow>
+</md>
+By the <m>n</m>th Term Test, the series <alert>diverges</alert>.
 </p>
 </solution>
 </task>
@@ -163,18 +194,28 @@ so the series <alert>diverges</alert> by the <m>n</m>th Term Test.
 </statement>
 <solution>
 <p>
-<m>\frac{\sinh n}{e^{3n}} = \frac{e^{n} - e^{-n}}{2e^{3n}} = \frac12\left(e^{-2n} - e^{-4n}\right)</m>,
-and for <m>k = 2, 4</m>,
-<m>\sum_{n=1}^{\infty} e^{-kn} = \frac{e^{-k}}{1 - e^{-k}} = \frac{1}{e^{k} - 1}</m>
-(geometric, <m>a = r = e^{-k}</m>, <m>|r| \lt 1</m>). By the difference and
-constant multiple rules, the series <alert>converges</alert> to
+Here
 <md>
-<mrow>\frac12\left(\frac{1}{e^2 - 1} - \frac{1}{e^4 - 1}\right)
-\amp = \frac12\cdot\frac{(e^2 + 1) - 1}{e^4 - 1}</mrow>
+\frac{\sinh(n)}{e^{3n}} = \frac{e^{n} - e^{-n}}{2e^{3n}}
+= \frac12\left(e^{-2n} - e^{-4n}\right).
+</md>
+Both <m>\sum_{n\ge 1} e^{-2n}</m> and <m>\sum_{n\ge 1} e^{-4n}</m> are
+geometric series with <m>a = r</m> and <m>|r| \lt 1</m>, so they converge:
+<md>
+<mrow>\sum_{n=1}^{\infty} e^{-2n} \amp = \frac{e^{-2}}{1 - e^{-2}} = \frac{1}{e^2 - 1},</mrow>
+<mrow>\sum_{n=1}^{\infty} e^{-4n} \amp = \frac{e^{-4}}{1 - e^{-4}} = \frac{1}{e^4 - 1}.</mrow>
+</md>
+Since both converge, the difference and constant multiple rules give that
+the series <alert>converges</alert>, and
+<md>
+<mrow>\sum_{n=1}^{\infty} \frac{\sinh(n)}{e^{3n}}
+\amp = \frac12\left(\frac{1}{e^2 - 1} - \frac{1}{e^4 - 1}\right)</mrow>
+<mrow>\amp = \frac12\cdot\frac{(e^2 + 1) - 1}{e^4 - 1}</mrow>
 <mrow>\amp = \frac{e^2}{2\left(e^4 - 1\right)}
 \quad \left(= \frac{1}{4\sinh 2} \approx 0.069\right).</mrow>
 </md>
-(The <m>n</m>th Term Test is inconclusive here: the terms tend to <m>0</m>.)
+(The <m>n</m>th Term Test is inconclusive here, since the terms tend to
+<m>0</m>.)
 </p>
 </solution>
 </task>
@@ -203,15 +244,23 @@ Find a formula for <m>Q_n</m> that does not contain a sum (no
 </statement>
 <solution>
 <p>
-<m>Q_n = 60 + \frac14 Q_{n-1}</m> (the new dose plus the quarter left), so
-<m>Q_n = 60 + 60\left(\frac14\right) + \cdots + 60\left(\frac14\right)^{n-1}</m>,
-the <m>n</m>th partial sum of the geometric series with <m>a = 60</m>,
-<m>r = \frac14</m>:
+Just after each dose, the amount is <m>60</m> plus a quarter of the amount
+just after the previous dose: <m>Q_n = 60 + \frac14 Q_{n-1}</m>. Hence
 <md>
-<mrow>Q_n \amp = 60\cdot\frac{1 - \left(\frac14\right)^{n}}{1 - \frac14}
-= 80\left(1 - \left(\tfrac14\right)^{n}\right)\ \text{mg}</mrow>
-<mrow>\amp \left(\text{check: } Q_1 = 80\cdot\tfrac34 = 60,\ Q_2 = 80\cdot\tfrac{15}{16} = 75\right).</mrow>
+<mrow>Q_1 \amp = 60,</mrow>
+<mrow>Q_2 \amp = 60 + 60\left(\tfrac14\right),</mrow>
+<mrow>Q_3 \amp = 60 + 60\left(\tfrac14\right) + 60\left(\tfrac14\right)^2,</mrow>
+<mrow>Q_n \amp = 60 + 60\left(\tfrac14\right) + \cdots + 60\left(\tfrac14\right)^{n-1}</mrow>
+<mrow>\amp = \sum_{k=1}^{n} 60\left(\tfrac14\right)^{k-1}.</mrow>
 </md>
+This is the <m>n</m>th partial sum of the geometric series with
+<m>a = 60</m> and <m>r = \frac14</m>, so
+<md>
+<mrow>Q_n \amp = a\,\frac{1 - r^{n}}{1 - r} = 60\cdot\frac{1 - \left(\frac14\right)^{n}}{\frac34}</mrow>
+<mrow>\amp = 80\left(1 - \left(\tfrac14\right)^{n}\right) \text{ mg}.</mrow>
+</md>
+(Check: <m>Q_1 = 80\cdot\frac34 = 60</m> and
+<m>Q_2 = 80\cdot\frac{15}{16} = 75</m>.)
 </p>
 </solution>
 </task>
@@ -224,9 +273,11 @@ What happens to <m>Q_n</m> in the long run? (1 point)
 </statement>
 <solution>
 <p>
-<m>\left(\frac14\right)^{n} \to 0</m>, so <m>Q_n \to 80</m> mg: the amount
-just after a dose levels off at (approaches, but never exceeds) 80 mg, the
-sum <m>\sum_{k=1}^{\infty} 60\left(\frac14\right)^{k-1} = \frac{60}{1 - \frac14}</m>.
+Since <m>\left(\frac14\right)^{n} \to 0</m>,
+<m>\lim_{n\to\infty} Q_n = 80</m> <alert>mg</alert>. In the long run the amount
+in the body just after a dose levels off at (approaches, but never exceeds)
+<m>80</m> mg. This is the sum of the series
+<m>\sum_{k=1}^{\infty} 60\left(\frac14\right)^{k-1} = \frac{60}{1 - \frac14}</m>.
 </p>
 </solution>
 </task>
@@ -250,10 +301,16 @@ Find the Taylor polynomial <m>p_3(x)</m> of order 3 generated by <m>f</m> at
 </statement>
 <solution>
 <p>
-<m>f' = x^{-1}</m>, <m>f'' = -x^{-2}</m>, <m>f''' = 2x^{-3}</m>, so
-<m>f(1) = 0</m>, <m>f'(1) = 1</m>, <m>f''(1) = -1</m>, <m>f'''(1) = 2</m>, and
 <md>
-<mrow>p_3(x) \amp = (x-1) + \frac{-1}{2!}(x-1)^2 + \frac{2}{3!}(x-1)^3</mrow>
+<mrow>f(x) \amp = \ln x, \amp f(1) \amp = 0,</mrow>
+<mrow>f'(x) \amp = x^{-1}, \amp f'(1) \amp = 1,</mrow>
+<mrow>f''(x) \amp = -x^{-2}, \amp f''(1) \amp = -1,</mrow>
+<mrow>f'''(x) \amp = 2x^{-3}, \amp f'''(1) \amp = 2.</mrow>
+</md>
+Therefore
+<md>
+<mrow>p_3(x) \amp = f(1) + f'(1)(x-1)</mrow>
+<mrow>\amp \qquad + \frac{f''(1)}{2!}(x-1)^2 + \frac{f'''(1)}{3!}(x-1)^3</mrow>
 <mrow>\amp = (x-1) - \frac{(x-1)^2}{2} + \frac{(x-1)^3}{3}.</mrow>
 </md>
 </p>
@@ -273,21 +330,32 @@ guarantees that the absolute value of the error in approximating
 </statement>
 <solution>
 <p>
-<m>f^{(k)}(x) = (-1)^{k-1}\frac{(k-1)!}{x^{k}}</m> (<m>k \ge 1</m>). For
-<m>x \in \left[1, \frac32\right]</m>, <m>c</m> is between <m>1</m> and
-<m>x</m>, so <m>1 \le c \le \frac32</m> and
-<m>\left|f^{(n+1)}(c)\right| = \frac{n!}{c^{n+1}} \le n! = M</m>
-(largest at <m>c = 1</m>). With <m>|x - 1| \le \frac12</m>, the Remainder
-Estimation Theorem gives
+The derivatives follow a pattern:
+<m>f^{(k)}(x) = (-1)^{k-1}\,\frac{(k-1)!}{x^{k}}</m> for <m>k \ge 1</m>, so
+<md>
+f^{(n+1)}(c) = (-1)^{n}\,\frac{n!}{c^{\,n+1}}.
+</md>
+For <m>x</m> in <m>\left[1, \frac32\right]</m>, the number <m>c</m> lies
+between <m>1</m> and <m>x</m>, so <m>1 \le c \le \frac32</m> and
+<md>
+\left|f^{(n+1)}(c)\right| = \frac{n!}{c^{\,n+1}} \le n!,
+</md>
+the largest value occurring at <m>c = 1</m>. Take <m>M = n!</m>. Since
+<m>|x - 1| \le \frac12</m>, the Remainder Estimation Theorem gives
 <md>
 <mrow>\left|\ln x - p_n(x)\right| = \left|R_n(x)\right|
 \amp \le \frac{M\,|x-1|^{n+1}}{(n+1)!}</mrow>
-<mrow>\amp \le \frac{n!}{(n+1)!}\left(\frac12\right)^{n+1} = \frac{1}{(n+1)\,2^{n+1}},</mrow>
+<mrow>\amp \le \frac{n!}{(n+1)!}\left(\frac12\right)^{n+1}
+= \frac{1}{(n+1)\,2^{\,n+1}}.</mrow>
 </md>
-which is <m>\le 0.01</m> if and only if <m>(n+1)\,2^{n+1} \ge 100</m>:
-<m>n = 3</m> gives <m>4\cdot 16 = 64</m> (too small), <m>n = 4</m> gives
-<m>5\cdot 32 = 160</m>. Smallest: <alert><m>n = 4</m></alert>. (Indeed
-<m>p_3</m> fails:
+We need <m>\frac{1}{(n+1)\,2^{\,n+1}} \le 0.01 = \frac{1}{100}</m>, that is,
+<m>(n+1)\,2^{\,n+1} \ge 100</m>:
+<md>
+<mrow>n = 3:\amp \quad 4\cdot 16 = 64 \text{ (too small)},</mrow>
+<mrow>n = 4:\amp \quad 5\cdot 32 = 160 \text{ (large enough)}.</mrow>
+</md>
+The smallest such order is <alert><m>n = 4</m></alert>. (In fact <m>p_3</m>
+really is not good enough:
 <m>\left|\ln\frac32 - p_3\left(\frac32\right)\right| = \left|\ln\frac32 - \frac{5}{12}\right| \approx 0.0112</m>.)
 </p>
 </solution>
@@ -310,14 +378,18 @@ Use Taylor series to evaluate
 </statement>
 <solution>
 <p>
+From the Maclaurin series of <m>\sin x</m> and <m>\cos x</m>,
 <md>
-<mrow>x - \sin x \amp = x - \left(x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots\right) = \frac{x^3}{6} - \frac{x^5}{120} + \cdots,</mrow>
-<mrow>x\,(1 - \cos x) \amp = x\left(\frac{x^2}{2!} - \frac{x^4}{4!} + \cdots\right) = \frac{x^3}{2} - \frac{x^5}{24} + \cdots,</mrow>
+<mrow>x - \sin x \amp = x - \left(x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots\right)</mrow>
+<mrow>\amp = \frac{x^3}{6} - \frac{x^5}{120} + \cdots,</mrow>
+<mrow>x\,(1 - \cos x) \amp = x\left(\frac{x^2}{2!} - \frac{x^4}{4!} + \cdots\right)</mrow>
+<mrow>\amp = \frac{x^3}{2} - \frac{x^5}{24} + \cdots.</mrow>
 </md>
-so, dividing by <m>x^3</m>, the limit is
+Dividing numerator and denominator by <m>x^3</m>,
 <md>
-\lim_{x\to 0} \frac{\frac16 - \frac{x^2}{120} + \cdots}{\frac12 - \frac{x^2}{24} + \cdots}
-= \frac{1/6}{1/2} = \frac13.
+<mrow>\lim_{x\to 0} \frac{x - \sin x}{x\,(1 - \cos x)}
+\amp = \lim_{x\to 0} \frac{\frac16 - \frac{x^2}{120} + \cdots}{\frac12 - \frac{x^2}{24} + \cdots}</mrow>
+<mrow>\amp = \frac{1/6}{1/2} = \frac13.</mrow>
 </md>
 </p>
 </solution>
@@ -335,12 +407,17 @@ give a proof if the statement is true, or a counterexample if it is false.
 </statement>
 <solution>
 <p>
-<alert>False.</alert> Let <m>a_n = 1</m>, <m>b_n = -1</m>. Both series
-diverge by the <m>n</m>th Term Test (<m>a_n \to 1 \ne 0</m>,
-<m>b_n \to -1 \ne 0</m>; partial sums <m>n</m> and <m>-n</m>), but
-<m>a_n + b_n = 0</m>, so <m>\sum (a_n + b_n) = 0</m> converges. (The Sum Rule
+<alert>False.</alert> Take <m>a_n = 1</m> and <m>b_n = -1</m> for every
+<m>n</m>. Both <m>\sum a_n</m> and <m>\sum b_n</m> diverge by the
+<m>n</m>th Term Test, since <m>a_n \to 1 \ne 0</m> and
+<m>b_n \to -1 \ne 0</m> (their partial sums are <m>n</m> and <m>-n</m>).
+But <m>a_n + b_n = 0</m> for every <m>n</m>, so
+<md>
+\sum_{n=1}^{\infty} (a_n + b_n) = 0 + 0 + 0 + \cdots = 0
+</md>
+converges. The Sum Rule
 <m>\sum (a_n + b_n) = \sum a_n + \sum b_n</m> holds only when both series
-converge.)
+converge.
 </p>
 </solution>
 </task>
