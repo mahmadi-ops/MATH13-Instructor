@@ -146,12 +146,27 @@ z \amp = z_0 + t\,v_3
 </md>
 </p>
 
+<p>
+When none of <m>v_1, v_2, v_3</m> is zero, each parametric equation can
+be solved for <m>t</m>; equating the three expressions eliminates
+<m>t</m> and gives the <term>standard equations</term> (also called the
+<term>symmetric equations</term>) of the line:
+<md xml:id="eq-lines-standard" number="yes">
+\frac{x - x_0}{v_1} = \frac{y - y_0}{v_2} = \frac{z - z_0}{v_3}.
+</md>
+If one of the components of <m>\mathbf v</m> is zero, say
+<m>v_3 = 0</m>, that coordinate stays constant along the line, and the
+standard equations are written as
+<m>\dfrac{x - x_0}{v_1} = \dfrac{y - y_0}{v_2},\ z = z_0</m>.
+</p>
+
 <example xml:id="example-lines-two-points">
 <title>The line through two points</title>
 <statement>
 <p>
-Find the vector equation and the parametric equations of the line that
-passes through the points <m>P(2,0,0)</m> and <m>P(1,-1,1)</m>.
+Find the vector equation, the parametric equations and the standard
+equations of the line that passes through the points <m>P_0(2,0,0)</m>
+and <m>P(1,-1,1)</m>.
 </p>
 </statement>
 <solution>
@@ -194,6 +209,17 @@ line are
 <mrow>y \amp = -t,</mrow>
 <mrow>z \amp = t,</mrow>
 <mrow>t \amp \in \R.</mrow>
+</md>
+</p>
+
+<p>
+Finally, every component of <m>\mathbf v = \langle -1,-1,1\rangle</m> is
+nonzero, so solving each parametric equation for <m>t</m> and equating,
+as in <xref ref="eq-lines-standard"/>, gives the standard equations
+<md>
+\frac{x - 2}{-1} = \frac{y}{-1} = \frac{z}{1},
+\qquad\text{that is,}\qquad
+2 - x = -y = z.
 </md>
 </p>
 
