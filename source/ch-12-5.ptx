@@ -101,6 +101,31 @@ direction, illustrating that the vector P zero P is parallel to v.
 </latex-image>
 </image>
 </figure>
+
+<p>
+<xref ref="fig-lines-vector-eq-interactive"/> lets you move <m>P_0</m> and
+<m>\mathbf v</m> and slide the parameter <m>t</m> to see the point
+<m>\mathbf r(t) = \mathbf r_0 + t\,\mathbf v</m> travel along the line.
+</p>
+
+<figure xml:id="fig-lines-vector-eq-interactive">
+<caption>
+The line <m>\mathbf r(t) = \mathbf r_0 + t\,\mathbf v</m>. Drag
+<m>P_0</m> or <m>\mathbf v</m> to move the line, and change <m>t</m> to
+move the point along it.
+</caption>
+<interactive xml:id="interactive-lines-vector-eq" geogebra="msfaupsn" width="100%" aspect="50:41">
+<description>
+<p>
+A GeoGebra applet showing a line in three-dimensional space through a
+point <m>P_0</m> with a direction vector <m>\mathbf v</m>. Dragging the
+point or changing the vector moves the line, and a parameter <m>t</m>
+slides a point <m>P</m> along it, tracing the position vector
+<m>\mathbf r(t) = \mathbf r_0 + t\,\mathbf v</m>.
+</p>
+</description>
+</interactive>
+</figure>
 </subsection>
 
 <!-- ================================================================ -->
