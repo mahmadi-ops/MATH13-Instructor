@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Sample Past Exam 2, with solutions.
+
+  Transcribed from the instructor's solutions PDF of a past second midterm
+  (MATH13-Exam2-Solutions): the seven exam questions and their solutions,
+  with the figures of Questions 3 and 4 redrawn in TikZ.  As requested,
+  the point values were left out, and the introduction states the exam's
+  rules in the same words as Sample Past Exam 1.  That exam had no formula
+  sheet, so none is reproduced here.
+-->
+<worksheet xml:id="worksheet-sample-past-exam-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Sample Past Exam 2</title>
+
+<introduction>
+<p>
+A sample past exam, with worked solutions. It was a 65-minute, closed-book
+exam: no aids of their own (formula sheets, notes, phones, tablets, smart
+watches or similar) were permitted, and students were asked to write their
+work in a neat and organized format and to fully justify every step. Try
+the exam under the same conditions before you look at the solutions. The
+topics it covers, with links to the notes:
+</p>
+
+<p>
+<ul>
+<li><p><xref ref="chapter-vectors" text="title"/></p></li>
+<li><p><xref ref="section-dot-product" text="title"/></p></li>
+<li><p><xref ref="section-cross-product" text="title"/></p></li>
+<li><p><xref ref="section-parametrization" text="title"/></p></li>
+<li><p><xref ref="chapter-lines-planes" text="title"/></p></li>
+<li><p><xref ref="section-conics" text="title"/></p></li>
+</ul>
+</p>
+</introduction>
+
+<!-- ===================== Question 1 ===================== -->
+<exercise xml:id="spe2-q1">
+
+<task xml:id="spe2-q1-a">
+<statement>
+<p>
+Compute the vector <m>\vec v</m> whose tail and tip are at
+<m>(2,0,-1)</m> and <m>\left(3,2,-1+\sqrt{11}\right)</m>, respectively.
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\vec v = \left\langle 3-2,\ 2-0,\ -1+\sqrt{11}-(-1)\right\rangle
+= \left\langle 1,\ 2,\ \sqrt{11}\right\rangle,
+</md>
+and
+<md>
+\|\vec v\| = \sqrt{1+4+11} = \sqrt{16} = 4.
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="spe2-q1-b">
+<statement>
+<p>
+Find a vector <m>\vec w</m> that points in the opposite direction to
+<m>\vec v</m> (see part (a)) and whose length is triple the length of
+<m>\vec v</m>.
+</p>
+</statement>
+<solution>
+<p>
+Opposite direction and three times as long:
+<md>
+\vec w = -3\vec v = \left\langle -3,\ -6,\ -3\sqrt{11}\right\rangle
+</md>
+(check: <m>\|\vec w\| = 3\cdot 4 = 12</m>).
+</p>
+</solution>
+</task>
+
+<task xml:id="spe2-q1-c">
+<statement>
+<p>
+Find the unit vector in the direction of <m>\vec v + \vec w</m> (see
+part (b)).
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\vec v + \vec w = \vec v - 3\vec v = -2\vec v
+= \left\langle -2,\ -4,\ -2\sqrt{11}\right\rangle.
+</md>
+Therefore
+<md>
+<mrow>\frac{\vec v + \vec w}{\|\vec v + \vec w\|}
+\amp = \frac{-2\vec v}{2\|\vec v\|} = -\frac{\vec v}{\|\vec v\|}
+= -\frac14\left\langle 1,\ 2,\ \sqrt{11}\right\rangle</mrow>
+<mrow>\amp = \left\langle -\frac14,\ -\frac12,\ -\frac{\sqrt{11}}{4}\right\rangle.</mrow>
+</md>
+Note that <m>\vec v + \vec w</m> points opposite to <m>\vec v</m>.
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 2 ===================== -->
+<exercise xml:id="spe2-q2">
+<statement>
+<p>
+Consider the two vectors <m>\vec u = \langle 2,-1,3\rangle</m> and
+<m>\vec v = \langle 1,2,2\rangle</m>. Write the vector <m>\vec u</m> as
+the sum of two vectors, one of which is parallel to <m>\vec v</m> and the
+other one is perpendicular to it.
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\vec u\cdot\vec v = 2 - 2 + 6 = 6
+\qquad\text{and}\qquad
+\|\vec v\|^2 = 1 + 4 + 4 = 9.
+</md>
+Then
+<md>
+<mrow>\vec u_{\parallel} = \operatorname{proj}_{\vec v}\vec u
+\amp = \left(\frac{\vec u\cdot\vec v}{\|\vec v\|^2}\right)\vec v
+= \frac69\langle 1,2,2\rangle
+= \left\langle \frac23,\ \frac43,\ \frac43\right\rangle,</mrow>
+<mrow>\vec u_{\perp} = \vec u - \vec u_{\parallel}
+\amp = \langle 2,-1,3\rangle - \left\langle \frac23,\ \frac43,\ \frac43\right\rangle
+= \left\langle \frac43,\ -\frac73,\ \frac53\right\rangle.</mrow>
+</md>
+Check: <m>\vec u_{\perp}\cdot\vec v = \frac43 - \frac{14}{3} + \frac{10}{3} = 0</m>.
+Hence
+<md>
+\underbrace{\langle 2,-1,3\rangle}_{\vec u}
+= \underbrace{\left\langle \frac23,\ \frac43,\ \frac43\right\rangle}_{\vec u_{\parallel}}
++ \underbrace{\left\langle \frac43,\ -\frac73,\ \frac53\right\rangle}_{\vec u_{\perp}}.
+</md>
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 3 ===================== -->
+<exercise xml:id="spe2-q3">
+<introduction>
+<p>
+Parametrize the following curves.
+</p>
+</introduction>
+
+<task xml:id="spe2-q3-a">
+<statement>
+<p>
+The quarter-ellipse from <m>(0,3)</m> to <m>(-2,0)</m> centered at the
+origin.
+</p>
+</statement>
+<solution>
+<p>
+The ellipse is
+<m>\left(\frac{x}{2}\right)^2 + \left(\frac{y}{3}\right)^2 = 1</m>, so
+<md>
+x(t) = 2\cos t, \qquad y(t) = 3\sin t, \qquad \frac{\pi}{2} \le t \le \pi.
+</md>
+Check: <m>t = \frac{\pi}{2}</m> gives <m>(0,3)</m> and <m>t = \pi</m>
+gives <m>(-2,0)</m>.
+</p>
+<image width="34%">
+<shortdescription>The ellipse with semi-axes 2 and 3 centered at the origin, dashed, with the quarter from (0,3) counterclockwise to (minus 2,0) drawn solid with an arrow.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.75]
+  \draw[-stealth] (-3,0) -- (2.8,0) node[right] {$x$};
+  \draw[-stealth] (0,-3.6) -- (0,3.9) node[above] {$y$};
+  \draw[dashed, gray] (0,0) ellipse (2 and 3);
+  \draw[very thick, blue!70!black, -stealth] (0,3) arc[start angle=90, end angle=180, x radius=2, y radius=3];
+  \fill (0,3) circle (2pt) node[above right] {$(0,3)$};
+  \fill (-2,0) circle (2pt) node[below left] {$(-2,0)$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+
+<task xml:id="spe2-q3-b">
+<statement>
+<p>
+The circle of radius 3 centered at <m>(-1,2)</m>, traced once
+<em>clockwise</em> starting at <m>(2,2)</m>.
+</p>
+</statement>
+<solution>
+<p>
+<m>(x+1)^2 + (y-2)^2 = 3^2</m>. A minus sign on the sine term makes the
+motion clockwise:
+<md>
+x(t) = -1 + 3\cos t, \qquad y(t) = 2 - 3\sin t, \qquad 0 \le t \le 2\pi.
+</md>
+Check: <m>t = 0</m> gives <m>(2,2)</m>; <m>t = \frac{\pi}{2}</m> gives
+<m>(-1,-1)</m>, so the point moves down first (clockwise).
+</p>
+<image width="38%">
+<shortdescription>The circle of radius 3 centered at (minus 1,2), with the starting point (2,2) marked and an arrow showing the clockwise direction of motion.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.55]
+  \draw[-stealth] (-4.8,0) -- (3.4,0) node[right] {$x$};
+  \draw[-stealth] (0,-1.8) -- (0,5.8) node[above] {$y$};
+  \draw[very thick, blue!70!black] (-1,2) circle (3);
+  \draw[very thick, blue!70!black, -stealth] (2,2) arc[start angle=0, end angle=-40, radius=3];
+  \fill (-1,2) circle (2.5pt) node[below] {$(-1,2)$};
+  \fill (2,2) circle (2.5pt) node[right] {$(2,2)$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+
+<task xml:id="spe2-q3-c">
+<statement>
+<p>
+The line segment from <m>(2,-1)</m> to <m>(-1,3)</m>.
+</p>
+</statement>
+<solution>
+<p>
+<md>
+<mrow>\vec r(t) \amp = \langle 2,-1\rangle + t\,\langle -1-2,\ 3-(-1)\rangle</mrow>
+<mrow>\amp = \langle 2,-1\rangle + t\,\langle -3,4\rangle,</mrow>
+</md>
+i.e.
+<md>
+x(t) = 2 - 3t, \qquad y(t) = -1 + 4t, \qquad 0 \le t \le 1.
+</md>
+Check: <m>t = 0</m> gives <m>(2,-1)</m> and <m>t = 1</m> gives
+<m>(-1,3)</m>.
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 4 ===================== -->
+<exercise xml:id="spe2-q4">
+<statement>
+<p>
+Consider an ellipse whose <alert>center</alert> is at the origin. Assume
+that it has <alert>foci</alert> <m>(0,-4)</m> and <m>(0,4)</m>, and suppose
+that the length of its <alert>minor axis</alert> is 6. Assume that the
+major axis is in the <m>y</m>-direction. What is the equation of this
+ellipse?
+</p>
+</statement>
+<solution>
+<p>
+Foci on the <m>y</m>-axis: <m>c = 4</m>. Minor axis <m>2b = 6</m>, so
+<m>b = 3</m>. For an ellipse, <m>a^2 = b^2 + c^2 = 9 + 16 = 25</m>, so
+<m>a = 5</m>. With the major axis vertical,
+<md>
+\frac{x^2}{b^2} + \frac{y^2}{a^2} = 1
+\quad\Longrightarrow\quad
+\boxed{\frac{x^2}{3^2} + \frac{y^2}{5^2} = 1}
+</md>
+</p>
+<image width="34%">
+<shortdescription>The vertical ellipse with semi-axes 3 and 5 centered at the origin and foci F1 at (0,4) and F2 at (0,minus 4); a right triangle joins the origin, F1 and the point (3,0), with legs c equals 4 and b equals 3 and hypotenuse a equals 5.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.42]
+  \draw[-stealth] (-4.5,0) -- (4.8,0) node[right] {$x$};
+  \draw[-stealth] (0,-6) -- (0,6.4) node[above] {$y$};
+  \draw[thick, blue!70!black] (0,0) ellipse (3 and 5);
+  \draw[ultra thick, green!50!black] (0,0) -- (0,4) node[midway, left] {$c=4$};
+  \draw[ultra thick, magenta] (0,0) -- (3,0) node[midway, below] {$b=3$};
+  \draw[thick] (0,4) -- (3,0) node[midway, above right] {$a=5$};
+  \fill (0,4) circle (4pt) node[left] {$F_1$};
+  \fill (0,-4) circle (4pt) node[left] {$F_2$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</exercise>
+
+<!-- ===================== Question 5 ===================== -->
+<exercise xml:id="spe2-q5">
+<statement>
+<p>
+Find a unit vector that is perpendicular to the <m>xz</m>-plane and points
+in the negative <m>y</m>-direction. If the tail of this vector is placed at
+<m>(2,-1,3)</m>, where is its tip?
+</p>
+</statement>
+<solution>
+<p>
+Perpendicular to the <m>xz</m>-plane means parallel to the <m>y</m>-axis:
+<m>\langle 0,c,0\rangle</m>. Length <m>1</m> and pointing in the negative
+<m>y</m>-direction gives <m>c = -1</m>:
+<md>
+-\hat\jmath = \langle 0,-1,0\rangle.
+</md>
+Tip <m>=</m> tail <m>+</m> vector <m>= (2,\ -1-1,\ 3) = (2,-2,3)</m>.
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 6 ===================== -->
+<exercise xml:id="spe2-q6">
+<introduction>
+<p>
+Mark the following statements as True or False. If a statement is true,
+prove it and if a statement is false, provide a counter-example.
+</p>
+</introduction>
+
+<task xml:id="spe2-q6-a">
+<statement>
+<p>
+Let <m>\vec u</m> and <m>\vec v</m> be any two vectors in
+<m>\mathbb R^3</m>. Then
+<m>\|\vec u + \vec v\|^2 + \|\vec u - \vec v\|^2 = 2\|\vec u\|^2 + 2\|\vec v\|^2</m>.
+</p>
+</statement>
+<solution>
+<p>
+<alert>True.</alert> Use <m>\|\vec a\|^2 = \vec a\cdot\vec a</m> and the
+distributive and commutative properties of the dot product:
+<md>
+<mrow>\|\vec u + \vec v\|^2 \amp = (\vec u + \vec v)\cdot(\vec u + \vec v)
+= \|\vec u\|^2 + 2\,\vec u\cdot\vec v + \|\vec v\|^2,</mrow>
+<mrow>\|\vec u - \vec v\|^2 \amp = (\vec u - \vec v)\cdot(\vec u - \vec v)
+= \|\vec u\|^2 - 2\,\vec u\cdot\vec v + \|\vec v\|^2.</mrow>
+</md>
+Adding, the <m>\pm 2\,\vec u\cdot\vec v</m> terms cancel, leaving
+<m>2\|\vec u\|^2 + 2\|\vec v\|^2</m>. (Geometrically: the sum of the
+squares of the diagonals of a parallelogram equals the sum of the squares
+of its four sides.)
+</p>
+</solution>
+</task>
+
+<task xml:id="spe2-q6-b">
+<statement>
+<p>
+Let <m>\vec u</m>, <m>\vec v</m>, and <m>\vec w</m> be non-zero vectors
+such that <m>\vec u\cdot\vec v = \vec u\cdot\vec w</m>. Then
+<m>\vec v = \vec w</m>.
+</p>
+</statement>
+<solution>
+<p>
+<alert>False.</alert> Counter-example:
+<m>\vec u = \langle 1,0,0\rangle</m>, <m>\vec v = \langle 1,2,0\rangle</m>,
+<m>\vec w = \langle 1,0,5\rangle</m>. Then
+<m>\vec u\cdot\vec v = 1 = \vec u\cdot\vec w</m>, but
+<m>\vec v \ne \vec w</m>. (In general
+<m>\vec u\cdot(\vec v - \vec w) = 0</m> only says
+<m>\vec v - \vec w</m> is perpendicular to <m>\vec u</m>, not that it is
+<m>\vec 0</m>.)
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 7 ===================== -->
+<exercise xml:id="spe2-q7">
+<introduction>
+<p>
+Consider the points <m>P(1,0,1)</m>, <m>Q(2,1,0)</m>, and <m>R(0,2,3)</m>.
+</p>
+</introduction>
+
+<task xml:id="spe2-q7-a">
+<statement>
+<p>
+Find an equation of the plane that contains <m>P</m>, <m>Q</m>, and
+<m>R</m>.
+</p>
+</statement>
+<solution>
+<p>
+<m>\overrightarrow{PQ} = \langle 1,1,-1\rangle</m> and
+<m>\overrightarrow{PR} = \langle -1,2,2\rangle</m>. A normal vector is
+<md>
+<mrow>\vec n = \overrightarrow{PQ}\times\overrightarrow{PR}
+\amp = \begin{vmatrix} \hat\imath \amp \hat\jmath \amp \hat k \\ 1 \amp 1 \amp -1 \\ -1 \amp 2 \amp 2 \end{vmatrix}</mrow>
+<mrow>\amp = (2+2)\,\hat\imath - (2-1)\,\hat\jmath + (2+1)\,\hat k
+= \langle 4,-1,3\rangle.</mrow>
+</md>
+Using the point <m>P</m>:
+<m>4(x-1) - (y-0) + 3(z-1) = 0</m>, i.e.
+<md>
+\boxed{4x - y + 3z = 7}.
+</md>
+Check: <m>Q</m>: <m>8 - 1 + 0 = 7</m> <m>\checkmark</m>; <m>R</m>:
+<m>0 - 2 + 9 = 7</m> <m>\checkmark</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="spe2-q7-b">
+<statement>
+<p>
+Find parametric equations of the line through <m>S(5,2,5)</m> that is
+perpendicular to the plane in part (a).
+</p>
+</statement>
+<solution>
+<p>
+The line is parallel to the normal <m>\vec n = \langle 4,-1,3\rangle</m>:
+<md>
+x(t) = 5 + 4t, \qquad y(t) = 2 - t, \qquad z(t) = 5 + 3t, \qquad t \in \mathbb R.
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="spe2-q7-c">
+<statement>
+<p>
+Find the point where the line in part (b) meets the plane, and use it to
+find the distance from <m>S</m> to the plane.
+</p>
+</statement>
+<solution>
+<p>
+Substitute into <m>4x - y + 3z = 7</m>:
+<md>
+4(5+4t) - (2-t) + 3(5+3t) = 7
+\quad\Longrightarrow\quad 33 + 26t = 7
+\quad\Longrightarrow\quad t = -1.
+</md>
+The line meets the plane at <m>F = (5-4,\ 2+1,\ 5-3) = (1,3,2)</m> (check:
+<m>4 - 3 + 6 = 7</m> <m>\checkmark</m>). The distance from <m>S</m> to the
+plane is
+<md>
+\left\|\overrightarrow{FS}\right\| = \|\langle 4,-1,3\rangle\|
+= \sqrt{16 + 1 + 9} = \sqrt{26} \approx 5.10.
+</md>
+(Same answer from the projection formula:
+<m>\dfrac{|\vec n\cdot\overrightarrow{PS}|}{\|\vec n\|}
+= \dfrac{|\langle 4,-1,3\rangle\cdot\langle 4,2,4\rangle|}{\sqrt{26}}
+= \dfrac{26}{\sqrt{26}} = \sqrt{26}</m>.)
+</p>
+</solution>
+</task>
+</exercise>
+
+</worksheet>

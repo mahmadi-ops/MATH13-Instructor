@@ -3,7 +3,7 @@
 
 <introduction>
 <p>
-The ten assignments, the four review problem sets, a sample past exam, and
+The ten assignments, the four review problem sets, two sample past exams, and
 Exam 1, in one place. Worked solutions appear beneath each problem once the
 assignment's due date has passed; solutions for the review sets are posted
 the same way.
@@ -221,6 +221,10 @@ right or wrong, earns nothing.
 <!-- ================= Review Problems #2 ================= -->
 <!-- Everything from the eight Chapter 3 topics that was not assigned. -->
 <xi:include href="review-problems-2.ptx"/>
+
+<!-- ================= Sample Past Exam 2 ================= -->
+<!-- The seven exam questions with their worked solutions. -->
+<xi:include href="sample-past-exam-2.ptx"/>
 
 <!-- ================= Assignment 7 ================= -->
 <xi:include href="assignment-7-functions-several-variables.ptx"/>
