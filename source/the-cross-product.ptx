@@ -671,6 +671,30 @@ is half of the corresponding parallelogram.
 </solution>
 </example>
 
+<paragraphs xml:id="par-brain-map-cross-product">
+<title>The Big Picture</title>
+<p>
+The map below gathers the ideas of this section so far on one page:
+the two definitions of the cross product and what each one tells us. An arrow between two topics means the second builds on the
+first, and the gold arrows mark a derivation, where a formula follows from
+the topic behind it. Every topic on the map is a link to the part of the section
+where it is covered. For comfortable reading,
+<url href="external/brain-map-cross-product.html" visual="">open the map full size in a new tab</url>.
+</p>
+</paragraphs>
+
+<interactive xml:id="interactive-brain-map-cross-product" iframe="brain-map-cross-product.html" width="100%" aspect="16:9" preview="brain-map-cross-product-print.png">
+<instructions>
+<p>
+Each box on the map is an idea from this section, and each arrow connects
+an idea to the ones that build on it; the gold arrows mark a derivation,
+where a formula follows from the idea behind it. Hover over a box to light
+up its connections, and click it to jump to the part of the section where
+it is covered.
+</p>
+</instructions>
+</interactive>
+
 </subsection>
 
 <!-- ================================================================ -->
