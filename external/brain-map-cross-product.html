@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The big picture — MATH 13 · The cross product</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+html, body { margin: 0; padding: 0; background: #16130f; }
+#stage { position: relative; width: 1920px; height: 1080px; background: #16130f; color: #f3f2f2; font-family: "Lora", Georgia, serif; overflow: hidden; transform-origin: 0 0; }
+#wrap { overflow: hidden; }
+#connectors { position: absolute; inset: 0; pointer-events: none; }
+#connectors path { transition: stroke 0.15s, stroke-width 0.15s, opacity 0.15s; }
+#connectors.focus path { opacity: 0.15; }
+#connectors.focus path.hi { opacity: 1; stroke-width: 2.5; }
+#connectors path.hi.plain { stroke: rgba(243,242,242,0.85); }
+#connectors path.hi.gold { stroke: #cf9f55; }
+.node { position: absolute; box-sizing: border-box; background: #16130f; border: 1px solid rgba(243,242,242,0.38); border-radius: 4px; padding: 12px 18px; text-decoration: none; color: #f3f2f2; display: block; transition: border-color 0.15s, opacity 0.15s; }
+.node.gold { border-color: rgba(182,130,53,0.85); }
+a.node:hover, .node.hi { border-color: #cf9f55; }
+#stage.focus .node { opacity: 0.35; }
+#stage.focus .node.hi, #stage.focus .node:hover { opacity: 1; }
+.node .t { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: 23px; line-height: 1.15; }
+.node .hub { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; text-align: center; line-height: 1.1; }
+.node .m { margin-top: 6px; }
+.node .fig { margin-top: 8px; }
+.node .fig.inline { float: right; margin: 0 0 0 12px; }
+.node .fig svg { display: block; max-width: 100%; height: auto; }
+.node .meta { color: rgba(243,242,242,0.55); }
+.node .kick { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(243,242,242,0.55); font-family: "Lora", Georgia, serif; }
+.title { position: absolute; left: 60px; top: 44px; }
+.title .h { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1; }
+.title .k { margin-top: 8px; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: #b68235; }
+.rule { width: 70px; height: 1px; background: #b68235; margin: 12px auto 0; }
+#legend { position: absolute; left: 60px; top: 158px; width: 224px; font-size: 13.5px; color: rgba(243,242,242,0.75); line-height: 1.45; }
+#legend .row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+#legend svg { flex: none; }
+#legend .hint { margin-top: 10px; font-style: italic; color: rgba(243,242,242,0.55); }
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+  <svg id="connectors" width="1920" height="1080">
+    <defs>
+      <marker id="arr-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="rgba(243,242,242,0.45)"/>
+      </marker>
+      <marker id="arr-gold" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="rgba(182,130,53,0.85)"/>
+      </marker>
+    </defs>
+  </svg>
+  <div class="title"><div class="h">The big picture</div><div class="k">MATH 13 · The cross product</div></div>
+  <div id="legend">
+    <div class="row">
+      <svg width="44" height="10"><line x1="0" y1="5" x2="36" y2="5" stroke="rgba(243,242,242,0.35)" stroke-width="1.5"/><path d="M36,1 L44,5 L36,9 z" fill="rgba(243,242,242,0.45)"/></svg>
+      <span>builds on the topic behind it</span>
+    </div>
+    <div class="row">
+      <svg width="44" height="10"><line x1="0" y1="5" x2="36" y2="5" stroke="rgba(182,130,53,0.75)" stroke-width="1.5"/><path d="M36,1 L44,5 L36,9 z" fill="rgba(182,130,53,0.85)"/></svg>
+      <span>a derivation: the result follows from the topic behind it</span>
+    </div>
+    <div class="hint">Hover over a topic to light up its connections; click it to open that part of the book.</div>
+  </div>
+</div></div>
+<script>
+// Every node links to the place in the book where the topic lives.  The hrefs
+// are relative to external/ (where this file is deployed), so ../foo.html is
+// foo.html at the root of the built site; target '_parent' escapes the iframe.
+// Arrows point from a topic to what is built on it; gold arrows mark a derivation.
+const NODES = [
+ {
+  "id": "cross",
+  "x": 520,
+  "y": 455,
+  "w": 330,
+  "hub": "The cross product",
+  "hubSize": 34,
+  "gold": true,
+  "rule": true,
+  "href": "../section-cross-product.html"
+ },
+ {
+  "id": "def1",
+  "x": 60,
+  "y": 330,
+  "w": 400,
+  "t": "First definition",
+  "m": [
+   [
+    "\\mathbf u\\times\\mathbf v=\\bigl(\\lVert\\mathbf u\\rVert\\,\\lVert\\mathbf v\\rVert\\sin\\theta\\bigr)\\,\\hat n",
+    17
+   ]
+  ],
+  "meta": "a vector · 0 ≤ θ ≤ π · n̂ by the right-hand rule",
+  "href": "../sec-cross-definition.html#def-cross-product",
+  "figHtml": "<svg width=\"330\" height=\"200\" viewBox=\"0 0 330 200\" aria-hidden=\"true\"><defs><marker id=\"cr-a\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"rgba(243,242,242,0.85)\"/></marker><marker id=\"cr-g\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cf9f55\"/></marker></defs><path d=\"M110,150 L270,170 L210,195 L50,175 Z\" fill=\"rgba(182,130,53,0.10)\" stroke=\"none\"/><line x1=\"110\" y1=\"150\" x2=\"270\" y2=\"170\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#cr-a)\"/><line x1=\"110\" y1=\"150\" x2=\"50\" y2=\"175\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#cr-a)\"/><line x1=\"110\" y1=\"150\" x2=\"110\" y2=\"25\" stroke=\"#cf9f55\" stroke-width=\"3\" marker-end=\"Gurl(#cr-a)\"/><path d=\"M150,155 A40,40 0 0,1 80,162\" fill=\"none\" stroke=\"rgba(243,242,242,0.45)\" stroke-width=\"1.5\"/><text x=\"118\" y=\"188\" fill=\"rgba(243,242,242,0.85)\" font-size=\"15\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;\">θ</text><text x=\"255\" y=\"160\" fill=\"rgba(243,242,242,0.85)\" font-size=\"17\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">u</text><text x=\"48\" y=\"168\" fill=\"rgba(243,242,242,0.85)\" font-size=\"17\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">v</text><text x=\"122\" y=\"40\" fill=\"#cf9f55\" font-size=\"16\" text-anchor=\"start\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">u × v</text><path d=\"M110,138 L122,139.5 L122,152\" fill=\"none\" stroke=\"rgba(243,242,242,0.45)\" stroke-width=\"1.3\"/></svg>"
+ },
+ {
+  "id": "rhr",
+  "x": 500,
+  "y": 60,
+  "w": 340,
+  "t": "Right-hand rule",
+  "m": [
+   [
+    "\\hat\\imath\\times\\hat\\jmath=\\hat k,\\qquad \\hat\\jmath\\times\\hat\\imath=-\\hat k",
+    16
+   ]
+  ],
+  "href": "../sec-cross-definition.html#fig-right-hand-rule-illustration",
+  "figHtml": "<svg width=\"300\" height=\"170\" viewBox=\"0 0 300 170\" aria-hidden=\"true\"><defs><marker id=\"rh-a\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"rgba(243,242,242,0.85)\"/></marker><marker id=\"rh-g\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cf9f55\"/></marker></defs><line x1=\"110\" y1=\"125\" x2=\"45\" y2=\"165\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#rh-a)\"/><line x1=\"110\" y1=\"125\" x2=\"250\" y2=\"125\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#rh-a)\"/><line x1=\"110\" y1=\"125\" x2=\"110\" y2=\"22\" stroke=\"#cf9f55\" stroke-width=\"3\" marker-end=\"Gurl(#rh-a)\"/><path d=\"M70,148 C95,185 185,175 205,135\" fill=\"none\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\" marker-end=\"url(#rh-a)\"/><text x=\"40\" y=\"155\" fill=\"rgba(243,242,242,0.85)\" font-size=\"18\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">î</text><text x=\"255\" y=\"118\" fill=\"rgba(243,242,242,0.85)\" font-size=\"18\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">ĵ</text><text x=\"124\" y=\"34\" fill=\"#cf9f55\" font-size=\"18\" text-anchor=\"start\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">k̂</text><text x=\"215\" y=\"168\" fill=\"rgba(243,242,242,0.85)\" font-size=\"13\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;\">curl î → ĵ</text></svg>"
+ },
+ {
+  "id": "orthboth",
+  "x": 900,
+  "y": 90,
+  "w": 380,
+  "t": "Orthogonal to both",
+  "m": [
+   [
+    "(\\mathbf u\\times\\mathbf v)\\perp\\mathbf u,\\qquad (\\mathbf u\\times\\mathbf v)\\perp\\mathbf v",
+    16.5
+   ]
+  ],
+  "href": "../sec-cross-definition.html#fig-cross-product-video"
+ },
+ {
+  "id": "area",
+  "x": 60,
+  "y": 760,
+  "w": 400,
+  "t": "Area of the parallelogram",
+  "gold": true,
+  "m": [
+   [
+    "\\text{Area}=\\lVert\\mathbf u\\rVert\\,\\lVert\\mathbf v\\rVert\\,\\lvert\\sin\\theta\\rvert=\\lVert\\mathbf u\\times\\mathbf v\\rVert",
+    15.5
+   ]
+  ],
+  "href": "../sec-cross-definition.html#fact-parallelogram-area",
+  "figHtml": "<svg width=\"330\" height=\"170\" viewBox=\"0 0 330 170\" aria-hidden=\"true\"><defs><marker id=\"ar-a\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"rgba(243,242,242,0.85)\"/></marker><marker id=\"ar-g\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cf9f55\"/></marker></defs><path d=\"M25,145 L225,145 L300,40 L100,40 Z\" fill=\"rgba(182,130,53,0.12)\" stroke=\"rgba(243,242,242,0.45)\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/><line x1=\"25\" y1=\"145\" x2=\"225\" y2=\"145\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#ar-a)\"/><line x1=\"25\" y1=\"145\" x2=\"100\" y2=\"40\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#ar-a)\"/><line x1=\"100\" y1=\"42\" x2=\"100\" y2=\"145\" stroke=\"#cf9f55\" stroke-width=\"2\" stroke-dasharray=\"6 5\"/><path d=\"M62,145 A37,37 0 0,0 46,116\" fill=\"none\" stroke=\"rgba(243,242,242,0.45)\" stroke-width=\"1.5\"/><text x=\"70\" y=\"133\" fill=\"rgba(243,242,242,0.85)\" font-size=\"15\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;\">θ</text><text x=\"130\" y=\"165\" fill=\"rgba(243,242,242,0.85)\" font-size=\"17\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">u</text><text x=\"50\" y=\"85\" fill=\"rgba(243,242,242,0.85)\" font-size=\"17\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">v</text><text x=\"108\" y=\"100\" fill=\"#cf9f55\" font-size=\"14\" text-anchor=\"start\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">‖v‖ sin θ</text></svg>"
+ },
+ {
+  "id": "parallel",
+  "x": 520,
+  "y": 650,
+  "w": 330,
+  "t": "Parallel vectors",
+  "gold": true,
+  "m": [
+   [
+    "\\mathbf u\\parallel\\mathbf v\\iff\\mathbf u\\times\\mathbf v=\\mathbf 0",
+    17
+   ]
+  ],
+  "href": "../sec-cross-definition.html#fact-parallel-vectors"
+ },
+ {
+  "id": "props",
+  "x": 900,
+  "y": 640,
+  "w": 430,
+  "t": "Properties",
+  "gold": true,
+  "m": [
+   [
+    "\\mathbf v\\times\\mathbf u=-(\\mathbf u\\times\\mathbf v)",
+    16,
+    "— order matters"
+   ],
+   [
+    "(r\\mathbf u)\\times(s\\mathbf v)=(rs)(\\mathbf u\\times\\mathbf v)",
+    15.5
+   ],
+   [
+    "\\mathbf u\\times(\\mathbf v+\\mathbf w)=\\mathbf u\\times\\mathbf v+\\mathbf u\\times\\mathbf w",
+    15.5
+   ],
+   [
+    "(\\mathbf v+\\mathbf w)\\times\\mathbf u=\\mathbf v\\times\\mathbf u+\\mathbf w\\times\\mathbf u",
+    15.5
+   ],
+   [
+    "\\mathbf 0\\times\\mathbf u=\\mathbf 0",
+    15.5
+   ]
+  ],
+  "href": "../sec-cross-definition.html#thm-cross-properties"
+ },
+ {
+  "id": "def2",
+  "x": 1360,
+  "y": 330,
+  "w": 500,
+  "t": "Second definition — components",
+  "m": [
+   [
+    "\\mathbf u\\times\\mathbf v=\\langle u_2v_3-u_3v_2,\\ u_3v_1-u_1v_3,\\ u_1v_2-u_2v_1\\rangle",
+    15.5
+   ]
+  ],
+  "href": "../sec-cross-components.html#def-cross-components"
+ },
+ {
+  "id": "det",
+  "x": 1400,
+  "y": 560,
+  "w": 430,
+  "t": "As a determinant",
+  "m": [
+   [
+    "\\mathbf u\\times\\mathbf v=\\begin{vmatrix}\\hat\\imath&\\hat\\jmath&\\hat k\\\\ u_1&u_2&u_3\\\\ v_1&v_2&v_3\\end{vmatrix}",
+    17
+   ],
+   [
+    "\\begin{vmatrix}a&b\\\\ c&d\\end{vmatrix}=ad-bc",
+    15.5
+   ]
+  ],
+  "href": "../sec-cross-components.html#def-cross-components"
+ },
+ {
+  "id": "triangle",
+  "x": 1400,
+  "y": 780,
+  "w": 430,
+  "t": "Area of a triangle",
+  "m": [
+   [
+    "\\text{Area}=\\tfrac12\\,\\bigl\\lVert\\overrightarrow{AB}\\times\\overrightarrow{AC}\\bigr\\rVert",
+    16.5
+   ]
+  ],
+  "href": "../sec-cross-components.html#example-triangle-area",
+  "figHtml": "<svg width=\"330\" height=\"162\" viewBox=\"0 0 330 162\" aria-hidden=\"true\"><defs><marker id=\"tr-a\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"rgba(243,242,242,0.85)\"/></marker><marker id=\"tr-g\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto-start-reverse\"><path d=\"M0,0 L10,5 L0,10 z\" fill=\"#cf9f55\"/></marker></defs><path d=\"M20,140 L230,130 L110,25 Z\" fill=\"rgba(182,130,53,0.14)\" stroke=\"none\"/><path d=\"M230,130 L320,15 L110,25\" fill=\"none\" stroke=\"rgba(243,242,242,0.45)\" stroke-width=\"1\" stroke-dasharray=\"4 4\"/><line x1=\"20\" y1=\"140\" x2=\"228\" y2=\"130\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#tr-a)\"/><line x1=\"20\" y1=\"140\" x2=\"109\" y2=\"27\" stroke=\"rgba(243,242,242,0.85)\" stroke-width=\"2\" marker-end=\"url(#tr-a)\"/><text x=\"12\" y=\"155\" fill=\"rgba(243,242,242,0.85)\" font-size=\"15\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-weight:700;\">A</text><text x=\"240\" y=\"150\" fill=\"rgba(243,242,242,0.85)\" font-size=\"15\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-weight:700;\">B</text><text x=\"102\" y=\"18\" fill=\"rgba(243,242,242,0.85)\" font-size=\"15\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-weight:700;\">C</text><text x=\"140\" y=\"157\" fill=\"rgba(243,242,242,0.85)\" font-size=\"14\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">AB</text><text x=\"48\" y=\"80\" fill=\"rgba(243,242,242,0.85)\" font-size=\"14\" text-anchor=\"middle\" style=\"font-family:Lora,Georgia,serif;font-style:italic;font-weight:700;\">AC</text></svg>"
+ }
+];
+const EDGES = [["cross", "def1"], ["cross", "def2"], ["def1", "rhr"], ["def1", "orthboth"], ["def1", "area", "gold"], ["def1", "parallel", "gold"], ["def2", "det"], ["def2", "props", "gold"], ["area", "triangle"], ["det", "triangle"]];
+const stage = document.getElementById('stage');
+function tex(el, s, size) {
+  const d = document.createElement('div');
+  d.className = 'm'; d.style.fontSize = size + 'px';
+  el.appendChild(d);
+  katex.render(s, d, { throwOnError: false, displayMode: false });
+  return d;
+}
+for (const n of NODES) {
+  const el = document.createElement(n.href ? 'a' : 'div');
+  el.className = 'node' + (n.gold ? ' gold' : '');
+  if (n.href) { el.href = n.href; el.target = '_parent'; }
+  el.dataset.node = n.id;
+  el.style.left = n.x + 'px'; el.style.top = n.y + 'px'; el.style.width = n.w + 'px';
+  if (n.hub) {
+    const h = document.createElement('div'); h.className = 'hub'; h.style.fontSize = n.hubSize + 'px'; h.textContent = n.hub; el.appendChild(h);
+    if (n.rule) { const r = document.createElement('div'); r.className = 'rule'; el.appendChild(r); }
+  }
+  if (n.kick) { const k = document.createElement('div'); k.className = 'kick'; k.textContent = n.kick; el.appendChild(k); }
+  if (n.t) {
+    const t = document.createElement('div'); t.className = 't'; if (n.tSize) t.style.fontSize = n.tSize + 'px';
+    if (n.tTex) { t.textContent = n.t.replace(/\\\(.*\\\)/, '') + ' '; const s = document.createElement('span'); t.appendChild(s); katex.render(n.tTex, s, { throwOnError: false }); }
+    else t.textContent = n.t;
+    el.appendChild(t);
+  }
+  if (n.figHtml) { const f = document.createElement('div'); f.className = 'fig' + (n.figInline ? ' inline' : ''); f.innerHTML = n.figHtml; if (n.figInline) el.insertBefore(f, el.firstChild); else el.appendChild(f); }
+  if (n.m) for (const [s, size, note] of n.m) {
+    const d = tex(el, s, size);
+    if (note) { const sp = document.createElement('span'); sp.className = 'meta'; sp.style.cssText = 'font-size:14px;font-style:italic;margin-left:8px'; sp.textContent = note; d.appendChild(sp); }
+  }
+  if (n.meta) { const md = document.createElement('div'); md.className = 'm meta'; md.style.fontSize = '14px'; md.textContent = n.meta; el.appendChild(md); }
+  stage.appendChild(el);
+}
+// connectors: an arrow points from a topic to what is built from it
+const svg = document.getElementById('connectors');
+const touching = {};   // node id -> its incident edge paths and neighbour ids
+for (const [a, b, kind] of EDGES) {
+  const rectOf = id => { const el = stage.querySelector('[data-node="' + id + '"]'); return { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight }; };
+  const A = rectOf(a), B = rectOf(b);
+  const acx = A.x + A.w / 2, acy = A.y + A.h / 2, bcx = B.x + B.w / 2, bcy = B.y + B.h / 2;
+  let d;
+  if (Math.abs(bcx - acx) > Math.abs(bcy - acy)) {
+    const p1 = bcx > acx ? [A.x + A.w, acy] : [A.x, acy];
+    const p2 = bcx > acx ? [B.x, bcy] : [B.x + B.w, bcy];
+    const k = (p2[0] - p1[0]) * 0.45;
+    d = `M${p1[0]},${p1[1]} C${p1[0] + k},${p1[1]} ${p2[0] - k},${p2[1]} ${p2[0]},${p2[1]}`;
+  } else {
+    const p1 = bcy > acy ? [acx, A.y + A.h] : [acx, A.y];
+    const p2 = bcy > acy ? [bcx, B.y] : [bcx, B.y + B.h];
+    const k = (p2[1] - p1[1]) * 0.45;
+    d = `M${p1[0]},${p1[1]} C${p1[0]},${p1[1] + k} ${p2[0]},${p2[1] - k} ${p2[0]},${p2[1]}`;
+  }
+  const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  p.setAttribute('d', d); p.setAttribute('fill', 'none');
+  p.setAttribute('class', kind === 'gold' ? 'gold' : 'plain');
+  p.setAttribute('stroke', kind === 'gold' ? 'rgba(182,130,53,0.75)' : 'rgba(243,242,242,0.35)');
+  p.setAttribute('stroke-width', '1.5');
+  p.setAttribute('marker-end', kind === 'gold' ? 'url(#arr-gold)' : 'url(#arr-plain)');
+  svg.appendChild(p);
+  for (const id of [a, b]) {
+    (touching[id] = touching[id] || { paths: [], nodes: [] });
+    touching[id].paths.push(p);
+    touching[id].nodes.push(id === a ? b : a);
+  }
+}
+// hovering a topic lights up its connections and neighbours
+for (const n of NODES) {
+  const el = stage.querySelector('[data-node="' + n.id + '"]');
+  const inc = touching[n.id];
+  if (!inc) continue;
+  el.addEventListener('mouseenter', () => {
+    svg.classList.add('focus'); stage.classList.add('focus');
+    for (const p of inc.paths) p.classList.add('hi');
+    for (const id of inc.nodes) stage.querySelector('[data-node="' + id + '"]').classList.add('hi');
+  });
+  el.addEventListener('mouseleave', () => {
+    svg.classList.remove('focus'); stage.classList.remove('focus');
+    for (const p of inc.paths) p.classList.remove('hi');
+    for (const id of inc.nodes) stage.querySelector('[data-node="' + id + '"]').classList.remove('hi');
+  });
+}
+// scale to fit embedding width
+function fit() {
+  const w = document.documentElement.clientWidth;
+  const s = w / 1920;
+  stage.style.transform = 'scale(' + s + ')';
+  document.getElementById('wrap').style.height = (1080 * s) + 'px';
+}
+fit(); window.addEventListener('resize', fit);
+</script>
+</body>
+</html>
