@@ -297,15 +297,16 @@ line.
 <image width="70%">
 <prefigure xmlns="https://prefigure.org" label="prefigure-lines-dist">
 <diagram dimensions="(380,240)" margins="12">
-<coordinates bbox="(-0.6,-1.1,5.4,3.2)">
+<coordinates bbox="(-1.0,-1.1,6.09,3.2)">
 <line at="dl-line" endpoints="((-0.35,-0.55),(5.1,1.63))"
       stroke="black" thickness="3"/>
 <line at="dl-ps" endpoints="((0.9,-0.05),(2.4,2.5))"
       stroke="#009E73" dash="6 4" thickness="2"/>
-<line at="dl-drop" endpoints="((2.4,2.5),(3.42,0.958))"
+<line at="dl-drop" endpoints="((2.4,2.5),(3.0724,0.819))"
       stroke="#8B1A4A" dash="6 4" thickness="2"/>
 <vector at="dl-v" v="(1.35,0.54)" tail="(2.6,-0.75)"
         stroke="magenta" thickness="3"/>
+<angle-marker at="dl-right" points="((5.1,1.63),(3.0724,0.819),(2.4,2.5))"/>
 <point at="dl-S" p="(2.4,2.5)" fill="black"/>
 <point at="dl-P" p="(0.9,-0.05)" fill="black"/>
 <label at="dl-S-lab" anchor="(2.4,2.62)" alignment="n">
@@ -320,7 +321,7 @@ line.
 <label at="dl-theta" anchor="(1.42,0.28)" alignment="ne">
 <m>\theta</m>
 </label>
-<label at="dl-d-lab" anchor="(3.15,1.95)" alignment="ne" color="#8B1A4A">
+<label at="dl-d-lab" anchor="(2.85,1.78)" alignment="ne" color="#8B1A4A">
 <m>\|\overrightarrow{PS}\|\left|\sin\theta\right|</m>
 </label>
 <label at="dl-v-lab" anchor="(3.3,-0.6)" alignment="s" color="magenta">
@@ -334,6 +335,7 @@ line.
   <annotation ref="dl-S" text="The point S whose distance from the line we want."/>
   <annotation ref="dl-ps" text="The segment from P to S, which makes an angle theta with the line."/>
   <annotation ref="dl-drop" text="The perpendicular distance d, equal to the magnitude of P S times the absolute value of sine theta."/>
+  <annotation ref="dl-right" text="A right-angle mark where the dashed segment from S meets the line."/>
   <annotation ref="dl-v" text="The direction vector v of the line."/>
 </annotation>
 </annotations>
@@ -757,7 +759,8 @@ dashed dark red segment drops vertically from S to the plane; its
 length d is the distance from S to the plane, which equals the
 magnitude of the projection of P S onto n. A small square corner mark
 where the dashed segment meets the plane shows that the segment is
-perpendicular to the plane.
+perpendicular to the plane, and a grey dashed segment on the plane joins
+P to the foot of that drop.
 </p>
 </description>
 <latex-image>
@@ -774,6 +777,8 @@ perpendicular to the plane.
         node[above] {$\overrightarrow{n}$};
   % PS vector
   \draw[-stealth, mgreen, very thick] (0.4,-0.4,0) -- (1.4,1.8,2.4);
+  % P to the foot of the drop, along the plane
+  \draw[black!60, dashed, thick] (0.4,-0.4,0) -- (1.4,1.8,0);
   % vertical distance
   \draw[mred, dashed, thick] (1.4,1.8,2.4) -- (1.4,1.8,0);
   % right angle: the dashed segment meets the plane perpendicularly
