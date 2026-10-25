@@ -977,11 +977,196 @@ be examined.
     </p>
     <p>
       This is not a coincidence of the shape; it follows from the equidistance definition
-      (<xref ref="def-parabola"/>). For
-      <m>x^2 = 4py</m> the tangent at the point <m>(x_0,\,x_0^2/4p)</m> has slope <m>x_0/2p</m>,
-      and a short computation shows that the incoming vertical ray and the segment from that
-      point to <m>(0,p)</m> make equal angles with the normal. The law of reflection then sends
-      every such ray straight to the focus, so that is where the receiver goes.
+      (<xref ref="def-parabola"/>). Dish antennas and headlights use the <em>focus</em>, but the
+      proof runs through the <em>directrix</em>: the tangent at any point of a parabola bisects
+      the angle between the segment to the focus and the perpendicular to the directrix. That is
+      why rays parallel to the axis reflect to the focus.
+    </p>
+
+    <theorem xml:id="thm-parabola-reflection">
+      <title>The reflection property of the parabola</title>
+      <statement>
+        <p>
+          Let <m>P</m> be any point of a parabola with focus <m>F</m> and directrix <m>\ell</m>,
+          and let <m>D</m> be the foot of the perpendicular from <m>P</m> to <m>\ell</m>.
+          <ol>
+            <li><p>The tangent line at <m>P</m> bisects the angle <m>\angle FPD</m>.</p></li>
+            <li><p>Consequently, a ray travelling parallel to the axis of the parabola that
+              strikes the parabola at <m>P</m> is reflected through the focus <m>F</m>.</p></li>
+          </ol>
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>
+        <em>Step 1: an isosceles triangle.</em> By the definition of the parabola,
+        <m>|PF| = |PD|</m>, so the triangle <m>FPD</m> is isosceles with apex <m>P</m>
+        (<xref ref="fig-parabola-tangent-bisects"/>). In an isosceles triangle the bisector of
+        the apex angle is also the perpendicular bisector of the base. So the bisector <m>m</m> of
+        <m>\angle FPD</m> passes through the midpoint <m>M</m> of <m>FD</m> and is perpendicular
+        to <m>FD</m>. We show that this line <m>m</m> is the tangent at <m>P</m>.
+      </p>
+      <p>
+        <em>Step 2: the bisector meets the parabola only at <m>P</m>.</em> Let <m>Q</m> be a
+        point of <m>m</m> other than <m>P</m>. Since <m>m</m> is the perpendicular bisector of
+        <m>FD</m>, we have <m>|QF| = |QD|</m>. The distance from <m>Q</m> to the directrix is
+        measured along the perpendicular from <m>Q</m> to <m>\ell</m>, which is shorter than the
+        slanted segment <m>QD</m> unless <m>QD</m> is itself perpendicular to <m>\ell</m>. But
+        the perpendicular to <m>\ell</m> at <m>D</m> is the line <m>DP</m>, and it meets <m>m</m>
+        only at <m>P</m>. Hence for every <m>Q \neq P</m> on <m>m</m>,
+        <me>|QF| = |QD| \gt \operatorname{dist}(Q,\ell),</me>
+        so <m>Q</m> is closer to the directrix than to the focus and is not on the parabola. Thus
+        <m>m</m> touches the parabola at the single point <m>P</m>. A line through a point of a
+        parabola that is not parallel to the axis and meets the parabola nowhere else is the
+        tangent there (in coordinates, <m>x^2 = 4py</m> and <m>y = kx + b</m> meet where
+        <m>x^2 - 4pkx - 4pb = 0</m>; a single meeting point is a double root, which is exactly
+        tangency). The line <m>m</m> is not parallel to the axis because it is perpendicular to
+        <m>FD</m>, and <m>FD</m> is never parallel to the directrix. So <m>m</m> is the tangent
+        at <m>P</m>, and it bisects <m>\angle FPD</m>. This proves (1).
+      </p>
+      <p>
+        <em>Step 3: the law of reflection.</em> A ray travelling parallel to the axis and
+        striking the parabola at <m>P</m> arrives along the line <m>DP</m>, from the side opposite
+        <m>D</m> (<xref ref="fig-parabola-reflection-angles"/>). Write <m>\alpha</m> for the angle
+        between the tangent and <m>PD</m>; by (1) it is also the angle between the tangent and
+        <m>PF</m>. The incoming ray and the segment <m>PD</m> are opposite halves of one straight
+        line, so the incoming ray makes the same angle <m>\alpha</m> with the tangent (vertical
+        angles). The law of reflection says the reflected ray leaves <m>P</m> making that same
+        angle <m>\alpha</m> with the tangent, on the other side of the normal. The ray from
+        <m>P</m> through <m>F</m> is the one ray that does so. Hence the reflected ray passes
+        through the focus, which proves (2).
+      </p>
+    </proof>
+
+    <figure xml:id="fig-parabola-tangent-bisects">
+      <caption>Step 1 and Step 2. Since <m>|PF| = |PD|</m>, the triangle <m>FPD</m> is isosceles,
+      so the bisector of <m>\angle FPD</m> (the two equal angles <m>\alpha</m>) is the
+      perpendicular bisector of <m>FD</m> through its midpoint <m>M</m>. That bisector is the
+      tangent <m>m</m> at <m>P</m>.</caption>
+      <image width="60%">
+        <prefigure xmlns="https://prefigure.org" label="parabola-tangent-bisects">
+          <diagram dimensions="(400,380)" margins="8">
+            <definition>f(x) = x^2/4</definition>
+            <definition>F = (0,1)</definition>
+            <definition>P = (2.4,1.44)</definition>
+            <definition>D = (2.4,-1)</definition>
+            <definition>M = (1.2,0)</definition>
+            <definition>T1 = (0.5,-0.84)</definition>
+            <definition>T2 = (3.7,3)</definition>
+            <coordinates bbox="(-1.6, -1.7, 4.2, 3.6)">
+              <line at="directrix" p1="(-1.6,-1)" p2="(4.2,-1)" stroke="gray" thickness="1.5" dash="6 4"/>
+              <label at="directrix-label" anchor="(-1.5,-1)" alignment="ne" offset="(2,2)"><m>\ell\ (\text{directrix})</m></label>
+              <graph at="parabola" function="f" domain="(-3.2, 3.7)" stroke="blue" thickness="2.5"/>
+              <line at="tangent" p1="T1" p2="T2" stroke="#D55E00" thickness="2"/>
+              <label at="tangent-label" anchor="T2" alignment="e" offset="(4,-2)" color="#D55E00"><m>m</m></label>
+              <group at="triangle">
+                <line at="PF" p1="P" p2="F" stroke="black" thickness="1.5"/>
+                <line at="PD" p1="P" p2="D" stroke="black" thickness="1.5"/>
+                <line at="FD" p1="F" p2="D" stroke="gray" thickness="1.2" dash="4 3"/>
+              </group>
+              <angle-marker at="alpha-1" points="(F,P,M)" radius="26" clear-background="no"><m>\alpha</m></angle-marker>
+              <angle-marker at="alpha-2" points="(M,P,D)" radius="26" clear-background="no"><m>\alpha</m></angle-marker>
+              <angle-marker at="right-angle" points="(P,M,F)" radius="10" clear-background="yes"/>
+              <group at="points">
+                <point at="pt-F" p="F" fill="black" size="3.5"/>
+                <point at="pt-P" p="P" fill="black" size="3.5"/>
+                <point at="pt-D" p="D" fill="black" size="3.5"/>
+                <point at="pt-M" p="M" fill="black" size="3"/>
+              </group>
+              <label at="F-label" anchor="F" alignment="w" offset="(-6,0)"><m>F</m></label>
+              <label at="P-label" anchor="P" alignment="e" offset="(8,2)"><m>P</m></label>
+              <label at="D-label" anchor="D" alignment="s" offset="(0,-6)"><m>D</m></label>
+              <label at="M-label" anchor="M" alignment="se" offset="(4,-6)"><m>M</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="parabola"
+                  text="The tangent to a parabola bisects the angle between the segment to the focus and the perpendicular to the directrix">
+                <annotation ref="parabola"
+                    text="An upward-opening parabola with focus F on its axis and the dashed horizontal directrix below it" sonify="yes"/>
+                <annotation ref="triangle"
+                    text="A point P on the parabola joined to the focus F and dropped perpendicularly to the point D on the directrix; the two segments PF and PD have equal length, so triangle FPD is isosceles"/>
+                <annotation ref="tangent"
+                    text="The tangent line m at P, which passes through the midpoint M of FD and is perpendicular to FD"/>
+                <annotation ref="alpha-1"
+                    text="The angle alpha between PF and the tangent"/>
+                <annotation ref="alpha-2"
+                    text="The equal angle alpha between the tangent and PD"/>
+                <annotation ref="right-angle"
+                    text="The right angle at M where the tangent crosses FD"/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+    </figure>
+
+    <figure xml:id="fig-parabola-reflection-angles">
+      <caption>Step 3. The incoming ray (orange) travels along the line <m>DP</m>, so it makes
+      the same angle <m>\alpha</m> with the tangent as <m>PD</m> does, and by the theorem so does
+      <m>PF</m>. Equal angles with the tangent is the law of reflection, so the reflected ray
+      (red) runs along <m>PF</m>, straight to the focus.</caption>
+      <image width="60%">
+        <prefigure xmlns="https://prefigure.org" label="parabola-reflection-angles">
+          <diagram dimensions="(400,380)" margins="8">
+            <definition>f(x) = x^2/4</definition>
+            <definition>F = (0,1)</definition>
+            <definition>P = (2.4,1.44)</definition>
+            <definition>D = (2.4,-1)</definition>
+            <definition>M = (1.2,0)</definition>
+            <definition>E = (2.4,3.4)</definition>
+            <definition>T1 = (0.5,-0.84)</definition>
+            <definition>T2 = (3.7,3)</definition>
+            <coordinates bbox="(-1.6, -1.7, 4.2, 3.6)">
+              <line at="directrix" p1="(-1.6,-1)" p2="(4.2,-1)" stroke="gray" thickness="1.5" dash="6 4"/>
+              <label at="directrix-label" anchor="(-1.5,-1)" alignment="ne" offset="(2,2)"><m>\ell\ (\text{directrix})</m></label>
+              <graph at="parabola" function="f" domain="(-3.2, 3.7)" stroke="blue" thickness="2.5"/>
+              <line at="tangent" p1="T1" p2="T2" stroke="#D55E00" thickness="2"/>
+              <label at="tangent-label" anchor="T2" alignment="e" offset="(4,-2)" color="#D55E00"><m>m</m></label>
+              <line at="PD" p1="P" p2="D" stroke="gray" thickness="1.2" dash="4 3"/>
+              <vector at="incoming" tail="E" v="P-E" stroke="orange" thickness="3"/>
+              <vector at="reflected" tail="P" v="F-P" stroke="red" thickness="3"/>
+              <angle-marker at="alpha-in" points="(T2,P,E)" radius="26" clear-background="no"><m>\alpha</m></angle-marker>
+              <angle-marker at="alpha-out" points="(F,P,M)" radius="26" clear-background="no"><m>\alpha</m></angle-marker>
+              <group at="points">
+                <point at="pt-F" p="F" fill="black" size="3.5"/>
+                <point at="pt-P" p="P" fill="black" size="3.5"/>
+                <point at="pt-D" p="D" fill="black" size="3.5"/>
+              </group>
+              <label at="F-label" anchor="F" alignment="w" offset="(-6,0)"><m>F\ (\text{focus})</m></label>
+              <label at="P-label" anchor="P" alignment="e" offset="(8,2)"><m>P</m></label>
+              <label at="D-label" anchor="D" alignment="s" offset="(0,-6)"><m>D</m></label>
+              <label at="in-label" anchor="E" alignment="w" offset="(-6,-4)" color="orange"><m>\text{incoming ray}</m></label>
+            </coordinates>
+            <annotations>
+              <annotation ref="parabola"
+                  text="The law of reflection sends a ray parallel to the axis through the focus">
+                <annotation ref="parabola"
+                    text="An upward-opening parabola with focus F and the dashed horizontal directrix below it" sonify="yes"/>
+                <annotation ref="incoming"
+                    text="An orange ray coming straight down, parallel to the axis, and striking the parabola at P; its line continues dashed to the point D on the directrix"/>
+                <annotation ref="tangent"
+                    text="The tangent line m at P"/>
+                <annotation ref="alpha-in"
+                    text="The angle alpha between the incoming ray and the tangent"/>
+                <annotation ref="alpha-out"
+                    text="The equal angle alpha between the tangent and the reflected ray"/>
+                <annotation ref="reflected"
+                    text="The red reflected ray, which leaves P along PF and passes through the focus"/>
+              </annotation>
+            </annotations>
+          </diagram>
+        </prefigure>
+      </image>
+    </figure>
+
+    <p>
+      Reversing the ray gives the headlight: light leaving the focus toward <m>P</m> reflects
+      into a ray parallel to the axis, so a bulb at the focus throws a parallel beam. (In
+      coordinates, for <m>x^2 = 4py</m> the tangent at <m>(x_0,\,x_0^2/4p)</m> has slope
+      <m>x_0/2p</m>, and the same equal-angle fact can be checked with slopes; the directrix
+      argument above never needs the equation.) In every case the reflected rays meet at the
+      focus, so that is where the receiver goes.
     </p>
 
     <figure xml:id="fig-parabola-reflector">
