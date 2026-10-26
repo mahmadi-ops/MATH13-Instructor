@@ -1387,7 +1387,7 @@ from a hyperboloid of two sheets.
   </figure>
 
   <p>
-    In this section the given line will always be one of the coordinate axes and
+    In this section the given line will always be parallel to one of the coordinate axes and
     the generating curve will lie in the coordinate plane perpendicular to it.
     That special position makes a cylinder easy to recognize from its equation,
     and the definition itself is all we need to draw it, as the next example shows.
