@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parabolic Cylinder from its Generating Curve</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    color: #404040;
+    background: #ffffff;
+  }
+  .wrap { display: flex; flex-direction: column; height: 100%; padding: 6px 10px 4px; }
+  .eqbar { text-align: center; line-height: 1.35; }
+  .surface-eq { font-size: 1.05em; }
+  .readout { min-height: 2.1em; font-size: 1.05em; margin-top: 2px; }
+  .readout .kind { color: #757575; font-style: italic; margin-left: 0.4em; }
+  .controls {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; flex-wrap: wrap; margin: 6px 0 2px;
+  }
+  .btn-group { display: inline-flex; }
+  button {
+    font-family: inherit; font-size: 0.95em;
+    background: #ffffff; color: #2a2a2a;
+    border: 1px solid #b0b0b0; padding: 4px 12px; cursor: pointer;
+  }
+  .btn-group button + button { border-left-width: 0; }
+  .btn-group button:first-child { border-radius: 4px 0 0 4px; }
+  .btn-group button:last-child { border-radius: 0 4px 4px 0; }
+  .stage-btn.active { color: #ffffff; border-color: rgba(0,0,0,0.25); }
+  .stage-btn.active mjx-container { color: #ffffff; }
+  button:hover { background: #f2f2f2; }
+  .stage-btn.active:hover { filter: brightness(0.95); }
+  #rotateBtn { border-radius: 4px; min-width: 5.4em; }
+  .slider-box { display: inline-flex; align-items: center; gap: 8px; }
+  input[type=range] { width: 190px; accent-color: #0072B2; }
+  .cval { min-width: 4.4em; text-align: left; font-variant-numeric: tabular-nums; }
+  .cname, .pname { font-style: italic; font-family: "PT Serif", "Times New Roman", Times, serif; }
+  #plot { flex: 1 1 auto; min-height: 0; }
+</style>
+<script>
+MathJax = { tex: { inlineMath: [['\\(', '\\)']] }, options: { enableMenu: false } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="eqbar">
+    <span class="surface-eq">\(z = x^2\)</span>
+    <div class="readout" id="readout"></div>
+  </div>
+  <div class="controls">
+    <span class="btn-group">
+      <button class="stage-btn" data-stage="curve">Generating curve</button>
+      <button class="stage-btn" data-stage="line">Line through \(P\)</button>
+      <button class="stage-btn" data-stage="all">All the parallel lines</button>
+    </span>
+    <span class="slider-box">
+      <input type="range" id="tslider">
+      <span class="cval"><span class="pname">P</span> at <span class="cname">\(a\)</span> = <span id="tval"></span></span>
+    </span>
+    <button id="rotateBtn">Rotate</button>
+  </div>
+  <div id="plot"></div>
+</div>
+<script>
+'use strict';
+function linspace(a, b, n) {
+  var out = [];
+  for (var i = 0; i < n; i++) out.push(a + (b - a) * i / (n - 1));
+  return out;
+}
+function curve(f, a, b, n) {
+  var x = [], y = [], z = [];
+  linspace(a, b, n).forEach(function (t) {
+    var p = f(t); x.push(p[0]); y.push(p[1]); z.push(p[2]);
+  });
+  return { x: x, y: y, z: z };
+}
+function fmt(v) {
+  v = Math.round(v * 100) / 100;
+  if (Math.abs(v) < 1e-9) v = 0;
+  return String(v);
+}
+
+var CONFIG = {
+  ranges: { x: [-2.4, 2.4], y: [-3.4, 3.4], z: [-0.5, 4.6] },
+  camera: { x: 1.7, y: 1.25, z: 0.75 },
+  tRange: [-2, 2], tStep: 0.05,
+  defaults: { stage: 'line', t: 1 },
+  axisName: 'y',
+  planeName: 'xz-plane',
+  curveLatex: 'y = 0:\;\; z = x^2',
+  point: function (a) { return [a, 0, a * a]; },
+  ruling: function (a) { return curve(function (y) { return [a, y, a * a]; }, -3, 3, 2); },
+  lineLatex: function (a) {
+    return 'x = ' + fmt(a) + ',\; z = ' + fmt(a * a) + ',\; y \\text{ free}';
+  },
+  generating: function () { return curve(function (x) { return [x, 0, x * x]; }, -2, 2, 81); },
+  plane: function () {
+    return { x: [[-2.4, 2.4], [-2.4, 2.4]], y: [[0, 0], [0, 0]], z: [[-0.5, -0.5], [4.6, 4.6]] };
+  },
+  rulings: function () {
+    var w = [];
+    for (var k = -20; k <= 20; k++) {
+      var a = k / 10;
+      w.push(curve(function (y) { return [a, y, a * a]; }, -3, 3, 2));
+    }
+    return w;
+  },
+  surface: function () {
+    var nx = 41, X = [], Y = [], Z = [];
+    [-3, 3].forEach(function (y) {
+      var xr = [], yr = [], zr = [];
+      for (var i = 0; i < nx; i++) {
+        var x = -2 + 4 * i / (nx - 1);
+        xr.push(x); yr.push(y); zr.push(x * x);
+      }
+      X.push(xr); Y.push(yr); Z.push(zr);
+    });
+    return { x: X, y: Y, z: Z };
+  }
+};
+
+var CURVE_COLOR = '#0072B2';
+var LINE_COLOR = '#D55E00';
+var RULING_COLOR = 'rgba(0,114,178,0.45)';
+var SURFACE_SCALE = [[0, '#ddecf7'], [1, '#8ec2e2']];
+var STAGE_COLORS = { curve: '#0072B2', line: '#D55E00', all: '#009E73' };
+
+var stage = CONFIG.defaults.stage;
+var t = CONFIG.defaults.t;
+
+var gd = document.getElementById('plot');
+var slider = document.getElementById('tslider');
+var tval = document.getElementById('tval');
+var readout = document.getElementById('readout');
+var rotateBtn = document.getElementById('rotateBtn');
+
+function sceneAxis(name) {
+  return {
+    title: { text: '<i>' + name + '</i>', font: { size: 15 } },
+    range: CONFIG.ranges[name],
+    color: '#606060',
+    gridcolor: '#e5e5e5',
+    zerolinecolor: '#bdbdbd',
+    showspikes: false
+  };
+}
+var layout = {
+  margin: { l: 0, r: 0, t: 0, b: 0 },
+  paper_bgcolor: '#ffffff',
+  showlegend: false,
+  uirevision: 'keep',
+  font: { family: '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif' },
+  scene: {
+    uirevision: 'keep',
+    aspectmode: 'data',
+    camera: { eye: CONFIG.camera },
+    xaxis: sceneAxis('x'),
+    yaxis: sceneAxis('y'),
+    zaxis: sceneAxis('z')
+  }
+};
+
+function lineTrace(cv, color, width) {
+  return {
+    type: 'scatter3d', mode: 'lines', x: cv.x, y: cv.y, z: cv.z,
+    line: { color: color, width: width }, hoverinfo: 'skip'
+  };
+}
+
+var GEN = lineTrace(CONFIG.generating(), CURVE_COLOR, 7);
+var PLANE = CONFIG.plane();
+var PLANE_TRACE = {
+  type: 'surface', x: PLANE.x, y: PLANE.y, z: PLANE.z,
+  colorscale: [[0, '#9a9a9a'], [1, '#9a9a9a']], showscale: false,
+  opacity: 0.12, hoverinfo: 'skip'
+};
+var RULINGS = CONFIG.rulings().map(function (cv) { return lineTrace(cv, RULING_COLOR, 2); });
+var S = CONFIG.surface();
+var SURFACE_TRACE = {
+  type: 'surface', x: S.x, y: S.y, z: S.z,
+  colorscale: SURFACE_SCALE, showscale: false,
+  opacity: 0.55, hoverinfo: 'skip',
+  lighting: { ambient: 0.92, diffuse: 0.25, specular: 0.03, fresnel: 0.05 },
+  contours: { x: { show: false }, y: { show: false }, z: { show: false } }
+};
+
+var lastTypeset = '';
+function update() {
+  var data = [PLANE_TRACE];
+  if (stage === 'all') data = data.concat([SURFACE_TRACE], RULINGS);
+  data.push(GEN);
+  var P = CONFIG.point(t);
+  var html;
+  if (stage === 'curve') {
+    html = '\\(' + CONFIG.curveLatex + '\\)' +
+      ' <span class="kind">(the generating curve, in the ' + CONFIG.planeName + ')</span>';
+  } else {
+    var L = CONFIG.ruling(t);
+    data.push(lineTrace(L, LINE_COLOR, 7));
+    data.push({
+      type: 'scatter3d', mode: 'markers', x: [P[0]], y: [P[1]], z: [P[2]],
+      marker: { color: LINE_COLOR, size: 6 }, hoverinfo: 'skip'
+    });
+    html = '\\(P = (' + fmt(P[0]) + ',\\, ' + fmt(P[1]) + ',\\, ' + fmt(P[2]) + '),\\quad ' +
+      CONFIG.lineLatex(t) + '\\)' +
+      ' <span class="kind">(' + (stage === 'all' ? 'one of the lines parallel to the ' + CONFIG.axisName + '-axis' :
+      'the line through P parallel to the ' + CONFIG.axisName + '-axis') + ')</span>';
+  }
+  Plotly.react(gd, data, layout, { displayModeBar: false, responsive: true });
+  tval.textContent = fmt(t);
+  if (html !== lastTypeset) {
+    lastTypeset = html;
+    readout.innerHTML = html;
+    if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([readout]);
+  }
+}
+
+function setStage(s) {
+  stage = s;
+  document.querySelectorAll('.stage-btn').forEach(function (b) {
+    var on = (b.dataset.stage === s);
+    b.classList.toggle('active', on);
+    b.style.background = on ? STAGE_COLORS[s] : '';
+  });
+  slider.disabled = (s === 'curve');
+  update();
+}
+document.querySelectorAll('.stage-btn').forEach(function (b) {
+  b.addEventListener('click', function () { setStage(b.dataset.stage); });
+});
+slider.min = CONFIG.tRange[0]; slider.max = CONFIG.tRange[1]; slider.step = CONFIG.tStep;
+slider.value = t;
+slider.addEventListener('input', function () {
+  t = parseFloat(slider.value);
+  update();
+});
+
+var rotTimer = null;
+rotateBtn.addEventListener('click', function () {
+  if (rotTimer) {
+    clearInterval(rotTimer); rotTimer = null;
+    rotateBtn.textContent = 'Rotate';
+    return;
+  }
+  rotateBtn.textContent = 'Pause';
+  rotTimer = setInterval(function () {
+    var cam = (gd._fullLayout && gd._fullLayout.scene) ?
+      gd._fullLayout.scene.camera : layout.scene.camera;
+    var e = cam.eye, a = 0.03;
+    var nx = e.x * Math.cos(a) - e.y * Math.sin(a);
+    var ny = e.x * Math.sin(a) + e.y * Math.cos(a);
+    Plotly.relayout(gd, { 'scene.camera.eye': { x: nx, y: ny, z: e.z } });
+  }, 50);
+});
+
+setStage(stage);
+</script>
+</body>
+</html>

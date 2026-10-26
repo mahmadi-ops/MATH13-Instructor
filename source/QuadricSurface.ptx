@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <section xml:id="section-quadric-surfaces" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Quadric Surfaces</title>
+  <title>Quadric Surfaces and Cylinders</title>
 
 <objectives>
       <ol>
@@ -24,6 +24,12 @@
           <p>
             What conditions on the coefficients of a second-degree equation in three variables 
             will produce a quadric surface?  What are the different types of quadric surfaces?
+          </p>
+        </li>
+        <li>
+          <p>
+            What is a cylinder, in the sense of this section, and how do we recognize one
+            from its equation?
           </p>
         </li>
       </ol>
@@ -1311,6 +1317,397 @@ from a hyperboloid of two sheets.
       </shortdescription>
     </image>
   </figure>
+
+</subsection>
+
+<subsection xml:id="subsec-cylinders">
+  <title>Cylinders</title>
+
+  <p>
+    One family of surfaces is still missing from this section, and it is the one
+    whose name you already know.  In everyday language a cylinder is a tin can;
+    in this section the word means something broader, and the tin can is only
+    the most familiar member of the family.
+  </p>
+
+  <definition xml:id="def-cylinder">
+    <statement>
+      <p>
+        A <term>cylinder</term> is the set of all lines that are parallel to a
+        given line and pass through a given plane curve, which is known as the
+        <term>generating curve</term> of the cylinder.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The lines are called the <term>rulings</term> of the cylinder, and together
+    they sweep out the surface, as in <xref ref="fig-cylinder-definition"/>.
+    Nothing in the definition asks the generating curve to be a circle, or even
+    to be closed: any plane curve will do, and the rulings may be parallel to
+    any line.
+  </p>
+
+  <figure xml:id="fig-cylinder-definition">
+    <caption>
+      A cylinder: the lines through a plane curve <m>C</m> (the generating
+      curve) that are parallel to a given line <m>L</m>.
+    </caption>
+    <image xml:id="image-cylinder-definition" width="62%">
+      <shortdescription>
+        A wavy curve C drawn in the xz-plane, and through each of its points a
+        line parallel to the y-axis; the lines together form a corrugated sheet.
+        A dashed line L parallel to the rulings stands to one side.
+      </shortdescription>
+      <latex-image>
+        <![CDATA[\begin{tikzpicture}[x={(-0.62cm,-0.42cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=stealth, scale=1.05]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \pgfmathdeclarefunction{gen}{1}{\pgfmathparse{0.55*#1*#1 + 0.25*cos(230*#1) + 0.1}}
+  % back edge of the sheet
+  \draw[oiblue!55, thin] plot[domain=-1.8:1.8, samples=70] (\x, 3.0, {gen(\x)});
+  % rulings
+  \foreach \x in {-1.8,-1.5,...,1.8} {
+    \draw[oiblue!55, thin] (\x, -2.6, {gen(\x)}) -- (\x, 3.0, {gen(\x)});
+  }
+  % axes
+  \draw[->, thick] (0,0,0) -- (3.2,0,0) node[below left] {$x$};
+  \draw[->, thick] (0,-2.9,0) -- (0,3.9,0) node[right] {$y$};
+  \draw[->, thick] (0,0,0) -- (0,0,3.5) node[above] {$z$};
+  \node[below right, inner sep=1pt] at (0,0,0) {$0$};
+  % front edge of the sheet
+  \draw[oiblue!55, thin] plot[domain=-1.8:1.8, samples=70] (\x, -2.6, {gen(\x)});
+  % the generating curve, in the plane y = 0
+  \draw[oiblue, very thick] plot[domain=-1.8:1.8, samples=70] (\x, 0, {gen(\x)});
+  \node[oiblue, above left] at (1.8, 0, {gen(1.8)}) {$C$};
+  % the given line L, parallel to the rulings
+  \draw[dashed, thick] (-1.0, 1.0, 3.4) -- (-1.0, 3.4, 3.4) node[right] {$L$};
+\end{tikzpicture}]]>
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    In this section the given line will always be one of the coordinate axes and
+    the generating curve will lie in the coordinate plane perpendicular to it.
+    That special position makes a cylinder easy to recognize from its equation,
+    and the definition itself is all we need to draw it, as the next example shows.
+  </p>
+
+  <example xml:id="ex-parabolic-cylinder">
+    <title>A parabolic cylinder</title>
+    <statement>
+      <p>
+        Identify and sketch the surface <m>z = x^2</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that <m>y</m> is missing from the equation of the surface, so the
+        equation places no condition on <m>y</m> at all.  Begin in the
+        <m>xz</m>-plane, where <m>y = 0</m>: there the equation <m>z = x^2</m>
+        describes a parabola, shown on the left of
+        <xref ref="fig-parabolic-cylinder-rulings"/>.  This parabola is the
+        generating curve.
+      </p>
+
+      <p>
+        Now take any point <m>P = (a, 0, a^2)</m> on the parabola.  Since the
+        equation does not involve <m>y</m>, the point <m>(a, y, a^2)</m>
+        satisfies <m>z = x^2</m> for <em>every</em> value of <m>y</m>, which
+        means that the entire line through <m>P</m> parallel to the
+        <m>y</m>-axis lies on the surface.  The same is true of every other point
+        of the parabola, so the surface is made of all the lines parallel to the
+        <m>y</m>-axis that pass through the parabola <m>z = x^2</m>.  By
+        <xref ref="def-cylinder"/>, this is a cylinder: its generating curve is
+        the parabola and its rulings are parallel to the <m>y</m>-axis, as on
+        the right of <xref ref="fig-parabolic-cylinder-rulings"/>.  We call it a
+        <term>parabolic cylinder</term>.<fn>In equation
+        <xref ref="quad-simplified"/>, take <m>A = 1</m>, <m>B = 0</m>,
+        <m>C = 0</m>, <m>D = -1</m>, and <m>E = 0</m>.  A cylinder with a conic
+        as its generating curve is a quadric surface in which one of the three
+        variables is absent.</fn>
+      </p>
+
+      <figure xml:id="fig-parabolic-cylinder-rulings">
+        <caption>
+          The parabolic cylinder <m>z = x^2</m>.  Left: the generating curve, the
+          parabola <m>z = x^2</m> in the <m>xz</m>-plane, with a point
+          <m>P = (a, 0, a^2)</m> on it.  Right: the line through <m>P</m>
+          parallel to the <m>y</m>-axis, and the other lines parallel to it
+          through the parabola, which together make up the surface.
+        </caption>
+        <sidebyside widths="38% 58%" valign="middle">
+         <image xml:id="image-parabolic-cylinder-generating-curve">
+          <shortdescription>
+            The parabola z = x squared in the xz-plane, with the point P = (a, a squared) marked on it.
+          </shortdescription>
+          <prefigure xmlns="https://prefigure.org" label="parabolic-cylinder-generating-curve">
+            <diagram dimensions="(230,232)" margins="5">
+              <definition>f(t) = (t, t^2)</definition>
+              <coordinates bbox="[0,0,230,232]">
+                <coordinates bbox="[-3,-1,3,5.5]" destination="[12,6,222,196]">
+                  <axes arrows="1" decorations="no" xlabel="x" ylabel="z"/>
+                  <parametric-curve at="generating-curve" function="f" domain="(-2.3,2.3)"
+                                stroke="#0072B2" thickness="3"/>
+                  <point at="P" p="(1,1)" fill="#D55E00" stroke="#D55E00" size="4"/>
+                  <label anchor="(1,1)" alignment="se" offset="(4,-2)"><m>P</m></label>
+                </coordinates>
+                <label anchor="(115,214)" alignment="c"><m>y=0:\ \ z = x^2</m></label>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="The generating curve of the parabolic cylinder: the parabola z equals x squared in the xz-plane">
+                  <annotation ref="generating-curve" text="The parabola z equals x squared, opening upward with vertex at the origin"/>
+                  <annotation ref="P" text="A point P on the parabola, with coordinates a and a squared; the line through P parallel to the y-axis lies on the surface"/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+         </image>
+         <image xml:id="image-parabolic-cylinder-rulings">
+          <shortdescription>
+            Three-dimensional axes with the parabola z = x squared drawn in the xz-plane, the line through the point P on it parallel to the y-axis drawn in orange, and the other lines parallel to the y-axis through the parabola drawn in light blue, forming a trough.
+          </shortdescription>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[x={(-0.62cm,-0.42cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=stealth, scale=1.0]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oiorange}{RGB}{213,94,0}
+  % the other rulings, parallel to the y-axis, through the parabola z = x^2
+  \foreach \x in {-1.6,-1.4,...,1.6} {
+    \draw[oiblue!50, thin] (\x, -2.2, {\x*\x}) -- (\x, 2.6, {\x*\x});
+  }
+  \draw[oiblue!50, thin] plot[domain=-1.6:1.6, samples=50] (\x, -2.2, {\x*\x});
+  \draw[oiblue!50, thin] plot[domain=-1.6:1.6, samples=50] (\x, 2.6, {\x*\x});
+  % axes
+  \draw[->, thick] (0,0,0) -- (2.6,0,0) node[below left] {$x$};
+  \draw[->, thick] (0,-2.5,0) -- (0,3.2,0) node[right] {$y$};
+  \draw[->, thick] (0,0,0) -- (0,0,3.0) node[above] {$z$};
+  % the generating curve, in the plane y = 0
+  \draw[oiblue, very thick] plot[domain=-1.6:1.6, samples=50] (\x, 0, {\x*\x});
+  \node[oiblue, above left] at (1.6, 0, 2.56) {$z = x^2$};
+  % the line through P = (a, 0, a^2)
+  \draw[oiorange, very thick] (1.0, -2.2, 1.0) -- (1.0, 2.6, 1.0);
+  \fill[oiorange] (1.0, 0, 1.0) circle (2pt);
+  \node[oiorange, below right, inner sep=3pt] at (1.0, 0, 1.0) {$P$};
+\end{tikzpicture}]]>
+          </latex-image>
+         </image>
+        </sidebyside>
+      </figure>
+
+      <p>
+        <xref ref="fig-parabolic-cylinder-interactive"/> lets you build the
+        surface this way yourself: slide the point <m>P</m> along the generating
+        curve and watch the line through it, then switch on all the other
+        parallel lines.
+      </p>
+
+      <figure xml:id="fig-parabolic-cylinder-interactive">
+        <caption>
+          Building the parabolic cylinder <m>z = x^2</m> from its definition:
+          the generating curve, the line through a point of it parallel to the
+          <m>y</m>-axis, and all the other parallel lines.
+        </caption>
+        <interactive xml:id="interactive-parabolic-cylinder-rulings" iframe="parabolic-cylinder-rulings.html" width="100%" aspect="8:7">
+          <instructions>
+            <p>
+            Use the buttons to show the generating curve, the line through
+            <m>P</m> parallel to the <m>y</m>-axis, and then all the other lines
+            parallel to it, and drag the slider to move <m>P</m> along the
+            curve.  The coordinates of <m>P</m> and the equation of the line
+            through it are displayed above the figure.  Drag the figure to view
+            it from a different angle, or press the <q>Rotate</q> button to spin
+            it automatically.</p>
+          </instructions>
+        </interactive>
+      </figure>
+
+      <p>
+        The animation in <xref ref="fig-parabolic-cylinder-video"/> builds the
+        surface the same way, one line at a time.
+      </p>
+
+      <figure xml:id="fig-parabolic-cylinder-video">
+        <caption>
+          Building <m>z = x^2</m> from its generating curve: the line through
+          <m>P</m> parallel to the <m>y</m>-axis, and then all the other parallel
+          lines.
+        </caption>
+        <video xml:id="video-parabolic-cylinder-rulings"
+               source="videos/parabolic_cylinder_rulings_manim.mp4"
+               preview="videos/previews/parabolic_cylinder_rulings_manim.jpg"
+               width="100%" aspect="16:9"/>
+      </figure>
+    </solution>
+  </example>
+
+  <p>
+    A word of warning.  The equation <m>z = x^2</m> is the equation of a parabola
+    when we work in the <m>xz</m>-plane and the equation of a parabolic cylinder
+    when we work in space.  The equation alone cannot tell you which is meant;
+    the context must.  In this section, and in every chapter that follows, an
+    equation in <m>x</m>, <m>y</m>, and <m>z</m> describes a surface, even when
+    one of the three letters happens not to appear.
+  </p>
+
+  <example xml:id="ex-circular-cylinder">
+    <title>A circular cylinder along the <m>x</m>-axis</title>
+    <statement>
+      <p>
+        Identify and sketch the surface <m>y^2 + z^2 = 4</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This time <m>x</m> is the missing variable, so we begin in the
+        <m>yz</m>-plane, where <m>x = 0</m>.  There the equation
+        <m>y^2 + z^2 = 4</m> describes the circle of radius <m>2</m> centred at
+        the origin, shown on the left of
+        <xref ref="fig-circular-cylinder-rulings"/>; this circle is the
+        generating curve.
+      </p>
+
+      <p>
+        Take any point <m>P = (0, b, c)</m> of the circle, so that
+        <m>b^2 + c^2 = 4</m>.  Because <m>x</m> does not appear in the equation,
+        every point <m>(x, b, c)</m> satisfies it too, whatever the value of
+        <m>x</m>: the whole line through <m>P</m> parallel to the <m>x</m>-axis
+        lies on the surface.  Doing this for every point of the circle, the
+        surface is the set of all lines parallel to the <m>x</m>-axis through the
+        circle <m>y^2 + z^2 = 4</m>.  By <xref ref="def-cylinder"/> it is a
+        cylinder with the circle as its generating curve and rulings parallel to
+        the <m>x</m>-axis, as on the right of
+        <xref ref="fig-circular-cylinder-rulings"/>: a <term>circular
+        cylinder</term> of radius <m>2</m> whose axis is the <m>x</m>-axis
+        <mdash/> the familiar tin can, lying on its side and extending forever
+        in both directions.<fn>In equation <xref ref="quad-simplified"/>, take
+        <m>A = 0</m>, <m>B = 1</m>, <m>C = 1</m>, <m>D = 0</m>, and
+        <m>E = 4</m>.  Replacing the circle by an ellipse, say
+        <m>\frac{y^2}{4} + \frac{z^2}{9} = 1</m>, gives an
+        <term>elliptic cylinder</term> in exactly the same way.</fn>
+      </p>
+
+      <figure xml:id="fig-circular-cylinder-rulings">
+        <caption>
+          The circular cylinder <m>y^2 + z^2 = 4</m>.  Left: the generating
+          curve, the circle <m>y^2 + z^2 = 4</m> in the <m>yz</m>-plane, with a
+          point <m>P = (0, b, c)</m> on it.  Right: the line through <m>P</m>
+          parallel to the <m>x</m>-axis, and the other lines parallel to it
+          through the circle, which together make up the surface.
+        </caption>
+        <sidebyside widths="38% 58%" valign="middle">
+         <image xml:id="image-circular-cylinder-generating-curve">
+          <shortdescription>
+            The circle of radius 2 centred at the origin in the yz-plane, with the point P = (b, c) marked on it.
+          </shortdescription>
+          <prefigure xmlns="https://prefigure.org" label="circular-cylinder-generating-curve">
+            <diagram dimensions="(230,232)" margins="5">
+              <definition>f(t) = (2*cos(t), 2*sin(t))</definition>
+              <coordinates bbox="[0,0,230,232]">
+                <coordinates bbox="[-3.2,-3.2,3.2,3.2]" destination="[12,6,222,196]">
+                  <axes arrows="1" decorations="no" xlabel="y" ylabel="z"/>
+                  <parametric-curve at="generating-curve" function="f" domain="(0,2*pi)" closed="yes"
+                                stroke="#0072B2" thickness="3"/>
+                  <point at="P" p="(1,sqrt(3))" fill="#D55E00" stroke="#D55E00" size="4"/>
+                  <label anchor="(1,sqrt(3))" alignment="ne" offset="(4,4)"><m>P</m></label>
+                </coordinates>
+                <label anchor="(115,214)" alignment="c"><m>x=0:\ \ y^2 + z^2 = 4</m></label>
+              </coordinates>
+              <annotations>
+                <annotation ref="figure" text="The generating curve of the circular cylinder: the circle of radius 2 centred at the origin in the yz-plane">
+                  <annotation ref="generating-curve" text="The circle y squared plus z squared equals 4, of radius 2, centred at the origin"/>
+                  <annotation ref="P" text="A point P on the circle, with coordinates b and c; the line through P parallel to the x-axis lies on the surface"/>
+                </annotation>
+              </annotations>
+            </diagram>
+          </prefigure>
+         </image>
+         <image xml:id="image-circular-cylinder-rulings">
+          <shortdescription>
+            Three-dimensional axes with the circle of radius 2 drawn in the yz-plane, the line through the point P on it parallel to the x-axis drawn in orange, and the other lines parallel to the x-axis through the circle drawn in light blue, forming a tube around the x-axis.
+          </shortdescription>
+          <latex-image>
+            <![CDATA[\begin{tikzpicture}[x={(-0.62cm,-0.42cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=stealth, scale=0.95]
+  \definecolor{oiblue}{RGB}{0,114,178}
+  \definecolor{oiorange}{RGB}{213,94,0}
+  % the other rulings, parallel to the x-axis, through the circle y^2 + z^2 = 4
+  \foreach \t in {0,15,...,345} {
+    \draw[oiblue!50, thin] (-2.4, {2*cos(\t)}, {2*sin(\t)}) -- (2.4, {2*cos(\t)}, {2*sin(\t)});
+  }
+  \draw[oiblue!50, thin] plot[domain=0:360, samples=73] (-2.4, {2*cos(\x)}, {2*sin(\x)});
+  \draw[oiblue!50, thin] plot[domain=0:360, samples=73] (2.4, {2*cos(\x)}, {2*sin(\x)});
+  % axes
+  \draw[->, thick] (0,0,0) -- (3.6,0,0) node[below left] {$x$};
+  \draw[->, thick] (0,0,0) -- (0,3.2,0) node[right] {$y$};
+  \draw[->, thick] (0,0,0) -- (0,0,3.0) node[above] {$z$};
+  % the generating curve, in the plane x = 0
+  \draw[oiblue, very thick] plot[domain=0:360, samples=73] (0, {2*cos(\x)}, {2*sin(\x)});
+  \node[oiblue, above right] at (0, 1.5, 1.9) {$y^2 + z^2 = 4$};
+  % the line through P = (0, 1, sqrt 3)
+  \draw[oiorange, very thick] (-2.4, 1, 1.732) -- (2.4, 1, 1.732);
+  \fill[oiorange] (0, 1, 1.732) circle (2pt);
+  \node[oiorange, above left, inner sep=2pt] at (0, 1, 1.732) {$P$};
+\end{tikzpicture}]]>
+          </latex-image>
+         </image>
+        </sidebyside>
+      </figure>
+
+      <p>
+        <xref ref="fig-circular-cylinder-interactive"/> builds this surface
+        from its generating curve, and the animation in
+        <xref ref="fig-circular-cylinder-video"/> does the same one line at a
+        time.
+      </p>
+
+      <figure xml:id="fig-circular-cylinder-interactive">
+        <caption>
+          Building the circular cylinder <m>y^2 + z^2 = 4</m> from its
+          definition: the generating curve, the line through a point of it
+          parallel to the <m>x</m>-axis, and all the other parallel lines.
+        </caption>
+        <interactive xml:id="interactive-circular-cylinder-rulings" iframe="circular-cylinder-rulings.html" width="100%" aspect="8:7">
+          <instructions>
+            <p>
+            Use the buttons to show the generating curve, the line through
+            <m>P</m> parallel to the <m>x</m>-axis, and then all the other lines
+            parallel to it, and drag the slider to move <m>P</m> around the
+            circle.  The coordinates of <m>P</m> and the equation of the line
+            through it are displayed above the figure.  Drag the figure to view
+            it from a different angle, or press the <q>Rotate</q> button to spin
+            it automatically.</p>
+          </instructions>
+        </interactive>
+      </figure>
+
+      <figure xml:id="fig-circular-cylinder-video">
+        <caption>
+          Building <m>y^2 + z^2 = 4</m> from its generating curve: the line
+          through <m>P</m> parallel to the <m>x</m>-axis, and then all the other
+          parallel lines.
+        </caption>
+        <video xml:id="video-circular-cylinder-rulings"
+               source="videos/circular_cylinder_rulings_manim.mp4"
+               preview="videos/previews/circular_cylinder_rulings_manim.jpg"
+               width="100%" aspect="16:9"/>
+      </figure>
+    </solution>
+  </example>
+
+  <p>
+    The two examples share one pattern, and it is the whole test for a cylinder
+    in standard position: <em>one variable is missing from the equation</em>.
+    The generating curve is then the graph of the equation in the coordinate
+    plane of the other two variables, and the rulings are parallel to the axis
+    of the missing variable, because that variable is free to take any value.
+    When the generating curve is a conic section the cylinder is itself a
+    quadric surface <mdash/> a parabolic, elliptic, or hyperbolic cylinder,
+    according to the conic <mdash/> and these are the quadric surfaces that the
+    six-row table of <xref ref="subsec-quadric-summary"/> leaves out, the ones in
+    which equation <xref ref="quad-simplified"/> has lost a variable entirely.
+    But the generating curve need not be a conic at all: the surface
+    <m>z = \sin y</m> is a cylinder too, a corrugated sheet whose rulings run
+    parallel to the <m>x</m>-axis.
+  </p>
 
 </subsection>
 
