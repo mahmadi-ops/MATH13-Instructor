@@ -988,9 +988,9 @@ W = \mathbf F\cdot\mathbf d
 The normal part of the force is simply wasted: it presses the particle
 against the constraint and does no work. Writing
 <m>\mathbf F_{\parallel}\cdot\mathbf d
-= \|\mathbf F_{\parallel}\|\,\|\mathbf d\|\cos\varphi
-= \|\mathbf F_{\parallel}\|\cos\varphi</m>, the largest value occurs when
-<m>\cos\varphi = 1</m>, that is when <m>\mathbf d</m> points in the same
+= \|\mathbf F_{\parallel}\|\,\|\mathbf d\|\cos\theta
+= \|\mathbf F_{\parallel}\|\cos\theta</m>, the largest value occurs when
+<m>\cos\theta = 1</m>, that is when <m>\mathbf d</m> points in the same
 direction as <m>\mathbf F_{\parallel}</m>. Since
 <md>
 \left\|\left\langle -4,2,5\right\rangle\right\| = \sqrt{16+4+25}
@@ -1098,6 +1098,26 @@ We can confirm this directly from the original force:
 Compare this with <m>\|\mathbf F\| = \sqrt{14} \approx 3.74</m>: the
 constraint costs us about <m>80\%</m> of the force.
 </p>
+
+<p>
+The animation in <xref ref="fig-dp-constrained-work-video"/> runs through
+parts (a) and (b) together.
+</p>
+
+<figure xml:id="fig-dp-constrained-work-video">
+<caption>
+Every unit vector <m>\mathbf d</m> lying in the plane is an allowed
+direction, so there are infinitely many of them. The work
+<m>W = \mathbf F\cdot\mathbf d
+= \left\|\mathbf F_{\parallel}\right\|\cos\theta</m>, where
+<m>\theta</m> is the angle between <m>\mathbf d</m> and
+<m>\mathbf F_{\parallel}</m>, is largest when <m>\theta = 0</m>.
+</caption>
+<video xml:id="video-dp-constrained-work"
+       source="videos/constrained_work_1080p.mp4"
+       preview="videos/previews/constrained_work_1080p.jpg"
+       width="90%" aspect="16:9"/>
+</figure>
 
 <p>
 <term>(c)</term> We want a unit vector
