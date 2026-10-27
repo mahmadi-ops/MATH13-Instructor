@@ -849,6 +849,24 @@ the ellipse is out of its reach.
 </prefigure>
 </image>
 </figure>
+
+<p>
+The animation in <xref ref="fig-rope-trees-video"/> follows the bottle
+down the rope, then carries the taut rope all the way round the ellipse.
+</p>
+
+<figure xml:id="fig-rope-trees-video">
+<caption>
+As the bottle slides down the taut rope, its fold point <m>P</m> traces
+the blue arc while <m>|AP| + |PB|</m> stays <m>120</m> feet. Carried all
+the way round, the taut rope draws the whole ellipse with foci <m>A</m>
+and <m>B</m>; the bottle reaches only the solid arc between the trees.
+</caption>
+<video xml:id="video-rope-trees"
+       source="videos/rope_trees_ellipse_1080p.mp4"
+       preview="videos/previews/rope_trees_ellipse_1080p.jpg"
+       width="90%" aspect="16:9"/>
+</figure>
 </solution>
 </exercise>
 
