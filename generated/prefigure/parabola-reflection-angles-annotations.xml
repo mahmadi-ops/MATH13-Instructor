@@ -1,0 +1,69 @@
+<diagram>
+  <annotations>
+    <annotation id="parabola-reflection-angles-parabola" speech2="The law of reflection sends a ray parallel to the axis through the focus">
+      <grouped>parabola-reflection-angles-parabola</grouped>
+      <position>1</position>
+      <children>
+        <active>parabola-reflection-angles-parabola</active>
+        <active>parabola-reflection-angles-incoming</active>
+        <active>parabola-reflection-angles-tangent</active>
+        <active>parabola-reflection-angles-alpha-in</active>
+        <active>parabola-reflection-angles-alpha-out</active>
+        <active>parabola-reflection-angles-reflected</active>
+      </children>
+      <components>
+        <active>parabola-reflection-angles-parabola</active>
+        <active>parabola-reflection-angles-incoming</active>
+        <active>parabola-reflection-angles-tangent</active>
+        <active>parabola-reflection-angles-alpha-in</active>
+        <active>parabola-reflection-angles-alpha-out</active>
+        <active>parabola-reflection-angles-reflected</active>
+      </components>
+    </annotation>
+    <annotation id="parabola-reflection-angles-parabola" speech2="An upward-opening parabola with focus F and the dashed horizontal directrix below it" sonify="yes">
+      <active>parabola-reflection-angles-parabola</active>
+      <position>1</position>
+      <parents>
+        <grouped>parabola-reflection-angles-parabola</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>parabola-reflection-angles-parabola</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="parabola-reflection-angles-incoming" speech2="An orange ray coming straight down, parallel to the axis, and striking the parabola at P; its line continues dashed to the point D on the directrix">
+      <active>parabola-reflection-angles-incoming</active>
+      <position>2</position>
+      <parents>
+        <grouped>parabola-reflection-angles-parabola</grouped>
+      </parents>
+    </annotation>
+    <annotation id="parabola-reflection-angles-tangent" speech2="The tangent line m at P">
+      <active>parabola-reflection-angles-tangent</active>
+      <position>3</position>
+      <parents>
+        <grouped>parabola-reflection-angles-parabola</grouped>
+      </parents>
+    </annotation>
+    <annotation id="parabola-reflection-angles-alpha-in" speech2="The angle alpha between the incoming ray and the tangent">
+      <active>parabola-reflection-angles-alpha-in</active>
+      <position>4</position>
+      <parents>
+        <grouped>parabola-reflection-angles-parabola</grouped>
+      </parents>
+    </annotation>
+    <annotation id="parabola-reflection-angles-alpha-out" speech2="The equal angle alpha between the tangent and the reflected ray">
+      <active>parabola-reflection-angles-alpha-out</active>
+      <position>5</position>
+      <parents>
+        <grouped>parabola-reflection-angles-parabola</grouped>
+      </parents>
+    </annotation>
+    <annotation id="parabola-reflection-angles-reflected" speech2="The red reflected ray, which leaves P along PF and passes through the focus">
+      <active>parabola-reflection-angles-reflected</active>
+      <position>6</position>
+      <parents>
+        <grouped>parabola-reflection-angles-parabola</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
