@@ -4,9 +4,9 @@
 <introduction>
 <p>
 The ten assignments, the four review problem sets, two sample past exams, and
-Exam 1, in one place. Worked solutions appear beneath each problem once the
-assignment's due date has passed; solutions for the review sets are posted
-the same way.
+Exams 1 and 2, in one place. Worked solutions appear beneath each problem
+once the assignment's due date has passed; solutions for the review sets are
+posted the same way.
 </p>
 
 <assemblage xml:id="assemblage-tutor-guide">
@@ -225,6 +225,10 @@ right or wrong, earns nothing.
 <!-- ================= Sample Past Exam 2 ================= -->
 <!-- The seven exam questions with their worked solutions. -->
 <xi:include href="sample-past-exam-2.ptx"/>
+
+<!-- ================= Exam 2 ================= -->
+<!-- This quarter's Exam 2, with solutions. -->
+<xi:include href="exam-2.ptx"/>
 
 <!-- ================= Assignment 7 ================= -->
 <xi:include href="assignment-7-functions-several-variables.ptx"/>

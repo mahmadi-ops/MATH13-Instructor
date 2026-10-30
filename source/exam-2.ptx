@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Exam 2 (Fall 2026), with solutions.
+
+  Transcribed from the instructor's solutions, MATH13-Exam2-Fall2026-Solutions:
+  the instructions, the key's note on how full its solutions are, the seven
+  problems with their solutions, and the answers at a glance, which stay at
+  the end so that they do not give the problems away. The page headers were
+  left out. The exam had no formula sheet. The five sketches in the
+  solutions (Problems 4 and 5) are redrawn in TikZ.
+
+  M13-Skeletal-Notes and MATH13-Skeletal-Instructor hold the same file
+  with the seven topic links in the introduction pointed at the skeletal
+  notes' ids. Keep the copies identical apart from those links.
+-->
+<worksheet xml:id="worksheet-exam-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exam 2</title>
+
+<introduction>
+<p>
+Exam 2 of this quarter (Fall 2026), with solutions. These were the
+instructions on the exam:
+</p>
+
+<p>
+<ul>
+<li><p>You have <alert>65 minutes</alert>. The exam has 7 problems and is worth <alert>20 points</alert>.</p></li>
+<li><p>This is a closed-book exam. No aids of your own are permitted: no formula sheets, notes, phones, tablets, smart watches, or similar. <alert>Calculators of any kind are not permitted.</alert></p></li>
+<li><p>Write your work in a neat and organized format and <alert>fully justify every step</alert>. An answer without supporting work may receive little or no credit.</p></li>
+<li><p>Give exact answers. Decimal approximations are not required.</p></li>
+<li><p>If you need more room, use the blank page at the end of the booklet and say so on the page of the problem.</p></li>
+<li><p>Any violation of academic integrity, such as the use of AI, calculators, etc., may result in receiving an F and being reported to the Office of Student Life.</p></li>
+</ul>
+</p>
+
+<p>
+The solutions below are fuller than what is expected on the exam. The items
+marked <q>check</q> are sanity checks, not required steps.
+</p>
+
+<p>
+The topics it covers, with links to the notes:
+</p>
+
+<p>
+<ul>
+<li><p><xref ref="chapter-three-dimensional-coordinates" text="title"/></p></li>
+<li><p><xref ref="chapter-vectors" text="title"/></p></li>
+<li><p><xref ref="section-dot-product" text="title"/></p></li>
+<li><p><xref ref="section-cross-product" text="title"/></p></li>
+<li><p><xref ref="section-parametrization" text="title"/></p></li>
+<li><p><xref ref="chapter-lines-planes" text="title"/></p></li>
+<li><p><xref ref="section-conics" text="title"/></p></li>
+</ul>
+</p>
+</introduction>
+
+<!-- ===================== Problem 1 ===================== -->
+<exercise xml:id="ex2-p1">
+<title>3 points</title>
+<introduction>
+<p>
+Let <m>P(1,-2,3)</m> and <m>Q\left(3,2,3+\sqrt5\right)</m>.
+</p>
+</introduction>
+
+<task xml:id="ex2-p1-a">
+<statement>
+<p>
+Compute the vector <m>\vec v = \overrightarrow{PQ}</m> and its length
+<m>\|\vec v\|</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+Tip minus tail:
+<md>
+<mrow>\vec v \amp = \left\langle 3-1,\ 2-(-2),\ \left(3+\sqrt5\right)-3\right\rangle
+= \left\langle 2,\ 4,\ \sqrt5\right\rangle,</mrow>
+<mrow>\|\vec v\| \amp = \sqrt{4+16+5} = \sqrt{25} = 5.</mrow>
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="ex2-p1-b">
+<statement>
+<p>
+Find a vector <m>\vec w</m> that points in the opposite direction to
+<m>\vec v</m> and whose length is 10. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+Opposite direction and twice as long as <m>\vec v</m> (since
+<m>\|\vec v\| = 5</m>):
+<md>
+\vec w = -10\,\frac{\vec v}{\|\vec v\|} = -2\vec v
+= \left\langle -4,\ -8,\ -2\sqrt5\right\rangle
+</md>
+(check: <m>\|\vec w\| = 2\cdot 5 = 10</m>).
+</p>
+</solution>
+</task>
+
+<task xml:id="ex2-p1-c">
+<statement>
+<p>
+Find the unit vector in the direction of <m>\vec v + \vec w</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+<m>\vec v + \vec w = \vec v - 2\vec v = -\vec v = \left\langle -2,\ -4,\ -\sqrt5\right\rangle</m>,
+which has length <m>\|\vec v\| = 5</m>. Therefore
+<md>
+<mrow>\frac{\vec v + \vec w}{\|\vec v + \vec w\|}
+\amp = \frac{-\vec v}{\|\vec v\|}
+= -\frac15\left\langle 2,\ 4,\ \sqrt5\right\rangle</mrow>
+<mrow>\amp = \left\langle -\frac25,\ -\frac45,\ -\frac{\sqrt5}{5}\right\rangle.</mrow>
+</md>
+It is the unit vector pointing opposite to <m>\vec v</m>.
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 2 ===================== -->
+<exercise xml:id="ex2-p2">
+<title>2 points</title>
+<introduction>
+<p>
+Consider the surface with equation
+<md>
+x^2 + y^2 + z^2 - 4x + 6y = 3.
+</md>
+</p>
+</introduction>
+
+<task xml:id="ex2-p2-a">
+<statement>
+<p>
+Identify this surface and describe it precisely. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+Complete the squares in <m>x</m> and in <m>y</m>:
+<md>
+<mrow>\left(x^2 - 4x + 4\right) + \left(y^2 + 6y + 9\right) + z^2 \amp = 3 + 4 + 9</mrow>
+<mrow>(x-2)^2 + (y+3)^2 + z^2 \amp = 16 = 4^2.</mrow>
+</md>
+Comparing with <m>(x-x_0)^2 + (y-y_0)^2 + (z-z_0)^2 = r^2</m>, the surface
+is a <alert>sphere</alert>, with center <m>C(2,-3,0)</m> and radius
+<m>4</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="ex2-p2-b">
+<statement>
+<p>
+Describe geometrically the set of all points <m>(x,y,z)</m> that satisfy
+<alert>both</alert> <m>x^2 + y^2 + z^2 - 4x + 6y \le 3</m> and
+<m>y = -3</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+By part (a) the inequality is <m>(x-2)^2 + (y+3)^2 + z^2 \le 16</m>: the
+<alert>solid ball</alert> of radius <m>4</m> centered at <m>C(2,-3,0)</m>
+(the sphere together with its interior). Setting <m>y = -3</m> in it gives
+<md>
+(x-2)^2 + z^2 \le 16, \qquad y = -3,
+</md>
+the <alert>solid disk</alert> of radius <m>4</m> centered at
+<m>C(2,-3,0)</m> and lying in the plane <m>y = -3</m>. (The plane
+<m>y = -3</m> passes through the center of the ball, so the slice is a
+disk of the full radius <m>4</m>. Because of the inequality, the set is
+the disk and not just its boundary circle.)
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 3 ===================== -->
+<exercise xml:id="ex2-p3">
+<title>2 points</title>
+<statement>
+<p>
+Consider the two vectors <m>\vec u = \langle 1,-1,3\rangle</m> and
+<m>\vec v = \langle 2,2,1\rangle</m>. Write the vector <m>\vec u</m> as
+the sum of two vectors, one of which is parallel to <m>\vec v</m> and the
+other one is perpendicular to it.
+</p>
+</statement>
+<solution>
+<p>
+<md>
+\vec u\cdot\vec v = 2 - 2 + 3 = 3
+\qquad\text{and}\qquad
+\|\vec v\|^2 = 4 + 4 + 1 = 9.
+</md>
+The parallel part is the projection of <m>\vec u</m> onto <m>\vec v</m>:
+<md>
+\vec u_{\parallel} = \operatorname{proj}_{\vec v}\vec u
+= \left(\frac{\vec u\cdot\vec v}{\|\vec v\|^2}\right)\vec v
+= \frac39\langle 2,2,1\rangle
+= \left\langle \frac23,\ \frac23,\ \frac13\right\rangle,
+</md>
+and the perpendicular part is what is left over:
+<md>
+\vec u_{\perp} = \vec u - \vec u_{\parallel}
+= \langle 1,-1,3\rangle - \left\langle \frac23,\ \frac23,\ \frac13\right\rangle
+= \left\langle \frac13,\ -\frac53,\ \frac83\right\rangle.
+</md>
+Check: <m>\vec u_{\perp}\cdot\vec v = \frac23 - \frac{10}{3} + \frac83 = 0</m>,
+so <m>\vec u_{\perp}</m> really is perpendicular to <m>\vec v</m>. Hence
+<md>
+\underbrace{\langle 1,-1,3\rangle}_{\vec u}
+= \underbrace{\left\langle \frac23,\ \frac23,\ \frac13\right\rangle}_{\vec u_{\parallel}}
++ \underbrace{\left\langle \frac13,\ -\frac53,\ \frac83\right\rangle}_{\vec u_{\perp}}.
+</md>
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Problem 4 ===================== -->
+<exercise xml:id="ex2-p4">
+<title>3 points</title>
+<introduction>
+<p>
+In parts (a) and (b), parametrize the given curve: give the parametric
+equations and the range of the parameter.
+</p>
+</introduction>
+
+<task xml:id="ex2-p4-a">
+<statement>
+<p>
+The lower half of the ellipse
+<m>\dfrac{x^2}{16} + \dfrac{y^2}{9} = 1</m>, traced from <m>(4,0)</m> to
+<m>(-4,0)</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+The ellipse is
+<m>\left(\frac{x}{4}\right)^2 + \left(\frac{y}{3}\right)^2 = 1</m>, so
+<m>x = 4\cos t</m>, <m>y = \pm 3\sin t</m>. To start at <m>(4,0)</m> and
+move <alert>below</alert> the <m>x</m>-axis we need <m>y \le 0</m> as
+<m>t</m> increases from <m>0</m>, so we take the minus sign:
+<md>
+x(t) = 4\cos t, \qquad y(t) = -3\sin t, \qquad 0 \le t \le \pi.
+</md>
+Check: <m>t = 0</m> gives <m>(4,0)</m>; <m>t = \frac{\pi}{2}</m> gives
+<m>(0,-3)</m>, below the axis; <m>t = \pi</m> gives <m>(-4,0)</m>.
+</p>
+<image width="40%">
+<shortdescription>The ellipse with semi-axes 4 and 3 centered at the origin, its upper half dashed and its lower half drawn solid from (4,0) through (0,minus 3) to (minus 4,0), with an arrow at (minus 4,0).</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
+  \draw[-stealth] (-5.6,0) -- (5.6,0) node[right] {$x$};
+  \draw[-stealth] (0,-4) -- (0,4) node[above] {$y$};
+  \draw[dashed, gray] (4,0) arc[start angle=0, end angle=180, x radius=4, y radius=3];
+  \draw[very thick, blue!70!black, -stealth] (4,0) arc[start angle=0, end angle=-180, x radius=4, y radius=3];
+  \fill (4,0) circle (3pt) node[above right] {$(4,0)$};
+  \fill (-4,0) circle (3pt) node[above left] {$(-4,0)$};
+  \fill (0,-3) circle (3pt) node[below right] {$(0,-3)$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+
+<task xml:id="ex2-p4-b">
+<statement>
+<p>
+The circle of radius 2 centered at <m>(-3,1)</m>, traced once
+<alert>counterclockwise</alert>, starting at the point <m>(-3,3)</m>.
+(1 point)
+</p>
+</statement>
+<solution>
+<p>
+The circle is <m>(x+3)^2 + (y-1)^2 = 2^2</m>. The starting point
+<m>(-3,3)</m> is the top of the circle, and moving counterclockwise from
+the top means moving to the left first. One parametrization that does
+this is
+<md>
+x(t) = -3 - 2\sin t, \qquad y(t) = 1 + 2\cos t, \qquad 0 \le t \le 2\pi.
+</md>
+Check: <m>(x+3)^2 + (y-1)^2 = 4\sin^2 t + 4\cos^2 t = 4</m>;
+<m>t = 0</m> gives <m>(-3,3)</m>; <m>t = \frac{\pi}{2}</m> gives
+<m>(-5,1)</m>, the leftmost point, so the motion is counterclockwise.
+(Equivalently, <m>x = -3 + 2\cos t</m>, <m>y = 1 + 2\sin t</m> for
+<m>\frac{\pi}{2} \le t \le \frac{5\pi}{2}</m>.)
+</p>
+<image width="38%">
+<shortdescription>The circle of radius 2 centered at (minus 3,1), to the left of the y axis, with the starting point (minus 3,3) at its top marked and an arrow from there pointing to the left, showing the counterclockwise direction of motion.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.55]
+  \draw[-stealth] (-6.2,0) -- (1.6,0) node[right] {$x$};
+  \draw[-stealth] (0,-1.6) -- (0,4.4) node[above] {$y$};
+  \draw[very thick, blue!70!black] (-3,1) circle (2);
+  \draw[very thick, blue!70!black, -stealth] (-3,3) arc[start angle=90, end angle=135, radius=2];
+  \fill (-3,1) circle (2.5pt) node[below] {$(-3,1)$};
+  \fill (-3,3) circle (2.5pt) node[above] {$(-3,3)$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+
+<task xml:id="ex2-p4-c">
+<statement>
+<p>
+Consider the curve with parametric equations
+<md>
+x = \sqrt t, \qquad y = 1 - t, \qquad 0 \le t \le 4.
+</md>
+Sketch the curve. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+From <m>x = \sqrt t</m> we get <m>t = x^2</m>, and also <m>x \ge 0</m>,
+since a square root is never negative. Substituting into
+<m>y = 1 - t</m>,
+<md>
+y = 1 - x^2.
+</md>
+As <m>t</m> runs from <m>0</m> to <m>4</m>, <m>x = \sqrt t</m> runs from
+<m>0</m> to <m>2</m>, so the curve is only the part of the parabola
+<m>y = 1 - x^2</m> with <m>0 \le x \le 2</m>: it starts at <m>(0,1)</m>
+when <m>t = 0</m>, passes through <m>(1,0)</m> when <m>t = 1</m>, and ends
+at <m>(2,-3)</m> when <m>t = 4</m>, moving to the right and downward as
+<m>t</m> increases. (The left half of the parabola is not traced at all,
+because <m>x = \sqrt t</m> is never negative, and the part with
+<m>x \gt 2</m> is not traced because <m>t \le 4</m>.)
+</p>
+<image width="40%">
+<shortdescription>The parabola y equals 1 minus x squared, dashed, with the arc from (0,1) through (1,0) to (2,minus 3) drawn solid and an arrow at (2,minus 3); the rest of the parabola is not traced.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.65]
+  \draw[-stealth] (-2.8,0) -- (3.2,0) node[right] {$x$};
+  \draw[-stealth] (0,-4.2) -- (0,2.2) node[above] {$y$};
+  \draw[dashed, gray] plot[domain=-2.2:2.2, samples=60] (\x, {1-\x*\x});
+  \draw[very thick, blue!70!black, -stealth] plot[domain=0:2, samples=40] (\x, {1-\x*\x});
+  \fill (0,1) circle (2.5pt) node[above left] {$(0,1)$};
+  \fill (1,0) circle (2.5pt) node[above right] {$(1,0)$};
+  \fill (2,-3) circle (2.5pt) node[right] {$(2,-3)$};
+  \node[gray, left] at (-1.6,-1.56) {$y = 1 - x^2$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 5 ===================== -->
+<exercise xml:id="ex2-p5">
+<title>3 points</title>
+
+<task xml:id="ex2-p5-a">
+<statement>
+<p>
+Find the equation of the hyperbola whose <alert>vertices</alert> are
+<m>(0,-3)</m> and <m>(0,3)</m> and whose <alert>foci</alert> are
+<m>(0,-5)</m> and <m>(0,5)</m>. Find the equations of its asymptotes, and
+sketch the hyperbola together with its asymptotes. (2 points)
+</p>
+</statement>
+<solution>
+<p>
+The vertices and foci lie on the <m>y</m>-axis, so the hyperbola opens up
+and down and has the form
+<md>
+\frac{y^2}{b^2} - \frac{x^2}{a^2} = 1,
+</md>
+with vertices <m>(0,\pm b)</m> and foci <m>(0,\pm c)</m>, where
+<m>c^2 = a^2 + b^2</m>. The vertices give <m>b = 3</m> and the foci give
+<m>c = 5</m>, so <m>a^2 = c^2 - b^2 = 25 - 9 = 16</m> and <m>a = 4</m>.
+Hence
+<md>
+\boxed{\frac{y^2}{9} - \frac{x^2}{16} = 1}
+\qquad \left(\text{equivalently } 16y^2 - 9x^2 = 144\right).
+</md>
+The asymptotes are the lines <m>y = \pm\frac{b}{a}x</m>, exactly as for a
+hyperbola that opens left and right, that is,
+<md>
+y = \frac34 x \qquad\text{and}\qquad y = -\frac34 x.
+</md>
+</p>
+<image width="50%">
+<shortdescription>The hyperbola y squared over 9 minus x squared over 16 equals 1: an upper branch with vertex (0,3) and a lower branch with vertex (0,minus 3), the foci F1 at (0,5) and F2 at (0,minus 5) marked on the y axis, and the two dashed asymptotes y equals plus or minus three quarters x crossing at the origin.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.42]
+  \draw[-stealth] (-7.4,0) -- (7.6,0) node[right] {$x$};
+  \draw[-stealth] (0,-6.6) -- (0,6.8) node[above] {$y$};
+  \draw[dashed, gray] (-7,-5.25) -- (7,5.25) node[right] {$y = \frac34 x$};
+  \draw[dashed, gray] (-7,5.25) -- (7,-5.25) node[right] {$y = -\frac34 x$};
+  \draw[very thick, blue!70!black] plot[domain=-6.2:6.2, samples=80] (\x, {3*sqrt(1+\x*\x/16)});
+  \draw[very thick, blue!70!black] plot[domain=-6.2:6.2, samples=80] (\x, {-3*sqrt(1+\x*\x/16)});
+  \fill (0,3) circle (4pt) node[below left] {$(0,3)$};
+  \fill (0,-3) circle (4pt) node[above left] {$(0,-3)$};
+  \fill[red] (0,5) circle (4pt) node[right] {$F_1(0,5)$};
+  \fill[red] (0,-5) circle (4pt) node[right] {$F_2(0,-5)$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+
+<task xml:id="ex2-p5-b">
+<statement>
+<p>
+Find the equation of the parabola whose focus is <m>(-3,0)</m> and whose
+directrix is the line <m>x = 3</m>. In which direction does the parabola
+open? (1 point)
+</p>
+</statement>
+<solution>
+<p>
+A point <m>(x,y)</m> lies on the parabola exactly when its distance to the
+focus equals its distance to the directrix:
+<md>
+\sqrt{(x+3)^2 + y^2} = |x-3|.
+</md>
+Squaring both sides and expanding,
+<md>
+<mrow>(x+3)^2 + y^2 \amp = (x-3)^2</mrow>
+<mrow>x^2 + 6x + 9 + y^2 \amp = x^2 - 6x + 9,</mrow>
+</md>
+so
+<md>
+\boxed{y^2 = -12x}.
+</md>
+The directrix is vertical and the focus lies to its <alert>left</alert>, so
+the parabola opens <alert>to the left</alert>. (Its vertex is the origin,
+halfway between the focus and the directrix, and <m>y^2 = 4px</m> with
+<m>p = -3</m>.)
+</p>
+<image width="30%">
+<shortdescription>The parabola y squared equals minus 12 x, with vertex at the origin and opening to the left, its focus F at (minus 3,0) marked inside it, and the dashed vertical directrix x equals 3 to the right of the y axis.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.38]
+  \draw[-stealth] (-6.4,0) -- (5.4,0) node[right] {$x$};
+  \draw[-stealth] (0,-8.2) -- (0,8.6) node[above] {$y$};
+  \draw[dashed, gray] (3,-8.2) -- (3,8.2) node[above] {$x = 3$};
+  \draw[very thick, blue!70!black] plot[domain=-7.8:7.8, samples=80] ({-\x*\x/12}, \x);
+  \fill[red] (-3,0) circle (5pt) node[below=2pt] {$F(-3,0)$};
+  \fill (0,0) circle (4pt);
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 6 ===================== -->
+<exercise xml:id="ex2-p6">
+<title>4 points</title>
+<introduction>
+<p>
+Consider the points <m>P(1,1,0)</m>, <m>Q(3,0,0)</m>, <m>R(1,3,2)</m>, and
+<m>S(5,5,-3)</m>.
+</p>
+</introduction>
+
+<task xml:id="ex2-p6-a">
+<statement>
+<p>
+Find an equation of the plane that contains <m>P</m>, <m>Q</m>, and
+<m>R</m>, and find the area of the triangle <m>PQR</m>. (2 points)
+</p>
+</statement>
+<solution>
+<p>
+<m>\overrightarrow{PQ} = \langle 2,-1,0\rangle</m> and
+<m>\overrightarrow{PR} = \langle 0,2,2\rangle</m>. A normal vector to the
+plane is
+<md>
+<mrow>\vec n = \overrightarrow{PQ}\times\overrightarrow{PR}
+\amp = \begin{vmatrix} \hat\imath \amp \hat\jmath \amp \hat k \\ 2 \amp -1 \amp 0 \\ 0 \amp 2 \amp 2 \end{vmatrix}</mrow>
+<mrow>\amp = (-2-0)\,\hat\imath - (4-0)\,\hat\jmath + (4-0)\,\hat k
+= \langle -2,-4,4\rangle.</mrow>
+</md>
+Any non-zero multiple of <m>\vec n</m> is also a normal vector, so we may
+use the simpler <m>\langle 1,2,-2\rangle = -\frac12\vec n</m>. Using the
+point <m>P</m>:
+<md>
+1(x-1) + 2(y-1) - 2(z-0) = 0,
+\qquad\text{i.e.}\qquad
+\boxed{x + 2y - 2z = 3}.
+</md>
+Check: <m>Q</m>: <m>3 + 0 - 0 = 3</m> <m>\checkmark</m>; <m>R</m>:
+<m>1 + 6 - 4 = 3</m> <m>\checkmark</m>.
+</p>
+<p>
+The area of the triangle is half the area of the parallelogram spanned by
+<m>\overrightarrow{PQ}</m> and <m>\overrightarrow{PR}</m>:
+<md>
+<mrow>\text{Area} \amp = \frac12\left\|\overrightarrow{PQ}\times\overrightarrow{PR}\right\|
+= \frac12\|\langle -2,-4,4\rangle\|</mrow>
+<mrow>\amp = \frac12\sqrt{4+16+16} = \frac12\cdot 6 = 3.</mrow>
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="ex2-p6-b">
+<statement>
+<p>
+Find parametric equations of the line through <m>S</m> that is
+perpendicular to the plane of part (a). (1 point)
+</p>
+</statement>
+<solution>
+<p>
+The line is parallel to the normal vector <m>\langle 1,2,-2\rangle</m> of
+the plane and passes through <m>S(5,5,-3)</m>:
+<md>
+x(t) = 5 + t, \qquad y(t) = 5 + 2t, \qquad z(t) = -3 - 2t, \qquad t \in \mathbb R.
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="ex2-p6-c">
+<statement>
+<p>
+Find the point where the line of part (b) meets the plane, and use it to
+find the distance from <m>S</m> to the plane. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+Substitute the line into <m>x + 2y - 2z = 3</m>:
+<md>
+<mrow>(5+t) + 2(5+2t) - 2(-3-2t) \amp = 3</mrow>
+<mrow>21 + 9t \amp = 3</mrow>
+<mrow>t \amp = -2.</mrow>
+</md>
+The line meets the plane at
+<m>F = (5-2,\ 5-4,\ -3+4) = (3,1,1)</m> (check:
+<m>3 + 2 - 2 = 3</m> <m>\checkmark</m>). Since the line is perpendicular to
+the plane, <m>F</m> is the point of the plane closest to <m>S</m>, and the
+distance from <m>S</m> to the plane is
+<md>
+\left\|\overrightarrow{FS}\right\| = \|\langle 2,4,-4\rangle\|
+= \sqrt{4 + 16 + 16} = \sqrt{36} = 6.
+</md>
+(Same answer from the distance formula:
+<m>\left|\overrightarrow{PS}\cdot\vec n\right| / \|\vec n\|</m> with
+<m>\vec n = \langle 1,2,-2\rangle</m> and
+<m>\overrightarrow{PS} = \langle 4,4,-3\rangle</m> gives
+<m>|4 + 8 + 6|/3 = 18/3 = 6</m>.)
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 7 ===================== -->
+<exercise xml:id="ex2-p7">
+<title>3 points</title>
+<introduction>
+<p>
+Decide whether each statement below is true or false. Clearly justify your
+answer: a correct answer with an incorrect or unclear justification will
+not earn credit.
+</p>
+</introduction>
+
+<task xml:id="ex2-p7-a">
+<statement>
+<p>
+<alert>True or False?</alert> Let <m>\vec u</m>, <m>\vec v</m> and
+<m>\vec w</m> be vectors in <m>\mathbb R^3</m> with
+<m>\vec u \ne \vec 0</m>. If <m>\vec u\times\vec v = \vec u\times\vec w</m>
+and <m>\vec u\cdot\vec v = \vec u\cdot\vec w</m>, then
+<m>\vec v = \vec w</m>. (2 points)
+</p>
+</statement>
+<solution>
+<p>
+<alert>True.</alert> Let <m>\vec d = \vec v - \vec w</m>. By the
+distributive properties of the two products,
+<md>
+\vec u\times\vec d = \vec u\times\vec v - \vec u\times\vec w = \vec 0
+\qquad\text{and}\qquad
+\vec u\cdot\vec d = \vec u\cdot\vec v - \vec u\cdot\vec w = 0.
+</md>
+Since <m>\vec u \ne \vec 0</m>, the first equation says that
+<m>\vec d</m> is parallel to <m>\vec u</m> or is <m>\vec 0</m>; either way
+<m>\vec d = k\,\vec u</m> for some scalar <m>k</m>. Substituting into the
+second equation,
+<md>
+0 = \vec u\cdot(k\,\vec u) = k\,(\vec u\cdot\vec u) = k\,\|\vec u\|^2,
+</md>
+and <m>\|\vec u\| \ne 0</m> forces <m>k = 0</m>. Hence
+<m>\vec d = \vec 0</m>, that is, <m>\vec v = \vec w</m>.
+</p>
+<p>
+(Neither condition alone is enough. Adding to <m>\vec w</m> a vector
+perpendicular to <m>\vec u</m> does not change <m>\vec u\cdot\vec w</m>,
+and adding a vector parallel to <m>\vec u</m> does not change
+<m>\vec u\times\vec w</m>; a vector that is both perpendicular and parallel
+to <m>\vec u \ne \vec 0</m> can only be <m>\vec 0</m>, which is what the
+proof shows.)
+</p>
+</solution>
+</task>
+
+<task xml:id="ex2-p7-b">
+<statement>
+<p>
+<alert>True or False?</alert> Suppose <m>\vec u</m> and <m>\vec v</m> are
+vectors with <m>\|\vec u\| = 2</m>, <m>\|\vec v\| = 5</m> and
+<m>\|\vec u\times\vec v\| = 5</m>. Then
+<m>\vec u\cdot\vec v = 5\sqrt3</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+<alert>False.</alert> Let <m>\theta</m> be the angle between the two
+vectors, <m>0 \le \theta \le \pi</m>. From
+<m>\|\vec u\times\vec v\| = \|\vec u\|\,\|\vec v\|\sin\theta</m>,
+<md>
+5 = (2)(5)\sin\theta
+\quad\Longrightarrow\quad
+\sin\theta = \frac12,
+</md>
+so <m>\theta = \frac{\pi}{6}</m> <alert>or</alert>
+<m>\theta = \frac{5\pi}{6}</m>. The given information does not determine
+the sign of <m>\cos\theta = \pm\frac{\sqrt3}{2}</m>, and therefore only
+<md>
+\vec u\cdot\vec v = \|\vec u\|\,\|\vec v\|\cos\theta = \pm 5\sqrt3
+</md>
+can be concluded: the absolute value
+<m>|\vec u\cdot\vec v| = 5\sqrt3</m> is determined, the sign is not.
+</p>
+<p>
+Counterexample: take <m>\vec u = \langle 2,0,0\rangle</m> and
+<m>\vec v = \left\langle -\frac{5\sqrt3}{2},\ \frac52,\ 0\right\rangle</m>,
+the vector of length <m>5</m> that makes the angle <m>\frac{5\pi}{6}</m>
+with <m>\vec u</m>. Then <m>\|\vec u\| = 2</m>,
+<m>\|\vec v\| = \sqrt{\frac{75}{4} + \frac{25}{4}} = 5</m>,
+<md>
+\vec u\times\vec v = \left\langle 0-0,\ 0-0,\ 2\cdot\frac52 - 0\right\rangle
+= \langle 0,0,5\rangle,
+\qquad
+\|\vec u\times\vec v\| = 5,
+</md>
+but
+<m>\vec u\cdot\vec v = 2\cdot\left(-\frac{5\sqrt3}{2}\right) = -5\sqrt3 \ne 5\sqrt3</m>.
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Answers at a glance ===================== -->
+<assemblage xml:id="ex2-answers">
+<title>Answers at a glance</title>
+<p>
+<ol marker="1.">
+<li><p>(a) <m>\vec v = \left\langle 2,4,\sqrt5\right\rangle</m>, <m>\|\vec v\| = 5</m>; (b) <m>\vec w = -2\vec v = \left\langle -4,-8,-2\sqrt5\right\rangle</m>; (c) <m>\left\langle -\frac25,-\frac45,-\frac{\sqrt5}{5}\right\rangle</m>.</p></li>
+<li><p>(a) the sphere <m>(x-2)^2 + (y+3)^2 + z^2 = 16</m>: center <m>(2,-3,0)</m>, radius <m>4</m>; (b) the solid disk <m>(x-2)^2 + z^2 \le 16</m> in the plane <m>y = -3</m>, centered at <m>(2,-3,0)</m> with radius <m>4</m>.</p></li>
+<li><p><m>\vec u = \left\langle \frac23,\frac23,\frac13\right\rangle + \left\langle \frac13,-\frac53,\frac83\right\rangle</m> (parallel part first).</p></li>
+<li><p>(a) <m>x = 4\cos t</m>, <m>y = -3\sin t</m>, <m>0 \le t \le \pi</m>; (b) <m>x = -3 - 2\sin t</m>, <m>y = 1 + 2\cos t</m>, <m>0 \le t \le 2\pi</m>; (c) <m>y = 1 - x^2</m> with <m>0 \le x \le 2</m>: the arc of the parabola from <m>(0,1)</m> to <m>(2,-3)</m>, traced to the right.</p></li>
+<li><p>(a) <m>\frac{y^2}{9} - \frac{x^2}{16} = 1</m>, asymptotes <m>y = \pm\frac34 x</m>; (b) <m>y^2 = -12x</m>, opening to the left.</p></li>
+<li><p>(a) <m>x + 2y - 2z = 3</m>, area <m>3</m>; (b) <m>x = 5 + t</m>, <m>y = 5 + 2t</m>, <m>z = -3 - 2t</m>; (c) <m>(3,1,1)</m>, distance <m>6</m>.</p></li>
+<li><p>(a) True; (b) False: <m>\vec u\cdot\vec v = \pm 5\sqrt3</m> and the sign is not determined (for example <m>\vec u = \langle 2,0,0\rangle</m>, <m>\vec v = \left\langle -\frac{5\sqrt3}{2},\frac52,0\right\rangle</m> gives <m>-5\sqrt3</m>).</p></li>
+</ol>
+</p>
+</assemblage>
+
+</worksheet>
