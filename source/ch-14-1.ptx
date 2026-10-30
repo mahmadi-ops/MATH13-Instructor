@@ -81,49 +81,45 @@ point <m>P_0(0.5,0.5)</m> is sent to <m>f(0.5,0.5) = 0.5</m>.
 </caption>
 <image width="92%">
 <prefigure xmlns="https://prefigure.org" label="prefigure-fsv-mapping">
-<diagram dimensions="(600,270)" margins="12">
-<definition>bt(t) = ((1-t)^2*1.05 + 2*t*(1-t)*4.0 + t^2*7.0, (1-t)^2*1.25 + 2*t*(1-t)*3.15 + t^2*0.42)</definition>
-<definition>bb(t) = ((1-t)^2*0.28 + 2*t*(1-t)*3.3 + t^2*6.55, (1-t)^2*(-0.62) + 2*t*(1-t)*(-2.05) + t^2*0.05)</definition>
-<coordinates bbox="(-2.6,-2.6,9.4,3.5)">
-<circle at="fm-disk" center="(0,0)" radius="1.9"
+<diagram dimensions="(684,344)" margins="12">
+<definition>bt(t) = ((1-t)^2*1.6 + 2*t*(1-t)*7.0 + t^2*9.2, (1-t)^2*1.6 + 2*t*(1-t)*4.6 + t^2*0)</definition>
+<definition>bb(t) = ((1-t)^2*(-1.44) + 2*t*(1-t)*3.8 + t^2*7.6, (1-t)^2*(-2.24) + 2*t*(1-t)*(-4.6) + t^2*0)</definition>
+<coordinates bbox="(-5.1,-4.1,12.0,4.5)">
+<circle at="fm-disk" center="(0,0)" radius="3.2"
         fill="#7F7F7F" fill-opacity="0.28" stroke="#0072B2" thickness="2.5"/>
-<vector at="fm-xaxis" v="(4.15,0)" tail="(-2.1,0)" stroke="black" thickness="2"/>
-<vector at="fm-yaxis" v="(0,5.0)" tail="(0,-2.2)" stroke="black" thickness="2"/>
-<vector at="fm-zaxis" v="(4.0,0)" tail="(5.0,0.25)" stroke="black" thickness="2"/>
-<parametric-curve at="fm-top" function="bt" domain="(0,0.95)"
+<vector at="fm-xaxis" v="(7.6,0)" tail="(-3.7,0)" stroke="black" thickness="2"/>
+<vector at="fm-yaxis" v="(0,7.6)" tail="(0,-3.7)" stroke="black" thickness="2"/>
+<vector at="fm-zaxis" v="(5.8,0)" tail="(5.6,0)" stroke="black" thickness="2"/>
+<parametric-curve at="fm-top" function="bt" domain="(0.06,0.96)" arrows="1"
                   stroke="#7F7F7F" dash="5 4" thickness="2"/>
-<vector at="fm-top-arrow" v="(0.300,-0.261)" tail="(6.700,0.681)"
-        stroke="#7F7F7F" thickness="2"/>
-<parametric-curve at="fm-bot" function="bb" domain="(0,0.95)"
+<parametric-curve at="fm-bot" function="bb" domain="(0.06,0.96)" arrows="1"
                   stroke="#7F7F7F" dash="5 4" thickness="2"/>
-<vector at="fm-bot-arrow" v="(0.324,0.201)" tail="(6.226,-0.151)"
-        stroke="#7F7F7F" thickness="2"/>
-<point at="fm-P0" p="(0.956,0.956)" fill="#8B1A4A"/>
-<point at="fm-P" p="(-0.674,-1.165)" fill="#0072B2"/>
-<point at="fm-fP0" p="(7.35,0.25)" fill="#8B1A4A"/>
-<point at="fm-fP" p="(6.55,0.25)" fill="#0072B2"/>
-<label at="fm-disk-lab" anchor="(-1.0,2.0)" alignment="n">
+<point at="fm-P0" p="(1.6,1.6)" fill="#8B1A4A"/>
+<point at="fm-P" p="(-1.44,-2.24)" fill="#0072B2"/>
+<point at="fm-fP0" p="(9.2,0)" fill="#8B1A4A"/>
+<point at="fm-fP" p="(7.6,0)" fill="#0072B2"/>
+<label at="fm-disk-lab" anchor="(-2.4,2.55)" alignment="nw">
 <m>x^2+y^2\le 1</m>
 </label>
-<label at="fm-x" anchor="(2.1,-0.15)" alignment="se"><m>x</m></label>
-<label at="fm-y" anchor="(0.15,2.8)" alignment="e"><m>y</m></label>
-<label at="fm-z" anchor="(9.15,0.25)" alignment="e"><m>z</m></label>
-<label at="fm-P0-lab" anchor="(0.883,1.103)" alignment="nw" color="#8B1A4A">
+<label at="fm-x" anchor="(3.95,0)" alignment="e"><m>x</m></label>
+<label at="fm-y" anchor="(0,3.95)" alignment="n"><m>y</m></label>
+<label at="fm-z" anchor="(11.45,0)" alignment="e"><m>z</m></label>
+<label at="fm-P0-lab" anchor="(1.6,1.35)" alignment="s" color="#8B1A4A">
 <m>P_0(0.5,0.5)</m>
 </label>
-<label at="fm-P-lab" anchor="(-0.674,-1.03)" alignment="n" color="#0072B2">
+<label at="fm-P-lab" anchor="(-1.44,-2.0)" alignment="n" color="#0072B2">
 <m>P(x,y)</m>
 </label>
-<label at="fm-fP0-lab" anchor="(7.45,-0.05)" alignment="se" color="#8B1A4A">
+<label at="fm-fP0-lab" anchor="(9.2,-0.3)" alignment="s" color="#8B1A4A">
 <m>f(0.5,0.5)=0.5</m>
 </label>
-<label at="fm-fP-lab" anchor="(6.4,0.5)" alignment="nw" color="#0072B2">
+<label at="fm-fP-lab" anchor="(7.6,0.3)" alignment="n" color="#0072B2">
 <m>z=f(x,y)</m>
 </label>
-<label at="fm-f1" anchor="(6.85,0.55)" alignment="n" color="#7F7F7F">
+<label at="fm-f1" anchor="(6.2,2.8)" alignment="n" color="#7F7F7F">
 <m>f</m>
 </label>
-<label at="fm-f2" anchor="(6.35,-0.25)" alignment="s" color="#7F7F7F">
+<label at="fm-f2" anchor="(3.44,-2.96)" alignment="s" color="#7F7F7F">
 <m>f</m>
 </label>
 </coordinates>
