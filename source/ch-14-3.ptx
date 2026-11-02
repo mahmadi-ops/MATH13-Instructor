@@ -112,12 +112,15 @@ the surface, the curve, the tangent line and the point P.
 ]
 % the surface
 \addplot3[surf, shader=flat, draw=gray!55, fill=gray!30,
-          fill opacity=0.35, draw opacity=0.4, forget plot,
+          fill opacity=0.20, draw opacity=0.20, forget plot,
           domain=-2:2, y domain=-2:2, samples=15]
   {3 - 0.25*x^2 - 0.45*y^2};
 % trace in the plane y = y0 (green)
-\addplot3[very thick, green!50!black, forget plot,
-          domain=-2:2, samples=33, samples y=0]
+% A white under-stroke separates the parabola from the surface mesh.
+\addplot3[line width=2.4pt, green!55!black, forget plot,
+          preaction={draw=white, line width=4.2pt, opacity=1},
+          line cap=round, line join=round,
+          domain=-2:2, samples=65, samples y=0]
   ({x},{0.5},{2.8875 - 0.25*x^2});
 % tangent line in y = y0, slope df/dx = -0.25
 \addplot3[very thick, cyan!60!black, forget plot,
@@ -128,9 +131,9 @@ the surface, the curve, the tangent line and the point P.
   coordinates {(0.5,0.5,2.825)};
 \node[magenta, anchor=south west, font=\fontfamily{phv}\selectfont] at (axis cs:0.5,0.5,2.9) {$P$};
 % the legend, built by hand so that the surface gets an entry too
-\addlegendimage{area legend, draw=gray!55, fill=gray!30, fill opacity=0.35}
+\addlegendimage{area legend, draw=gray!55, fill=gray!30, fill opacity=0.20}
 \addlegendentry{$z=f(x,y)$}
-\addlegendimage{very thick, green!50!black}
+\addlegendimage{line width=2.4pt, green!55!black}
 \addlegendentry{$z=f(x,y_0)$}
 \addlegendimage{very thick, cyan!60!black}
 \addlegendentry{Tangent line in $y=y_0$}
@@ -239,12 +242,15 @@ names the surface, the curve, the tangent line and the point P.
 ]
 % the surface
 \addplot3[surf, shader=flat, draw=gray!55, fill=gray!30,
-          fill opacity=0.35, draw opacity=0.4, forget plot,
+          fill opacity=0.20, draw opacity=0.20, forget plot,
           domain=-2:2, y domain=-2:2, samples=15]
   {3 - 0.25*x^2 - 0.45*y^2};
 % trace in the plane x = x0 (amber)
-\addplot3[very thick, orange, forget plot,
-          domain=-2:2, samples=33, samples y=0]
+% A white under-stroke separates the parabola from the surface mesh.
+\addplot3[line width=2.4pt, orange!85!black, forget plot,
+          preaction={draw=white, line width=4.2pt, opacity=1},
+          line cap=round, line join=round,
+          domain=-2:2, samples=65, samples y=0]
   ({0.5},{x},{2.9375 - 0.45*x^2});
 % tangent line in x = x0, slope df/dy = -0.45
 \addplot3[very thick, purple!60!black, forget plot,
@@ -255,9 +261,9 @@ names the surface, the curve, the tangent line and the point P.
   coordinates {(0.5,0.5,2.825)};
 \node[magenta, anchor=south west, font=\fontfamily{phv}\selectfont] at (axis cs:0.5,0.5,2.9) {$P$};
 % the legend, built by hand so that the surface gets an entry too
-\addlegendimage{area legend, draw=gray!55, fill=gray!30, fill opacity=0.35}
+\addlegendimage{area legend, draw=gray!55, fill=gray!30, fill opacity=0.20}
 \addlegendentry{$z=f(x,y)$}
-\addlegendimage{very thick, orange}
+\addlegendimage{line width=2.4pt, orange!85!black}
 \addlegendentry{$z=f(x_0,y)$}
 \addlegendimage{very thick, purple!60!black}
 \addlegendentry{Tangent line in $x=x_0$}
