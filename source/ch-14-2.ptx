@@ -755,6 +755,53 @@ the limit existed, it would have to equal <m>f(0,0)</m>.
 </solution>
 </example>
 
+<example xml:id="example-cont-find-c">
+<title>Choosing <m>c</m> to Make a Function Continuous</title>
+<statement>
+<p>
+Find <m>c</m> so that
+<md>
+f(x,y) =
+\begin{cases}
+\dfrac{(x-1)^4-(y-2)^4}{(x-1)^2+(y-2)^2} \amp (x,y) \neq (1,2)\\
+c \amp (x,y) = (1,2)
+\end{cases}
+</md>
+is continuous everywhere.
+</p>
+</statement>
+
+<solution>
+<p>
+Factor the numerator as a difference of squares:
+<md>
+<mrow>(x-1)^4-(y-2)^4
+\amp = \left((x-1)^2\right)^2-\left((y-2)^2\right)^2</mrow>
+<mrow>\amp = \left((x-1)^2-(y-2)^2\right)\left((x-1)^2+(y-2)^2\right).</mrow>
+</md>
+For <m>(x,y) \neq (1,2)</m>, the denominator <m>(x-1)^2+(y-2)^2</m> is
+positive, so cancellation gives
+<md>
+f(x,y) = (x-1)^2-(y-2)^2, \qquad (x,y) \neq (1,2).
+</md>
+By the limit laws (<xref ref="thm-lim-properties"/>),
+<md>
+\lim_{(x,y)\to(1,2)} f(x,y)
+= \lim_{(x,y)\to(1,2)} \left((x-1)^2-(y-2)^2\right)
+= 0.
+</md>
+Thus continuity at <m>(1,2)</m>, which by condition <alert>3</alert> of
+<xref ref="def-continuity-two-variables"/> asks that <m>f(1,2) = c</m>
+equal this limit, requires
+<md>
+c = 0.
+</md>
+At every other point, <m>f</m> is already continuous because its
+denominator is nonzero.
+</p>
+</solution>
+</example>
+
 </subsection>
 
 </section>
