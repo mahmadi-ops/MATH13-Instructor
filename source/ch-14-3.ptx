@@ -142,6 +142,56 @@ the surface, the curve, the tangent line and the point P.
 </image>
 </figure>
 
+<figure xml:id="fig-pd-tangent-x-asymptote">
+<caption>
+Asymptote copy of <xref ref="fig-pd-tangent-x"/>: the curve
+<m>z=f(x,y_0)</m> and its tangent line in the plane <m>y=y_0</m>.
+The tangent slope at <m>P</m> is <m>\left.\frac{\partial f}{\partial x}\right|_{(x_0,y_0)}</m>.
+</caption>
+<image width="86%">
+<shortdescription>A grey surface with a green trace, a blue tangent line, and a magenta point P.</shortdescription>
+<description><p>
+The surface z equals 3 minus one quarter x squared minus 0.45 y squared.
+The trace holds y fixed at 0.5 and passes through P at (0.5, 0.5, 2.825).
+Its tangent line at P has slope minus 0.25.
+</p></description>
+<asymptote label="asymptote-pd-tangent-x"><![CDATA[
+import graph3;
+// Vector PDF output also works on machines without an OpenGL display.
+settings.render=0;
+size(12cm,9cm);
+currentprojection=orthographic(camera=(-6,-8,4),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+triple surfacePoint(pair p) {
+  return (p.x,p.y,3-0.25*p.x^2-0.45*p.y^2);
+}
+surface s=surface(surfacePoint,(-2,-2),(2,2),14,14);
+draw(s,surfacepen=gray(0.75)+opacity(0.35),
+     meshpen=gray(0.55)+opacity(0.4)+linewidth(0.3pt));
+
+pen tracePen=rgb("008000")+linewidth(1.8pt);
+pen tangentPen=rgb("009999")+linewidth(1.8pt);
+draw(graph(new triple(real t) {return (t,0.5,2.8875-0.25*t^2);},-2,2),tracePen);
+draw(graph(new triple(real t) {return (0.5+t,0.5,2.825-0.25*t);},-1.3,1.3),tangentPen);
+triple P=(0.5,0.5,2.825);
+dot(P,magenta+linewidth(5pt));
+label("$P$",P+0.12Z,NE,magenta);
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$",1),(-2.3,-2.3,0)--(2.3,-2.3,0),ax,Arrow3);
+draw(Label("$y$",1),(-2.3,-2.3,0)--(-2.3,2.3,0),ax,Arrow3);
+draw(Label("$z$",1),(-2.3,-2.3,0)--(-2.3,-2.3,5.2),ax,Arrow3);
+
+// Legend in the scene, with the same colours as the TikZ original.
+label("$z=f(x,y)$",(-3,1.8,5.2),E,gray(0.4));
+label("$z=f(x,y_0)$",(-3,1.8,4.7),E,tracePen);
+label("Tangent line in $y=y_0$",(-3,1.8,4.2),E,tangentPen);
+label("$P=(x_0,y_0,f(x_0,y_0))$",(-3,1.8,3.7),E,magenta);
+]]></asymptote>
+</image>
+</figure>
+
 <p>
 The slope of the tangent line in the plane <m>x = x_0</m> at the point
 <m>P(x_0, y_0, f(x_0,y_0))</m> to the curve <m>z = f(x_0,y)</m> can be
@@ -216,6 +266,56 @@ names the surface, the curve, the tangent line and the point P.
 \end{axis}
 \end{tikzpicture}
 ]]></latex-image>
+</image>
+</figure>
+
+<figure xml:id="fig-pd-tangent-y-asymptote">
+<caption>
+Asymptote copy of <xref ref="fig-pd-tangent-y"/>: the curve
+<m>z=f(x_0,y)</m> and its tangent line in the plane <m>x=x_0</m>.
+The tangent slope at <m>P</m> is <m>\left.\frac{\partial f}{\partial y}\right|_{(x_0,y_0)}</m>.
+</caption>
+<image width="86%">
+<shortdescription>A grey surface with an amber trace, a purple tangent line, and a magenta point P.</shortdescription>
+<description><p>
+The surface z equals 3 minus one quarter x squared minus 0.45 y squared.
+The trace holds x fixed at 0.5 and passes through P at (0.5, 0.5, 2.825).
+Its tangent line at P has slope minus 0.45.
+</p></description>
+<asymptote label="asymptote-pd-tangent-y"><![CDATA[
+import graph3;
+// Vector PDF output also works on machines without an OpenGL display.
+settings.render=0;
+size(12cm,9cm);
+currentprojection=orthographic(camera=(-6,-8,4),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+triple surfacePoint(pair p) {
+  return (p.x,p.y,3-0.25*p.x^2-0.45*p.y^2);
+}
+surface s=surface(surfacePoint,(-2,-2),(2,2),14,14);
+draw(s,surfacepen=gray(0.75)+opacity(0.35),
+     meshpen=gray(0.55)+opacity(0.4)+linewidth(0.3pt));
+
+pen tracePen=orange+linewidth(1.8pt);
+pen tangentPen=rgb("660066")+linewidth(1.8pt);
+draw(graph(new triple(real t) {return (0.5,t,2.9375-0.45*t^2);},-2,2),tracePen);
+draw(graph(new triple(real t) {return (0.5,0.5+t,2.825-0.45*t);},-1.3,1.3),tangentPen);
+triple P=(0.5,0.5,2.825);
+dot(P,magenta+linewidth(5pt));
+label("$P$",P+0.12Z,NE,magenta);
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$",1),(-2.3,-2.3,0)--(2.3,-2.3,0),ax,Arrow3);
+draw(Label("$y$",1),(-2.3,-2.3,0)--(-2.3,2.3,0),ax,Arrow3);
+draw(Label("$z$",1),(-2.3,-2.3,0)--(-2.3,-2.3,5.2),ax,Arrow3);
+
+// Legend in the scene, with the same colours as the TikZ original.
+label("$z=f(x,y)$",(-3,1.8,5.2),E,gray(0.4));
+label("$z=f(x_0,y)$",(-3,1.8,4.7),E,tracePen);
+label("Tangent line in $x=x_0$",(-3,1.8,4.2),E,tangentPen);
+label("$P=(x_0,y_0,f(x_0,y_0))$",(-3,1.8,3.7),E,magenta);
+]]></asymptote>
 </image>
 </figure>
 
