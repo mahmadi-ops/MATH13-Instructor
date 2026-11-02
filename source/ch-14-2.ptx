@@ -216,84 +216,6 @@ that the value of the function approaches two different values for two
 different paths taken to move towards <m>(a,b)</m>.
 </p>
 
-<p>
-<alert>IV.</alert> Some useful properties of limits are stated in
-<xref ref="thm-lim-properties"/>.
-</p>
-
-<theorem xml:id="thm-lim-properties">
-<title>Properties of Limits</title>
-<statement>
-<p>
-The following rules hold if <m>L</m>, <m>M</m>, and <m>k</m> are real
-numbers and
-<md>
-\lim_{(x,y)\to(x_0,y_0)} f(x,y) = L
-\qquad \text{and} \qquad
-\lim_{(x,y)\to(x_0,y_0)} g(x,y) = M.
-</md>
-</p>
-<p>
-<alert>1. Sum Rule:</alert>
-<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)+g(x,y)\bigr)
-= L + M</m>
-</p>
-<p>
-<alert>2. Difference Rule:</alert>
-<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)-g(x,y)\bigr)
-= L - M</m>
-</p>
-<p>
-<alert>3. Product Rule:</alert>
-<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)\cdot g(x,y)\bigr)
-= L \cdot M</m>
-</p>
-<p>
-<alert>4. Constant Multiple Rule:</alert>
-<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} k f(x,y) = kL</m>
-for any number <m>k</m>
-</p>
-<p>
-<alert>5. Quotient Rule:</alert>
-<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \frac{f(x,y)}{g(x,y)}
-= \frac{L}{M}</m>, provided <m>M \neq 0</m>
-</p>
-<p>
-<alert>6. Power Rule:</alert> If <m>r</m> and <m>s</m> are integers with
-no common factors and <m>s \neq 0</m>, then
-<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)\bigr)^{r/s}
-= L^{r/s}</m>, provided <m>L^{r/s}</m> is a real number. (If <m>s</m> is
-even, we assume that <m>L \gt 0</m>.)
-</p>
-</statement>
-</theorem>
-
-<example xml:id="example-lim-substitution">
-<title>Evaluating a Limit by Direct Substitution</title>
-<statement>
-<p>
-Evaluate
-<md>
-\lim_{(x,y)\to(2,2\pi)} \frac{x}{y} + \cos(xy).
-</md>
-</p>
-</statement>
-
-<solution>
-<p>
-Note that we can use the direct substitution property to write
-<md>
-<mrow>\lim_{(x,y)\to(2,2\pi)} \frac{x}{y} \amp = \frac{2}{2\pi} = \frac{1}{\pi},</mrow>
-<mrow>\lim_{(x,y)\to(2,2\pi)} \cos(xy) \amp = \cos(4\pi) = 1.</mrow>
-</md>
-Then we use the sum rule to write
-<md>
-\lim_{(x,y)\to(2,2\pi)} \frac{x}{y} + \cos(xy) = \frac{1}{\pi} + 1.
-</md>
-</p>
-</solution>
-</example>
-
 <example xml:id="example-lim-dne">
 <title>A Limit That Does Not Exist</title>
 <statement>
@@ -431,6 +353,84 @@ lines, and dragging turns the picture.
 </interactive>
 </figure>
 
+</solution>
+</example>
+
+<p>
+<alert>IV.</alert> Some useful properties of limits are stated in
+<xref ref="thm-lim-properties"/>.
+</p>
+
+<theorem xml:id="thm-lim-properties">
+<title>Properties of Limits</title>
+<statement>
+<p>
+The following rules hold if <m>L</m>, <m>M</m>, and <m>k</m> are real
+numbers and
+<md>
+\lim_{(x,y)\to(x_0,y_0)} f(x,y) = L
+\qquad \text{and} \qquad
+\lim_{(x,y)\to(x_0,y_0)} g(x,y) = M.
+</md>
+</p>
+<p>
+<alert>1. Sum Rule:</alert>
+<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)+g(x,y)\bigr)
+= L + M</m>
+</p>
+<p>
+<alert>2. Difference Rule:</alert>
+<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)-g(x,y)\bigr)
+= L - M</m>
+</p>
+<p>
+<alert>3. Product Rule:</alert>
+<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)\cdot g(x,y)\bigr)
+= L \cdot M</m>
+</p>
+<p>
+<alert>4. Constant Multiple Rule:</alert>
+<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} k f(x,y) = kL</m>
+for any number <m>k</m>
+</p>
+<p>
+<alert>5. Quotient Rule:</alert>
+<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \frac{f(x,y)}{g(x,y)}
+= \frac{L}{M}</m>, provided <m>M \neq 0</m>
+</p>
+<p>
+<alert>6. Power Rule:</alert> If <m>r</m> and <m>s</m> are integers with
+no common factors and <m>s \neq 0</m>, then
+<m>\displaystyle \lim_{(x,y)\to(x_0,y_0)} \bigl(f(x,y)\bigr)^{r/s}
+= L^{r/s}</m>, provided <m>L^{r/s}</m> is a real number. (If <m>s</m> is
+even, we assume that <m>L \gt 0</m>.)
+</p>
+</statement>
+</theorem>
+
+<example xml:id="example-lim-substitution">
+<title>Evaluating a Limit by Direct Substitution</title>
+<statement>
+<p>
+Evaluate
+<md>
+\lim_{(x,y)\to(2,2\pi)} \frac{x}{y} + \cos(xy).
+</md>
+</p>
+</statement>
+
+<solution>
+<p>
+Note that we can use the direct substitution property to write
+<md>
+<mrow>\lim_{(x,y)\to(2,2\pi)} \frac{x}{y} \amp = \frac{2}{2\pi} = \frac{1}{\pi},</mrow>
+<mrow>\lim_{(x,y)\to(2,2\pi)} \cos(xy) \amp = \cos(4\pi) = 1.</mrow>
+</md>
+Then we use the sum rule to write
+<md>
+\lim_{(x,y)\to(2,2\pi)} \frac{x}{y} + \cos(xy) = \frac{1}{\pi} + 1.
+</md>
+</p>
 </solution>
 </example>
 
