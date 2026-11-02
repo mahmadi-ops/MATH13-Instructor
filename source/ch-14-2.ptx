@@ -464,6 +464,103 @@ approach, and the final limit is evaluated by direct substitution, giving
 </solution>
 </example>
 
+<example xml:id="example-lim-sine-factor">
+<title>Factoring and the Limit of <m>\frac{\sin u}{u}</m></title>
+<statement>
+<p>
+Evaluate
+<md>
+\lim_{(x,y)\to(1,1)} \frac{\sin(x-y)\left(x^3-y^3\right)}{(x-y)^2(x+y)}.
+</md>
+</p>
+</statement>
+
+<solution>
+<p>
+Direct substitution gives <m>\frac{0}{0}</m>, so we simplify first. The
+difference of cubes factors as
+<m>x^3 - y^3 = (x-y)\left(x^2+xy+y^2\right)</m>, so one factor of
+<m>x-y</m> cancels against the denominator:
+<md>
+\frac{\sin(x-y)\left(x^3-y^3\right)}{(x-y)^2(x+y)}
+= \frac{\sin(x-y)}{x-y}\cdot\frac{x^2+xy+y^2}{x+y}.
+</md>
+The cancellation is legitimate because <m>x \neq y</m> along the
+approach (the function is not defined on the line <m>y = x</m>).
+</p>
+<p>
+For the first factor, put <m>u = x - y</m>. As
+<m>(x,y)\to(1,1)</m> we have <m>u \to 0</m> with <m>u \neq 0</m>, so the
+one-variable limit <m>\lim_{u\to 0}\frac{\sin u}{u} = 1</m> gives
+<md>
+\lim_{(x,y)\to(1,1)} \frac{\sin(x-y)}{x-y} = \lim_{u\to 0}\frac{\sin u}{u} = 1.
+</md>
+The second factor is evaluated by direct substitution, since its
+denominator approaches <m>1 + 1 = 2 \neq 0</m>:
+<md>
+\lim_{(x,y)\to(1,1)} \frac{x^2+xy+y^2}{x+y} = \frac{1+1+1}{1+1} = \frac{3}{2}.
+</md>
+By the product rule of <xref ref="thm-lim-properties"/>,
+<md>
+\lim_{(x,y)\to(1,1)} \frac{\sin(x-y)\left(x^3-y^3\right)}{(x-y)^2(x+y)}
+= 1\cdot\frac{3}{2} = \frac{3}{2}.
+</md>
+</p>
+</solution>
+</example>
+
+<example xml:id="example-lim-curved-path">
+<title>Straight Lines Are Not Enough</title>
+<statement>
+<p>
+Evaluate the following limit, or show that it does not exist.
+<md>
+\lim_{(x,y)\to(1,2)} \frac{(x-1)^2(y-2)^3}{(x-1)^4+(y-2)^6}.
+</md>
+</p>
+</statement>
+
+<solution>
+<p>
+Direct substitution gives <m>\frac{0}{0}</m>, and this time nothing
+cancels. To keep the algebra short, write <m>u = x - 1</m> and
+<m>v = y - 2</m>. Then <m>(x,y)\to(1,2)</m> exactly when
+<m>(u,v)\to(0,0)</m>, and the function becomes
+<md>
+f(x,y) = \frac{u^2v^3}{u^4+v^6}.
+</md>
+</p>
+<p>
+Let us first approach <m>(1,2)</m> along straight lines. Along the
+vertical line <m>x = 1</m> we have <m>u = 0</m>, so <m>f(x,y) = 0</m>.
+Every other line through <m>(1,2)</m> is <m>y - 2 = m(x-1)</m>, that is,
+<m>v = mu</m> with <m>m \in \R</m>, and along it (with <m>u \neq 0</m>)
+<md>
+f(x,y) = \frac{u^2\,m^3u^3}{u^4+m^6u^6} = \frac{m^3u}{1+m^6u^2},
+</md>
+which tends to <m>0</m> as <m>u \to 0</m>. So <m>f(x,y) \to 0</m> as
+<m>(x,y) \to (1,2)</m> along every straight line through <m>(1,2)</m>.
+</p>
+<p>
+Straight lines are not the only paths, however. The two terms of the
+denominator are equal when <m>u^4 = v^6</m>, that is, when
+<m>u^2 = v^3</m>, so consider the curve <m>(x-1)^2 = (y-2)^3</m>. It can be
+traced as
+<md>
+x = 1 + t^3, \qquad y = 2 + t^2, \qquad t \to 0,
+</md>
+for which <m>u = t^3</m> and <m>v = t^2</m>. Along it, for
+<m>t \neq 0</m>,
+<md>
+f(x,y) = \frac{t^6\cdot t^6}{t^{12}+t^{12}} = \frac{1}{2},
+</md>
+and hence <m>f(x,y) \to \frac12</m> as <m>(x,y) \to (1,2)</m> along this
+curve. The function approaches <m>0</m> along every straight line but
+<m>\frac12</m> along this curve, so the limit does not exist.
+</p>
+</solution>
+</example>
+
 </subsection>
 
 <!-- ================================================================ -->
