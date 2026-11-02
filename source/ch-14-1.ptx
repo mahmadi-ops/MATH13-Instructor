@@ -59,6 +59,20 @@ variables, which we visualize by their level surfaces.
 <subsection xml:id="sec-fsv-functions-two-variables">
 <title>Functions of Two Variables</title>
 
+<figure xml:id="fig-fsv-one-vs-two-variables-video">
+<caption>
+One input and two inputs, side by side. On the left, <m>x</m> determines
+the height <m>y=f(x)</m>. On the right, the pair <m>(x,y)</m> determines
+the height <m>z=f(x,y)</m>, so <m>y</m> is now a second input.
+Blue marks the input <m>x</m>, green marks the second input <m>y</m>,
+and gold marks the single output height in both graphs.
+</caption>
+<video xml:id="video-fsv-one-vs-two-variables"
+       source="videos/one_vs_two_variables_manim.mp4"
+       preview="videos/previews/one_vs_two_variables_manim.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+
 <p>
 As an example consider <m>z = f(x,y) = 1 - x^2 - y^2</m>. This function
 takes a pair of real numbers <m>x, y \in \R</m> as its input and as an
