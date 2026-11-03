@@ -31,6 +31,8 @@
   <circle id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point" cx="253.5" cy="85.9" r="4" stroke="black" stroke-width="2" fill="#009E73"/>
   <line id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-guide" x1="253.5" y1="148.4" x2="253.5" y2="85.9" stroke="#009E73" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
   <path id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat" d="M 127.3 140.9 L 173.7 140.9 L 164.4 159.6 L 136.6 159.6" stroke="#D55E00" stroke-width="2" fill="#D55E00" fill-opacity="0.30" clip-path="url(#prefigure-cr-doppler-nonzero-cancellation-__clipPath-1)"/>
+  <line id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-left" x1="127.3" y1="140.9" x2="136.6" y2="159.6" stroke="#D55E00" stroke-width="3" fill="none"/>
+  <line id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-mast" x1="150.5" y1="140.9" x2="150.5" y2="115.9" stroke="#D55E00" stroke-width="2" fill="none"/>
   <g id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-lab" transform="translate(137.2,127.8) translate(-95.0,-11.1)">
     <g id="prefigure-cr-doppler-nonzero-cancellation-__g-0">
       <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.248px; color:#D55E00" width="95.000px" height="22.256px" role="img" focusable="false" viewBox="0 -884.7 5248.6 1229.7" x="0.0" y="0.0">

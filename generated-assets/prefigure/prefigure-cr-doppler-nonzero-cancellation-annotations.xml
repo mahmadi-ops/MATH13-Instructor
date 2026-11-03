@@ -5,6 +5,8 @@
       <position>1</position>
       <children>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-point</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-left</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-mast</active>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point</active>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter</active>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term</active>
@@ -13,6 +15,8 @@
       </children>
       <components>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-point</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-left</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-mast</active>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point</active>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter</active>
         <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term</active>
@@ -27,37 +31,51 @@
         <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
       </parents>
     </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-left" speech2="The thick left edge completes the outline of the boat's hull.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-left</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-mast" speech2="The mast identifies the orange hull as the boat.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-mast</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
     <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point" speech2="The selected crest at x sub c equals k t.">
       <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point</active>
-      <position>2</position>
+      <position>4</position>
       <parents>
         <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
       </parents>
     </annotation>
     <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter" speech2="The fixed horizontal separation lambda over four.">
       <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter</active>
-      <position>3</position>
+      <position>5</position>
       <parents>
         <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
       </parents>
     </annotation>
     <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term" speech2="The positive boat-motion contribution, two pi A k over lambda.">
       <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term</active>
-      <position>4</position>
+      <position>6</position>
       <parents>
         <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
       </parents>
     </annotation>
     <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-term" speech2="The negative crest-motion contribution, negative two pi A k over lambda.">
       <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-term</active>
-      <position>5</position>
+      <position>7</position>
       <parents>
         <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
       </parents>
     </annotation>
     <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-sum-lab" speech2="The two contributions sum to zero, and the measured height remains zero.">
       <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-sum-lab</active>
-      <position>6</position>
+      <position>8</position>
       <parents>
         <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
       </parents>

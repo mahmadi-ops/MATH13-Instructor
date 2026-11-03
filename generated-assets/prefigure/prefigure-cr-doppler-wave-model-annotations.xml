@@ -8,14 +8,18 @@
         <active>prefigure-cr-doppler-wave-model-dop-wave-travel</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-lambda</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-boat</active>
+        <active>prefigure-cr-doppler-wave-model-dop-wave-boat-left</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-selected-crest</active>
+        <active>prefigure-cr-doppler-wave-model-dop-wave-amplitude</active>
       </children>
       <components>
         <active>prefigure-cr-doppler-wave-model-dop-wave-profile</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-travel</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-lambda</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-boat</active>
+        <active>prefigure-cr-doppler-wave-model-dop-wave-boat-left</active>
         <active>prefigure-cr-doppler-wave-model-dop-wave-selected-crest</active>
+        <active>prefigure-cr-doppler-wave-model-dop-wave-amplitude</active>
       </components>
     </annotation>
     <annotation id="prefigure-cr-doppler-wave-model-dop-wave-profile" speech2="The idealized sinusoidal water surface at one instant.">
@@ -46,9 +50,23 @@
         <grouped>prefigure-cr-doppler-wave-model-figure</grouped>
       </parents>
     </annotation>
+    <annotation id="prefigure-cr-doppler-wave-model-dop-wave-boat-left" speech2="The thick left edge completes the outline of the boat's hull.">
+      <active>prefigure-cr-doppler-wave-model-dop-wave-boat-left</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-wave-model-figure</grouped>
+      </parents>
+    </annotation>
     <annotation id="prefigure-cr-doppler-wave-model-dop-wave-selected-crest" speech2="The chosen crest at horizontal position x sub c of t.">
       <active>prefigure-cr-doppler-wave-model-dop-wave-selected-crest</active>
-      <position>5</position>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-wave-model-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-wave-model-dop-wave-amplitude" speech2="The vertical amplitude A from mean water level to crest height.">
+      <active>prefigure-cr-doppler-wave-model-dop-wave-amplitude</active>
+      <position>7</position>
       <parents>
         <grouped>prefigure-cr-doppler-wave-model-figure</grouped>
       </parents>

@@ -959,7 +959,7 @@ the last is the vertical water height sampled at the boat's position.
        color="#8B1A4A">
 <m>w(t)</m>
 </label>
-<label at="dop-pos-boat-text" anchor="(3.15,0.15)" alignment="w"
+<label at="dop-pos-boat-text" anchor="(3.68,-0.58)" alignment="e"
        color="#D55E00">
 <m>\text{boat}</m>
 </label>
@@ -988,8 +988,10 @@ the last is the vertical water height sampled at the boat's position.
 Consider equally spaced water waves traveling to the right along a straight
 line. Model the water-surface height at the boat by
 <md xml:id="eq-cr-doppler-model" number="yes">
-w=f(x_b,x_c)
-=A\cos\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+<mrow>w\amp=f(x_b,x_c)</mrow>
+<mrow>
+\amp=A\cos\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+</mrow>
 </md>
 Here <m>A&gt;0</m> is the wave amplitude and <m>\lambda&gt;0</m> is
 the distance between neighboring crests. The model treats the waves as
@@ -1035,9 +1037,15 @@ the right.
          points="((3.02,-0.42),(3.98,-0.42),(3.76,-0.72),(3.24,-0.72))"
          fill="#D55E00" fill-opacity="0.30" stroke="#D55E00"
          thickness="2"/>
+<line at="dop-wave-boat-left" endpoints="((3.02,-0.42),(3.24,-0.72))"
+      stroke="#D55E00" thickness="3"/>
 <line at="dop-wave-boat-mast" endpoints="((3.5,-0.42),(3.5,0.15))"
       stroke="#D55E00" thickness="2"/>
 <point at="dop-wave-boat-point" p="(3.5,-0.5657)" fill="#D55E00"/>
+<label at="dop-wave-boat-text" anchor="(3.72,-0.20)" alignment="e"
+       color="#D55E00">
+<m>\text{boat}</m>
+</label>
 <label at="dop-wave-boat-lab" anchor="(3.5,-0.92)" alignment="s"
        color="#D55E00">
 <m>x_b(t)</m>
@@ -1050,6 +1058,14 @@ the right.
        color="#009E73">
 <m>x_c(t)</m>
 </label>
+<line at="dop-wave-amplitude-guide" endpoints="((6,0.8),(6.68,0.8))"
+      stroke="#8B1A4A" thickness="1" dash="4 3"/>
+<line at="dop-wave-amplitude" endpoints="((6.58,0),(6.58,0.8))"
+      stroke="#8B1A4A" thickness="2" arrows="2"/>
+<label at="dop-wave-amplitude-lab" anchor="(6.76,0.40)" alignment="e"
+       color="#8B1A4A">
+<m>A</m>
+</label>
 </coordinates>
 
 <annotations>
@@ -1058,7 +1074,9 @@ the right.
   <annotation ref="dop-wave-travel" text="A right-pointing arrow showing the direction in which the wave pattern travels."/>
   <annotation ref="dop-wave-lambda" text="The horizontal separation lambda between two neighboring crests."/>
   <annotation ref="dop-wave-boat" text="The boat at its horizontal position x sub b of t."/>
+  <annotation ref="dop-wave-boat-left" text="The thick left edge completes the outline of the boat's hull."/>
   <annotation ref="dop-wave-selected-crest" text="The chosen crest at horizontal position x sub c of t."/>
+  <annotation ref="dop-wave-amplitude" text="The vertical amplitude A from mean water level to crest height."/>
 </annotation>
 </annotations>
 </diagram>
@@ -1070,7 +1088,8 @@ the right.
 Suppose the boat travels with constant velocity <m>v</m>, while every
 crest travels to the right with constant speed <m>k&gt;0</m>:
 <md xml:id="eq-cr-doppler-positions" number="yes">
-x_b(t)=vt,\qquad x_c(t)=kt.
+<mrow>x_b(t)\amp=vt,</mrow>
+<mrow>x_c(t)\amp=kt.</mrow>
 </md>
 At <m>t=0</m>, the boat and the selected crest are both at the origin.
 A positive <m>v</m> means the boat travels with the waves, and a
@@ -1170,40 +1189,37 @@ chain rule.
 </statement>
 <solution>
 <p>
-The two partial derivatives are
+Let
+<m>\theta=\frac{2\pi}{\lambda}(x_b-x_c)</m>. The two partial
+derivatives are
 <md>
+<mrow>
 \frac{\partial f}{\partial x_b}
-=-\frac{2\pi A}{\lambda}
-\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right),
-\qquad
+\amp=-\frac{2\pi A}{\lambda}\sin\theta,
+</mrow>
+<mrow>
 \frac{\partial f}{\partial x_c}
-=\frac{2\pi A}{\lambda}
-\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+\amp=\frac{2\pi A}{\lambda}\sin\theta.
+</mrow>
 </md>
 Evaluating at <m>(x_b(t),x_c(t))</m> and following the two paths in
 <xref ref="fig-cr-doppler-dependency-tree"/> gives
 <md xml:id="eq-cr-doppler-rate" number="yes">
 <mrow>
 \frac{dw}{dt}
-\amp=\frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
-+\frac{\partial f}{\partial x_c}\frac{dx_c}{dt}
+\amp=f_{x_b}x_b'+f_{x_c}x_c'
 </mrow>
 <mrow>
-\amp=-\frac{2\pi A}{\lambda}
-\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right)v
-+\frac{2\pi A}{\lambda}
-\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right)k
+\amp=\frac{2\pi A}{\lambda}\sin\theta\,(-v+k)
 </mrow>
 <mrow>
-\amp=\frac{2\pi A}{\lambda}(k-v)
-\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+\amp=\frac{2\pi A}{\lambda}(k-v)\sin\theta.
 </mrow>
 </md>
-Using <m>x_b-x_c=(v-k)t</m>, this can also be written as
+Using <m>x_b-x_c=(v-k)t</m>, define
+<m>\theta(t)=\frac{2\pi}{\lambda}(v-k)t</m>. Then
 <md>
-\frac{dw}{dt}
-=\frac{2\pi A}{\lambda}(k-v)
-\sin\left(\frac{2\pi}{\lambda}(v-k)t\right).
+\frac{dw}{dt}=\frac{2\pi A}{\lambda}(k-v)\sin\theta(t).
 </md>
 </p>
 </solution>
@@ -1218,30 +1234,24 @@ the waves are moving?
 </statement>
 <solution>
 <p>
-If <m>v=k</m>, then the boat keeps the same horizontal displacement from
-every crest. In the stated model, <m>x_b(t)-x_c(t)=0</m>, so the boat
-stays on the selected crest and <m>w(t)=A</m>. Consequently,
-<m>dw/dt=0</m> for the entire trip.
-</p>
-<p>
-The shared starting point makes both chain-rule terms zero separately
-because the boat begins at a crest. To see genuine cancellation of two
-<em>nonzero</em> terms, place the boat one quarter-wavelength behind the
-selected crest and let both move at speed <m>k</m>:
+If <m>v=k</m>, then <m>x_b-x_c</m> is constant, so the measured height
+is constant; at a tracked crest, <m>w(t)=A</m>. To exhibit cancellation
+of two nonzero chain-rule terms, choose
 <md>
-x_b(t)=kt-\frac{\lambda}{4},
-\qquad
-x_c(t)=kt.
+<mrow>x_b(t)\amp=kt-\frac{\lambda}{4},</mrow>
+<mrow>x_c(t)\amp=kt.</mrow>
 </md>
-Then the phase is always <m>-\pi/2</m>, so
+The phase is <m>-\pi/2</m>, and therefore
 <md>
+<mrow>
 \frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
-=\frac{2\pi Ak}{\lambda},
-\qquad
+\amp=\frac{2\pi Ak}{\lambda},
+</mrow>
+<mrow>
 \frac{\partial f}{\partial x_c}\frac{dx_c}{dt}
-=-\frac{2\pi Ak}{\lambda}.
+\amp=-\frac{2\pi Ak}{\lambda}.
+</mrow>
 </md>
-The two nonzero contributions cancel and <m>w(t)=0</m> remains constant.
 </p>
 
 <figure xml:id="fig-cr-doppler-nonzero-cancellation">
@@ -1269,6 +1279,10 @@ terms have equal magnitude and opposite signs.
          points="((1.55,0.12),(2.45,0.12),(2.27,-0.18),(1.73,-0.18))"
          fill="#D55E00" fill-opacity="0.30" stroke="#D55E00"
          thickness="2"/>
+<line at="dop-cancel-boat-left" endpoints="((1.55,0.12),(1.73,-0.18))"
+      stroke="#D55E00" thickness="3"/>
+<line at="dop-cancel-boat-mast" endpoints="((2,0.12),(2,0.52))"
+      stroke="#D55E00" thickness="2"/>
 <label at="dop-cancel-boat-lab" anchor="(1.82,0.33)" alignment="w"
        color="#D55E00">
 <m>x_b=kt-\frac{\lambda}{4}</m>
@@ -1310,6 +1324,8 @@ terms have equal magnitude and opposite signs.
 <annotations>
 <annotation ref="figure" text="A blue sinusoidal snapshot with a green crest at x sub c equals k t and an orange boat a quarter wavelength to its left at x sub b equals k t minus lambda over four. At the boat, an orange upward arrow and a blue downward arrow represent equal nonzero chain-rule contributions that cancel.">
   <annotation ref="dop-cancel-boat-point" text="The boat samples the mean-height crossing one quarter-wavelength behind the selected crest."/>
+  <annotation ref="dop-cancel-boat-left" text="The thick left edge completes the outline of the boat's hull."/>
+  <annotation ref="dop-cancel-boat-mast" text="The mast identifies the orange hull as the boat."/>
   <annotation ref="dop-cancel-crest-point" text="The selected crest at x sub c equals k t."/>
   <annotation ref="dop-cancel-quarter" text="The fixed horizontal separation lambda over four."/>
   <annotation ref="dop-cancel-boat-term" text="The positive boat-motion contribution, two pi A k over lambda."/>
@@ -1323,10 +1339,9 @@ terms have equal magnitude and opposite signs.
 </figure>
 
 <p>
-Notice that <m>dw/dt=0</m> at one instant does not by itself imply
-<m>v=k</m>: the sine factor also vanishes instantaneously at every crest
-and trough. Matching speeds is what makes the relative position, and
-therefore the height, constant throughout an interval.
+The equal, nonzero terms cancel, so <m>dw/dt=0</m>. A zero derivative
+at one isolated crest or trough need not mean <m>v=k</m>; matching
+speeds is what keeps the height constant over time.
 </p>
 </solution>
 </task>
@@ -1485,7 +1500,269 @@ with the waves produces one.
 </solution>
 </task>
 
+<task xml:id="task-cr-doppler-measure-wave">
+<statement>
+<p>
+<em>Can the boat measure the wave speed and wavelength?</em>
+Suppose <m>k</m> and <m>\lambda</m> are unknown. A stationary boat
+encounters crests every <m>4</m> seconds. Traveling with the waves at
+<m>1\text{ m/s}</m>, it encounters them every <m>8</m> seconds.
+Assuming the crests move faster than the boat, determine <m>k</m> and
+<m>\lambda</m>.
+</p>
+</statement>
+<solution>
+<p>
+Using meters and seconds, the period formula gives
+</p>
+<md>
+<mrow>4\amp=\frac{\lambda}{k},</mrow>
+<mrow>8\amp=\frac{\lambda}{k-1}.</mrow>
+</md>
+<p>
+Here <m>k-1&gt;0</m> by assumption. Thus
+</p>
+<md>
+<mrow>\lambda\amp=4k=8(k-1),</mrow>
+<mrow>k\amp=2,\qquad \lambda=8.</mrow>
+</md>
+<p>
+Therefore the wave speed is <m>2\text{ m/s}</m> and the wavelength is
+<m>8\text{ m}</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-cr-doppler-varying-amplitude">
+<statement>
+<p>
+<em>What if the waves grow taller while the boat keeps pace with a
+crest?</em> Let <m>A=A(t)</m>, with <m>\lambda</m> fixed. Must the
+measured height remain constant? What additional chain-rule term is
+needed?
+</p>
+</statement>
+<solution>
+<p>
+Regard the height as the three-variable function
+</p>
+<md>
+<mrow>w\amp=f(A,x_b,x_c)</mrow>
+<mrow>
+\amp=A\cos\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+</mrow>
+</md>
+<p>
+The chain rule now includes the amplitude path:
+</p>
+<md>
+<mrow>
+\frac{dw}{dt}
+\amp=\frac{\partial f}{\partial A}\frac{dA}{dt}
+</mrow>
+<mrow>
+\amp\quad+\frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
+</mrow>
+<mrow>
+\amp\quad+\frac{\partial f}{\partial x_c}\frac{dx_c}{dt}.
+</mrow>
+</md>
+<p>
+Writing <m>\phi=\frac{2\pi}{\lambda}(x_b-x_c)</m>, this becomes
+</p>
+<md>
+<mrow>
+\frac{dw}{dt}\amp=A'(t)\cos\phi
+</mrow>
+<mrow>
+\amp\quad+\frac{2\pi A(t)}{\lambda}(k-v)\sin\phi.
+</mrow>
+</md>
+<p>
+At a tracked crest, <m>\phi</m> is a multiple of <m>2\pi</m> and
+<m>v=k</m>. Hence
+</p>
+<md>
+\frac{dw}{dt}=A'(t).
+</md>
+<p>
+The measured height is therefore constant only when <m>A'(t)=0</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-cr-doppler-both-changing">
+<statement>
+<p>
+<em>What if both the relative position and amplitude are changing?</em>
+Let <m>\lambda=8\text{ m}</m> and, for <m>t\ge 0</m>, let
+</p>
+<md>
+<mrow>A(t)\amp=(1\text{ m/s})t,</mrow>
+<mrow>x_b(t)\amp=(1\text{ m/s})t,</mrow>
+<mrow>x_c(t)\amp=(2\text{ m/s})t.</mrow>
+</md>
+<p>
+Thus <m>v=1\text{ m/s}</m> and <m>k=2\text{ m/s}</m>. At
+<m>t=1\text{ s}</m>, find <m>dw/dt</m>. Identify the contribution from
+the changing amplitude, then express the position contribution both as
+one relative-position term and as separate boat and crest terms.
+</p>
+</statement>
+
+<solution>
+<p>
+Set <m>r=x_b-x_c</m> and
+<m>\phi=\frac{2\pi}{\lambda}r</m>. The three-variable chain rule gives
+</p>
+<md>
+<mrow>
+\frac{dw}{dt}
+\amp=f_AA'
+</mrow>
+<mrow>
+\amp\quad+f_{x_b}x_b'
+</mrow>
+<mrow>
+\amp\quad+f_{x_c}x_c'.
+</mrow>
+</md>
+
+<p>
+Combining only the two position paths, write
+</p>
+<md>
+<mrow>
+C_r
+\amp=f_{x_b}x_b'+f_{x_c}x_c'
+</mrow>
+<mrow>
+\amp=-\frac{2\pi A}{\lambda}r'\sin\phi.
+</mrow>
+</md>
+<p>
+Therefore
+</p>
+<md>
+<mrow>
+\frac{dw}{dt}
+\amp=A'\cos\phi+C_r
+</mrow>
+<mrow>
+\amp=A'\cos\phi
+-\frac{2\pi A}{\lambda}r'\sin\phi.
+</mrow>
+</md>
+
+<p>
+At <m>t=1\text{ s}</m>,
+</p>
+<md>
+<mrow>
+A(1)\amp=1\text{ m},
+\qquad A'(1)=1\text{ m/s},
+</mrow>
+<mrow>
+r(1)\amp=-1\text{ m},
+\qquad r'(1)=-1\text{ m/s},
+</mrow>
+<mrow>
+\phi(1)\amp=-\frac{\pi}{4}.
+</mrow>
+</md>
+
+<p>
+The amplitude contribution is
+</p>
+<md>
+<mrow>
+C_A
+\amp=A'(1)\cos\phi(1)
+</mrow>
+<mrow>
+\amp=\frac{\sqrt{2}}{2}\text{ m/s}
+</mrow>
+<mrow>
+\amp\approx0.707\text{ m/s}.
+</mrow>
+</md>
+
+<p>
+The combined relative-position contribution is
+</p>
+<md>
+<mrow>
+C_r
+\amp=-\frac{2\pi A(1)}{\lambda}
+r'(1)\sin\phi(1)
+</mrow>
+<mrow>
+\amp=-\frac{\pi\sqrt{2}}{8}\text{ m/s}
+</mrow>
+<mrow>
+\amp\approx-0.555\text{ m/s}.
+</mrow>
+</md>
+
+<p>
+Equivalently, keeping the boat and crest paths separate gives
+</p>
+<md>
+<mrow>
+f_{x_b}v
+\amp=\frac{\pi\sqrt{2}}{8}\text{ m/s},
+</mrow>
+<mrow>
+f_{x_c}k
+\amp=-\frac{\pi\sqrt{2}}{4}\text{ m/s}.
+</mrow>
+</md>
+<p>
+These two terms have sum
+</p>
+<md>
+<mrow>
+f_{x_b}v+f_{x_c}k
+\amp=-\frac{\pi\sqrt{2}}{8}\text{ m/s}
+</mrow>
+<mrow>
+\amp=C_r,
+</mrow>
+</md>
+<p>
+which agrees with the combined relative-position calculation. Finally,
+</p>
+<md>
+<mrow>
+w'(1)
+\amp=C_A+C_r
+</mrow>
+<mrow>
+\amp=\frac{\sqrt{2}(4-\pi)}{8}\text{ m/s}
+</mrow>
+<mrow>
+\amp\approx0.152\text{ m/s}.
+</mrow>
+</md>
+<p>
+The positive net rate means that the growing amplitude outweighs the
+decrease caused by the boat moving away from the selected crest at this
+instant.
+</p>
+</solution>
+</task>
+
 <conclusion>
+<figure xml:id="fig-cr-doppler-extensions-video">
+<caption>
+Using two encounter periods to recover the wave speed and wavelength,
+then extending the chain rule when the wave amplitude varies with time.
+</caption>
+<video xml:id="video-cr-doppler-extensions"
+       source="videos/chain_rule_doppler_extensions_manim.mp4"
+       preview="videos/previews/chain_rule_doppler_extensions_manim.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
 <p>
 <em>Conceptual takeaway.</em> The two chain-rule terms separate the
 change caused by the boat's motion from the change caused by the moving
