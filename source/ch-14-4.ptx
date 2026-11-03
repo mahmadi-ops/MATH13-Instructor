@@ -1228,20 +1228,24 @@ Using <m>x_b-x_c=(v-k)t</m>, define
 <task xml:id="task-cr-doppler-constant-height">
 <statement>
 <p>
-How can the water-surface height at the boat remain constant even though
-the waves are moving?
+How can the water-surface height at the boat stay at zero (the mean water
+level) for all time, even though the waves are moving?
 </p>
 </statement>
 <solution>
 <p>
-If <m>v=k</m>, then <m>x_b-x_c</m> is constant, so the measured height
-is constant; at a tracked crest, <m>w(t)=A</m>. To exhibit cancellation
-of two nonzero chain-rule terms, choose
+The boat must keep pace with the waves. If <m>v\ne k</m>, the distance
+<m>x_b-x_c</m> keeps changing, so the height at the boat runs through
+crests and troughs. If <m>v=k</m>, then <m>x_b-x_c</m> is constant, so
+the height is constant, and it is zero exactly when the boat sits a
+quarter wavelength from a crest, where the cosine in the model
+vanishes. For example, choose
 <md>
 <mrow>x_b(t)\amp=kt-\frac{\lambda}{4},</mrow>
 <mrow>x_c(t)\amp=kt.</mrow>
 </md>
-The phase is <m>-\pi/2</m>, and therefore
+The phase is <m>-\pi/2</m>, so <m>w(t)=A\cos(-\pi/2)=0</m> for all
+<m>t</m>, and since <m>\sin\theta=-1</m>,
 <md>
 <mrow>
 \frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
@@ -1341,7 +1345,10 @@ terms have equal magnitude and opposite signs.
 <p>
 The equal, nonzero terms cancel, so <m>dw/dt=0</m>. A zero derivative
 at one isolated crest or trough need not mean <m>v=k</m>; matching
-speeds is what keeps the height constant over time.
+speeds is what keeps the height constant over time. Any other fixed
+offset holds some other constant height between <m>-A</m> and
+<m>A</m>. At a tracked crest, for instance, <m>w(t)=A</m>, but there
+both chain-rule terms are <m>0</m> and nothing cancels.
 </p>
 </solution>
 </task>
