@@ -884,4 +884,624 @@ which is the identity we wanted to prove.
 
 </subsection>
 
+<!-- ================================================================ -->
+<subsection xml:id="sec-cr-doppler-boat">
+<title>A Doppler-Effect Activity</title>
+
+<activity xml:id="activity-cr-doppler-boat">
+<title>Meeting Waves from a Moving Boat</title>
+
+<introduction>
+<p>
+When a boat travels against approaching waves, it meets crests more
+frequently. When it travels with the waves, it meets them less frequently.
+This activity uses the chain rule to explain both observations.
+</p>
+
+<p>
+Three quantities must be kept distinct. The function
+<m>x_b(t)</m> is the boat's <em>horizontal position</em>,
+<m>x_c(t)</m> is the <em>horizontal position of one selected wave
+crest</em>, and <m>w(t)</m> is the signed <em>vertical water height at
+the boat</em>, measured from the mean water level. Thus
+<m>x_b(t)</m> and <m>x_c(t)</m> are coordinates on the same position
+axis, while <m>w(t)</m> points perpendicular to that axis.
+</p>
+
+<figure xml:id="fig-cr-doppler-quantities">
+<caption>
+The meanings of <m>x_b(t)</m>, <m>x_c(t)</m>, and <m>w(t)</m>.
+The first two are horizontal positions measured from the same origin;
+the last is the vertical water height sampled at the boat's position.
+</caption>
+<image width="88%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-doppler-quantities">
+<diagram dimensions="(480,250)" margins="14">
+<definition>poswater(s) = 0.8*cos(pi*(s-6)/2)</definition>
+<coordinates bbox="(-0.8,-1.75,9.0,1.45)">
+<line at="dop-pos-mean" endpoints="((0,0),(8.4,0))"
+      stroke="#7F7F7F" thickness="1" dash="4 3"/>
+<graph at="dop-pos-wave" function="poswater" domain="(0,8.4)"
+       stroke="#0072B2" thickness="3"/>
+<line at="dop-pos-axis" endpoints="((0,-1.5),(8.5,-1.5))"
+      stroke="black" thickness="2" arrows="1"/>
+<label at="dop-pos-axis-lab" anchor="(8.55,-1.5)" alignment="e">
+<m>s</m>
+</label>
+<point at="dop-pos-origin" p="(0,-1.5)" fill="black"/>
+<label at="dop-pos-origin-lab" anchor="(-0.08,-1.55)" alignment="sw">
+<m>0</m>
+</label>
+
+<line at="dop-pos-xb-span" endpoints="((0,-1.08),(3.5,-1.08))"
+      stroke="#D55E00" thickness="3" arrows="1"/>
+<label at="dop-pos-xb-lab" anchor="(1.75,-1.02)" alignment="n"
+       color="#D55E00">
+<m>x_b(t)</m>
+</label>
+<line at="dop-pos-xc-span" endpoints="((0,-1.38),(6,-1.38))"
+      stroke="#009E73" thickness="3" arrows="1"/>
+<label at="dop-pos-xc-lab" anchor="(4.75,-1.32)" alignment="n"
+       color="#009E73">
+<m>x_c(t)</m>
+</label>
+
+<line at="dop-pos-xb-guide" endpoints="((3.5,-1.5),(3.5,-0.5657))"
+      stroke="#D55E00" thickness="1" dash="4 3"/>
+<line at="dop-pos-xc-guide" endpoints="((6,-1.5),(6,0.8))"
+      stroke="#009E73" thickness="1" dash="4 3"/>
+<point at="dop-pos-boat-sample" p="(3.5,-0.5657)" fill="#D55E00"/>
+<point at="dop-pos-crest" p="(6,0.8)" fill="#009E73"/>
+
+<line at="dop-pos-height" endpoints="((3.5,0),(3.5,-0.5657))"
+      stroke="#8B1A4A" thickness="3" arrows="1"/>
+<label at="dop-pos-height-lab" anchor="(3.35,-0.28)" alignment="w"
+       color="#8B1A4A">
+<m>w(t)</m>
+</label>
+<label at="dop-pos-boat-text" anchor="(3.15,0.15)" alignment="w"
+       color="#D55E00">
+<m>\text{boat}</m>
+</label>
+<label at="dop-pos-crest-text" anchor="(6.1,0.95)" alignment="e"
+       color="#009E73">
+<m>\text{selected crest}</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A blue sinusoidal water profile above a common horizontal position axis. An orange arrow from the origin to the boat marks x sub b of t, and a green arrow from the same origin to a selected crest marks x sub c of t. A dark red vertical arrow from the mean water level to the surface at the boat marks w of t.">
+  <annotation ref="dop-pos-xb-span" text="The orange horizontal distance x sub b of t from the origin to the boat."/>
+  <annotation ref="dop-pos-xc-span" text="The green horizontal distance x sub c of t from the same origin to the selected crest."/>
+  <annotation ref="dop-pos-height" text="The vertical signed height w of t, measured from the mean water level to the water surface at the boat."/>
+  <annotation ref="dop-pos-wave" text="A snapshot of the sinusoidal water surface."/>
+  <annotation ref="dop-pos-boat-sample" text="The point on the water surface sampled by the boat."/>
+  <annotation ref="dop-pos-crest" text="The selected wave crest."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<p>
+Consider equally spaced water waves traveling to the right along a straight
+line. Model the water-surface height at the boat by
+<md xml:id="eq-cr-doppler-model" number="yes">
+w=f(x_b,x_c)
+=A\cos\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+</md>
+Here <m>A&gt;0</m> is the wave amplitude and <m>\lambda&gt;0</m> is
+the distance between neighboring crests. The model treats the waves as
+ideal sinusoids and neglects the boat's effect on the water.
+</p>
+
+<figure xml:id="fig-cr-doppler-wave-model">
+<caption>
+A snapshot of the wave model. Neighboring crests are separated by one
+wavelength <m>\lambda</m>; the selected crest is at <m>x_c(t)</m>, and
+the boat samples the surface at <m>x_b(t)</m> as the pattern travels to
+the right.
+</caption>
+<image width="90%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-doppler-wave-model">
+<diagram dimensions="(500,235)" margins="14">
+<definition>wavesnapshot(s) = 0.8*cos(pi*(s-6)/2)</definition>
+<coordinates bbox="(-0.25,-1.45,10.9,2.15)">
+<line at="dop-wave-mean" endpoints="((0,0),(10.5,0))"
+      stroke="#7F7F7F" thickness="1" dash="4 3"/>
+<graph at="dop-wave-profile" function="wavesnapshot" domain="(0,10.5)"
+       stroke="#0072B2" thickness="3"/>
+
+<line at="dop-wave-travel" endpoints="((7.7,1.75),(10.1,1.75))"
+      stroke="#8B1A4A" thickness="3" arrows="1"/>
+<label at="dop-wave-travel-lab" anchor="(8.9,1.83)" alignment="n"
+       color="#8B1A4A">
+<m>\text{wave travel}</m>
+</label>
+
+<line at="dop-wave-lambda" endpoints="((2,1.25),(6,1.25))"
+      stroke="#E69F00" thickness="2" arrows="2"/>
+<line at="dop-wave-lambda-left" endpoints="((2,0.8),(2,1.37))"
+      stroke="#E69F00" thickness="1"/>
+<line at="dop-wave-lambda-right" endpoints="((6,0.8),(6,1.37))"
+      stroke="#E69F00" thickness="1"/>
+<label at="dop-wave-lambda-lab" anchor="(4,1.32)" alignment="n"
+       color="#E69F00">
+<m>\lambda</m>
+</label>
+
+<polygon at="dop-wave-boat"
+         points="((3.02,-0.42),(3.98,-0.42),(3.76,-0.72),(3.24,-0.72))"
+         fill="#D55E00" fill-opacity="0.30" stroke="#D55E00"
+         thickness="2"/>
+<line at="dop-wave-boat-mast" endpoints="((3.5,-0.42),(3.5,0.15))"
+      stroke="#D55E00" thickness="2"/>
+<point at="dop-wave-boat-point" p="(3.5,-0.5657)" fill="#D55E00"/>
+<label at="dop-wave-boat-lab" anchor="(3.5,-0.92)" alignment="s"
+       color="#D55E00">
+<m>x_b(t)</m>
+</label>
+
+<point at="dop-wave-selected-crest" p="(6,0.8)" fill="#009E73"/>
+<line at="dop-wave-crest-guide" endpoints="((6,0),(6,0.8))"
+      stroke="#009E73" thickness="1" dash="4 3"/>
+<label at="dop-wave-crest-lab" anchor="(6.08,0.91)" alignment="e"
+       color="#009E73">
+<m>x_c(t)</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A blue sinusoidal wave profile traveling to the right. An orange boat sits on the profile at x sub b of t. A selected green crest is marked at x sub c of t. A gold double arrow between two neighboring crests marks the wavelength lambda.">
+  <annotation ref="dop-wave-profile" text="The idealized sinusoidal water surface at one instant."/>
+  <annotation ref="dop-wave-travel" text="A right-pointing arrow showing the direction in which the wave pattern travels."/>
+  <annotation ref="dop-wave-lambda" text="The horizontal separation lambda between two neighboring crests."/>
+  <annotation ref="dop-wave-boat" text="The boat at its horizontal position x sub b of t."/>
+  <annotation ref="dop-wave-selected-crest" text="The chosen crest at horizontal position x sub c of t."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<p>
+Suppose the boat travels with constant velocity <m>v</m>, while every
+crest travels to the right with constant speed <m>k&gt;0</m>:
+<md xml:id="eq-cr-doppler-positions" number="yes">
+x_b(t)=vt,\qquad x_c(t)=kt.
+</md>
+At <m>t=0</m>, the boat and the selected crest are both at the origin.
+A positive <m>v</m> means the boat travels with the waves, and a
+negative <m>v</m> means it travels against them.
+</p>
+
+<figure xml:id="fig-cr-doppler-dependency-tree">
+<caption>
+The chain-rule dependencies for
+<m>w=f(x_b(t),x_c(t))</m>. Multiplying along the two paths from
+<m>w</m> to <m>t</m> and adding gives the total rate of change.
+</caption>
+<image width="52%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-doppler-dependency-tree">
+<diagram dimensions="(330,300)" margins="14">
+<coordinates bbox="(-2.35,-0.55,2.35,3.55)">
+<line at="dop-tree-w-xb" endpoints="((0,3),(-1.45,1.5))"
+      stroke="#D55E00" dash="5 4" thickness="3"/>
+<line at="dop-tree-w-xc" endpoints="((0,3),(1.45,1.5))"
+      stroke="#0072B2" dash="5 4" thickness="3"/>
+<line at="dop-tree-xb-t" endpoints="((-1.45,1.5),(0,0))"
+      stroke="#D55E00" dash="5 4" thickness="3"/>
+<line at="dop-tree-xc-t" endpoints="((1.45,1.5),(0,0))"
+      stroke="#0072B2" dash="5 4" thickness="3"/>
+<point at="dop-tree-w" p="(0,3)" fill="#8B1A4A"/>
+<point at="dop-tree-xb" p="(-1.45,1.5)" fill="#D55E00"/>
+<point at="dop-tree-xc" p="(1.45,1.5)" fill="#009E73"/>
+<point at="dop-tree-t" p="(0,0)" fill="black"/>
+
+<label at="dop-tree-w-lab" anchor="(0,3.13)" alignment="n"
+       color="#8B1A4A">
+<m>w=f(x_b,x_c)</m>
+</label>
+<label at="dop-tree-xb-lab" anchor="(-1.58,1.5)" alignment="w"
+       color="#D55E00">
+<m>x_b</m>
+</label>
+<label at="dop-tree-xc-lab" anchor="(1.58,1.5)" alignment="e"
+       color="#009E73">
+<m>x_c</m>
+</label>
+<label at="dop-tree-t-lab" anchor="(0,-0.13)" alignment="s">
+<m>t</m>
+</label>
+
+<label at="dop-tree-w-xb-lab" anchor="(-0.95,2.48)" alignment="w"
+       color="#D55E00">
+<m>\frac{\partial f}{\partial x_b}</m>
+</label>
+<label at="dop-tree-w-xc-lab" anchor="(0.95,2.48)" alignment="e"
+       color="#0072B2">
+<m>\frac{\partial f}{\partial x_c}</m>
+</label>
+<label at="dop-tree-xb-t-lab" anchor="(-0.95,0.55)" alignment="w"
+       color="#D55E00">
+<m>\frac{dx_b}{dt}=v</m>
+</label>
+<label at="dop-tree-xc-t-lab" anchor="(0.95,0.55)" alignment="e"
+       color="#0072B2">
+<m>\frac{dx_c}{dt}=k</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A diamond-shaped dependency tree. The water height w equals f of x sub b and x sub c at the top. Orange and green intermediate nodes x sub b and x sub c lie in the middle, and time t lies at the bottom. The branches carry the two partial derivatives and the velocities v and k.">
+  <annotation ref="dop-tree-w-xb" text="The branch from w to the boat position carries partial f with respect to x sub b."/>
+  <annotation ref="dop-tree-xb-t" text="The branch from the boat position to time carries d x sub b over d t, equal to v."/>
+  <annotation ref="dop-tree-w-xc" text="The branch from w to the selected crest position carries partial f with respect to x sub c."/>
+  <annotation ref="dop-tree-xc-t" text="The branch from the selected crest position to time carries d x sub c over d t, equal to k."/>
+  <annotation ref="dop-tree-t" text="Both paths end at the independent variable t."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<figure xml:id="fig-cr-doppler-video">
+<caption>
+The moving-wave model, its chain-rule tree, the rate calculation, three
+boat-speed comparisons, nonzero cancellation when the boat keeps pace
+with the waves, and the encounter-period formula.
+</caption>
+<video xml:id="video-cr-doppler"
+       source="videos/chain_rule_doppler_effect_manim.mp4"
+       preview="videos/previews/chain_rule_doppler_effect_manim.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+</introduction>
+
+<task xml:id="task-cr-doppler-rate">
+<statement>
+<p>
+Find the rate of change of <m>w</m> with respect to <m>t</m> using the
+chain rule.
+</p>
+</statement>
+<solution>
+<p>
+The two partial derivatives are
+<md>
+\frac{\partial f}{\partial x_b}
+=-\frac{2\pi A}{\lambda}
+\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right),
+\qquad
+\frac{\partial f}{\partial x_c}
+=\frac{2\pi A}{\lambda}
+\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+</md>
+Evaluating at <m>(x_b(t),x_c(t))</m> and following the two paths in
+<xref ref="fig-cr-doppler-dependency-tree"/> gives
+<md xml:id="eq-cr-doppler-rate" number="yes">
+<mrow>
+\frac{dw}{dt}
+\amp=\frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
++\frac{\partial f}{\partial x_c}\frac{dx_c}{dt}
+</mrow>
+<mrow>
+\amp=-\frac{2\pi A}{\lambda}
+\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right)v
++\frac{2\pi A}{\lambda}
+\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right)k
+</mrow>
+<mrow>
+\amp=\frac{2\pi A}{\lambda}(k-v)
+\sin\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+</mrow>
+</md>
+Using <m>x_b-x_c=(v-k)t</m>, this can also be written as
+<md>
+\frac{dw}{dt}
+=\frac{2\pi A}{\lambda}(k-v)
+\sin\left(\frac{2\pi}{\lambda}(v-k)t\right).
+</md>
+</p>
+</solution>
+</task>
+
+<task xml:id="task-cr-doppler-constant-height">
+<statement>
+<p>
+How can the water-surface height at the boat remain constant even though
+the waves are moving?
+</p>
+</statement>
+<solution>
+<p>
+If <m>v=k</m>, then the boat keeps the same horizontal displacement from
+every crest. In the stated model, <m>x_b(t)-x_c(t)=0</m>, so the boat
+stays on the selected crest and <m>w(t)=A</m>. Consequently,
+<m>dw/dt=0</m> for the entire trip.
+</p>
+<p>
+The shared starting point makes both chain-rule terms zero separately
+because the boat begins at a crest. To see genuine cancellation of two
+<em>nonzero</em> terms, place the boat one quarter-wavelength behind the
+selected crest and let both move at speed <m>k</m>:
+<md>
+x_b(t)=kt-\frac{\lambda}{4},
+\qquad
+x_c(t)=kt.
+</md>
+Then the phase is always <m>-\pi/2</m>, so
+<md>
+\frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
+=\frac{2\pi Ak}{\lambda},
+\qquad
+\frac{\partial f}{\partial x_c}\frac{dx_c}{dt}
+=-\frac{2\pi Ak}{\lambda}.
+</md>
+The two nonzero contributions cancel and <m>w(t)=0</m> remains constant.
+</p>
+
+<figure xml:id="fig-cr-doppler-nonzero-cancellation">
+<caption>
+Nonzero cancellation when <m>v=k</m>. With
+<m>x_b(t)=kt-\lambda/4</m> and <m>x_c(t)=kt</m>, the boat remains on a
+sloping, zero-height part of the wave. The boat-motion and crest-motion
+terms have equal magnitude and opposite signs.
+</caption>
+<image width="92%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-doppler-nonzero-cancellation">
+<diagram dimensions="(510,275)" margins="14">
+<definition>cancelwave(s) = cos(pi*(s-4)/4)</definition>
+<coordinates bbox="(-0.65,-2.25,9.25,2.15)">
+<line at="dop-cancel-mean" endpoints="((0,0),(8.8,0))"
+      stroke="#7F7F7F" thickness="1" dash="4 3"/>
+<graph at="dop-cancel-wave" function="cancelwave" domain="(0,8.8)"
+       stroke="#0072B2" thickness="3"/>
+<point at="dop-cancel-boat-point" p="(2,0)" fill="#D55E00"/>
+<point at="dop-cancel-crest-point" p="(4,1)" fill="#009E73"/>
+<line at="dop-cancel-crest-guide" endpoints="((4,0),(4,1))"
+      stroke="#009E73" thickness="1" dash="4 3"/>
+
+<polygon at="dop-cancel-boat"
+         points="((1.55,0.12),(2.45,0.12),(2.27,-0.18),(1.73,-0.18))"
+         fill="#D55E00" fill-opacity="0.30" stroke="#D55E00"
+         thickness="2"/>
+<label at="dop-cancel-boat-lab" anchor="(1.82,0.33)" alignment="w"
+       color="#D55E00">
+<m>x_b=kt-\frac{\lambda}{4}</m>
+</label>
+<label at="dop-cancel-crest-lab" anchor="(4.1,1.1)" alignment="e"
+       color="#009E73">
+<m>x_c=kt</m>
+</label>
+
+<line at="dop-cancel-quarter" endpoints="((2,-1.72),(4,-1.72))"
+      stroke="#E69F00" thickness="2" arrows="2"/>
+<line at="dop-cancel-quarter-left" endpoints="((2,-1.55),(2,-1.86))"
+      stroke="#E69F00" thickness="1"/>
+<line at="dop-cancel-quarter-right" endpoints="((4,-1.55),(4,-1.86))"
+      stroke="#E69F00" thickness="1"/>
+<label at="dop-cancel-quarter-lab" anchor="(3,-1.65)" alignment="n"
+       color="#E69F00">
+<m>\lambda/4</m>
+</label>
+
+<line at="dop-cancel-boat-term" endpoints="((1.72,0.22),(1.72,1.22))"
+      stroke="#D55E00" thickness="3" arrows="1"/>
+<label at="dop-cancel-boat-term-lab" anchor="(1.55,1.38)" alignment="w"
+       color="#D55E00">
+<m>f_{x_b}x_b'=\frac{2\pi Ak}{\lambda}</m>
+</label>
+<line at="dop-cancel-crest-term" endpoints="((2.28,-0.22),(2.28,-1.22))"
+      stroke="#0072B2" thickness="3" arrows="1"/>
+<label at="dop-cancel-crest-term-lab" anchor="(4.65,-1.3)" alignment="c"
+       color="#0072B2">
+<m>f_{x_c}x_c'=-\frac{2\pi Ak}{\lambda}</m>
+</label>
+<label at="dop-cancel-sum-lab" anchor="(7.25,1.45)" alignment="c"
+       color="#8B1A4A">
+<m>\frac{dw}{dt}=0,\qquad w(t)=0</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A blue sinusoidal snapshot with a green crest at x sub c equals k t and an orange boat a quarter wavelength to its left at x sub b equals k t minus lambda over four. At the boat, an orange upward arrow and a blue downward arrow represent equal nonzero chain-rule contributions that cancel.">
+  <annotation ref="dop-cancel-boat-point" text="The boat samples the mean-height crossing one quarter-wavelength behind the selected crest."/>
+  <annotation ref="dop-cancel-crest-point" text="The selected crest at x sub c equals k t."/>
+  <annotation ref="dop-cancel-quarter" text="The fixed horizontal separation lambda over four."/>
+  <annotation ref="dop-cancel-boat-term" text="The positive boat-motion contribution, two pi A k over lambda."/>
+  <annotation ref="dop-cancel-crest-term" text="The negative crest-motion contribution, negative two pi A k over lambda."/>
+  <annotation ref="dop-cancel-sum-lab" text="The two contributions sum to zero, and the measured height remains zero."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<p>
+Notice that <m>dw/dt=0</m> at one instant does not by itself imply
+<m>v=k</m>: the sine factor also vanishes instantaneously at every crest
+and trough. Matching speeds is what makes the relative position, and
+therefore the height, constant throughout an interval.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-cr-doppler-period">
+<statement>
+<p>
+How does the boat's velocity affect the time between successive crests?
+</p>
+</statement>
+<solution>
+<p>
+Substituting the position functions into the model gives
+<md>
+w(t)=A\cos\left(\frac{2\pi}{\lambda}(v-k)t\right).
+</md>
+For <m>v\ne k</m>, one complete cycle occurs when the cosine's argument
+changes by <m>2\pi</m>. Therefore the time between successive crests is
+<md xml:id="eq-cr-doppler-period" number="yes">
+T=\frac{\lambda}{|k-v|},
+\qquad v\ne k.
+</md>
+Equivalently, the encounter frequency is <m>|k-v|/\lambda</m>. When
+<m>v=k</m>, the sampled height is constant, so it has no finite
+fundamental period.
+</p>
+
+<p>
+For example, suppose adjacent crests are <m>8</m> meters apart and
+travel at <m>2</m> meters per second.
+</p>
+
+<table xml:id="table-cr-doppler-periods">
+<title>
+Time between crests for <m>\lambda=8\text{ m}</m> and
+<m>k=2\text{ m/s}</m>
+</title>
+<tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+<row header="yes" bottom="major">
+<cell>Boat's motion</cell>
+<cell><m>v</m> (m/s)</cell>
+<cell>Time between crests</cell>
+</row>
+<row>
+<cell>Stationary</cell>
+<cell><m>0</m></cell>
+<cell><m>4</m> seconds</cell>
+</row>
+<row>
+<cell>Traveling with the waves</cell>
+<cell><m>1</m></cell>
+<cell><m>8</m> seconds</cell>
+</row>
+<row>
+<cell>Traveling against the waves</cell>
+<cell><m>-1</m></cell>
+<cell><m>8/3</m> seconds</cell>
+</row>
+</tabular>
+</table>
+
+<figure xml:id="fig-cr-doppler-speed-comparison">
+<caption>
+Normalized height <m>w/A</m> over eight seconds for the three velocities
+in <xref ref="table-cr-doppler-periods"/>. Traveling against the waves
+produces three cycles, remaining stationary produces two, and traveling
+with the waves produces one.
+</caption>
+<image width="94%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-doppler-speed-comparison">
+<diagram dimensions="(520,360)" margins="14">
+<definition>against(t) = 3 + 0.72*cos(3*pi*t/4)</definition>
+<definition>stationary(t) = 0.72*cos(pi*t/2)</definition>
+<definition>withwaves(t) = -3 + 0.72*cos(pi*t/4)</definition>
+<coordinates bbox="(-0.8,-5.25,9.6,4.25)">
+<line at="dop-speed-top-base" endpoints="((0,3),(8,3))"
+      stroke="#B3B3B3" thickness="1" dash="4 3"/>
+<line at="dop-speed-mid-base" endpoints="((0,0),(8,0))"
+      stroke="#B3B3B3" thickness="1" dash="4 3"/>
+<line at="dop-speed-bot-base" endpoints="((0,-3),(8,-3))"
+      stroke="#B3B3B3" thickness="1" dash="4 3"/>
+<line at="dop-speed-time-axis" endpoints="((0,-4.85),(8.45,-4.85))"
+      stroke="black" thickness="2" arrows="1"/>
+<line at="dop-speed-height-axis" endpoints="((0,-4.85),(0,4.0))"
+      stroke="black" thickness="2" arrows="1"/>
+<label at="dop-speed-time-lab" anchor="(8.55,-4.85)" alignment="e">
+<m>t\text{ (s)}</m>
+</label>
+<label at="dop-speed-height-lab" anchor="(-0.12,4.05)" alignment="nw">
+<m>w/A</m>
+</label>
+<label at="dop-speed-zero-lab" anchor="(0,-4.97)" alignment="s">
+<m>0</m>
+</label>
+<label at="dop-speed-eight-lab" anchor="(8,-4.97)" alignment="s">
+<m>8</m>
+</label>
+
+<graph at="dop-speed-against" function="against" domain="(0,8)"
+       stroke="#D55E00" thickness="3"/>
+<graph at="dop-speed-stationary" function="stationary" domain="(0,8)"
+       stroke="#8B1A4A" thickness="3"/>
+<graph at="dop-speed-with" function="withwaves" domain="(0,8)"
+       stroke="#009E73" thickness="3"/>
+
+<line at="dop-speed-period-against"
+      endpoints="((0,1.56),(2.6667,1.56))"
+      stroke="#D55E00" thickness="2" arrows="2"/>
+<label at="dop-speed-period-against-lab" anchor="(1.333,1.65)"
+       alignment="n" color="#D55E00">
+<m>T=\frac{8}{3}</m>
+</label>
+<line at="dop-speed-period-stationary"
+      endpoints="((0,-1.44),(4,-1.44))"
+      stroke="#8B1A4A" thickness="2" arrows="2"/>
+<label at="dop-speed-period-stationary-lab" anchor="(2,-1.35)"
+       alignment="n" color="#8B1A4A">
+<m>T=4</m>
+</label>
+<line at="dop-speed-period-with"
+      endpoints="((0,-4.44),(8,-4.44))"
+      stroke="#009E73" thickness="2" arrows="2"/>
+<label at="dop-speed-period-with-lab" anchor="(4,-4.35)"
+       alignment="n" color="#009E73">
+<m>T=8</m>
+</label>
+
+<label at="dop-speed-against-lab" anchor="(8.18,3.45)" alignment="e"
+       color="#D55E00">
+<m>v=-1</m>
+</label>
+<label at="dop-speed-stationary-lab" anchor="(8.18,0.45)" alignment="e"
+       color="#8B1A4A">
+<m>v=0</m>
+</label>
+<label at="dop-speed-with-lab" anchor="(8.18,-2.55)" alignment="e"
+       color="#009E73">
+<m>v=1</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="Three stacked normalized height traces over eight seconds. The top orange trace for v equals negative one completes three cycles and has period eight thirds. The middle dark red trace for v equals zero completes two cycles and has period four. The bottom green trace for v equals one completes one cycle and has period eight.">
+  <annotation ref="dop-speed-against" text="The height trace for a boat traveling against the waves at one meter per second; it completes three cycles."/>
+  <annotation ref="dop-speed-stationary" text="The height trace for a stationary boat; it completes two cycles."/>
+  <annotation ref="dop-speed-with" text="The height trace for a boat traveling with the waves at one meter per second; it completes one cycle."/>
+  <annotation ref="dop-speed-period-against" text="One period of length eight thirds seconds on the top trace."/>
+  <annotation ref="dop-speed-period-stationary" text="One period of length four seconds on the middle trace."/>
+  <annotation ref="dop-speed-period-with" text="One period of length eight seconds on the bottom trace."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+</solution>
+</task>
+
+<conclusion>
+<p>
+<em>Conceptual takeaway.</em> The two chain-rule terms separate the
+change caused by the boat's motion from the change caused by the moving
+wave pattern. When the boat moves with the waves, those contributions
+oppose one another; when it moves against the waves, they reinforce one
+another. They can partly cancel or cancel completely, and the remaining
+relative speed <m>|k-v|</m> determines how frequently the boat encounters
+crests.
+</p>
+<p>
+For more physical context, see
+<url href="https://openstax.org/books/college-physics-2e/pages/17-4-doppler-effect-and-sonic-booms">OpenStax, <em>Doppler Effect and Sonic Booms</em></url>.
+</p>
+</conclusion>
+</activity>
+
+</subsection>
+
 </section>

@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-doppler-speed-comparison-figure" speech2="Three stacked normalized height traces over eight seconds. The top orange trace for v equals negative one completes three cycles and has period eight thirds. The middle dark red trace for v equals zero completes two cycles and has period four. The bottom green trace for v equals one completes one cycle and has period eight.">
+      <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-against</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-stationary</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-with</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-against</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-stationary</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-with</active>
+      </children>
+      <components>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-against</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-stationary</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-with</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-against</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-stationary</active>
+        <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-with</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-speed-comparison-dop-speed-against" speech2="The height trace for a boat traveling against the waves at one meter per second; it completes three cycles.">
+      <active>prefigure-cr-doppler-speed-comparison-dop-speed-against</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-speed-comparison-dop-speed-stationary" speech2="The height trace for a stationary boat; it completes two cycles.">
+      <active>prefigure-cr-doppler-speed-comparison-dop-speed-stationary</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-speed-comparison-dop-speed-with" speech2="The height trace for a boat traveling with the waves at one meter per second; it completes one cycle.">
+      <active>prefigure-cr-doppler-speed-comparison-dop-speed-with</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-speed-comparison-dop-speed-period-against" speech2="One period of length eight thirds seconds on the top trace.">
+      <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-against</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-speed-comparison-dop-speed-period-stationary" speech2="One period of length four seconds on the middle trace.">
+      <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-stationary</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-speed-comparison-dop-speed-period-with" speech2="One period of length eight seconds on the bottom trace.">
+      <active>prefigure-cr-doppler-speed-comparison-dop-speed-period-with</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-speed-comparison-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

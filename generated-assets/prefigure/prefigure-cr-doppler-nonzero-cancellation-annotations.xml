@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-figure" speech2="A blue sinusoidal snapshot with a green crest at x sub c equals k t and an orange boat a quarter wavelength to its left at x sub b equals k t minus lambda over four. At the boat, an orange upward arrow and a blue downward arrow represent equal nonzero chain-rule contributions that cancel.">
+      <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-point</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-term</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-sum-lab</active>
+      </children>
+      <components>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-point</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-term</active>
+        <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-sum-lab</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-point" speech2="The boat samples the mean-height crossing one quarter-wavelength behind the selected crest.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-point</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point" speech2="The selected crest at x sub c equals k t.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-point</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter" speech2="The fixed horizontal separation lambda over four.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-quarter</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term" speech2="The positive boat-motion contribution, two pi A k over lambda.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-boat-term</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-term" speech2="The negative crest-motion contribution, negative two pi A k over lambda.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-crest-term</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-nonzero-cancellation-dop-cancel-sum-lab" speech2="The two contributions sum to zero, and the measured height remains zero.">
+      <active>prefigure-cr-doppler-nonzero-cancellation-dop-cancel-sum-lab</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-nonzero-cancellation-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
