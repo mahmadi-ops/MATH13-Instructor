@@ -980,17 +980,17 @@ currentlight=light(gray(0.8),specularfactor=0.1,(4,-3,6),(-4,-1,3));
 
 // The formula generates the proposed graph; students see only the surface.
 triple proposed(pair p) { return (p.x,p.y,p.y+0.5*p.x^2); }
-surface s=surface(proposed,(-1.35,-1.35),(1.35,1.35),16,16);
-draw(s,surfacepen=rgb("D6E5EC")+opacity(0.32),
-     meshpen=gray(0.55)+opacity(0.28)+linewidth(0.3pt));
+surface s=surface(proposed,(-1.35,-1.35),(1.35,1.35),12,12);
+draw(s,surfacepen=rgb("D6E5EC")+opacity(0.28),
+     meshpen=gray(0.6)+opacity(0.22)+linewidth(0.35pt));
 
-pen axisPen=gray(0.22)+linewidth(0.8pt);
-draw(Label("$x$",1),(-1.65,0,0)--(1.9,0,0),axisPen,Arrow3(size=5));
-draw(Label("$y$",1),(0,-1.65,0)--(0,1.9,0),axisPen,Arrow3(size=5));
-draw(Label("$f_x$",1),(0,0,-1.8)--(0,0,2.65),axisPen,Arrow3(size=5));
-label("$0$",(0,0,0),SW,axisPen);
+pen axisPen=gray(0.15)+linewidth(1.1pt)+fontsize(13pt);
+draw(Label("$x$",1),(-1.65,0,0)--(1.9,0,0),axisPen,Arrow3(size=6));
+draw(Label("$y$",1),(0,-1.65,0)--(0,1.9,0),axisPen,Arrow3(size=6));
+draw(Label("$f_x$",1),(0,0,-1.8)--(0,0,2.65),axisPen,Arrow3(size=6));
+label("$0$",(0,0,0),NW,axisPen);
 
-pen tracePen=rgb("0072B2")+linewidth(2.7pt);
+pen tracePen=rgb("0072B2")+linewidth(3.2pt)+fontsize(12pt);
 path3 trace=graph(new triple(real t) {return (0,t,t);},-1.35,1.35);
 if(settings.outformat != "html") draw(trace,white+linewidth(4.8pt));
 draw(trace,tracePen,Arrow3(size=8));
@@ -1026,17 +1026,17 @@ currentlight=light(gray(0.8),specularfactor=0.1,(4,-3,6),(-4,-1,3));
 
 // The formula generates the proposed graph; students see only the surface.
 triple proposed(pair p) { return (p.x,p.y,-p.x+0.5*p.y^2); }
-surface s=surface(proposed,(-1.35,-1.35),(1.35,1.35),16,16);
-draw(s,surfacepen=rgb("F1E0CD")+opacity(0.32),
-     meshpen=gray(0.55)+opacity(0.28)+linewidth(0.3pt));
+surface s=surface(proposed,(-1.35,-1.35),(1.35,1.35),12,12);
+draw(s,surfacepen=rgb("F1E0CD")+opacity(0.28),
+     meshpen=gray(0.6)+opacity(0.22)+linewidth(0.35pt));
 
-pen axisPen=gray(0.22)+linewidth(0.8pt);
-draw(Label("$x$",1),(-1.65,0,0)--(1.9,0,0),axisPen,Arrow3(size=5));
-draw(Label("$y$",1),(0,-1.65,0)--(0,1.9,0),axisPen,Arrow3(size=5));
-draw(Label("$f_y$",1),(0,0,-1.8)--(0,0,2.65),axisPen,Arrow3(size=5));
+pen axisPen=gray(0.15)+linewidth(1.1pt)+fontsize(13pt);
+draw(Label("$x$",1),(-1.65,0,0)--(1.9,0,0),axisPen,Arrow3(size=6));
+draw(Label("$y$",1),(0,-1.65,0)--(0,1.9,0),axisPen,Arrow3(size=6));
+draw(Label("$f_y$",1),(0,0,-1.8)--(0,0,2.65),axisPen,Arrow3(size=6));
 label("$0$",(0,0,0),SW,axisPen);
 
-pen tracePen=rgb("D55E00")+linewidth(2.7pt);
+pen tracePen=rgb("D55E00")+linewidth(3.2pt)+fontsize(12pt);
 path3 trace=graph(new triple(real t) {return (t,0,-t);},-1.35,1.35);
 if(settings.outformat != "html") draw(trace,white+linewidth(4.8pt));
 draw(trace,tracePen,Arrow3(size=8));
@@ -1044,7 +1044,7 @@ dot((0,0,0),black+linewidth(4pt));
 draw((1,0,0)--(1,0,-1),gray(0.4)+dashed+linewidth(0.6pt));
 dot((1,0,-1),tracePen+linewidth(4pt));
 label("$1$",(1,0,0),NE,axisPen);
-label("$-1$",(1,0,-1),S,tracePen);
+label("$-1$",(1,0,-1),W,tracePen);
 currentpicture.addBox((-1.8,-1.8,-1.9),(2,2,2.9));
 ]]></asymptote>
 </image>

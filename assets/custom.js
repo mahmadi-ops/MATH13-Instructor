@@ -147,6 +147,53 @@
 })();
 
 /* ------------------------------------------------------------------ *
+ * Keep the derivative-graph checkpoint sharp on high-density screens.
+ *
+ * AsyGL 1.02 renders embedded canvases in CSS pixels. Give these frames
+ * a larger viewport and scale them back to their reading-column size;
+ * the canvas then has enough pixels for the display, and the browser
+ * maps pointer coordinates into the larger viewport for rotation.
+ * ------------------------------------------------------------------ */
+(function () {
+  var selector = 'iframe.asymptote[src*="asymptote-pd-candidate-"]';
+
+  function sharpenGraphs() {
+    var scale = Math.min(4, Math.max(2, window.devicePixelRatio || 1));
+    document.querySelectorAll(selector).forEach(function (frame) {
+      if (frame.dataset.renderScale === String(scale)) return;
+      frame.style.width = (100 * scale) + "%";
+      frame.style.height = (100 * scale) + "%";
+      frame.style.transformOrigin = "0 0";
+      frame.style.transform = "scale(" + (1 / scale) + ")";
+      frame.dataset.renderScale = String(scale);
+    });
+  }
+
+  function start() {
+    sharpenGraphs();
+    window.addEventListener("resize", sharpenGraphs);
+    new MutationObserver(function (records) {
+      for (var i = 0; i < records.length; i++) {
+        for (var j = 0; j < records[i].addedNodes.length; j++) {
+          var node = records[i].addedNodes[j];
+          if (node.nodeType === 1 &&
+              (node.matches(selector) || node.querySelector(selector))) {
+            sharpenGraphs();
+            return;
+          }
+        }
+      }
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+
+/* ------------------------------------------------------------------ *
  * Floating Socratic AI tutor for the assignment pages.
  *
  * Ported from the MATH 14 book (mahmadi-ops/MATH-14, assets/custom.js),

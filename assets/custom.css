@@ -83,6 +83,24 @@ body.a4 .diagcess-navigation-controls {
   height: auto !important;
 }
 
+/* Keep supersampled derivative graphs inside their original figure boxes. */
+#exercise-pd-compatible-graphs .asymptote-box {
+  overflow: hidden;
+}
+
+/* Give each graph enough room for its labels on narrow screens. */
+@media (max-width: 640px) {
+  #exercise-pd-compatible-graphs .sbsrow,
+  #exercise-pd-compatible-graphs .sbspanel,
+  #exercise-pd-compatible-graphs .sbspanel > .figure {
+    display: block;
+  }
+
+  #exercise-pd-compatible-graphs .sbspanel + .sbspanel {
+    margin-top: 1.5em;
+  }
+}
+
 /* ------------------------------------------------------------------ *
  * The "Assignments and Review Problems" chapter is unnumbered.
  *
