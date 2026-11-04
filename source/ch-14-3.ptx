@@ -887,6 +887,52 @@ f_{xy} = f_{yx} = -2x\sin(x^2y) - 2x^3y\cos(x^2y).
 </solution>
 </example>
 
+<exercise xml:id="exercise-pd-compatible-partials">
+<title>True or False: Prescribed Partial Derivatives</title>
+<statement correct="no">
+<p>
+For every choice of real constants <m>a</m> and <m>b</m>, there exists a
+function <m>f</m> with continuous second partial derivatives on
+<m>\mathbb R^2</m> such that
+<md>
+<mrow>f_x(x,y) \amp = a\,y e^{xy} + 2x\sin y + 3x^2,</mrow>
+<mrow>f_y(x,y) \amp = x e^{xy} + b\,x^2\cos y + 4y^3,</mrow>
+</md>
+and <m>f(0,0)=0</m>.
+</p>
+<p>
+Justify your answer fully: give a proof if the statement is true, or a
+counterexample if it is false.
+</p>
+</statement>
+<feedback>
+<p>
+<alert>False.</alert> By <xref ref="thm-mixed-derivative"/>, the two mixed
+partial derivatives would have to agree at every point:
+<md>
+<mrow>\frac{\partial}{\partial y}(f_x)
+\amp = a(1+xy)e^{xy} + 2x\cos y,</mrow>
+<mrow>\frac{\partial}{\partial x}(f_y)
+\amp = (1+xy)e^{xy} + 2b\,x\cos y.</mrow>
+</md>
+For example, choosing <m>a=b=0</m> makes these derivatives equal to
+<m>0</m> and <m>1</m>, respectively, at <m>(0,0)</m>. Thus no such
+function exists for that choice of constants.
+</p>
+<p>
+In fact, equality at <m>(0,0)</m> forces <m>a=1</m>. With <m>a=1</m>,
+equality at <m>(1,0)</m> then gives <m>3=1+2b</m>, so <m>b=1</m>.
+For <m>a=b=1</m>, the function
+<md>
+f(x,y)=e^{xy}+x^2\sin y+x^3+y^4-1
+</md>
+has exactly the prescribed partial derivatives and satisfies
+<m>f(0,0)=0</m>. Therefore such a function exists only for
+<m>a=b=1</m>, rather than for every choice of constants.
+</p>
+</feedback>
+</exercise>
+
 </subsection>
 
 </section>
