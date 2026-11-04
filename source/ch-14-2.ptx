@@ -829,7 +829,7 @@ of its domain.
 </definition>
 
 <example xml:id="example-cont-2xy">
-<title>Continuity Everywhere Except at the Origin</title>
+<title>Continuity of <m>\frac{2xy}{x^2+y^2}</m></title>
 <statement>
 <p>
 Show that the function
@@ -878,7 +878,7 @@ is discontinuous at <m>(x,y) = (0,0)</m>.
 </example>
 
 <example xml:id="example-cont-xy2">
-<title>A Discontinuity Detected by a Curved Path</title>
+<title>Continuity of <m>\frac{xy^2}{x^2+y^4}</m></title>
 <statement>
 <p>
 Show that the function
