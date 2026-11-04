@@ -1,4 +1,4 @@
 # Course content preferences
 
-- Do not include standalone conceptual takeaway sections, lists, or animation end cards.
-- Remove existing conceptual takeaways when revising material; do not replace them with a renamed takeaway block.
+- Omit closing "Conceptual takeaway" text blocks and lists at the end of activities.
+- This preference applies to written activity text. Keep embedded animations, their end cards, and animation source unchanged when removing that text.
