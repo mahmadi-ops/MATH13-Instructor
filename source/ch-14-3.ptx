@@ -722,13 +722,20 @@ true steepness; dragging turns it by hand.
 <title>Second Derivatives and the Mixed Derivative Theorem</title>
 
 <p>
-We also define second derivatives such as
+We define the mixed second partial derivatives by
 <md>
-\frac{\partial^2 f}{\partial x \partial y},
+<mrow>f_{xy} \amp = (f_x)_y
+= \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right)
+= \frac{\partial^2 f}{\partial y\,\partial x},</mrow>
+<mrow>f_{yx} \amp = (f_y)_x
+= \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right)
+= \frac{\partial^2 f}{\partial x\,\partial y}.</mrow>
 </md>
-by which we mean that we first differentiate with respect to <m>y</m> and
-then with respect to <m>x</m>. We can alternatively denote such a second
-derivative by <m>f_{yx}</m>. Likewise
+The subscripts record the order of differentiation from left to right:
+<m>f_{xy}</m> means differentiate with respect to <m>x</m> first, then
+<m>y</m>; <m>f_{yx}</m> means differentiate with respect to <m>y</m>
+first, then <m>x</m>. In the Leibniz notation, the rightmost
+differentiation is performed first. Likewise
 <md>
 \frac{\partial^2 f}{\partial x^2}
 </md>
@@ -743,8 +750,8 @@ alternatively denote such a second derivative by <m>f_{xx}</m>.
 Consider the function <m>f(x,y) = \cos(xy^2)</m> and evaluate the
 following partial derivatives.
 <ol marker="A.">
-<li><p><m>f_{yx}</m></p></li>
 <li><p><m>f_{xy}</m></p></li>
+<li><p><m>f_{yx}</m></p></li>
 <li><p><m>f_{xx}</m></p></li>
 </ol>
 </p>
@@ -754,7 +761,7 @@ following partial derivatives.
 <p>
 <alert>A.</alert>
 <md>
-<mrow>f_{yx} \amp = \frac{\partial}{\partial y}
+<mrow>f_{xy} \amp = \frac{\partial}{\partial y}
 \left(\frac{\partial}{\partial x}\cos(xy^2)\right)
 = \frac{\partial}{\partial y}\left(-y^2\sin(xy^2)\right)</mrow>
 <mrow>\amp = -2y\sin(xy^2) - 2xy^3\cos(xy^2)</mrow>
@@ -763,7 +770,7 @@ following partial derivatives.
 <p>
 <alert>B.</alert>
 <md>
-<mrow>f_{xy} \amp = \frac{\partial}{\partial x}
+<mrow>f_{yx} \amp = \frac{\partial}{\partial x}
 \left(\frac{\partial}{\partial y}\cos(xy^2)\right)
 = \frac{\partial}{\partial x}\left(-2xy\sin(xy^2)\right)</mrow>
 <mrow>\amp = -2y\sin(xy^2) - 2xy^3\cos(xy^2)</mrow>
@@ -860,20 +867,21 @@ shows.
 <p>
 Consider
 <m>f(x,y) = \cos(x^2 y) + \dfrac{e^{(y^2+y+1)}}{y^2+5}</m> and calculate
-<m>f_{xy}</m>.
+<m>f_{yx} = \dfrac{\partial^2 f}{\partial x\,\partial y}</m>.
 </p>
 </statement>
 
 <solution>
 <p>
-We notice that the mixed derivative theorem <xref ref="eq-mixed-derivative"/>
-applies, so
-<m>f_{xy} = f_{yx}</m>, and that it is faster to compute
-<m>f_{yx}</m>. The reason is that differentiating with respect to
+Since <m>y^2+5 \gt 0</m> for every <m>y</m>, the function is smooth on
+<m>\mathbb R^2</m>. The mixed derivative theorem
+<xref ref="eq-mixed-derivative"/> applies, so
+<m>f_{yx} = f_{xy}</m>, and it is faster to compute
+<m>f_{xy}</m>. The reason is that differentiating with respect to
 <m>x</m> first annihilates the entire second term, which depends on
 <m>y</m> alone and is unpleasant to differentiate:
 <md>
-<mrow>f_{xy} = f_{yx} \amp = \frac{\partial}{\partial y}\left(
+<mrow>f_{yx} = f_{xy} \amp = \frac{\partial}{\partial y}\left(
 \frac{\partial}{\partial x}\left(\cos(x^2 y)
 + \frac{e^{(y^2+y+1)}}{y^2+5}\right)\right)</mrow>
 <mrow>\amp = \frac{\partial}{\partial y}\left(-2xy\sin(x^2y)\right)</mrow>
