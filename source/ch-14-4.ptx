@@ -1782,13 +1782,6 @@ The contributions add and may reinforce or oppose one another.
        preview="videos/previews/chain_rule_doppler_both_changing_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
-<p><em>Conceptual takeaway.</em></p>
-<ul>
-<li><p>Boat motion and crest motion contribute separate chain-rule terms.</p></li>
-<li><p>Their effects may reinforce, oppose, or cancel.</p></li>
-<li><p>If <m>A=A(t)</m>, add the amplitude term <m>f_A\frac{dA}{dt}</m>.</p></li>
-<li><p>Crest encounters depend on the relative speed <m>|k-v|</m>.</p></li>
-</ul>
 <p>
 For more physical context, see
 <url href="https://openstax.org/books/college-physics-2e/pages/17-4-doppler-effect-and-sonic-booms">OpenStax, <em>Doppler Effect and Sonic Booms</em></url>.

@@ -86,7 +86,6 @@ class ChainRuleDopplerExtensions(Scene):
         self.introduction()
         self.measure_wave()
         self.varying_amplitude()
-        self.conclusion()
 
     # ------------------------------------------------------------------
     # Shared layout helpers
@@ -295,7 +294,6 @@ class ChainRuleDopplerExtensions(Scene):
             run_time=0.7,
         )
         self.tracked_growing_crest()
-        self.clear_scene()
 
     def tracked_growing_crest(self):
         """Animate a boat moving with one crest while its amplitude increases."""
@@ -381,29 +379,3 @@ class ChainRuleDopplerExtensions(Scene):
         self.play(Write(result), Create(result_box), run_time=1.0)
         self.caption("The boat measures the amplitude directly, so its height changes at the rate A prime.")
         self.wait(3.0)
-
-    def conclusion(self):
-        tag = self.section_tag("TWO TAKEAWAYS")
-        summary = VGroup(
-            VGroup(
-                mtex(r"T=4\ \mathrm{s},\ 8\ \mathrm{s}", font_size=35,
-                     color=OUTPUT_COLOR),
-                Text("determine", font=TEXT_FONT, font_size=24, color=MUTED_COLOR),
-                mtex(r"k=2\ \mathrm{m/s},\ \lambda=8\ \mathrm{m}",
-                     font_size=38, color=HIGHLIGHT_COLOR),
-            ).arrange(DOWN, buff=0.22),
-            Line(LEFT * 4.5, RIGHT * 4.5, color=GREY_E, stroke_width=1.2),
-            VGroup(
-                mtex(r"A=A(t),\quad x_b=x_c", font_size=35,
-                     color=AMPLITUDE_COLOR),
-                Text("at a tracked crest", font=TEXT_FONT, font_size=24,
-                     color=MUTED_COLOR),
-                mtex(r"\dfrac{dw}{dt}=A'(t)", font_size=45,
-                     color=HIGHLIGHT_COLOR),
-            ).arrange(DOWN, buff=0.22),
-        ).arrange(DOWN, buff=0.45).move_to([0, 0.12, 0])
-
-        self.play(FadeIn(tag), FadeIn(summary[0], shift=0.12 * UP), run_time=1.0)
-        self.play(Create(summary[1]), FadeIn(summary[2], shift=0.12 * UP), run_time=1.0)
-        self.caption("Encounter timing reveals the wave; the enlarged chain rule reveals its growth.")
-        self.wait(4.0)
