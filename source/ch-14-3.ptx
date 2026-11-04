@@ -933,6 +933,136 @@ has exactly the prescribed partial derivatives and satisfies
 </feedback>
 </exercise>
 
+<exercise xml:id="exercise-pd-compatible-graphs">
+<title>True or False: Can These Be Partial Derivatives?</title>
+<statement correct="no">
+<p>
+The two surfaces below can be the graphs of <m>f_x</m> and <m>f_y</m>
+for the same function <m>f</m> with continuous second partial derivatives
+on a neighborhood of the origin.
+</p>
+<sidebyside widths="48% 48%" margins="0%">
+<figure xml:id="fig-pd-candidate-fx">
+<caption>
+Proposed graph of <m>f_x</m>. The blue trace holds <m>x=0</m>.
+</caption>
+<image width="100%">
+<shortdescription>A proposed partial derivative surface whose highlighted blue trace rises as y increases through the origin.</shortdescription>
+<description><p>
+The vertical axis gives the value of the proposed partial derivative f x.
+The highlighted blue trace lies in the plane x equals zero and passes
+through the origin. Moving along this trace in the positive y direction
+increases the height. Both coordinate axes and the vertical height axis
+are labeled; an arrow on the blue trace points toward increasing y.
+</p></description>
+<asymptote label="asymptote-pd-candidate-fx"><![CDATA[
+import graph3;
+viewportmargin=(18,18);
+if(settings.outformat != "html") settings.render=0;
+size(8.8cm,8.5cm);
+currentprojection=orthographic(camera=(5,-7,4.5),up=Z);
+currentlight=light(gray(0.8),specularfactor=0.1,(4,-3,6),(-4,-1,3));
+
+// The formula generates the proposed graph; students see only the surface.
+triple proposed(pair p) { return (p.x,p.y,p.y+0.5*p.x^2); }
+surface s=surface(proposed,(-1.35,-1.35),(1.35,1.35),16,16);
+draw(s,surfacepen=rgb("D6E5EC")+opacity(0.32),
+     meshpen=gray(0.55)+opacity(0.28)+linewidth(0.3pt));
+
+pen axisPen=gray(0.22)+linewidth(0.8pt);
+draw(Label("$x$",1),(-1.65,0,0)--(1.9,0,0),axisPen,Arrow3(size=5));
+draw(Label("$y$",1),(0,-1.65,0)--(0,1.9,0),axisPen,Arrow3(size=5));
+draw(Label("$f_x$",1),(0,0,-1.8)--(0,0,2.65),axisPen,Arrow3(size=5));
+label("$0$",(0,0,0),SW,axisPen);
+
+pen tracePen=rgb("0072B2")+linewidth(2.7pt);
+path3 trace=graph(new triple(real t) {return (0,t,t);},-1.35,1.35);
+if(settings.outformat != "html") draw(trace,white+linewidth(4.8pt));
+draw(trace,tracePen,Arrow3(size=8));
+dot((0,0,0),black+linewidth(4pt));
+draw((0,1,0)--(0,1,1),gray(0.4)+dashed+linewidth(0.6pt));
+dot((0,1,1),tracePen+linewidth(4pt));
+label("$1$",(0,1,0),SE,axisPen);
+label("$1$",(0,1,1),W,tracePen);
+currentpicture.addBox((-1.8,-1.8,-1.9),(2,2,2.9));
+]]></asymptote>
+</image>
+</figure>
+<figure xml:id="fig-pd-candidate-fy">
+<caption>
+Proposed graph of <m>f_y</m>. The orange trace holds <m>y=0</m>.
+</caption>
+<image width="100%">
+<shortdescription>A proposed partial derivative surface whose highlighted orange trace falls as x increases through the origin.</shortdescription>
+<description><p>
+The vertical axis gives the value of the proposed partial derivative f y.
+The highlighted orange trace lies in the plane y equals zero and passes
+through the origin. Moving along this trace in the positive x direction
+decreases the height. Both coordinate axes and the vertical height axis
+are labeled; an arrow on the orange trace points toward increasing x.
+</p></description>
+<asymptote label="asymptote-pd-candidate-fy"><![CDATA[
+import graph3;
+viewportmargin=(18,18);
+if(settings.outformat != "html") settings.render=0;
+size(8.8cm,8.5cm);
+currentprojection=orthographic(camera=(5,-7,4.5),up=Z);
+currentlight=light(gray(0.8),specularfactor=0.1,(4,-3,6),(-4,-1,3));
+
+// The formula generates the proposed graph; students see only the surface.
+triple proposed(pair p) { return (p.x,p.y,-p.x+0.5*p.y^2); }
+surface s=surface(proposed,(-1.35,-1.35),(1.35,1.35),16,16);
+draw(s,surfacepen=rgb("F1E0CD")+opacity(0.32),
+     meshpen=gray(0.55)+opacity(0.28)+linewidth(0.3pt));
+
+pen axisPen=gray(0.22)+linewidth(0.8pt);
+draw(Label("$x$",1),(-1.65,0,0)--(1.9,0,0),axisPen,Arrow3(size=5));
+draw(Label("$y$",1),(0,-1.65,0)--(0,1.9,0),axisPen,Arrow3(size=5));
+draw(Label("$f_y$",1),(0,0,-1.8)--(0,0,2.65),axisPen,Arrow3(size=5));
+label("$0$",(0,0,0),SW,axisPen);
+
+pen tracePen=rgb("D55E00")+linewidth(2.7pt);
+path3 trace=graph(new triple(real t) {return (t,0,-t);},-1.35,1.35);
+if(settings.outformat != "html") draw(trace,white+linewidth(4.8pt));
+draw(trace,tracePen,Arrow3(size=8));
+dot((0,0,0),black+linewidth(4pt));
+draw((1,0,0)--(1,0,-1),gray(0.4)+dashed+linewidth(0.6pt));
+dot((1,0,-1),tracePen+linewidth(4pt));
+label("$1$",(1,0,0),NE,axisPen);
+label("$-1$",(1,0,-1),S,tracePen);
+currentpicture.addBox((-1.8,-1.8,-1.9),(2,2,2.9));
+]]></asymptote>
+</image>
+</figure>
+</sidebyside>
+<p>
+Decide whether the statement is true or false. Justify your answer using
+slopes visible in the graphs, without trying to recover a formula for
+<m>f</m>. The arrows on the highlighted traces point in the positive
+coordinate directions.
+</p>
+</statement>
+<feedback>
+<p>
+<alert>False.</alert> On the left, hold <m>x=0</m> and increase <m>y</m>.
+The blue trace rises through the origin, so
+<md>
+\frac{\partial}{\partial y}(f_x)(0,0) \gt 0.
+</md>
+On the right, hold <m>y=0</m> and increase <m>x</m>. The orange trace
+falls through the origin, so
+<md>
+\frac{\partial}{\partial x}(f_y)(0,0) \lt 0.
+</md>
+These two mixed partial derivatives have opposite signs and cannot be
+equal. This contradicts <xref ref="thm-mixed-derivative"/>, which would
+apply because the second partial derivatives are continuous near the
+origin. Therefore the two proposed graphs cannot come from the same
+function <m>f</m>.
+</p>
+</feedback>
+</exercise>
+
 </subsection>
 
 </section>
