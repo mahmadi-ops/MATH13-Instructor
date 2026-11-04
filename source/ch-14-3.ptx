@@ -907,20 +907,35 @@ counterexample if it is false.
 </statement>
 <feedback>
 <p>
-<alert>False.</alert> By <xref ref="thm-mixed-derivative"/>, the two mixed
-partial derivatives would have to agree at every point:
+<alert>False. Counterexample: take <m>a=b=0</m>.</alert>
+The statement would then require a function <m>f</m> with continuous
+second partial derivatives satisfying
+<md>
+<mrow>f_x(x,y) \amp = 2x\sin y + 3x^2,</mrow>
+<mrow>f_y(x,y) \amp = x e^{xy} + 4y^3.</mrow>
+</md>
+Differentiating these prescribed expressions and evaluating at the
+origin gives
+<md>
+<mrow>\frac{\partial}{\partial y}(f_x)(0,0)
+\amp = \left.2x\cos y\right|_{(0,0)} = 0,</mrow>
+<mrow>\frac{\partial}{\partial x}(f_y)(0,0)
+\amp = \left.(1+xy)e^{xy}\right|_{(0,0)} = 1.</mrow>
+</md>
+These values are unequal, contradicting <xref ref="thm-mixed-derivative"/>.
+Thus no such function exists for <m>a=b=0</m>, regardless of the condition
+<m>f(0,0)=0</m>. Since the statement claims existence for every choice
+of the constants, this one choice is a counterexample.
+</p>
+<p>
+More generally, the two mixed partial derivatives would be
 <md>
 <mrow>\frac{\partial}{\partial y}(f_x)
 \amp = a(1+xy)e^{xy} + 2x\cos y,</mrow>
 <mrow>\frac{\partial}{\partial x}(f_y)
 \amp = (1+xy)e^{xy} + 2b\,x\cos y.</mrow>
 </md>
-For example, choosing <m>a=b=0</m> makes these derivatives equal to
-<m>0</m> and <m>1</m>, respectively, at <m>(0,0)</m>. Thus no such
-function exists for that choice of constants.
-</p>
-<p>
-In fact, equality at <m>(0,0)</m> forces <m>a=1</m>. With <m>a=1</m>,
+Equality at <m>(0,0)</m> forces <m>a=1</m>. With <m>a=1</m>,
 equality at <m>(1,0)</m> then gives <m>3=1+2b</m>, so <m>b=1</m>.
 For <m>a=b=1</m>, the function
 <md>
