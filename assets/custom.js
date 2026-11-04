@@ -194,6 +194,83 @@
 })();
 
 /* ------------------------------------------------------------------ *
+ * Reflow equations in Sections 4.1--4.4 as the reading column changes.
+ * MathJax 4 can break long displays without shrinking their type. Reflow
+ * after a solution opens as well: hidden knowls have no usable width
+ * during the initial typesetting pass.
+ * ------------------------------------------------------------------ */
+(function () {
+  var scope = document.querySelector(
+    "#chapter-functions-several-variables, #chapter-limits-continuity, " +
+    "#chapter-partial-derivatives, #chapter-chain-rule, " +
+    "section[id^='sec-fsv-'], section[id^='sec-lim-'], " +
+    "section[id^='sec-pd-'], section[id^='sec-cr-']"
+  );
+  if (!scope) return;
+  var content = document.getElementById("ptx-content") || scope;
+  content.classList.add("responsive-math");
+
+  function start() {
+    var mj = window.MathJax;
+    if (!mj || !mj.startup || !mj.startup.promise) return;
+    mj.startup.promise.then(function () {
+      var output = mj.startup.output;
+      var doc = mj.startup.document;
+      if (!output || !doc || typeof doc.rerenderPromise !== "function") return;
+      var originalAlign = output.options.displayAlign;
+      var lastSize = "";
+      var timer;
+      var force = false;
+
+      function reflow(forced) {
+        var style = getComputedStyle(content);
+        var width = content.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
+        var size = Math.round(width) + ":" + style.fontSize + ":" + style.fontFamily;
+        if (!forced && size === lastSize) return;
+        lastSize = size;
+        output.options.displayOverflow = "linebreak";
+        output.options.displayAlign = width < 600 ? "left" : originalAlign;
+        var fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+        // Restart at METRICS (110) to replace cached reading-column widths.
+        fontsReady.then(function () { return doc.rerenderPromise(110); }).catch(function (error) {
+          console.warn("Could not reflow equations", error);
+        });
+      }
+
+      function schedule(forced) {
+        force = force || forced;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          var requested = force;
+          force = false;
+          reflow(requested);
+        }, 120);
+      }
+
+      reflow(true);
+      window.addEventListener("resize", function () { schedule(false); });
+      if (window.ResizeObserver) {
+        new ResizeObserver(function () { schedule(false); }).observe(content);
+      }
+      document.addEventListener("toggle", function (event) {
+        var detail = event.target;
+        if (detail.open && scope.contains(detail) && detail.querySelector("mjx-container")) {
+          schedule(true);
+        }
+      }, true);
+    }).catch(function (error) {
+      console.warn("Could not initialize equation reflow", error);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
+
+/* ------------------------------------------------------------------ *
  * Floating Socratic AI tutor for the assignment pages.
  *
  * Ported from the MATH 14 book (mahmadi-ops/MATH-14, assets/custom.js),

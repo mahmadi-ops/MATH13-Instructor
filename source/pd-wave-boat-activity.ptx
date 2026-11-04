@@ -354,12 +354,11 @@ height exactly unchanged? Check directly with <m>f(4+h,4)</m>.</p></li>
 <p>
 At the crossing the phase is <m>-\pi/2</m>, whereas at the crest it is
 <m>0</m>. Thus
-<md>
-<mrow>(x_b,x_c)=(2,4):\quad
-w\amp=0,\qquad f_{x_b}=\frac{\pi}{4},\qquad
-f_{x_c}=-\frac{\pi}{4},</mrow>
-<mrow>(x_b,x_c)=(4,4):\quad
-w\amp=1,\qquad f_{x_b}=0,\qquad f_{x_c}=0.</mrow>
+<md alignment="gather">
+<mrow>(x_b,x_c)=(2,4):\quad w=0,</mrow>
+<mrow>f_{x_b}=\frac{\pi}{4},\qquad f_{x_c}=-\frac{\pi}{4},</mrow>
+<mrow>(x_b,x_c)=(4,4):\quad w=1,</mrow>
+<mrow>f_{x_b}=0,\qquad f_{x_c}=0.</mrow>
 </md>
 The crest has the greater height. The crossing has the greater
 sensitivity to either horizontal input; in fact, the partial derivatives

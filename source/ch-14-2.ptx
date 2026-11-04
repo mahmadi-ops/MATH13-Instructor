@@ -234,13 +234,11 @@ f(x,0) = \frac{0}{x^2+0^2} = 0,
 </md>
 and hence
 <md>
-f(x,y) \to 0 \quad \text{as } (x,y) \to (0,0)
-\text{ along the line } y = 0.
+f(x,0) \to 0 \quad \text{as } x \to 0.
 </md>
-Similarly,
+Similarly, along <m>x = 0</m>,
 <md>
-f(x,y) \to 0 \quad \text{as } (x,y) \to (0,0)
-\text{ along the line } x = 0.
+f(0,y) \to 0 \quad \text{as } y \to 0.
 </md>
 </p>
 <p>
@@ -252,8 +250,7 @@ f(x,x) = \frac{x^2}{x^2+x^2} = \frac{1}{2},
 </md>
 and hence
 <md>
-f(x,y) \to \frac{1}{2} \quad \text{as } (x,y) \to (0,0)
-\text{ along the line } y = x.
+f(x,x) \to \frac{1}{2} \quad \text{as } x \to 0.
 </md>
 </p>
 <p>
@@ -687,11 +684,12 @@ Evaluate
 We begin by simplifying the fraction. The numerator is
 <m>\frac12\left(x^2 - 2xy + y^2\right) = \frac12 (x-y)^2</m> and the
 denominator factors as <m>(x-y)(x+y)</m>, so
-<md>
+<md alignment="gather">
 <mrow>\lim_{(x,y)\to(1,1)}
-\frac{\frac{x^2}{2} - xy + \frac{y^2}{2}}{x^2 - y^2}
-\amp = \lim_{(x,y)\to(1,1)} \frac{1}{2}\,\frac{(x-y)^2}{(x-y)(x+y)}</mrow>
-<mrow>\amp = \frac{1}{2} \lim_{(x,y)\to(1,1)} \frac{x-y}{x+y} = 0.</mrow>
+\frac{\frac{x^2}{2} - xy + \frac{y^2}{2}}{x^2 - y^2}</mrow>
+<mrow>= \lim_{(x,y)\to(1,1)} \frac{1}{2}\,\frac{(x-y)^2}{(x-y)(x+y)}</mrow>
+<mrow>= \frac{1}{2} \lim_{(x,y)\to(1,1)} \frac{x-y}{x+y}</mrow>
+<mrow>= 0.</mrow>
 </md>
 The cancellation is legitimate because <m>x \neq y</m> along the
 approach, and the final limit is evaluated by direct substitution, giving
@@ -736,10 +734,9 @@ denominator approaches <m>1 + 1 = 2 \neq 0</m>:
 <md>
 \lim_{(x,y)\to(1,1)} \frac{x^2+xy+y^2}{x+y} = \frac{1+1+1}{1+1} = \frac{3}{2}.
 </md>
-By the product rule of <xref ref="thm-lim-properties"/>,
+By the product rule of <xref ref="thm-lim-properties"/>, the requested limit is
 <md>
-\lim_{(x,y)\to(1,1)} \frac{\sin(x-y)\left(x^3-y^3\right)}{(x-y)^2(x+y)}
-= 1\cdot\frac{3}{2} = \frac{3}{2}.
+1\cdot\frac{3}{2} = \frac{3}{2}.
 </md>
 </p>
 </solution>

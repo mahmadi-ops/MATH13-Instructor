@@ -101,6 +101,14 @@ body.a4 .diagcess-navigation-controls {
   }
 }
 
+/* Let mobile equations use part of a knowl's inner horizontal padding. */
+@media (max-width: 640px) {
+  .responsive-math .knowl__content .displaymath {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+}
+
 /* ------------------------------------------------------------------ *
  * The "Assignments and Review Problems" chapter is unnumbered.
  *

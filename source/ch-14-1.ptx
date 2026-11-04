@@ -234,19 +234,20 @@ function <m>z = f(x,y)</m> takes on a given value <m>c</m>. As an
 example, consider our previous example of
 <m>z = f(x,y) = 1 - x^2 - y^2</m>. Setting <m>f(x,y) = c</m> gives
 <md xml:id="eq-fsv-level-curves" number="yes">
-1 - x^2 - y^2 = c
-\quad\Longleftrightarrow\quad
-x^2 + y^2 = 1 - c,
+\begin{aligned}
+1 - x^2 - y^2 \amp = c\\
+\Longleftrightarrow\quad x^2 + y^2 \amp = 1 - c,
+\end{aligned}
 </md>
 so by <xref ref="eq-fsv-level-curves"/> each level curve is a circle
 centered at the origin, of radius <m>\sqrt{1-c}</m>. Taking the equally spaced values
 <m>c = \tfrac12, 0, -\tfrac12, -1, -\tfrac32</m> gives
 <md>
-<mrow>c = \tfrac12 \amp\;\Rightarrow\; x^2+y^2 = \tfrac12
-      \amp\qquad c = -1 \amp\;\Rightarrow\; x^2+y^2 = 2</mrow>
-<mrow>c = 0 \amp\;\Rightarrow\; x^2+y^2 = 1
-      \amp\qquad c = -\tfrac32 \amp\;\Rightarrow\; x^2+y^2 = \tfrac52</mrow>
-<mrow>c = -\tfrac12 \amp\;\Rightarrow\; x^2+y^2 = \tfrac32 \amp \amp</mrow>
+<mrow>c = \tfrac12 \amp\;\Rightarrow\; x^2+y^2 = \tfrac12</mrow>
+<mrow>c = 0 \amp\;\Rightarrow\; x^2+y^2 = 1</mrow>
+<mrow>c = -\tfrac12 \amp\;\Rightarrow\; x^2+y^2 = \tfrac32</mrow>
+<mrow>c = -1 \amp\;\Rightarrow\; x^2+y^2 = 2</mrow>
+<mrow>c = -\tfrac32 \amp\;\Rightarrow\; x^2+y^2 = \tfrac52</mrow>
 </md>
 <xref ref="fig-fsv-level-curves-3d"/> shows these curves drawn on the
 surface itself: each one is the intersection of the graph with a
