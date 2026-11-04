@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<subsection xml:id="sec-pd-wave-boat" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>A Boat-and-Wave Activity</title>
+
+<activity xml:id="activity-pd-wave-boat">
+<title>Changing One Position at a Time</title>
+
+<introduction>
+<p>
+A boat floats on a sinusoidal water surface. Let <m>x_b</m> be the boat's
+horizontal position and <m>x_c</m> the horizontal position of one selected
+crest, both measured from the same origin. The signed vertical water
+height at the boat is
+<md xml:id="eq-pd-wave-boat-model" number="yes">
+w=f(x_b,x_c)=A\cos\!\left(\frac{2\pi}{\lambda}(x_b-x_c)\right),
+</md>
+where the amplitude <m>A&gt;0</m> and wavelength <m>\lambda&gt;0</m>
+are fixed. All positions and heights are measured in metres. The model
+neglects the boat's effect on the water.
+</p>
+<figure xml:id="fig-pd-wave-boat-setup">
+<caption>
+The boat and selected crest have horizontal coordinates <m>x_b</m> and
+<m>x_c</m>; <m>w</m> is a vertical height measured from the mean water
+level. This illustrative snapshot uses <m>A=1\text{ m}</m> and
+<m>\lambda=8\text{ m}</m>.
+</caption>
+<image width="95%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-pd-wave-boat-setup">
+<diagram dimensions="(720,310)" margins="16">
+<definition>pd_wave_boat_setup_wave_0(s) = 0+cos(pi*(s-4)/4)</definition>
+<coordinates bbox="(-0.65,-2.55,13.25,2.35)">
+<line at="pd-wave-boat-setup-1" endpoints="((0,0),(12.6,0))" stroke="#888888" thickness="1" dash="4 4"/>
+<graph at="pd-wave-boat-setup-2" function="pd_wave_boat_setup_wave_0" domain="(0,12.6)" stroke="#0072B2" thickness="3.2"/>
+<line at="pd-wave-boat-setup-3" endpoints="((0,-1.95),(12.75,-1.95))" stroke="#333333" thickness="2" arrows="1"/>
+<label at="pd-wave-boat-setup-4" anchor="(12.67,-1.83)" alignment="nw" color="#333333"><m>s\ (\mathrm{m})</m></label>
+<point at="pd-wave-boat-setup-5" p="(0,-1.95)" fill="#333333"/>
+<label at="pd-wave-boat-setup-6" anchor="(-0.12,-2.04)" alignment="sw" color="#333333"><m>0</m></label>
+<line at="pd-wave-boat-setup-7" endpoints="((2.5,-1.95),(2.5,0.382683))" stroke="#D55E00" thickness="1" dash="4 4"/>
+<line at="pd-wave-boat-setup-8" endpoints="((4,-1.95),(4,1))" stroke="#009E73" thickness="1" dash="4 4"/>
+<point at="pd-wave-boat-setup-9" p="(4,1)" fill="#009E73"/>
+<point at="pd-wave-boat-setup-10" p="(12,1)" fill="#009E73"/>
+<polygon at="pd-wave-boat-setup-11" points="((2.09,0.502683),(2.91,0.502683),(2.75,0.242683),(2.25,0.242683))" fill="#D55E00" fill-opacity="0.25" stroke="#D55E00" thickness="2.5"/>
+<line at="pd-wave-boat-setup-12" endpoints="((2.5,0.502683),(2.5,1.03268))" stroke="#D55E00" thickness="3"/>
+<polygon at="pd-wave-boat-setup-13" points="((2.535,0.992683),(2.535,0.602683),(2.8,0.602683))" fill="#D55E00" fill-opacity="0.18" stroke="#D55E00" thickness="2.5"/>
+<point at="pd-wave-boat-setup-14" p="(2.5,0.382683)" fill="#D55E00"/>
+<line at="pd-wave-boat-setup-15" endpoints="((0,-1.2),(2.5,-1.2))" stroke="#D55E00" thickness="2" arrows="1"/>
+<label at="pd-wave-boat-setup-16" anchor="(1.25,-1.1)" alignment="n" color="#D55E00"><m>x_b</m></label>
+<line at="pd-wave-boat-setup-17" endpoints="((0,-1.58),(4,-1.58))" stroke="#009E73" thickness="2" arrows="1"/>
+<label at="pd-wave-boat-setup-18" anchor="(3.25,-1.48)" alignment="n" color="#009E73"><m>x_c</m></label>
+<line at="pd-wave-boat-setup-19" endpoints="((1.15,0),(1.15,0.382683))" stroke="#8B1A4A" thickness="3" arrows="1"/>
+<line at="pd-wave-boat-setup-20" endpoints="((1.15,0.382683),(2.5,0.382683))" stroke="#8B1A4A" thickness="1" dash="3 3"/>
+<label at="pd-wave-boat-setup-21" anchor="(1.05,0.191342)" alignment="w" color="#8B1A4A"><m>w</m></label>
+<line at="pd-wave-boat-setup-22" endpoints="((4,1.78),(12,1.78))" stroke="#A57900" thickness="2" arrows="2"/>
+<line at="pd-wave-boat-setup-23" endpoints="((4,1.05),(4,1.9))" stroke="#A57900" thickness="1"/>
+<line at="pd-wave-boat-setup-24" endpoints="((12,1.05),(12,1.9))" stroke="#A57900" thickness="1"/>
+<label at="pd-wave-boat-setup-25" anchor="(8,1.9)" alignment="n" color="#A57900"><m>\lambda</m></label>
+<line at="pd-wave-boat-setup-26" endpoints="((11.05,0),(11.05,1))" stroke="#8B1A4A" thickness="3" arrows="2"/>
+<line at="pd-wave-boat-setup-27" endpoints="((11.05,1),(12,1))" stroke="#8B1A4A" thickness="1" dash="3 3"/>
+<label at="pd-wave-boat-setup-28" anchor="(10.9,0.5)" alignment="w" color="#8B1A4A"><m>A</m></label>
+<label at="pd-wave-boat-setup-29" anchor="(4.18,1.14)" alignment="e" color="#009E73"><m>\text{selected crest}</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="A blue sinusoidal water profile with an orange boat on its rising side. The boat coordinate x sub b and selected green crest coordinate x sub c are measured horizontally from the same origin. A purple arrow measures vertical height w from the mean level, a gold span marks wavelength lambda between neighboring crests, and another purple arrow marks amplitude A."/>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+<p>
+In the first two experiments, change one horizontal position while
+holding the other fixed. These comparisons describe changes per metre
+of displacement. No boat or wave velocity is specified.
+</p>
+</introduction>
+
+<task xml:id="task-pd-wave-move-boat">
+<title>Move the Boat; Freeze the Wave</title>
+<statement>
+<p>
+Set <m>A=1\text{ m}</m> and <m>\lambda=8\text{ m}</m>. Start with
+<m>x_b=2\text{ m}</m> and <m>x_c=4\text{ m}</m>. Freeze the wave
+profile and move the boat a small distance <m>h&gt;0</m> to the right.
+The faded boat shows the original position; the orange boat shows the
+new position. The picture uses <m>h=0.5\text{ m}</m> to make the
+displacement visible.
+</p>
+<figure xml:id="fig-pd-wave-move-boat">
+<caption>
+Only the boat's horizontal coordinate changes: <m>x_b</m> becomes
+<m>x_b+h</m>, while the selected crest stays at <m>x_c=4</m>.
+</caption>
+<image width="95%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-pd-wave-move-boat">
+<diagram dimensions="(700,310)" margins="16">
+<definition>pd_wave_move_boat_wave_0(s) = 0+cos(pi*(s-4)/4)</definition>
+<coordinates bbox="(-0.65,-2.5,10.4,2.1)">
+<line at="pd-wave-move-boat-1" endpoints="((0,0),(9.5,0))" stroke="#888888" thickness="1" dash="4 4"/>
+<graph at="pd-wave-move-boat-2" function="pd_wave_move_boat_wave_0" domain="(0,9.5)" stroke="#0072B2" thickness="3.2"/>
+<line at="pd-wave-move-boat-3" endpoints="((0,-1.9),(9.7,-1.9))" stroke="#333333" thickness="2" arrows="1"/>
+<label at="pd-wave-move-boat-4" anchor="(9.62,-1.78)" alignment="nw" color="#333333"><m>s\ (\mathrm{m})</m></label>
+<point at="pd-wave-move-boat-5" p="(0,-1.9)" fill="#333333"/>
+<label at="pd-wave-move-boat-6" anchor="(-0.12,-1.99)" alignment="sw" color="#333333"><m>0</m></label>
+<line at="pd-wave-move-boat-7" endpoints="((2,-1.9),(2,0))" stroke="#A5A5A5" thickness="1" dash="4 4"/>
+<line at="pd-wave-move-boat-8" endpoints="((2.5,-1.9),(2.5,0.382683))" stroke="#D55E00" thickness="1" dash="4 4"/>
+<line at="pd-wave-move-boat-9" endpoints="((4,-1.9),(4,1))" stroke="#009E73" thickness="1" dash="4 4"/>
+<point at="pd-wave-move-boat-10" p="(4,1)" fill="#009E73"/>
+<polygon at="pd-wave-move-boat-11" points="((1.59,0.12),(2.41,0.12),(2.25,-0.14),(1.75,-0.14))" fill="#A5A5A5" fill-opacity="0.08" stroke="#A5A5A5" thickness="1.5"/>
+<line at="pd-wave-move-boat-12" endpoints="((2,0.12),(2,0.65))" stroke="#A5A5A5" thickness="2"/>
+<polygon at="pd-wave-move-boat-13" points="((2.035,0.61),(2.035,0.22),(2.3,0.22))" fill="#A5A5A5" fill-opacity="0.06" stroke="#A5A5A5" thickness="1.5"/>
+<point at="pd-wave-move-boat-14" p="(2,0)" fill="#A5A5A5"/>
+<polygon at="pd-wave-move-boat-15" points="((2.09,0.502683),(2.91,0.502683),(2.75,0.242683),(2.25,0.242683))" fill="#D55E00" fill-opacity="0.25" stroke="#D55E00" thickness="2.5"/>
+<line at="pd-wave-move-boat-16" endpoints="((2.5,0.502683),(2.5,1.03268))" stroke="#D55E00" thickness="3"/>
+<polygon at="pd-wave-move-boat-17" points="((2.535,0.992683),(2.535,0.602683),(2.8,0.602683))" fill="#D55E00" fill-opacity="0.18" stroke="#D55E00" thickness="2.5"/>
+<point at="pd-wave-move-boat-18" p="(2.5,0.382683)" fill="#D55E00"/>
+<line at="pd-wave-move-boat-19" endpoints="((2,-1.15),(2.5,-1.15))" stroke="#D55E00" thickness="3" arrows="1"/>
+<label at="pd-wave-move-boat-20" anchor="(2.25,-1.04)" alignment="n" color="#D55E00"><m>h</m></label>
+<label at="pd-wave-move-boat-21" anchor="(1.97,-2.05)" alignment="w" color="#A5A5A5"><m>x_b</m></label>
+<label at="pd-wave-move-boat-22" anchor="(2.57,-2.05)" alignment="e" color="#D55E00"><m>x_b+h</m></label>
+<label at="pd-wave-move-boat-23" anchor="(4.05,-2.05)" alignment="e" color="#009E73"><m>x_c=4</m></label>
+<line at="pd-wave-move-boat-24" endpoints="((0.95,0),(0.95,0.382683))" stroke="#8B1A4A" thickness="3" arrows="1"/>
+<line at="pd-wave-move-boat-25" endpoints="((0.95,0.382683),(2.5,0.382683))" stroke="#8B1A4A" thickness="1" dash="3 3"/>
+<label at="pd-wave-move-boat-26" anchor="(0.85,0.191342)" alignment="w" color="#8B1A4A"><m>\Delta w</m></label>
+<label at="pd-wave-move-boat-27" anchor="(7.6,1.55)" alignment="w" color="#0072B2"><m>\text{frozen wave}</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The wave profile and its crest at x sub c equals four stay fixed. A faded orange-gray boat at x sub b equals two sits at the mean-level crossing. The orange boat has moved right by h equals one half metre and upward along the same blue wave. A horizontal orange arrow marks h and a purple vertical arrow marks the change in height."/>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+<ol marker="a.">
+<li><p>Predict the sign of the height change <m>\Delta w</m> from the
+picture. Which partial derivative measures this experiment?</p></li>
+<li><p>Write its limit definition, calculate the partial derivative for
+general <m>(x_b,x_c)</m>, and evaluate it at <m>(2,4)</m>.</p></li>
+<li><p>Use the derivative to estimate the height change for
+<m>h=0.5\text{ m}</m>. Compare your estimate with the exact change from
+the model, and state the units of the partial derivative.</p></li>
+</ol>
+</statement>
+<solution>
+<p>
+The boat moves up the rising side of the frozen wave, so
+<m>\Delta w&gt;0</m>. We change <m>x_b</m> while holding <m>x_c</m>
+fixed, which is the experiment defining <m>f_{x_b}</m>:
+<md>
+f_{x_b}(x_b,x_c)=\lim_{h\to0}
+\frac{f(x_b+h,x_c)-f(x_b,x_c)}{h}.
+</md>
+Write <m>\theta=\frac{2\pi}{\lambda}(x_b-x_c)</m>. Differentiating
+the one-variable cosine with <m>x_c</m> fixed gives
+<md>
+f_{x_b}(x_b,x_c)=-\frac{2\pi A}{\lambda}\sin\theta.
+</md>
+At <m>(x_b,x_c)=(2,4)</m>, the phase is <m>-\pi/2</m>, so
+<md>
+f_{x_b}(2,4)=\frac{\pi}{4}\approx0.7854.
+</md>
+Its units are metres of vertical height per metre of boat displacement.
+</p>
+<p>
+The linear estimate is
+<md>
+\Delta w\approx f_{x_b}(2,4)h
+=\frac{\pi}{4}(0.5)=\frac{\pi}{8}\approx0.3927\text{ m}.
+</md>
+The exact change is
+<md>
+<mrow>f(2.5,4)-f(2,4)
+\amp=\cos(-3\pi/8)-\cos(-\pi/2)</mrow>
+<mrow>\amp=\sin(\pi/8)\approx0.3827\text{ m}.</mrow>
+</md>
+The derivative uses the tangent slope at the original configuration,
+whereas the exact change follows the curved profile over the whole
+displacement. The difference quotient approaches <m>\pi/4</m> as
+<m>h\to0</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-pd-wave-shift-wave">
+<title>Fix the Boat's Horizontal Position; Shift the Wave</title>
+<statement>
+<p>
+Return to <m>(x_b,x_c)=(2,4)</m>, with the same amplitude and wavelength.
+Keep the boat's horizontal coordinate at <m>x_b=2</m> and shift the
+entire wave profile to the right, so the selected crest moves from
+<m>x_c</m> to <m>x_c+h</m>. The faint dashed wave is the original
+profile; the blue wave is the shifted profile. The boat remains free to
+rise or fall vertically with the water.
+</p>
+<figure xml:id="fig-pd-wave-shift-wave">
+<caption>
+Only the crest coordinate changes. The picture uses <m>h=0.5\text{ m}</m>;
+the boat samples the shifted wave at the same horizontal location.
+</caption>
+<image width="95%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-pd-wave-shift-wave">
+<diagram dimensions="(700,310)" margins="16">
+<definition>pd_wave_shift_wave_wave_0(s) = 0+cos(pi*(s-4)/4)</definition>
+<definition>pd_wave_shift_wave_wave_1(s) = 0+cos(pi*(s-4.5)/4)</definition>
+<coordinates bbox="(-0.65,-2.5,10.4,2.1)">
+<line at="pd-wave-shift-wave-1" endpoints="((0,0),(9.5,0))" stroke="#888888" thickness="1" dash="4 4"/>
+<graph at="pd-wave-shift-wave-2" function="pd_wave_shift_wave_wave_0" domain="(0,9.5)" stroke="#A5A5A5" thickness="2" dash="5 4"/>
+<graph at="pd-wave-shift-wave-3" function="pd_wave_shift_wave_wave_1" domain="(0,9.5)" stroke="#0072B2" thickness="3.2"/>
+<line at="pd-wave-shift-wave-4" endpoints="((0,-1.9),(9.7,-1.9))" stroke="#333333" thickness="2" arrows="1"/>
+<label at="pd-wave-shift-wave-5" anchor="(9.62,-1.78)" alignment="nw" color="#333333"><m>s\ (\mathrm{m})</m></label>
+<point at="pd-wave-shift-wave-6" p="(0,-1.9)" fill="#333333"/>
+<label at="pd-wave-shift-wave-7" anchor="(-0.12,-1.99)" alignment="sw" color="#333333"><m>0</m></label>
+<line at="pd-wave-shift-wave-8" endpoints="((2,-1.9),(2,-0.382683))" stroke="#D55E00" thickness="1" dash="4 4"/>
+<line at="pd-wave-shift-wave-9" endpoints="((4,-1.9),(4,1))" stroke="#A5A5A5" thickness="1" dash="4 4"/>
+<line at="pd-wave-shift-wave-10" endpoints="((4.5,-1.9),(4.5,1))" stroke="#009E73" thickness="1" dash="4 4"/>
+<point at="pd-wave-shift-wave-11" p="(4,1)" fill="#A5A5A5"/>
+<point at="pd-wave-shift-wave-12" p="(4.5,1)" fill="#009E73"/>
+<polygon at="pd-wave-shift-wave-13" points="((1.59,0.12),(2.41,0.12),(2.25,-0.14),(1.75,-0.14))" fill="#A5A5A5" fill-opacity="0.08" stroke="#A5A5A5" thickness="1.5"/>
+<line at="pd-wave-shift-wave-14" endpoints="((2,0.12),(2,0.65))" stroke="#A5A5A5" thickness="2"/>
+<polygon at="pd-wave-shift-wave-15" points="((2.035,0.61),(2.035,0.22),(2.3,0.22))" fill="#A5A5A5" fill-opacity="0.06" stroke="#A5A5A5" thickness="1.5"/>
+<point at="pd-wave-shift-wave-16" p="(2,0)" fill="#A5A5A5"/>
+<polygon at="pd-wave-shift-wave-17" points="((1.59,-0.262683),(2.41,-0.262683),(2.25,-0.522683),(1.75,-0.522683))" fill="#D55E00" fill-opacity="0.25" stroke="#D55E00" thickness="2.5"/>
+<line at="pd-wave-shift-wave-18" endpoints="((2,-0.262683),(2,0.267317))" stroke="#D55E00" thickness="3"/>
+<polygon at="pd-wave-shift-wave-19" points="((2.035,0.227317),(2.035,-0.162683),(2.3,-0.162683))" fill="#D55E00" fill-opacity="0.18" stroke="#D55E00" thickness="2.5"/>
+<point at="pd-wave-shift-wave-20" p="(2,-0.382683)" fill="#D55E00"/>
+<line at="pd-wave-shift-wave-21" endpoints="((4,1.65),(4.5,1.65))" stroke="#009E73" thickness="3" arrows="1"/>
+<label at="pd-wave-shift-wave-22" anchor="(4.25,1.78)" alignment="n" color="#009E73"><m>h</m></label>
+<label at="pd-wave-shift-wave-23" anchor="(2,-2.05)" alignment="s" color="#D55E00"><m>x_b=2</m></label>
+<label at="pd-wave-shift-wave-24" anchor="(3.95,-2.05)" alignment="w" color="#A5A5A5"><m>x_c</m></label>
+<label at="pd-wave-shift-wave-25" anchor="(4.57,-2.05)" alignment="e" color="#009E73"><m>x_c+h</m></label>
+<line at="pd-wave-shift-wave-26" endpoints="((0.9,0),(0.9,-0.382683))" stroke="#8B1A4A" thickness="3" arrows="1"/>
+<line at="pd-wave-shift-wave-27" endpoints="((0.9,-0.382683),(2,-0.382683))" stroke="#8B1A4A" thickness="1" dash="3 3"/>
+<label at="pd-wave-shift-wave-28" anchor="(0.8,-0.191342)" alignment="w" color="#8B1A4A"><m>\Delta w</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The boat horizontal coordinate stays at x sub b equals two. A faint dashed wave has its selected crest at four, while the solid blue wave is shifted right by h equals one half metre, with its crest at four and one half. The faded boat marks the former zero height and the orange boat marks the lower height of the shifted wave at the same horizontal coordinate. A green arrow marks the crest displacement and a purple arrow points downward for the height change."/>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+<ol marker="a.">
+<li><p>Predict whether the boat rises or falls, and identify the
+partial derivative represented by this experiment.</p></li>
+<li><p>Write its limit definition, find its formula, and evaluate it at
+<m>(2,4)</m>.</p></li>
+<li><p>Estimate the height change for <m>h=0.5\text{ m}</m> and compare
+with the exact change. Explain why fixing the boat's horizontal position
+does not fix its vertical height.</p></li>
+</ol>
+</statement>
+<solution>
+<p>
+As the profile shifts right, the water at the fixed boat position moves
+below the mean level, so the boat falls. We now hold <m>x_b</m> fixed:
+<md>
+f_{x_c}(x_b,x_c)=\lim_{h\to0}
+\frac{f(x_b,x_c+h)-f(x_b,x_c)}{h}.
+</md>
+Increasing <m>x_c</m> decreases <m>x_b-x_c</m>, which reverses the sign
+obtained in the first experiment:
+<md>
+f_{x_c}(x_b,x_c)=\frac{2\pi A}{\lambda}\sin\theta,
+\qquad
+f_{x_c}(2,4)=-\frac{\pi}{4}.
+</md>
+Again the units are metres of height per metre of horizontal displacement,
+this time of the wave profile.
+</p>
+<p>
+The estimate and exact change are
+<md>
+<mrow>\Delta w\amp\approx f_{x_c}(2,4)h
+=-\frac{\pi}{8}\approx-0.3927\text{ m},</mrow>
+<mrow>f(2,4.5)-f(2,4)\amp=\cos(-5\pi/8)
+=-\sin(\pi/8)\approx-0.3827\text{ m}.</mrow>
+</md>
+Holding <m>x_b</m> fixed specifies where the water is sampled. Changing
+<m>x_c</m> changes the height of the water at that location, so the boat
+can move vertically while its horizontal coordinate stays fixed.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-pd-wave-crest-crossing">
+<title>Compare a Zero Crossing and a Crest</title>
+<statement>
+<p>
+Keep <m>A=1</m>, <m>\lambda=8</m>, and <m>x_c=4</m>. Compare the
+boat at <m>x_b=2</m> with the boat at <m>x_b=4</m>.
+</p>
+<figure xml:id="fig-pd-wave-crest-crossing">
+<caption>
+The same wave, sampled at a mean-level crossing in the upper picture and
+at the selected crest in the lower picture.
+</caption>
+<image width="95%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-pd-wave-crest-crossing">
+<diagram dimensions="(700,600)" margins="16">
+<definition>pd_wave_crest_crossing_wave_0(s) = 1.3+cos(pi*(s-4)/4)</definition>
+<definition>pd_wave_crest_crossing_wave_1(s) = -3.3+cos(pi*(s-4)/4)</definition>
+<coordinates bbox="(-0.65,-5.65,10.4,3.65)">
+<label at="pd-wave-crest-crossing-1" anchor="(0,3.1)" alignment="e" color="#333333"><m>\text{Boat at a zero crossing}</m></label>
+<line at="pd-wave-crest-crossing-2" endpoints="((0,1.3),(9.5,1.3))" stroke="#888888" thickness="1" dash="4 4"/>
+<graph at="pd-wave-crest-crossing-3" function="pd_wave_crest_crossing_wave_0" domain="(0,9.5)" stroke="#0072B2" thickness="3.2"/>
+<line at="pd-wave-crest-crossing-4" endpoints="((0,-0.35),(9.7,-0.35))" stroke="#333333" thickness="2" arrows="1"/>
+<label at="pd-wave-crest-crossing-5" anchor="(9.62,-0.23)" alignment="nw" color="#333333"><m>s\ (\mathrm{m})</m></label>
+<point at="pd-wave-crest-crossing-6" p="(0,-0.35)" fill="#333333"/>
+<label at="pd-wave-crest-crossing-7" anchor="(-0.12,-0.44)" alignment="sw" color="#333333"><m>0</m></label>
+<line at="pd-wave-crest-crossing-8" endpoints="((2,-0.35),(2,1.3))" stroke="#D55E00" thickness="1" dash="4 4"/>
+<line at="pd-wave-crest-crossing-9" endpoints="((4,-0.35),(4,2.3))" stroke="#009E73" thickness="1" dash="4 4"/>
+<point at="pd-wave-crest-crossing-10" p="(4,2.3)" fill="#009E73"/>
+<polygon at="pd-wave-crest-crossing-11" points="((1.59,1.42),(2.41,1.42),(2.25,1.16),(1.75,1.16))" fill="#D55E00" fill-opacity="0.25" stroke="#D55E00" thickness="2.5"/>
+<line at="pd-wave-crest-crossing-12" endpoints="((2,1.42),(2,1.95))" stroke="#D55E00" thickness="3"/>
+<polygon at="pd-wave-crest-crossing-13" points="((2.035,1.91),(2.035,1.52),(2.3,1.52))" fill="#D55E00" fill-opacity="0.18" stroke="#D55E00" thickness="2.5"/>
+<point at="pd-wave-crest-crossing-14" p="(2,1.3)" fill="#D55E00"/>
+<label at="pd-wave-crest-crossing-15" anchor="(2,-0.5)" alignment="s" color="#D55E00"><m>x_b=2</m></label>
+<label at="pd-wave-crest-crossing-16" anchor="(4,-0.5)" alignment="s" color="#009E73"><m>x_c=4</m></label>
+<label at="pd-wave-crest-crossing-17" anchor="(2.7,1.15)" alignment="e" color="#8B1A4A"><m>w=0</m></label>
+<label at="pd-wave-crest-crossing-18" anchor="(0,-1.25)" alignment="e" color="#333333"><m>\text{Boat at a crest}</m></label>
+<line at="pd-wave-crest-crossing-19" endpoints="((0,-3.3),(9.5,-3.3))" stroke="#888888" thickness="1" dash="4 4"/>
+<graph at="pd-wave-crest-crossing-20" function="pd_wave_crest_crossing_wave_1" domain="(0,9.5)" stroke="#0072B2" thickness="3.2"/>
+<line at="pd-wave-crest-crossing-21" endpoints="((0,-5),(9.7,-5))" stroke="#333333" thickness="2" arrows="1"/>
+<label at="pd-wave-crest-crossing-22" anchor="(9.62,-4.88)" alignment="nw" color="#333333"><m>s\ (\mathrm{m})</m></label>
+<point at="pd-wave-crest-crossing-23" p="(0,-5)" fill="#333333"/>
+<label at="pd-wave-crest-crossing-24" anchor="(-0.12,-5.09)" alignment="sw" color="#333333"><m>0</m></label>
+<line at="pd-wave-crest-crossing-25" endpoints="((4,-5),(4,-2.3))" stroke="#009E73" thickness="1" dash="4 4"/>
+<point at="pd-wave-crest-crossing-26" p="(4,-2.3)" fill="#009E73"/>
+<polygon at="pd-wave-crest-crossing-27" points="((3.59,-2.18),(4.41,-2.18),(4.25,-2.44),(3.75,-2.44))" fill="#D55E00" fill-opacity="0.25" stroke="#D55E00" thickness="2.5"/>
+<line at="pd-wave-crest-crossing-28" endpoints="((4,-2.18),(4,-1.65))" stroke="#D55E00" thickness="3"/>
+<polygon at="pd-wave-crest-crossing-29" points="((4.035,-1.69),(4.035,-2.08),(4.3,-2.08))" fill="#D55E00" fill-opacity="0.18" stroke="#D55E00" thickness="2.5"/>
+<point at="pd-wave-crest-crossing-30" p="(4,-2.3)" fill="#D55E00"/>
+<label at="pd-wave-crest-crossing-31" anchor="(4,-5.15)" alignment="s" color="#D55E00"><m>x_b=x_c=4</m></label>
+<line at="pd-wave-crest-crossing-32" endpoints="((6.6,-3.3),(6.6,-2.3))" stroke="#8B1A4A" thickness="3" arrows="1"/>
+<line at="pd-wave-crest-crossing-33" endpoints="((6.6,-2.3),(4,-2.3))" stroke="#8B1A4A" thickness="1" dash="3 3"/>
+<label at="pd-wave-crest-crossing-34" anchor="(6.5,-2.8)" alignment="w" color="#8B1A4A"><m>w=A</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="Two pictures of the same blue sinusoidal wave use the same horizontal scale. In the upper picture the orange boat is at a rising mean-level crossing at x sub b equals two, with a green crest at x sub c equals four. In the lower picture the orange boat is at the crest, so both coordinates equal four, and a purple amplitude arrow measures the larger height. The first picture has a steep local profile at the boat and the second has a horizontal tangent."/>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+<ol marker="a.">
+<li><p>Find <m>w</m>, <m>f_{x_b}</m>, and <m>f_{x_c}</m> at each
+configuration. Where is the height greater? Where are the magnitudes of
+the two partial derivatives greater?</p></li>
+<li><p>At the crest both partial derivatives are zero. Does that imply
+that a small nonzero boat displacement with the wave frozen leaves the
+height exactly unchanged? Check directly with <m>f(4+h,4)</m>.</p></li>
+</ol>
+</statement>
+<solution>
+<p>
+At the crossing the phase is <m>-\pi/2</m>, whereas at the crest it is
+<m>0</m>. Thus
+<md>
+<mrow>(x_b,x_c)=(2,4):\quad
+w\amp=0,\qquad f_{x_b}=\frac{\pi}{4},\qquad
+f_{x_c}=-\frac{\pi}{4},</mrow>
+<mrow>(x_b,x_c)=(4,4):\quad
+w\amp=1,\qquad f_{x_b}=0,\qquad f_{x_c}=0.</mrow>
+</md>
+The crest has the greater height. The crossing has the greater
+sensitivity to either horizontal input; in fact, the partial derivatives
+have their maximum possible magnitude there. A zero output does not
+mean zero sensitivity, and a large output does not mean a large
+derivative.
+</p>
+<p>
+With the wave frozen at <m>x_c=4</m>, moving the boat off the crest gives
+<md>
+f(4+h,4)-f(4,4)=\cos(\pi h/4)-1
+=-2\sin^2(\pi h/8).
+</md>
+For sufficiently small nonzero <m>h</m>, this is negative. The height
+changes even though the derivative at the crest is zero: the tangent is
+horizontal at that point, but the profile is curved. The height change
+divided by <m>h</m> tends to zero; the height change itself need not be
+identically zero.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-pd-wave-shift-together">
+<title>Shift the Boat and Wave Together</title>
+<statement>
+<p>
+Return to the crossing <m>(x_b,x_c)=(2,4)</m>. Displace both the boat and
+the entire wave profile to the right by the same distance <m>h</m>.
+The picture uses <m>h=1\text{ m}</m>.
+</p>
+<figure xml:id="fig-pd-wave-shift-together">
+<caption>
+The faded boat and wave show the original configuration. The orange
+boat and blue wave have both shifted right by the same amount.
+</caption>
+<image width="95%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-pd-wave-shift-together">
+<diagram dimensions="(700,310)" margins="16">
+<definition>pd_wave_shift_together_wave_0(s) = 0+cos(pi*(s-4)/4)</definition>
+<definition>pd_wave_shift_together_wave_1(s) = 0+cos(pi*(s-5)/4)</definition>
+<coordinates bbox="(-0.65,-2.5,10.4,2.1)">
+<line at="pd-wave-shift-together-1" endpoints="((0,0),(9.5,0))" stroke="#888888" thickness="1" dash="4 4"/>
+<graph at="pd-wave-shift-together-2" function="pd_wave_shift_together_wave_0" domain="(0,9.5)" stroke="#A5A5A5" thickness="2" dash="5 4"/>
+<graph at="pd-wave-shift-together-3" function="pd_wave_shift_together_wave_1" domain="(0,9.5)" stroke="#0072B2" thickness="3.2"/>
+<line at="pd-wave-shift-together-4" endpoints="((0,-1.9),(9.7,-1.9))" stroke="#333333" thickness="2" arrows="1"/>
+<label at="pd-wave-shift-together-5" anchor="(9.62,-1.78)" alignment="nw" color="#333333"><m>s\ (\mathrm{m})</m></label>
+<point at="pd-wave-shift-together-6" p="(0,-1.9)" fill="#333333"/>
+<label at="pd-wave-shift-together-7" anchor="(-0.12,-1.99)" alignment="sw" color="#333333"><m>0</m></label>
+<line at="pd-wave-shift-together-8" endpoints="((2,-1.9),(2,0))" stroke="#A5A5A5" thickness="1" dash="4 4"/>
+<line at="pd-wave-shift-together-9" endpoints="((3,-1.9),(3,0))" stroke="#D55E00" thickness="1" dash="4 4"/>
+<line at="pd-wave-shift-together-10" endpoints="((4,-1.9),(4,1))" stroke="#A5A5A5" thickness="1" dash="4 4"/>
+<line at="pd-wave-shift-together-11" endpoints="((5,-1.9),(5,1))" stroke="#009E73" thickness="1" dash="4 4"/>
+<point at="pd-wave-shift-together-12" p="(4,1)" fill="#A5A5A5"/>
+<point at="pd-wave-shift-together-13" p="(5,1)" fill="#009E73"/>
+<polygon at="pd-wave-shift-together-14" points="((1.59,0.12),(2.41,0.12),(2.25,-0.14),(1.75,-0.14))" fill="#A5A5A5" fill-opacity="0.08" stroke="#A5A5A5" thickness="1.5"/>
+<line at="pd-wave-shift-together-15" endpoints="((2,0.12),(2,0.65))" stroke="#A5A5A5" thickness="2"/>
+<polygon at="pd-wave-shift-together-16" points="((2.035,0.61),(2.035,0.22),(2.3,0.22))" fill="#A5A5A5" fill-opacity="0.06" stroke="#A5A5A5" thickness="1.5"/>
+<point at="pd-wave-shift-together-17" p="(2,0)" fill="#A5A5A5"/>
+<polygon at="pd-wave-shift-together-18" points="((2.59,0.12),(3.41,0.12),(3.25,-0.14),(2.75,-0.14))" fill="#D55E00" fill-opacity="0.25" stroke="#D55E00" thickness="2.5"/>
+<line at="pd-wave-shift-together-19" endpoints="((3,0.12),(3,0.65))" stroke="#D55E00" thickness="3"/>
+<polygon at="pd-wave-shift-together-20" points="((3.035,0.61),(3.035,0.22),(3.3,0.22))" fill="#D55E00" fill-opacity="0.18" stroke="#D55E00" thickness="2.5"/>
+<point at="pd-wave-shift-together-21" p="(3,0)" fill="#D55E00"/>
+<line at="pd-wave-shift-together-22" endpoints="((2,-1.1),(3,-1.1))" stroke="#D55E00" thickness="3" arrows="1"/>
+<label at="pd-wave-shift-together-23" anchor="(2.5,-0.98)" alignment="n" color="#D55E00"><m>h</m></label>
+<line at="pd-wave-shift-together-24" endpoints="((4,1.65),(5,1.65))" stroke="#009E73" thickness="3" arrows="1"/>
+<label at="pd-wave-shift-together-25" anchor="(4.5,1.78)" alignment="n" color="#009E73"><m>h</m></label>
+<label at="pd-wave-shift-together-26" anchor="(1.95,-2.05)" alignment="w" color="#A5A5A5"><m>x_b</m></label>
+<label at="pd-wave-shift-together-27" anchor="(3,-2.05)" alignment="s" color="#D55E00"><m>x_b+h</m></label>
+<label at="pd-wave-shift-together-28" anchor="(4,-2.05)" alignment="s" color="#A5A5A5"><m>x_c</m></label>
+<label at="pd-wave-shift-together-29" anchor="(5.05,-2.05)" alignment="e" color="#009E73"><m>x_c+h</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The faded boat at coordinate two and dashed wave with a crest at four show the original configuration. The orange boat at three and blue wave with a green crest at five show the configuration after both horizontal positions have increased by one metre. Equal horizontal arrows mark h for the boat and the crest. Both boats sit at the same zero height on the same relative part of their waves."/>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+<ol marker="a.">
+<li><p>Predict the change in the boat's height. Then show directly from
+the model, for any initial configuration, that
+<md>f(x_b+h,x_c+h)=f(x_b,x_c).</md></p></li>
+<li><p>Explain why unchanged height is consistent with the nonzero
+values <m>f_{x_b}(2,4)=\pi/4</m> and <m>f_{x_c}(2,4)=-\pi/4</m>.
+Which requirement in the definition of a partial derivative is absent
+from this experiment?</p></li>
+<li><p>Use the meaning of the inputs to explain the identity
+<m>f_{x_b}=-f_{x_c}</m> for this wave model. Must the two partial
+derivatives of every two-variable function satisfy that identity?</p></li>
+</ol>
+</statement>
+<solution>
+<p>
+The boat stays at the same place relative to the wave, so its height
+does not change. Algebraically,
+<md>
+<mrow>f(x_b+h,x_c+h)
+\amp=A\cos\!\left(\frac{2\pi}{\lambda}
+\bigl[(x_b+h)-(x_c+h)\bigr]\right)</mrow>
+<mrow>\amp=A\cos\!\left(\frac{2\pi}{\lambda}(x_b-x_c)\right)
+=f(x_b,x_c).</mrow>
+</md>
+This equality is exact for every displacement <m>h</m>, with the fixed
+amplitude and wavelength used in the model.
+</p>
+<p>
+Each partial derivative describes an experiment in which the other
+position is held fixed. Here both positions change, so neither partial
+derivative by itself describes the experiment. The output depends only
+on the separation <m>x_b-x_c</m>: increasing the boat position by
+<m>h</m> has the same effect on that separation as decreasing the crest
+position by <m>h</m>. This accounts for the opposite signs of the two
+partial derivatives. It is a feature of this model, not a rule for every
+two-variable function. For example, <m>g(u,v)=u+v</m> has
+<m>g_u=g_v=1</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-pd-wave-units">
+<title>What Would a Rate per Second Require?</title>
+<statement>
+<p>
+A student says, <q>Since <m>f_{x_b}(2,4)=\pi/4</m>, the boat is rising
+at <m>\pi/4</m> metres per second.</q> Is that conclusion justified?
+Use the units to explain your answer. Under the same fixed-amplitude,
+fixed-wavelength model, what additional measurements would be needed to
+find a rate per second when both the boat and the wave move?
+</p>
+</statement>
+<solution>
+<p>
+The conclusion is not justified. The value <m>f_{x_b}(2,4)=\pi/4</m>
+measures metres of height change per metre of boat displacement, with
+the crest position fixed. It is not measured in metres per second.
+To determine a time rate when both positions vary, we also need the
+boat's horizontal velocity and the crest's horizontal velocity at that
+instant. The chain-rule activity
+<xref ref="activity-cr-doppler-boat" text="title"/> later combines
+these position sensitivities with those velocities.
+</p>
+</solution>
+</task>
+
+</activity>
+</subsection>
