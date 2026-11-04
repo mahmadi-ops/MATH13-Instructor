@@ -1770,15 +1770,25 @@ then extending the chain rule when the wave amplitude varies with time.
        preview="videos/previews/chain_rule_doppler_extensions_manim.jpg"
        width="100%" aspect="16:9"/>
 </figure>
-<p>
-<em>Conceptual takeaway.</em> The two chain-rule terms separate the
-change caused by the boat's motion from the change caused by the moving
-wave pattern. When the boat moves with the waves, those contributions
-oppose one another; when it moves against the waves, they reinforce one
-another. They can partly cancel or cancel completely, and the remaining
-relative speed <m>|k-v|</m> determines how frequently the boat encounters
-crests.
-</p>
+<figure xml:id="fig-cr-doppler-both-changing-video">
+<caption>
+A conceptual view of the two sources of change in the boat's measured
+wave height: changing amplitude rescales the wave vertically, while
+relative motion between the boat and crest changes the sampled phase.
+The contributions add and may reinforce or oppose one another.
+</caption>
+<video xml:id="video-cr-doppler-both-changing"
+       source="videos/chain_rule_doppler_both_changing_manim.mp4"
+       preview="videos/previews/chain_rule_doppler_both_changing_manim.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+<p><em>Conceptual takeaway.</em></p>
+<ul>
+<li><p>Boat motion and crest motion contribute separate chain-rule terms.</p></li>
+<li><p>Their effects may reinforce, oppose, or cancel.</p></li>
+<li><p>If <m>A=A(t)</m>, add the amplitude term <m>f_A\frac{dA}{dt}</m>.</p></li>
+<li><p>Crest encounters depend on the relative speed <m>|k-v|</m>.</p></li>
+</ul>
 <p>
 For more physical context, see
 <url href="https://openstax.org/books/college-physics-2e/pages/17-4-doppler-effect-and-sonic-booms">OpenStax, <em>Doppler Effect and Sonic Booms</em></url>.
