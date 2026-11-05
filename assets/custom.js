@@ -194,7 +194,7 @@
 })();
 
 /* ------------------------------------------------------------------ *
- * Reflow equations in Sections 4.1--4.4 and on the Assignment 7 page as
+ * Reflow equations in Sections 4.1--4.4 and on the Assignment 7 and 8 pages as
  * the reading column changes.
  * MathJax 4 can break long displays without shrinking their type. Reflow
  * after a solution opens as well: hidden knowls have no usable width
@@ -206,7 +206,7 @@
     "#chapter-partial-derivatives, #chapter-chain-rule, " +
     "section[id^='sec-fsv-'], section[id^='sec-lim-'], " +
     "section[id^='sec-pd-'], section[id^='sec-cr-'], " +
-    "#worksheet-assignment-7"
+    "#worksheet-assignment-7, #worksheet-assignment-8"
   );
   if (!scope) return;
   var content = document.getElementById("ptx-content") || scope;
