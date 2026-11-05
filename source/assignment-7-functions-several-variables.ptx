@@ -344,7 +344,31 @@ counterexample if it is false.
 </statement>
 <feedback>
 <p>
-One counterexample is
+A first counterexample is the function of <xref ref="example-lim-curved-path"/>,
+<md>
+f(x,y) = \frac{(x-1)^2(y-2)^3}{(x-1)^4+(y-2)^6}, \qquad (a,b) = (1,2).
+</md>
+Write <m>u = x-1</m> and <m>v = y-2</m>. Along the vertical line
+<m>x = 1</m> we have <m>u = 0</m>, so <m>f(x,y) = 0</m>. Every other
+line through <m>(1,2)</m> is <m>v = mu</m>, and along it
+<md>
+f(x,y) = \frac{m^3 u^5}{u^4 + m^6 u^6} = \frac{m^3 u}{1 + m^6 u^2} \to 0
+\quad\text{as } u \to 0.
+</md>
+So <m>f(x,y) \to 0</m> along every line through <m>(1,2)</m>, and the
+hypothesis holds with <m>L = 0</m>. But along the curve
+<m>(x-1)^2 = (y-2)^3</m>, traced as <m>x = 1 + t^3</m>,
+<m>y = 2 + t^2</m>, we have <m>u = t^3</m>, <m>v = t^2</m> and
+<md>
+f(x,y) = \frac{t^6\cdot t^6}{t^{12} + t^{12}} = \frac12
+\quad\text{for every } t \ne 0,
+</md>
+so <m>f(x,y) \to \frac12</m> along this curve. The two values differ,
+so <m>\lim\limits_{(x,y)\to(1,2)} f(x,y)</m> does not exist; in
+particular it is not <m>L = 0</m>.
+</p>
+<p>
+A second counterexample is
 <md>
 f(x,y) =
 \begin{cases}
@@ -414,16 +438,18 @@ the parabola <m>y = x^2</m> stays inside it.
 <exercise xml:id="rm2-lim-3">
 <statement>
 <p>
-Discuss continuity of the following functions:
+Discuss continuity of the following functions. At any point where a
+function is not continuous, say which of the three conditions in
+<xref ref="def-continuity-two-variables"/> are satisfied there and which are not.
 <ol marker="A.">
 <li>
 <p>
-<m>\dfrac{2x^4 y}{x^8 + y^2}</m>
+<m>f(x,y) = \dfrac{2x^4 y}{x^8 + y^2}</m>
 </p>
 </li>
 <li>
 <p>
-<m>\dfrac{x^2\cos^2 x}{x^2 + (y-1)^2}</m>
+<m>g(x,y) = \dfrac{x^2\cos^2 x}{x^2 + (y-1)^2}</m>
 </p>
 </li>
 </ol>
@@ -446,6 +472,13 @@ via the path <m>y = x^4</m> we get a limit
 Hence the limit <m>\lim\limits_{(x,y)\to(0,0)} f(x,y)</m> does not
 exist.
 </p>
+<p>
+In terms of the definition: at every point other than the origin all
+three conditions hold. At the origin, condition 1 fails, since
+<m>f</m> is not defined there (the denominator is <m>0</m>), and
+condition 2 fails as well, since the limit does not exist; so condition
+3 cannot hold either.
+</p>
 </li>
 <li>
 <p>
@@ -461,9 +494,22 @@ On the other hand, if we approach <m>(0,1)</m> on the line
 <md>
 \lim_{x\to 0} \frac{x^2\cos^2 x}{x^2} = \cos^2(0) = 1.
 </md>
+Hence the limit <m>\lim\limits_{(x,y)\to(0,1)} g(x,y)</m> does not
+exist.
+</p>
+<p>
+In terms of the definition: at every point other than <m>(0,1)</m> all
+three conditions hold. At <m>(0,1)</m>, condition 1 fails, since
+<m>g</m> is not defined there, and condition 2 fails as well, since the
+limit does not exist; so condition 3 cannot hold either.
 </p>
 </li>
 </ol>
+</p>
+<p>
+It is not necessary to discuss whether <m>f</m> or <m>g</m> can be
+made continuous by assigning a value at the point in question: the
+problem does not ask for it.
 </p>
 </solution>
 </exercise>
