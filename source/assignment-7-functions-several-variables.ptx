@@ -553,12 +553,12 @@ Since <m>1 \ne 0</m>, the limit does not exist.
 </li>
 <li>
 <p>
-We factor the numerator as a difference of squares:
-<md>
-<mrow>\lim_{(x,y)\to(1,1)} \frac{x^8 - y^8}{x^4 - y^4}
-\amp = \lim_{(x,y)\to(1,1)}
-\frac{\left(x^4 - y^4\right)\left(x^4 + y^4\right)}{x^4 - y^4}</mrow>
-<mrow>\amp = \lim_{(x,y)\to(1,1)} x^4 + y^4 = 2.</mrow>
+We factor the numerator as a difference of squares,
+<m>x^8 - y^8 = \left(x^4 - y^4\right)\left(x^4 + y^4\right)</m>, and cancel
+the common factor <m>x^4 - y^4</m>:
+<md alignment="gather">
+<mrow>\lim_{(x,y)\to(1,1)} \frac{x^8 - y^8}{x^4 - y^4}</mrow>
+<mrow>= \lim_{(x,y)\to(1,1)} \left(x^4 + y^4\right) = 2.</mrow>
 </md>
 </p>
 </li>
@@ -801,10 +801,10 @@ and indeed <m>y = 2^2/4 = 1</m> at <m>t=2</m>, as required. Note that
 Next we differentiate the path:
 <md>
 <mrow>\frac{dx}{dt} \amp = -\frac{1}{8}\cdot\frac{2}{2t-3}
-              = -\frac{1}{4(2t-3)},
-\amp \frac{dx}{dt}\bigg|_{t=2} \amp = -\frac{1}{4} ,</mrow>
-<mrow>\frac{dy}{dt} \amp = \frac{2^t \ln 2}{4},
-\amp \frac{dy}{dt}\bigg|_{t=2} \amp = \frac{4\ln 2}{4} = \ln 2 .</mrow>
+              = -\frac{1}{4(2t-3)},</mrow>
+<mrow>\frac{dx}{dt}\bigg|_{t=2} \amp = -\frac{1}{4},</mrow>
+<mrow>\frac{dy}{dt} \amp = \frac{2^t \ln 2}{4},</mrow>
+<mrow>\frac{dy}{dt}\bigg|_{t=2} \amp = \frac{4\ln 2}{4} = \ln 2.</mrow>
 </md>
 </p>
 
