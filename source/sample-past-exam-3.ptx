@@ -26,7 +26,11 @@
   instructor wrote in by hand on the key; without it the solution's own
   line y = 0 would be one of the lines y = mx.
 
-  So far only in MATH13-Instructor, included after Review Problems #3.
+  Included after Review Problems #3 in MATH13-Instructor, and in
+  M13-Skeletal-Notes and MATH13-Skeletal-Instructor, which hold the same
+  file with the seven links (six topics and the Mixed Derivative Theorem)
+  pointed at the skeletal notes' ids.  Keep the copies identical apart
+  from those links.
 -->
 <worksheet xml:id="worksheet-sample-past-exam-3" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Sample Past Exam 3</title>
