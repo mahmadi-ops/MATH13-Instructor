@@ -1,5 +1,5 @@
 <chapter xml:id="section-exercises" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Assignments and Review Problems</title>
+  <title>Assignments, Review Problems, and Exams</title>
 
 <introduction>
 <p>
@@ -8,7 +8,75 @@ Exams 1 and 2, in one place. Worked solutions appear beneath each problem
 once the assignment's due date has passed; solutions for the review sets are
 posted the same way.
 </p>
+</introduction>
 
+<!-- ================= Assignment 1 ================= -->
+<xi:include href="assignment-1-hyperbolic.ptx"/>
+
+<!-- ================= Assignment 2 ================= -->
+<xi:include href="assignment-2-series-taylor.ptx"/>
+
+<!-- ================= Assignment 3 ================= -->
+<xi:include href="assignment-3-taylor-convergence-binomial.ptx"/>
+
+<!-- ================= Review Problems #1 ================= -->
+<!-- Everything from the four topics above that was not assigned. -->
+<xi:include href="review-problems-1.ptx"/>
+
+<!-- ================= Sample Past Exam 1 ================= -->
+<!-- The five exam questions with their worked solutions. -->
+<xi:include href="sample-past-exam-1.ptx"/>
+
+<!-- ================= Exam 1 ================= -->
+<!-- This quarter's Exam 1, with brief solutions. -->
+<xi:include href="exam-1.ptx"/>
+
+<!-- ================= Assignment 4 ================= -->
+<xi:include href="assignment-4-space-vectors-dot-product.ptx"/>
+
+<!-- ================= Assignment 5 ================= -->
+<xi:include href="assignment-5-cross-product-lines-planes.ptx"/>
+
+<!-- ================= Assignment 6 ================= -->
+<xi:include href="assignment-6-quadric-surfaces.ptx"/>
+
+<!-- ================= Review Problems #2 ================= -->
+<!-- Everything from the eight Chapter 3 topics that was not assigned. -->
+<xi:include href="review-problems-2.ptx"/>
+
+<!-- ================= Sample Past Exam 2 ================= -->
+<!-- The seven exam questions with their worked solutions. -->
+<xi:include href="sample-past-exam-2.ptx"/>
+
+<!-- ================= Exam 2 ================= -->
+<!-- This quarter's Exam 2, with solutions. -->
+<xi:include href="exam-2.ptx"/>
+
+<!-- ================= Assignment 7 ================= -->
+<xi:include href="assignment-7-functions-several-variables.ptx"/>
+
+<!-- ================= Assignment 8 ================= -->
+<xi:include href="assignment-8-chain-rule.ptx"/>
+
+<!-- ================= Assignment 9 ================= -->
+<xi:include href="assignment-9-tangent-planes.ptx"/>
+
+<!-- ================= Review Problems #3 ================= -->
+<!-- The rest of the Chapter 4 problems covered by Assignments 7 and 8. -->
+<xi:include href="review-problems-3.ptx"/>
+
+<!-- ================= Sample Past Exam 3 ================= -->
+<!-- The six questions of a past third midterm, a seventh on tangent planes, with worked solutions. -->
+<xi:include href="sample-past-exam-3.ptx"/>
+
+<!-- ================= Assignment 10 ================= -->
+<xi:include href="assignment-10-extreme-values-lagrange.ptx"/>
+
+<!-- ================= Review Problems #4 ================= -->
+<!-- The rest of the extreme values and Lagrange multipliers problems. -->
+<xi:include href="review-problems-4.ptx"/>
+
+<conclusion>
 <assemblage xml:id="assemblage-tutor-guide">
 <title>Using the AI Tutor</title>
 <p>
@@ -186,72 +254,6 @@ there is a gap, it will point at the gap and let you close it. A bare answer,
 right or wrong, earns nothing.
 </p>
 </assemblage>
-</introduction>
-
-<!-- ================= Assignment 1 ================= -->
-<xi:include href="assignment-1-hyperbolic.ptx"/>
-
-<!-- ================= Assignment 2 ================= -->
-<xi:include href="assignment-2-series-taylor.ptx"/>
-
-<!-- ================= Assignment 3 ================= -->
-<xi:include href="assignment-3-taylor-convergence-binomial.ptx"/>
-
-<!-- ================= Review Problems #1 ================= -->
-<!-- Everything from the four topics above that was not assigned. -->
-<xi:include href="review-problems-1.ptx"/>
-
-<!-- ================= Sample Past Exam 1 ================= -->
-<!-- The five exam questions with their worked solutions. -->
-<xi:include href="sample-past-exam-1.ptx"/>
-
-<!-- ================= Exam 1 ================= -->
-<!-- This quarter's Exam 1, with brief solutions. -->
-<xi:include href="exam-1.ptx"/>
-
-<!-- ================= Assignment 4 ================= -->
-<xi:include href="assignment-4-space-vectors-dot-product.ptx"/>
-
-<!-- ================= Assignment 5 ================= -->
-<xi:include href="assignment-5-cross-product-lines-planes.ptx"/>
-
-<!-- ================= Assignment 6 ================= -->
-<xi:include href="assignment-6-quadric-surfaces.ptx"/>
-
-<!-- ================= Review Problems #2 ================= -->
-<!-- Everything from the eight Chapter 3 topics that was not assigned. -->
-<xi:include href="review-problems-2.ptx"/>
-
-<!-- ================= Sample Past Exam 2 ================= -->
-<!-- The seven exam questions with their worked solutions. -->
-<xi:include href="sample-past-exam-2.ptx"/>
-
-<!-- ================= Exam 2 ================= -->
-<!-- This quarter's Exam 2, with solutions. -->
-<xi:include href="exam-2.ptx"/>
-
-<!-- ================= Assignment 7 ================= -->
-<xi:include href="assignment-7-functions-several-variables.ptx"/>
-
-<!-- ================= Assignment 8 ================= -->
-<xi:include href="assignment-8-chain-rule.ptx"/>
-
-<!-- ================= Assignment 9 ================= -->
-<xi:include href="assignment-9-tangent-planes.ptx"/>
-
-<!-- ================= Review Problems #3 ================= -->
-<!-- The rest of the Chapter 4 problems covered by Assignments 7 and 8. -->
-<xi:include href="review-problems-3.ptx"/>
-
-<!-- ================= Sample Past Exam 3 ================= -->
-<!-- The six questions of a past third midterm, a seventh on tangent planes, with worked solutions. -->
-<xi:include href="sample-past-exam-3.ptx"/>
-
-<!-- ================= Assignment 10 ================= -->
-<xi:include href="assignment-10-extreme-values-lagrange.ptx"/>
-
-<!-- ================= Review Problems #4 ================= -->
-<!-- The rest of the extreme values and Lagrange multipliers problems. -->
-<xi:include href="review-problems-4.ptx"/>
+</conclusion>
 
 </chapter>
