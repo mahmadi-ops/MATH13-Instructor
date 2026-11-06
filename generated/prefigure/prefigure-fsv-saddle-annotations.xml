@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-fsv-saddle-figure" speech2="Level curves of h equals x squared minus y squared in the x y plane, with a legend to the right giving the value of c on each. Two black lines cross at the origin along the diagonals y equals x and y equals negative x. In the left and right regions between them are hyperbolas opening sideways, orange for c equals one and red for c equals two; in the top and bottom regions are hyperbolas opening up and down, light blue for c equals negative one and dark blue for c equals negative two.">
+      <grouped>prefigure-fsv-saddle-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-fsv-saddle-sd-z1</active>
+        <active>prefigure-fsv-saddle-sd-p1r</active>
+        <active>prefigure-fsv-saddle-sd-p2r</active>
+        <active>prefigure-fsv-saddle-sd-m1u</active>
+        <active>prefigure-fsv-saddle-sd-m2u</active>
+      </children>
+      <components>
+        <active>prefigure-fsv-saddle-sd-z1</active>
+        <active>prefigure-fsv-saddle-sd-p1r</active>
+        <active>prefigure-fsv-saddle-sd-p2r</active>
+        <active>prefigure-fsv-saddle-sd-m1u</active>
+        <active>prefigure-fsv-saddle-sd-m2u</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-fsv-saddle-sd-z1" speech2="The level curve where h equals zero is the pair of lines y equals x and y equals negative x, crossing at the origin. Every other level curve approaches these lines far from the origin: they are the asymptotes of all the hyperbolas.">
+      <active>prefigure-fsv-saddle-sd-z1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-fsv-saddle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-fsv-saddle-sd-p1r" speech2="The level curve where h equals one, the hyperbola x squared minus y squared equals one. It opens left and right, with vertices at plus and minus one on the x axis.">
+      <active>prefigure-fsv-saddle-sd-p1r</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-fsv-saddle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-fsv-saddle-sd-p2r" speech2="The level curve where h equals two, the hyperbola x squared minus y squared equals two, with vertices at plus and minus root two on the x axis, outside the curve for c equals one.">
+      <active>prefigure-fsv-saddle-sd-p2r</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-fsv-saddle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-fsv-saddle-sd-m1u" speech2="The level curve where h equals negative one, the hyperbola y squared minus x squared equals one. It opens up and down, with vertices at plus and minus one on the y axis.">
+      <active>prefigure-fsv-saddle-sd-m1u</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-fsv-saddle-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-fsv-saddle-sd-m2u" speech2="The level curve where h equals negative two, the hyperbola y squared minus x squared equals two, with vertices at plus and minus root two on the y axis.">
+      <active>prefigure-fsv-saddle-sd-m2u</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-fsv-saddle-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

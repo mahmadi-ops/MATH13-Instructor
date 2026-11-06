@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h2 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Meeting Waves from a Moving Boat.</span>
+</h2>
+<div class="introduction">
+<div class="para">When a boat travels against approaching waves, it meets crests more frequently. When it travels with the waves, it meets them less frequently. This activity uses the chain rule to explain both observations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-cr-doppler-boat-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Three quantities must be kept distinct. The function <span class="process-math">\(x_b(t)\)</span> is the boat’s <em class="emphasis">horizontal position</em>, <span class="process-math">\(x_c(t)\)</span> is the <em class="emphasis">horizontal position of one selected wave crest</em>, and <span class="process-math">\(w(t)\)</span> is the signed <em class="emphasis">vertical water height at the boat</em>, measured from the mean water level. Thus <span class="process-math">\(x_b(t)\)</span> and <span class="process-math">\(x_c(t)\)</span> are coordinates on the same position axis, while <span class="process-math">\(w(t)\)</span> points perpendicular to that axis.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-cr-doppler-boat-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 88%; margin-left: 6%; margin-right: 6%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-cr-doppler-quantities-diagcess.svg" data-cml="generated/prefigure/prefigure-cr-doppler-quantities-annotations.xml"></div>
+<details class="instructions diagcess__instructions"><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The meanings of <span class="process-math">\(x_b(t)\text{,}\)</span> <span class="process-math">\(x_c(t)\text{,}\)</span> and <span class="process-math">\(w(t)\text{.}\)</span> The first two are horizontal positions measured from the same origin; the last is the vertical water height sampled at the boat’s position.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.15"><a tabindex="-1" href="#fig-cr-doppler-quantities" title="Copy heading and permalink for Figure 4.4.15" aria-label="Copy heading and permalink for Figure 4.4.15">🔗</a></div></figcaption>
+</figure>
+<div class="para logical">
+<div class="para">Consider equally spaced water waves traveling to the right along a straight line. Model the water-surface height at the boat by</div>
+<div class="displaymath process-math">
+\begin{align}
+w\amp=f(x_b,x_c)\tag{4.4.8}\\
+\amp=A\cos\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).\tag{4.4.9}
+\end{align}
+</div>
+<div class="para">Here <span class="process-math">\(A&gt;0\)</span> is the wave amplitude and <span class="process-math">\(\lambda&gt;0\)</span> is the distance between neighboring crests. The model treats the waves as ideal sinusoids and neglects the boat’s effect on the water.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-cr-doppler-boat-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-cr-doppler-wave-model-diagcess.svg" data-cml="generated/prefigure/prefigure-cr-doppler-wave-model-annotations.xml"></div>
+<details class="instructions diagcess__instructions"><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A snapshot of the wave model. Neighboring crests are separated by one wavelength <span class="process-math">\(\lambda\text{;}\)</span> the selected crest is at <span class="process-math">\(x_c(t)\text{,}\)</span> and the boat samples the surface at <span class="process-math">\(x_b(t)\)</span> as the pattern travels to the right.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.16"><a tabindex="-1" href="#fig-cr-doppler-wave-model" title="Copy heading and permalink for Figure 4.4.16" aria-label="Copy heading and permalink for Figure 4.4.16">🔗</a></div></figcaption>
+</figure>
+<div class="para logical">
+<div class="para">Suppose the boat travels with constant velocity <span class="process-math">\(v\text{,}\)</span> while every crest travels to the right with constant speed <span class="process-math">\(k&gt;0\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align}
+x_b(t)\amp=vt,\tag{4.4.10}\\
+x_c(t)\amp=kt.\tag{4.4.11}
+\end{align}
+</div>
+<div class="para">At <span class="process-math">\(t=0\text{,}\)</span> the boat and the selected crest are both at the origin. A positive <span class="process-math">\(v\)</span> means the boat travels with the waves, and a negative <span class="process-math">\(v\)</span> means it travels against them.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-cr-doppler-boat-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 52%; margin-left: 24%; margin-right: 24%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-cr-doppler-dependency-tree-diagcess.svg" data-cml="generated/prefigure/prefigure-cr-doppler-dependency-tree-annotations.xml"></div>
+<details class="instructions diagcess__instructions"><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The chain-rule dependencies for <span class="process-math">\(w=f(x_b(t),x_c(t))\text{.}\)</span> Multiplying along the two paths from <span class="process-math">\(w\)</span> to <span class="process-math">\(t\)</span> and adding gives the total rate of change.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.17"><a tabindex="-1" href="#fig-cr-doppler-dependency-tree" title="Copy heading and permalink for Figure 4.4.17" aria-label="Copy heading and permalink for Figure 4.4.17">🔗</a></div></figcaption>
+</figure>
+<figure class="figure figure-like"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><video id="video-cr-doppler" class="video" controls="" poster="external/videos/previews/chain_rule_doppler_effect_manim.jpg"><source src="external/videos/chain_rule_doppler_effect_manim.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The moving-wave model, its chain-rule tree, the rate calculation, three boat-speed comparisons, nonzero cancellation when the boat keeps pace with the waves, and the encounter-period formula.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.18"><a tabindex="-1" href="#fig-cr-doppler-video" title="Copy heading and permalink for Figure 4.4.18" aria-label="Copy heading and permalink for Figure 4.4.18">🔗</a></div></figcaption>
+</figure>
+</div>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para">Find the rate of change of <span class="process-math">\(w\)</span> with respect to <span class="process-math">\(t\)</span> using the chain rule.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-rate-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Let <span class="process-math">\(\theta=\frac{2\pi}{\lambda}(x_b-x_c)\text{.}\)</span> The two partial derivatives are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cr-doppler-dependency-tree.html">
+\begin{align*}
+\frac{\partial f}{\partial x_b}
+\amp=-\frac{2\pi A}{\lambda}\sin\theta,\\
+\frac{\partial f}{\partial x_c}
+\amp=\frac{2\pi A}{\lambda}\sin\theta.
+\end{align*}
+</div>
+<div class="para">Evaluating at <span class="process-math">\((x_b(t),x_c(t))\)</span> and following the two paths in <a href="sec-cr-doppler-boat.html#fig-cr-doppler-dependency-tree" class="xref" data-knowl="./knowl/xref/fig-cr-doppler-dependency-tree.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.4.17">Figure 4.4.17</a> gives</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cr-doppler-dependency-tree.html">
+\begin{align}
+\frac{dw}{dt}
+\amp=f_{x_b}x_b'+f_{x_c}x_c'\tag{4.4.12}\\
+\amp=\frac{2\pi A}{\lambda}\sin\theta\,(-v+k)\tag{4.4.13}\\
+\amp=\frac{2\pi A}{\lambda}(k-v)\sin\theta.\tag{4.4.14}
+\end{align}
+</div>
+<div class="para">Using <span class="process-math">\(x_b-x_c=(v-k)t\text{,}\)</span> define <span class="process-math">\(\theta(t)=\frac{2\pi}{\lambda}(v-k)t\text{.}\)</span> Then</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-cr-doppler-dependency-tree.html">
+\begin{equation*}
+\frac{dw}{dt}=\frac{2\pi A}{\lambda}(k-v)\sin\theta(t).
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-rate-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1.a.1"><a tabindex="-1" href="#task-cr-doppler-rate-2" title="Copy heading and permalink for Solution 4.4.4.1.a.1" aria-label="Copy heading and permalink for Solution 4.4.4.1.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.4.4.1.a"><a tabindex="-1" href="#task-cr-doppler-rate" title="Copy heading and permalink for Task 4.4.4.1.a" aria-label="Copy heading and permalink for Task 4.4.4.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para">How can the water-surface height at the boat stay at zero (the mean water level) for all time, even though the waves are moving?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-constant-height-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">The boat must keep pace with the waves. If <span class="process-math">\(v\ne k\text{,}\)</span> the distance <span class="process-math">\(x_b-x_c\)</span> keeps changing, so the height at the boat runs through crests and troughs. If <span class="process-math">\(v=k\text{,}\)</span> then <span class="process-math">\(x_b-x_c\)</span> is constant, so the height is constant, and it is zero exactly when the boat sits a quarter wavelength from a crest, where the cosine in the model vanishes. For example, choose</div>
+<div class="displaymath process-math">
+\begin{align*}
+x_b(t)\amp=kt-\frac{\lambda}{4},\\
+x_c(t)\amp=kt.
+\end{align*}
+</div>
+<div class="para">The phase is <span class="process-math">\(-\pi/2\text{,}\)</span> so <span class="process-math">\(w(t)=A\cos(-\pi/2)=0\)</span> for all <span class="process-math">\(t\text{,}\)</span> and since <span class="process-math">\(\sin\theta=-1\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{\partial f}{\partial x_b}\frac{dx_b}{dt}
+\amp=\frac{2\pi Ak}{\lambda},\\
+\frac{\partial f}{\partial x_c}\frac{dx_c}{dt}
+\amp=-\frac{2\pi Ak}{\lambda}.
+\end{align*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-constant-height-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 92%; margin-left: 4%; margin-right: 4%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-cr-doppler-nonzero-cancellation-diagcess.svg" data-cml="generated/prefigure/prefigure-cr-doppler-nonzero-cancellation-annotations.xml"></div>
+<details class="instructions diagcess__instructions"><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Nonzero cancellation when <span class="process-math">\(v=k\text{.}\)</span> With <span class="process-math">\(x_b(t)=kt-\lambda/4\)</span> and <span class="process-math">\(x_c(t)=kt\text{,}\)</span> the boat remains on a sloping, zero-height part of the wave. The boat-motion and crest-motion terms have equal magnitude and opposite signs.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.19"><a tabindex="-1" href="#fig-cr-doppler-nonzero-cancellation" title="Copy heading and permalink for Figure 4.4.19" aria-label="Copy heading and permalink for Figure 4.4.19">🔗</a></div></figcaption>
+</figure>
+<div class="para">The equal, nonzero terms cancel, so <span class="process-math">\(dw/dt=0\text{.}\)</span> A zero derivative at one isolated crest or trough need not mean <span class="process-math">\(v=k\text{;}\)</span> matching speeds is what keeps the height constant over time. Any other fixed offset holds some other constant height between <span class="process-math">\(-A\)</span> and <span class="process-math">\(A\text{.}\)</span> At a tracked crest, for instance, <span class="process-math">\(w(t)=A\text{,}\)</span> but there both chain-rule terms are <span class="process-math">\(0\)</span> and nothing cancels.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-constant-height-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1.b.1"><a tabindex="-1" href="#task-cr-doppler-constant-height-2" title="Copy heading and permalink for Solution 4.4.4.1.b.1" aria-label="Copy heading and permalink for Solution 4.4.4.1.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.4.4.1.b"><a tabindex="-1" href="#task-cr-doppler-constant-height" title="Copy heading and permalink for Task 4.4.4.1.b" aria-label="Copy heading and permalink for Task 4.4.4.1.b">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<div class="para">How does the boat’s velocity affect the time between successive crests?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-period-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Substituting the position functions into the model gives</div>
+<div class="displaymath process-math">
+\begin{equation*}
+w(t)=A\cos\left(\frac{2\pi}{\lambda}(v-k)t\right).
+\end{equation*}
+</div>
+<div class="para">For <span class="process-math">\(v\ne k\text{,}\)</span> one complete cycle occurs when the cosine’s argument changes by <span class="process-math">\(2\pi\text{.}\)</span> Therefore the time between successive crests is</div>
+<div class="displaymath process-math">
+\begin{equation}
+T=\frac{\lambda}{|k-v|},
+\qquad v\ne k.\tag{4.4.15}
+\end{equation}
+</div>
+<div class="para">Equivalently, the encounter frequency is <span class="process-math">\(|k-v|/\lambda\text{.}\)</span> When <span class="process-math">\(v=k\text{,}\)</span> the sampled height is constant, so it has no finite fundamental period.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-period-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">For example, suppose adjacent crests are <span class="process-math">\(8\)</span> meters apart and travel at <span class="process-math">\(2\)</span> meters per second.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-period-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Time between crests for <span class="process-math">\(\lambda=8\text{ m}\)</span> and <span class="process-math">\(k=2\text{ m/s}\)</span><div class="autopermalink" aria-hidden="true" data-description="Table 4.4.20: Time between crests for \lambda=8\text{ m} and k=2\text{ m/s}"><a tabindex="-1" href="#table-cr-doppler-periods" title="Copy heading and permalink for Table 4.4.20: Time between crests for \lambda=8\text{ m} and k=2\text{ m/s}" aria-label="Copy heading and permalink for Table 4.4.20: Time between crests for \lambda=8\text{ m} and k=2\text{ m/s}">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l1 t1 lines">Boat’s motion</th>
+<th scope="col" class="c m b3 r1 l0 t1 lines">
+<span class="process-math">\(v\)</span> (m/s)</th>
+<th scope="col" class="c m b3 r1 l0 t1 lines">Time between crests</th>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Stationary</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">
+<span class="process-math">\(4\)</span> seconds</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Traveling with the waves</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">
+<span class="process-math">\(8\)</span> seconds</td>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines">Traveling against the waves</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+<td class="c m b1 r1 l0 t0 lines">
+<span class="process-math">\(8/3\)</span> seconds</td>
+</tr>
+</table></div>
+</figure>
+<figure class="figure figure-like"><div class="image-box" style="width: 94%; margin-left: 3%; margin-right: 3%;">
+<div class="ChemAccess-element" data-src="generated/prefigure/prefigure-cr-doppler-speed-comparison-diagcess.svg" data-cml="generated/prefigure/prefigure-cr-doppler-speed-comparison-annotations.xml"></div>
+<details class="instructions diagcess__instructions"><summary>Diagram Exploration Keyboard Controls</summary><div class="diagcess-navigation-controls"><table>
+<thead><tr>
+<th>Key</th>
+<th>Action</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Enter, A</td>
+<td>Activate keyboard driven exploration</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Activate menu driven exploration</td>
+</tr>
+<tr>
+<td>Escape</td>
+<td>Leave exploration mode</td>
+</tr>
+<tr>
+<td>Cursor down</td>
+<td>Explore next lower level</td>
+</tr>
+<tr>
+<td>Cursor up</td>
+<td>Explore next upper level</td>
+</tr>
+<tr>
+<td>Cursor right</td>
+<td>Explore next element on level</td>
+</tr>
+<tr>
+<td>Cursor left</td>
+<td>Explore previous element on level</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Toggle expert mode</td>
+</tr>
+<tr>
+<td>W</td>
+<td>Extra details if available</td>
+</tr>
+<tr>
+<td>Space</td>
+<td>Repeat speech</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Activate step magnification</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>Activate direct magnification</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Deactivate magnification</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Toggle subtitles</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Cycle contrast settings</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Monochrome colours</td>
+</tr>
+<tr>
+<td>L</td>
+<td>Toggle language (if available)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Kill current sound</td>
+</tr>
+<tr>
+<td>Y</td>
+<td>Stop sound output</td>
+</tr>
+<tr>
+<td>O</td>
+<td>Start and stop sonification</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Repeat sonification output</td>
+</tr>
+</tbody>
+</table></div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Normalized height <span class="process-math">\(w/A\)</span> over eight seconds for the three velocities in <a href="sec-cr-doppler-boat.html#table-cr-doppler-periods" class="xref" data-knowl="./knowl/xref/table-cr-doppler-periods.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 4.4.20: Time between crests for \lambda=8\text{ m} and k=2\text{ m/s}">Table 4.4.20</a>. Traveling against the waves produces three cycles, remaining stationary produces two, and traveling with the waves produces one.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.21"><a tabindex="-1" href="#fig-cr-doppler-speed-comparison" title="Copy heading and permalink for Figure 4.4.21" aria-label="Copy heading and permalink for Figure 4.4.21">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1.c.1"><a tabindex="-1" href="#task-cr-doppler-period-2" title="Copy heading and permalink for Solution 4.4.4.1.c.1" aria-label="Copy heading and permalink for Solution 4.4.4.1.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.4.4.1.c"><a tabindex="-1" href="#task-cr-doppler-period" title="Copy heading and permalink for Task 4.4.4.1.c" aria-label="Copy heading and permalink for Task 4.4.4.1.c">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(d)</span></h3>
+<div class="para">
+<em class="emphasis">Can the boat measure the wave speed and wavelength?</em> Suppose <span class="process-math">\(k\)</span> and <span class="process-math">\(\lambda\)</span> are unknown. A stationary boat encounters crests every <span class="process-math">\(4\)</span> seconds. Traveling with the waves at <span class="process-math">\(1\text{ m/s}\text{,}\)</span> it encounters them every <span class="process-math">\(8\)</span> seconds. Assuming the crests move faster than the boat, determine <span class="process-math">\(k\)</span> and <span class="process-math">\(\lambda\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-measure-wave-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para">Using meters and seconds, the period formula gives<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-measure-wave-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+4\amp=\frac{\lambda}{k},\\
+8\amp=\frac{\lambda}{k-1}.
+\end{align*}
+</div>
+<div class="para">Here <span class="process-math">\(k-1&gt;0\)</span> by assumption. Thus<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-measure-wave-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lambda\amp=4k=8(k-1),\\
+k\amp=2,\qquad \lambda=8.
+\end{align*}
+</div>
+<div class="para">Therefore the wave speed is <span class="process-math">\(2\text{ m/s}\)</span> and the wavelength is <span class="process-math">\(8\text{ m}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-measure-wave-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1.d.1"><a tabindex="-1" href="#task-cr-doppler-measure-wave-2" title="Copy heading and permalink for Solution 4.4.4.1.d.1" aria-label="Copy heading and permalink for Solution 4.4.4.1.d.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.4.4.1.d"><a tabindex="-1" href="#task-cr-doppler-measure-wave" title="Copy heading and permalink for Task 4.4.4.1.d" aria-label="Copy heading and permalink for Task 4.4.4.1.d">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(e)</span></h3>
+<div class="para">
+<em class="emphasis">What if the waves grow taller while the boat keeps pace with a crest?</em> Let <span class="process-math">\(A=A(t)\text{,}\)</span> with <span class="process-math">\(\lambda\)</span> fixed. Must the measured height remain constant? What additional chain-rule term is needed?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para">Regard the height as the three-variable function<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+w\amp=f(A,x_b,x_c)\\
+\amp=A\cos\left(\frac{2\pi}{\lambda}(x_b-x_c)\right).
+\end{align*}
+</div>
+<div class="para">The chain rule now includes the amplitude path:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{dw}{dt}
+\amp=\frac{\partial f}{\partial A}\frac{dA}{dt}\\
+\amp\quad+\frac{\partial f}{\partial x_b}\frac{dx_b}{dt}\\
+\amp\quad+\frac{\partial f}{\partial x_c}\frac{dx_c}{dt}.
+\end{align*}
+</div>
+<div class="para">Writing <span class="process-math">\(\phi=\frac{2\pi}{\lambda}(x_b-x_c)\text{,}\)</span> this becomes<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{dw}{dt}\amp=A'(t)\cos\phi\\
+\amp\quad+\frac{2\pi A(t)}{\lambda}(k-v)\sin\phi.
+\end{align*}
+</div>
+<div class="para">At a tracked crest, <span class="process-math">\(\phi\)</span> is a multiple of <span class="process-math">\(2\pi\)</span> and <span class="process-math">\(v=k\text{.}\)</span> Hence<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dw}{dt}=A'(t).
+\end{equation*}
+</div>
+<div class="para">The measured height is therefore constant only when <span class="process-math">\(A'(t)=0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1.e.1"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude-2" title="Copy heading and permalink for Solution 4.4.4.1.e.1" aria-label="Copy heading and permalink for Solution 4.4.4.1.e.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.4.4.1.e"><a tabindex="-1" href="#task-cr-doppler-varying-amplitude" title="Copy heading and permalink for Task 4.4.4.1.e" aria-label="Copy heading and permalink for Task 4.4.4.1.e">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(f)</span></h3>
+<div class="para">
+<em class="emphasis">What if both the relative position and amplitude are changing?</em> Let <span class="process-math">\(\lambda=8\text{ m}\)</span> and, for <span class="process-math">\(t\ge 0\text{,}\)</span> let<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+A(t)\amp=(1\text{ m/s})t,\\
+x_b(t)\amp=(1\text{ m/s})t,\\
+x_c(t)\amp=(2\text{ m/s})t.
+\end{align*}
+</div>
+<div class="para">Thus <span class="process-math">\(v=1\text{ m/s}\)</span> and <span class="process-math">\(k=2\text{ m/s}\text{.}\)</span> At <span class="process-math">\(t=1\text{ s}\text{,}\)</span> find <span class="process-math">\(dw/dt\text{.}\)</span> Identify the contribution from the changing amplitude, then express the position contribution both as one relative-position term and as separate boat and crest terms.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para">Set <span class="process-math">\(r=x_b-x_c\)</span> and <span class="process-math">\(\phi=\frac{2\pi}{\lambda}r\text{.}\)</span> The three-variable chain rule gives<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{dw}{dt}
+\amp=f_AA'\\
+\amp\quad+f_{x_b}x_b'\\
+\amp\quad+f_{x_c}x_c'.
+\end{align*}
+</div>
+<div class="para">Combining only the two position paths, write<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+C_r
+\amp=f_{x_b}x_b'+f_{x_c}x_c'\\
+\amp=-\frac{2\pi A}{\lambda}r'\sin\phi.
+\end{align*}
+</div>
+<div class="para">Therefore<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{dw}{dt}
+\amp=A'\cos\phi+C_r\\
+\amp=A'\cos\phi
+-\frac{2\pi A}{\lambda}r'\sin\phi.
+\end{align*}
+</div>
+<div class="para">At <span class="process-math">\(t=1\text{ s}\text{,}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+A(1)\amp=1\text{ m},
+\qquad A'(1)=1\text{ m/s},\\
+r(1)\amp=-1\text{ m},
+\qquad r'(1)=-1\text{ m/s},\\
+\phi(1)\amp=-\frac{\pi}{4}.
+\end{align*}
+</div>
+<div class="para">The amplitude contribution is<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+C_A
+\amp=A'(1)\cos\phi(1)\\
+\amp=\frac{\sqrt{2}}{2}\text{ m/s}\\
+\amp\approx0.707\text{ m/s}.
+\end{align*}
+</div>
+<div class="para">The combined relative-position contribution is<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+C_r
+\amp=-\frac{2\pi A(1)}{\lambda}
+r'(1)\sin\phi(1)\\
+\amp=-\frac{\pi\sqrt{2}}{8}\text{ m/s}\\
+\amp\approx-0.555\text{ m/s}.
+\end{align*}
+</div>
+<div class="para">Equivalently, keeping the boat and crest paths separate gives<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_{x_b}v
+\amp=\frac{\pi\sqrt{2}}{8}\text{ m/s},\\
+f_{x_c}k
+\amp=-\frac{\pi\sqrt{2}}{4}\text{ m/s}.
+\end{align*}
+</div>
+<div class="para">These two terms have sum<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_{x_b}v+f_{x_c}k
+\amp=-\frac{\pi\sqrt{2}}{8}\text{ m/s}\\
+\amp=C_r,
+\end{align*}
+</div>
+<div class="para">which agrees with the combined relative-position calculation. Finally,<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+w'(1)
+\amp=C_A+C_r\\
+\amp=\frac{\sqrt{2}(4-\pi)}{8}\text{ m/s}\\
+\amp\approx0.152\text{ m/s}.
+\end{align*}
+</div>
+<div class="para">The positive net rate means that the growing amplitude outweighs the decrease caused by the boat moving away from the selected crest at this instant.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#task-cr-doppler-both-changing-2-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.4.4.1.f.1"><a tabindex="-1" href="#task-cr-doppler-both-changing-2" title="Copy heading and permalink for Solution 4.4.4.1.f.1" aria-label="Copy heading and permalink for Solution 4.4.4.1.f.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.4.4.1.f"><a tabindex="-1" href="#task-cr-doppler-both-changing" title="Copy heading and permalink for Task 4.4.4.1.f" aria-label="Copy heading and permalink for Task 4.4.4.1.f">🔗</a></div>
+</article>
+<div class="conclusion">
+<figure class="figure figure-like"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><video id="video-cr-doppler-extensions" class="video" controls="" poster="external/videos/previews/chain_rule_doppler_extensions_manim.jpg"><source src="external/videos/chain_rule_doppler_extensions_manim.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Using two encounter periods to recover the wave speed and wavelength, then extending the chain rule when the wave amplitude varies with time.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.22"><a tabindex="-1" href="#fig-cr-doppler-extensions-video" title="Copy heading and permalink for Figure 4.4.22" aria-label="Copy heading and permalink for Figure 4.4.22">🔗</a></div></figcaption>
+</figure>
+<figure class="figure figure-like"><div class="video-box" style="width: 100%;padding-top: 56.25%; margin-left: 0%; margin-right: 0%;"><video id="video-cr-doppler-both-changing" class="video" controls="" poster="external/videos/previews/chain_rule_doppler_both_changing_manim.jpg"><source src="external/videos/chain_rule_doppler_both_changing_manim.mp4" type="video/mp4"></source>Your browser does not support the &lt;video&gt; tag.</video></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.4.23<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A conceptual view of the two sources of change in the boat’s measured wave height: changing amplitude rescales the wave vertically, while relative motion between the boat and crest changes the sampled phase. The contributions add and may reinforce or oppose one another.<div class="autopermalink" aria-hidden="true" data-description="Figure 4.4.23"><a tabindex="-1" href="#fig-cr-doppler-both-changing-video" title="Copy heading and permalink for Figure 4.4.23" aria-label="Copy heading and permalink for Figure 4.4.23">🔗</a></div></figcaption>
+</figure>
+<div class="para">For more physical context, see <a class="external" href="https://openstax.org/books/college-physics-2e/pages/17-4-doppler-effect-and-sonic-booms" target="_blank">OpenStax, <em class="emphasis">Doppler Effect and Sonic Booms</em></a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-cr-doppler-boat-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Activity 4.4.4.1: Meeting Waves from a Moving Boat"><a tabindex="-1" href="#activity-cr-doppler-boat" title="Copy heading and permalink for Activity 4.4.4.1: Meeting Waves from a Moving Boat" aria-label="Copy heading and permalink for Activity 4.4.4.1: Meeting Waves from a Moving Boat">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec-cr-doppler-boat.html#activity-cr-doppler-boat">In Context</a></span>
+</body>
+</html>
