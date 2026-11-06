@@ -79,6 +79,10 @@
   <directories external="assets" generated="generated-assets"/>
 </source> -->
   <html>
+    <!-- The address the site is published at.  PreTeXt builds the QR codes   -->
+    <!-- and links that the PDF prints for videos and interactives from it;    -->
+    <!-- without it they held bare page names that a phone cannot open.        -->
+    <baseurl href="https://mahmadi-ops.github.io/MATH13-Instructor/"/>
     <!-- "maximum" renders every cross-reference to a numbered object as a  -->
     <!-- knowl that opens in place and carries an "in context" link, on the  -->
     <!-- same page as well as across pages; references to divisions stay     -->
