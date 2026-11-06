@@ -5,7 +5,14 @@
   Transcribed from the instructor's solutions PDF of a past third midterm
   (Exam_3-MATH13-Spring2026-Solutions): its six questions and their
   handwritten solutions, with the four graphs of Question 2 redrawn in
-  TikZ.  Laid out like Sample Past Exam 1: the points in each question's
+  TikZ as outlines (no shading).  At the instructor's request the
+  original Question 5, an ellipse from its foci and major axis (a conics
+  question, not an Exam 3 topic this quarter), was replaced by a
+  conceptual question on partial derivatives of the same 2 points: can
+  f_x = x + 2y and f_y = 3x - y belong to one function?  (No, by the Mixed
+  Derivative Theorem.)
+
+  Laid out like Sample Past Exam 1: the points in each question's
   title and, for the parts, at the end of the part.
 
   At the instructor's request a seventh question, on tangent planes, was
@@ -36,9 +43,9 @@ solutions. The topics it covers, with links to the notes:
 
 <p>
 <ul>
-<li><p><xref ref="section-conics" text="title"/></p></li>
 <li><p><xref ref="section-quadric-surfaces" text="title"/></p></li>
 <li><p><xref ref="chapter-limits-continuity" text="title"/></p></li>
+<li><p><xref ref="chapter-partial-derivatives" text="title"/></p></li>
 <li><p><xref ref="chapter-chain-rule" text="title"/></p></li>
 <li><p><xref ref="section-directional-derivatives" text="title"/></p></li>
 <li><p><xref ref="section-tangent-planes-differentials" text="title"/></p></li>
@@ -88,8 +95,7 @@ Which graph corresponds to <m>2x^2 - y^2 + z^2 = 0</m>?
 <image width="92%">
 <shortdescription>Four surfaces, each drawn around a horizontal y axis with the z axis up and the x axis toward the viewer. Graph A is a hyperboloid of two sheets: two bowls opening away from each other along the y axis, with a gap between them. Graph B is a hyperboloid of one sheet: a single tube along the y axis with a narrow waist at the origin. Graph C is a double cone: two cones along the y axis meeting at their tips at the origin. Graph D is an elliptic paraboloid: one bowl with its vertex at the origin, opening along the positive y axis.</shortdescription>
 <latex-image><![CDATA[\begin{tikzpicture}[scale=0.62, line join=round]
-  \tikzset{surf/.style={draw=blue!55!black, fill=blue!12, thick},
-           rim/.style={draw=blue!55!black, thick},
+  \tikzset{surf/.style={draw=blue!55!black, thick},
            hid/.style={draw=blue!55!black, dashed},
            ax/.style={-stealth, black!75}}
   % ---------------- Graph A: hyperboloid of two sheets ----------------
@@ -97,12 +103,10 @@ Which graph corresponds to <m>2x^2 - y^2 + z^2 = 0</m>?
     \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph A};
     \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
     \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
-    \draw[surf] plot[domain=0:1.25, samples=30] ({1+\x*\x*0.9},{\x})
-      -- plot[domain=1.25:-1.25, samples=30] ({1+\x*\x*0.9},{\x}) -- cycle;
-    \draw[rim] (2.41,0) ellipse (0.32 and 1.25);
-    \draw[surf] plot[domain=0:1.25, samples=30] ({-1-\x*\x*0.9},{\x})
-      -- plot[domain=1.25:-1.25, samples=30] ({-1-\x*\x*0.9},{\x}) -- cycle;
-    \draw[rim] (-2.41,0) ellipse (0.32 and 1.25);
+    \draw[surf] plot[domain=-1.25:1.25, samples=40] ({1+\x*\x*0.9},{\x});
+    \draw[surf] (2.406,0) ellipse (0.32 and 1.25);
+    \draw[surf] plot[domain=-1.25:1.25, samples=40] ({-1-\x*\x*0.9},{\x});
+    \draw[surf] (-2.406,0) ellipse (0.32 and 1.25);
     \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
   \end{scope}
   % ---------------- Graph B: hyperboloid of one sheet ----------------
@@ -110,10 +114,10 @@ Which graph corresponds to <m>2x^2 - y^2 + z^2 = 0</m>?
     \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph B};
     \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
     \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
-    \draw[surf] plot[domain=-2.2:2.2, samples=40] ({\x},{0.55*sqrt(1+\x*\x)})
-      -- plot[domain=2.2:-2.2, samples=40] ({\x},{-0.55*sqrt(1+\x*\x)}) -- cycle;
-    \draw[rim] (2.2,0) ellipse (0.3 and 1.335);
-    \draw[rim] (-2.2,0) ellipse (0.3 and 1.335);
+    \draw[surf] plot[domain=-2.2:2.2, samples=40] ({\x},{0.55*sqrt(1+\x*\x)});
+    \draw[surf] plot[domain=-2.2:2.2, samples=40] ({\x},{-0.55*sqrt(1+\x*\x)});
+    \draw[surf] (2.2,0) ellipse (0.3 and 1.329);
+    \draw[surf] (-2.2,0) ellipse (0.3 and 1.329);
     \draw[hid] (0,0) ellipse (0.14 and 0.55);
     \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
   \end{scope}
@@ -122,10 +126,10 @@ Which graph corresponds to <m>2x^2 - y^2 + z^2 = 0</m>?
     \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph C};
     \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
     \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
-    \draw[surf] (0,0) -- (2.3,1.15) -- (2.3,-1.15) -- cycle;
-    \draw[rim] (2.3,0) ellipse (0.3 and 1.15);
-    \draw[surf] (0,0) -- (-2.3,1.15) -- (-2.3,-1.15) -- cycle;
-    \draw[rim] (-2.3,0) ellipse (0.3 and 1.15);
+    \draw[surf] (2.3,1.15) -- (-2.3,-1.15);
+    \draw[surf] (2.3,-1.15) -- (-2.3,1.15);
+    \draw[surf] (2.3,0) ellipse (0.3 and 1.15);
+    \draw[surf] (-2.3,0) ellipse (0.3 and 1.15);
     \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
   \end{scope}
   % ---------------- Graph D: elliptic paraboloid ----------------
@@ -133,9 +137,8 @@ Which graph corresponds to <m>2x^2 - y^2 + z^2 = 0</m>?
     \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph D};
     \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
     \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
-    \draw[surf] plot[domain=0:1.4, samples=30] ({\x*\x*1.2},{\x})
-      -- plot[domain=1.4:-1.4, samples=30] ({\x*\x*1.2},{\x}) -- cycle;
-    \draw[rim] (2.352,0) ellipse (0.34 and 1.4);
+    \draw[surf] plot[domain=-1.4:1.4, samples=40] ({\x*\x*1.2},{\x});
+    \draw[surf] (2.352,0) ellipse (0.34 and 1.4);
     \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
   \end{scope}
 \end{tikzpicture}]]></latex-image>
@@ -251,41 +254,30 @@ The volume is increasing at <m>27\pi</m> cubic inches per second.
 <title>2 points</title>
 <statement>
 <p>
-Consider an ellipse whose <alert>center</alert> is at the origin. Assume
-that it has the <alert>foci</alert> <m>(-3,0)</m> and <m>(3,0)</m>, and
-suppose that the length of its <alert>major axis</alert> is 10. Assume that
-the major axis is in the <m>x</m>-direction. What is the equation of this
-ellipse?
+Is there a function <m>f(x,y)</m>, with continuous second partial
+derivatives everywhere, such that
+<md>
+<mrow>f_x(x,y) \amp = x + 2y \qquad\text{and}</mrow>
+<mrow>f_y(x,y) \amp = 3x - y\ ?</mrow>
+</md>
+Fully justify your answer.
 </p>
 </statement>
 <solution>
 <p>
-The major axis has length <m>2a = 10</m>, so <m>a = 5</m>, and the foci
-<m>(\pm 3, 0)</m> give <m>c = 3</m>. For an ellipse
-<m>a^2 = b^2 + c^2</m>, so
+<alert>No.</alert> If there were such an <m>f</m>, its two mixed partial
+derivatives would be
 <md>
-b^2 = a^2 - c^2 = 5^2 - 3^2 = 16, \qquad b = 4.
+<mrow>f_{xy} \amp = \frac{\partial}{\partial y}\bigl(f_x\bigr)
+= \frac{\partial}{\partial y}(x + 2y) = 2,</mrow>
+<mrow>f_{yx} \amp = \frac{\partial}{\partial x}\bigl(f_y\bigr)
+= \frac{\partial}{\partial x}(3x - y) = 3 .</mrow>
 </md>
-With the major axis along the <m>x</m>-axis,
-<md>
-\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
-\quad\Longrightarrow\quad
-\frac{x^2}{5^2} + \frac{y^2}{4^2} = 1 .
-</md>
+But <m>f</m> and all its partial derivatives up to order two are
+continuous, so by the Mixed Derivative Theorem,
+<xref ref="thm-mixed-derivative"/>, <m>f_{xy} = f_{yx}</m> at every point.
+Since <m>2 \ne 3</m>, no such function exists.
 </p>
-<image width="46%">
-<shortdescription>The ellipse x squared over 25 plus y squared over 16 equals 1, with its foci at (minus 3,0) and (3,0) marked, the semi-minor axis b equal to 4 drawn up the y axis, c equal to 3 along the x axis from the center to the focus, and a segment of length a equal to 5 from the top of the ellipse to the focus (3,0).</shortdescription>
-<latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
-  \draw[-stealth] (-6.2,0) -- (6.4,0) node[right] {$x$};
-  \draw[-stealth] (0,-4.8) -- (0,5) node[above] {$y$};
-  \draw[very thick, blue!70!black] (0,0) ellipse (5 and 4);
-  \draw[thick, magenta!80!black] (0,0) -- node[left] {$b=4$} (0,4);
-  \draw[thick, green!50!black] (0,0) -- node[below] {$c=3$} (3,0);
-  \draw[thick, blue!60] (0,4) -- node[above right] {$a=5$} (3,0);
-  \fill (3,0) circle (3pt) node[above right] {$F_1(3,0)$};
-  \fill (-3,0) circle (3pt) node[above left] {$F_2(-3,0)$};
-\end{tikzpicture}]]></latex-image>
-</image>
 </solution>
 </exercise>
 
