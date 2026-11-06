@@ -299,16 +299,16 @@ is false, provide a counterexample.
 <task xml:id="spe3-q6-a">
 <statement>
 <p>
-Assume that we evaluate <m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m>
+Assume that we evaluate <m>\displaystyle\lim_{(x,y)\to(0,0)} f(x,y)</m>
 along the lines <m>y = mx</m> (<m>m \ne 0</m>). If the result of
-<m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m> is independent of
-<m>m</m>, then the limit <m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m>
-exists at <m>(a,b)</m>. (1 point)
+<m>\displaystyle\lim_{(x,y)\to(0,0)} f(x,y)</m> is independent of
+<m>m</m>, then the limit <m>\displaystyle\lim_{(x,y)\to(0,0)} f(x,y)</m>
+exists at <m>(0,0)</m>. (1 point)
 </p>
 </statement>
 <solution>
 <p>
-<alert>False.</alert> A counterexample at <m>(a,b) = (0,0)</m> is
+<alert>False.</alert> A counterexample is
 <m>f(x,y) = \dfrac{x^2}{x^2 + y}</m>. Along a line <m>y = mx</m> with
 <m>m \ne 0</m>,
 <md>
