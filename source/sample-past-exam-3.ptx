@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Sample Past Exam 3, with solutions.
+
+  Transcribed from the instructor's solutions PDF of a past third midterm
+  (Exam_3-MATH13-Spring2026-Solutions): its six questions and their
+  handwritten solutions, with the four graphs of Question 2 redrawn in
+  TikZ.  Laid out like Sample Past Exam 1: the points in each question's
+  title and, for the parts, at the end of the part.
+
+  At the instructor's request a seventh question, on tangent planes, was
+  added (that topic is on this quarter's Exam 3 but was not on the past
+  exam), and the points were redistributed to keep the total at 20:
+  Questions 1 to 6 were worth 4, 4, 4, 3, 2 and 3 on the cover page
+  (Question 6 was headed 2 points, one for each part), and are now worth
+  3, 3, 4, 3, 2 and 2, with 3 for the new Question 7.
+
+  Question 6(A) carries the restriction m not equal to 0, which the
+  instructor wrote in by hand on the key; without it the solution's own
+  line y = 0 would be one of the lines y = mx.
+
+  So far only in MATH13-Instructor, included after Review Problems #3.
+-->
+<worksheet xml:id="worksheet-sample-past-exam-3" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Sample Past Exam 3</title>
+
+<introduction>
+<p>
+A sample past exam, with worked solutions. It was a 65-minute, closed-book
+exam worth 20 points: no aids of their own (formula sheets, notes, phones,
+tablets, smart watches or similar) were permitted, and students were asked
+to write their work in a neat and organized format and to fully justify
+every step. Try the exam under the same conditions before you look at the
+solutions. The topics it covers, with links to the notes:
+</p>
+
+<p>
+<ul>
+<li><p><xref ref="section-conics" text="title"/></p></li>
+<li><p><xref ref="section-quadric-surfaces" text="title"/></p></li>
+<li><p><xref ref="chapter-limits-continuity" text="title"/></p></li>
+<li><p><xref ref="chapter-chain-rule" text="title"/></p></li>
+<li><p><xref ref="section-directional-derivatives" text="title"/></p></li>
+<li><p><xref ref="section-tangent-planes-differentials" text="title"/></p></li>
+</ul>
+</p>
+</introduction>
+
+<!-- ===================== Question 1 ===================== -->
+<exercise xml:id="spe3-q1">
+<title>3 points</title>
+<statement>
+<p>
+Determine whether
+<md>
+\lim_{(x,y)\to(0,0)} \frac{2x^2y}{x^4+y^2}
+</md>
+exists or not. If it does, find the limit; if it does not, fully justify
+your answer.
+</p>
+</statement>
+<solution>
+<p>
+Compare two paths into the origin. Along the <m>y</m>-axis, <m>x = 0</m>:
+<md>
+\lim_{y\to 0} \frac{0}{y^2} = \lim_{y\to 0} 0 = 0.
+</md>
+Along the parabola <m>y = x^2</m>:
+<md>
+\lim_{x\to 0} \frac{2x^2\cdot x^2}{x^4 + x^4}
+= \lim_{x\to 0} \frac{2x^4}{2x^4} = 1.
+</md>
+The two paths give different limits, <m>0 \ne 1</m>, so
+<md>
+\lim_{(x,y)\to(0,0)} \frac{2x^2y}{x^4+y^2} \quad\text{does not exist.}
+</md>
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 2 ===================== -->
+<exercise xml:id="spe3-q2">
+<title>3 points</title>
+<statement>
+<p>
+Which graph corresponds to <m>2x^2 - y^2 + z^2 = 0</m>?
+</p>
+<image width="92%">
+<shortdescription>Four surfaces, each drawn around a horizontal y axis with the z axis up and the x axis toward the viewer. Graph A is a hyperboloid of two sheets: two bowls opening away from each other along the y axis, with a gap between them. Graph B is a hyperboloid of one sheet: a single tube along the y axis with a narrow waist at the origin. Graph C is a double cone: two cones along the y axis meeting at their tips at the origin. Graph D is an elliptic paraboloid: one bowl with its vertex at the origin, opening along the positive y axis.</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.62, line join=round]
+  \tikzset{surf/.style={draw=blue!55!black, fill=blue!12, thick},
+           rim/.style={draw=blue!55!black, thick},
+           hid/.style={draw=blue!55!black, dashed},
+           ax/.style={-stealth, black!75}}
+  % ---------------- Graph A: hyperboloid of two sheets ----------------
+  \begin{scope}[shift={(0,0)}]
+    \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph A};
+    \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
+    \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
+    \draw[surf] plot[domain=0:1.25, samples=30] ({1+\x*\x*0.9},{\x})
+      -- plot[domain=1.25:-1.25, samples=30] ({1+\x*\x*0.9},{\x}) -- cycle;
+    \draw[rim] (2.41,0) ellipse (0.32 and 1.25);
+    \draw[surf] plot[domain=0:1.25, samples=30] ({-1-\x*\x*0.9},{\x})
+      -- plot[domain=1.25:-1.25, samples=30] ({-1-\x*\x*0.9},{\x}) -- cycle;
+    \draw[rim] (-2.41,0) ellipse (0.32 and 1.25);
+    \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
+  \end{scope}
+  % ---------------- Graph B: hyperboloid of one sheet ----------------
+  \begin{scope}[shift={(8.2,0)}]
+    \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph B};
+    \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
+    \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
+    \draw[surf] plot[domain=-2.2:2.2, samples=40] ({\x},{0.55*sqrt(1+\x*\x)})
+      -- plot[domain=2.2:-2.2, samples=40] ({\x},{-0.55*sqrt(1+\x*\x)}) -- cycle;
+    \draw[rim] (2.2,0) ellipse (0.3 and 1.335);
+    \draw[rim] (-2.2,0) ellipse (0.3 and 1.335);
+    \draw[hid] (0,0) ellipse (0.14 and 0.55);
+    \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
+  \end{scope}
+  % ---------------- Graph C: double cone ----------------
+  \begin{scope}[shift={(0,-5.6)}]
+    \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph C};
+    \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
+    \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
+    \draw[surf] (0,0) -- (2.3,1.15) -- (2.3,-1.15) -- cycle;
+    \draw[rim] (2.3,0) ellipse (0.3 and 1.15);
+    \draw[surf] (0,0) -- (-2.3,1.15) -- (-2.3,-1.15) -- cycle;
+    \draw[rim] (-2.3,0) ellipse (0.3 and 1.15);
+    \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
+  \end{scope}
+  % ---------------- Graph D: elliptic paraboloid ----------------
+  \begin{scope}[shift={(8.2,-5.6)}]
+    \node[draw, fill=white, font=\small] at (-2.6,2.4) {Graph D};
+    \draw[ax] (0,0) -- (0,2.1) node[above] {$z$};
+    \draw[ax] (0,0) -- (-1.1,-1.1) node[below left] {$x$};
+    \draw[surf] plot[domain=0:1.4, samples=30] ({\x*\x*1.2},{\x})
+      -- plot[domain=1.4:-1.4, samples=30] ({\x*\x*1.2},{\x}) -- cycle;
+    \draw[rim] (2.352,0) ellipse (0.34 and 1.4);
+    \draw[ax] (0,0) -- (3.3,0) node[right] {$y$};
+  \end{scope}
+\end{tikzpicture}]]></latex-image>
+</image>
+<p>
+<em>Note:</em> Fully justify your response. Correct answers with incorrect
+or unclear justifications will not earn points.
+</p>
+</statement>
+<solution>
+<p>
+Look at the traces of <m>2x^2 - y^2 + z^2 = 0</m> in the three coordinate
+planes:
+<md>
+<mrow>y = 0: \amp\quad 2x^2 + z^2 = 0 \;\Rightarrow\; x = z = 0,</mrow>
+<mrow>z = 0: \amp\quad y^2 = 2x^2 \;\Rightarrow\; y = \pm\sqrt2\,x,</mrow>
+<mrow>x = 0: \amp\quad z^2 = y^2 \;\Rightarrow\; z = \pm y.</mrow>
+</md>
+The first trace is only the origin; each of the other two is a pair of
+lines through the origin.
+The traces in the planes <m>y = k</m> are the ellipses
+<m>2x^2 + z^2 = k^2</m>, a single point for <m>k = 0</m> and growing with
+<m>\lvert k\rvert</m>. A surface that meets the plane <m>y = 0</m> only at
+the origin, is cut in pairs of lines through the origin by the other two
+coordinate planes, and has elliptical cross-sections growing linearly
+along the <m>y</m>-axis is a double cone with the <m>y</m>-axis as its
+axis:
+<md>
+y^2 = 2x^2 + z^2.
+</md>
+This is <alert>Graph C</alert>.
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 3 ===================== -->
+<exercise xml:id="spe3-q3">
+<title>4 points</title>
+<statement>
+<p>
+Consider the function
+<m>f(x,y) = \dfrac{x^2 - y^2}{x^2 + y^2}</m>. Find all the directions
+<m>\hat u</m> such that <m>\left(D_{\hat u} f\right)_{(1,1)} = 0</m>.
+</p>
+</statement>
+<solution>
+<p>
+By the quotient rule,
+<md>
+<mrow>f_x \amp = \frac{2x(x^2+y^2) - 2x(x^2-y^2)}{(x^2+y^2)^2}</mrow>
+<mrow>\amp = \frac{4xy^2}{(x^2+y^2)^2},</mrow>
+<mrow>f_y \amp = \frac{-2y(x^2+y^2) - 2y(x^2-y^2)}{(x^2+y^2)^2}</mrow>
+<mrow>\amp = \frac{-4x^2y}{(x^2+y^2)^2},</mrow>
+</md>
+so <m>f_x(1,1) = \frac44 = 1</m>, <m>f_y(1,1) = -\frac44 = -1</m>, and
+<m>\left(\nabla f\right)_{(1,1)} = \langle 1, -1\rangle</m>. For a unit
+vector <m>\hat u = \langle u_1, u_2\rangle</m>,
+<md>
+<mrow>\left(D_{\hat u} f\right)_{(1,1)}
+\amp = \langle 1, -1\rangle\cdot\langle u_1, u_2\rangle</mrow>
+<mrow>\amp = u_1 - u_2 = 0,</mrow>
+</md>
+so <m>u_1 = u_2</m>. Since <m>\hat u</m> is a unit vector, <m>u_1^2 + u_2^2 = 1</m>, so
+<m>2u_1^2 = 1</m> and <m>u_1 = \pm\frac{1}{\sqrt2}</m>. The two directions
+are
+<md>
+<mrow>\hat u \amp = \left\langle \frac{1}{\sqrt2}, \frac{1}{\sqrt2}\right\rangle
+\qquad\text{and}</mrow>
+<mrow>\hat u \amp = \left\langle -\frac{1}{\sqrt2}, -\frac{1}{\sqrt2}\right\rangle,</mrow>
+</md>
+the two unit vectors perpendicular to <m>\left(\nabla f\right)_{(1,1)}</m>.
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 4 ===================== -->
+<exercise xml:id="spe3-q4">
+<title>3 points</title>
+<statement>
+<p>
+The volume of a right circular cone is <m>V = \frac13\pi r^2 h</m>, where
+<m>r</m> is the radius of the base and <m>h</m> is the height of the cone.
+The radius is increasing at a rate of 3 inches per second and the height
+is decreasing at a rate of 5 inches per second. At what rate is the volume
+of the cone changing when the radius is 9 inches and the height is 9
+inches? (Remember to include the units for your final answer.)
+</p>
+</statement>
+<solution>
+<p>
+The data are <m>\dfrac{dr}{dt} = 3</m> and <m>\dfrac{dh}{dt} = -5</m>, at
+the instant when <m>r = h = 9</m>. The volume depends on <m>t</m> through
+<m>r</m> and <m>h</m>, so by the chain rule
+<md>
+<mrow>\frac{dV}{dt} \amp = \frac{\partial V}{\partial r}\frac{dr}{dt}
++ \frac{\partial V}{\partial h}\frac{dh}{dt}</mrow>
+<mrow>\amp = \left(\frac{2\pi}{3}rh\right)(3)
++ \left(\frac13\pi r^2\right)(-5).</mrow>
+</md>
+At <m>(r,h) = (9,9)</m>:
+<md>
+<mrow>\frac{dV}{dt}\bigg|_{(9,9)}
+\amp = \frac13\left[(6\pi)(9)(9) - (5\pi)(9)^2\right]</mrow>
+<mrow>\amp = \frac{81\pi}{3} = 27\pi \ \ \frac{\text{in}^3}{\text{s}}.</mrow>
+</md>
+The volume is increasing at <m>27\pi</m> cubic inches per second.
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Question 5 ===================== -->
+<exercise xml:id="spe3-q5">
+<title>2 points</title>
+<statement>
+<p>
+Consider an ellipse whose <alert>center</alert> is at the origin. Assume
+that it has the <alert>foci</alert> <m>(-3,0)</m> and <m>(3,0)</m>, and
+suppose that the length of its <alert>major axis</alert> is 10. Assume that
+the major axis is in the <m>x</m>-direction. What is the equation of this
+ellipse?
+</p>
+</statement>
+<solution>
+<p>
+The major axis has length <m>2a = 10</m>, so <m>a = 5</m>, and the foci
+<m>(\pm 3, 0)</m> give <m>c = 3</m>. For an ellipse
+<m>a^2 = b^2 + c^2</m>, so
+<md>
+b^2 = a^2 - c^2 = 5^2 - 3^2 = 16, \qquad b = 4.
+</md>
+With the major axis along the <m>x</m>-axis,
+<md>
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\quad\Longrightarrow\quad
+\frac{x^2}{5^2} + \frac{y^2}{4^2} = 1 .
+</md>
+</p>
+<image width="46%">
+<shortdescription>The ellipse x squared over 25 plus y squared over 16 equals 1, with its foci at (minus 3,0) and (3,0) marked, the semi-minor axis b equal to 4 drawn up the y axis, c equal to 3 along the x axis from the center to the focus, and a segment of length a equal to 5 from the top of the ellipse to the focus (3,0).</shortdescription>
+<latex-image><![CDATA[\begin{tikzpicture}[scale=0.5]
+  \draw[-stealth] (-6.2,0) -- (6.4,0) node[right] {$x$};
+  \draw[-stealth] (0,-4.8) -- (0,5) node[above] {$y$};
+  \draw[very thick, blue!70!black] (0,0) ellipse (5 and 4);
+  \draw[thick, magenta!80!black] (0,0) -- node[left] {$b=4$} (0,4);
+  \draw[thick, green!50!black] (0,0) -- node[below] {$c=3$} (3,0);
+  \draw[thick, blue!60] (0,4) -- node[above right] {$a=5$} (3,0);
+  \fill (3,0) circle (3pt) node[above right] {$F_1(3,0)$};
+  \fill (-3,0) circle (3pt) node[above left] {$F_2(-3,0)$};
+\end{tikzpicture}]]></latex-image>
+</image>
+</solution>
+</exercise>
+
+<!-- ===================== Question 6 ===================== -->
+<exercise xml:id="spe3-q6">
+<title>2 points</title>
+<introduction>
+<p>
+Mark the following statements as <alert>True</alert> or
+<alert>False</alert>. If a statement is true, prove it, and if a statement
+is false, provide a counterexample.
+</p>
+</introduction>
+
+<task xml:id="spe3-q6-a">
+<statement>
+<p>
+Assume that we evaluate <m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m>
+along the lines <m>y = mx</m> (<m>m \ne 0</m>). If the result of
+<m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m> is independent of
+<m>m</m>, then the limit <m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m>
+exists at <m>(a,b)</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+<alert>False.</alert> A counterexample at <m>(a,b) = (0,0)</m> is
+<m>f(x,y) = \dfrac{x^2}{x^2 + y}</m>. Along a line <m>y = mx</m> with
+<m>m \ne 0</m>,
+<md>
+<mrow>\lim_{x\to 0} \frac{x^2}{x^2 + mx}
+\amp = \lim_{x\to 0} \frac{x^2}{x(x+m)}</mrow>
+<mrow>\amp = \lim_{x\to 0} \frac{x}{x+m} = 0,</mrow>
+</md>
+the same for every <m>m \ne 0</m>. But along the line <m>y = 0</m>,
+<md>
+\lim_{x\to 0} \frac{x^2}{x^2} = 1 \ne 0,
+</md>
+so <m>\displaystyle\lim_{(x,y)\to(0,0)} \frac{x^2}{x^2+y}</m> does not
+exist.
+</p>
+</solution>
+</task>
+
+<task xml:id="spe3-q6-b">
+<statement>
+<p>
+If <m>\displaystyle\lim_{(x,y)\to(a,b)} f(x,y)</m> exists along any path
+that goes through <m>(a,b)</m>, then the function <m>f(x,y)</m> is
+<alert>continuous</alert> at the point <m>(a,b)</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+<alert>False.</alert> Take <m>f(x,y) = \dfrac{x^2 - y^2}{x + y}</m> at
+<m>(a,b) = (0,0)</m>. Wherever <m>f</m> is defined, <m>x + y \ne 0</m> and
+<m>f(x,y) = x - y</m>, so along every path
+<md>
+<mrow>\lim_{(x,y)\to(0,0)} \frac{x^2 - y^2}{x + y}
+\amp = \lim_{(x,y)\to(0,0)} (x - y)</mrow>
+<mrow>\amp = 0 .</mrow>
+</md>
+However, <m>f</m> is not defined at <m>(0,0)</m>, so it is not continuous
+there: continuity needs the limit to exist <em>and</em> to equal the value
+of the function at the point.
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Question 7 ===================== -->
+<exercise xml:id="spe3-q7">
+<title>3 points</title>
+<introduction>
+<p>
+Consider the ellipsoid <m>x^2 + 2y^2 + 3z^2 = 21</m> and the point
+<m>P_0(1,-2,2)</m> on it.
+</p>
+</introduction>
+
+<task xml:id="spe3-q7-a">
+<statement>
+<p>
+Find an equation of the tangent plane to the ellipsoid at <m>P_0</m>.
+(2 points)
+</p>
+</statement>
+<solution>
+<p>
+First check that <m>P_0</m> is on the surface:
+<m>1 + 2(4) + 3(4) = 21</m>. The ellipsoid is the level surface
+<m>F(x,y,z) = 21</m> of <m>F(x,y,z) = x^2 + 2y^2 + 3z^2</m>, and the
+gradient of <m>F</m> is normal to its level surfaces:
+<md>
+<mrow>\nabla F \amp = \langle 2x,\ 4y,\ 6z\rangle,</mrow>
+<mrow>\nabla F\big|_{P_0} \amp = \langle 2,\ -8,\ 12\rangle .</mrow>
+</md>
+Any nonzero multiple is also normal, so take
+<m>\vec n = \frac12\nabla F\big|_{P_0} = \langle 1, -4, 6\rangle</m>.
+The tangent plane through <m>P_0</m> with normal <m>\vec n</m> is
+<md>
+<mrow>\amp (x - 1) - 4(y + 2) + 6(z - 2) = 0,</mrow>
+<mrow>\amp \text{that is,}\quad x - 4y + 6z = 21 .</mrow>
+</md>
+Check: <m>P_0</m> satisfies it, since <m>1 + 8 + 12 = 21</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="spe3-q7-b">
+<statement>
+<p>
+Find parametric equations of the line normal to the ellipsoid at
+<m>P_0</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+The normal line passes through <m>P_0(1,-2,2)</m> in the direction of
+<m>\vec n = \langle 1, -4, 6\rangle</m>:
+<md>
+<mrow>x = 1 + t, \qquad y = -2 - 4t,</mrow>
+<mrow>z = 2 + 6t, \qquad t \in \mathbb{R}.</mrow>
+</md>
+</p>
+</solution>
+</task>
+</exercise>
+
+</worksheet>

@@ -243,6 +243,10 @@ right or wrong, earns nothing.
 <!-- The rest of the Chapter 4 problems covered by Assignments 7 and 8. -->
 <xi:include href="review-problems-3.ptx"/>
 
+<!-- ================= Sample Past Exam 3 ================= -->
+<!-- The six questions of a past third midterm, a seventh on tangent planes, with worked solutions. -->
+<xi:include href="sample-past-exam-3.ptx"/>
+
 <!-- ================= Assignment 10 ================= -->
 <xi:include href="assignment-10-extreme-values-lagrange.ptx"/>
 
