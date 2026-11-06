@@ -1,4 +1,33 @@
 /* ------------------------------------------------------------------ *
+ * Keep inline formulas in one piece, as MathJax 3 did (Nov 2026).
+ * MathJax 4 breaks long inline math across lines (so "n = n-hat A" can
+ * split between n-hat and A), which the MATH 14 books, still on MathJax 3,
+ * never do.  PreTeXt's module script assigns window.MathJax its options
+ * after this file has run, so the option cannot simply be set here; this
+ * setter adds it to those options as they are assigned.  It leaves
+ * MathJax's own object (the one with a version) alone, and display
+ * equations keep their line breaking.
+ * ------------------------------------------------------------------ */
+(function () {
+  if ("MathJax" in window) return;
+  var current;
+  try {
+    Object.defineProperty(window, "MathJax", {
+      configurable: true,
+      enumerable: true,
+      get: function () { return current; },
+      set: function (value) {
+        if (value && typeof value === "object" && !value.version) {
+          value.output = value.output || {};
+          value.output.linebreaks = Object.assign({}, value.output.linebreaks, { inline: false });
+        }
+        current = value;
+      }
+    });
+  } catch (e) { /* leave MathJax's defaults in place */ }
+})();
+
+/* ------------------------------------------------------------------ *
  * Print fallback for interactive PreFigure diagrams.
  *
  * Annotated PreFigure diagrams are embedded as an interactive "diagcess"

@@ -247,3 +247,18 @@ body.letter #m13-tutor-fab, body.letter #m13-tutor-panel,
 body.a4 #m13-tutor-fab, body.a4 #m13-tutor-panel {
   display: none !important;
 }
+
+/* ------------------------------------------------------------------ *
+ * Inline math at the size of the text (Nov 2026).
+ * PreTeXt 2.44 loads MathJax 4, which, unlike the MathJax 3 of the
+ * MATH 14 books, gives inline formulas no line height of their own: set
+ * 21% larger than the text, they inherit the paragraph's 1.35 spacing,
+ * so every line holding a formula is pushed apart and the math looks out
+ * of scale with the words around it.  MathJax 3 sets line-height 0 on
+ * its containers; doing the same for inline math restores the spacing
+ * of the MATH 14 sites exactly.  Displays keep MathJax 4's own spacing,
+ * which their line breaking relies on.
+ * ------------------------------------------------------------------ */
+mjx-container[jax="CHTML"]:not([display="true"]) {
+  line-height: 0;
+}
