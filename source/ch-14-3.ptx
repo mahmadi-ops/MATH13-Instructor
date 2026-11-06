@@ -381,6 +381,42 @@ Note that similar notation can be used for the partial derivative with
 respect to any variable such as <m>y</m> and <m>z</m>.
 </p>
 
+<p>
+<xref ref="fig-pd-two-tangents-interactive"/> is <xref ref="fig-pd-two-tangents-video"/> to work by hand: the same
+surface, the same point <m>P</m> and the same two cuts, but you choose which
+plane slices the surface, watch the parabola it leaves and the tangent line to
+that parabola at <m>P</m>, and turn the picture to see each tangent line at
+its true steepness.
+</p>
+
+<figure xml:id="fig-pd-two-tangents-interactive">
+<caption>
+<xref ref="fig-pd-two-tangents-video"/>, to cut open yourself. The plane <m>y = y_0</m> cuts
+the green parabola <m>z = f(x,y_0)</m> out of the surface, and the blue
+tangent line to it at <m>P</m> has slope <m>\frac{\partial f}{\partial x}</m>,
+the rate of change of <m>f</m> in the <m>x</m>-direction; the plane
+<m>x = x_0</m> cuts the amber parabola <m>z = f(x_0,y)</m>, and the red
+tangent line to it at <m>P</m> has slope <m>\frac{\partial f}{\partial y}</m>,
+the rate of change of <m>f</m> in the <m>y</m>-direction.
+</caption>
+<interactive xml:id="interactive-pd-two-tangents"
+             iframe="pd-two-tangents-manim.html" width="100%" aspect="3:2">
+<instructions>
+<p>
+Click <q><m>y = y_0</m></q> or <q><m>x = x_0</m></q>, or click a parabola in
+the picture, to slice the surface with that plane: the parabola it cuts out
+is drawn on the surface, and the tangent line to that parabola at <m>P</m>
+follows, labelled with the partial derivative its slope is. <q>Both</q> shows
+the two cuts together, and <q>Play</q> builds them one at a time, as the video
+does. <q>Along <m>y</m></q> and <q>Along <m>x</m></q> turn the picture until
+the plane <m>y = y_0</m> or <m>x = x_0</m> is seen edge on, so that its
+tangent line shows its true slope; dragging turns it by hand, and the button
+at the bottom right shows the figure full screen.
+</p>
+</instructions>
+</interactive>
+</figure>
+
 </subsection>
 
 <!-- ================================================================ -->

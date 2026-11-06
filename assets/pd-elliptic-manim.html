@@ -389,11 +389,11 @@
       [quad[0], quad[1], quad[2], quad[0], quad[2], quad[3]]);
     pg.computeVertexNormals();
     C.plane = new THREE.Mesh(pg, new THREE.MeshBasicMaterial({
-      color: C.colour, transparent: true, opacity: 0.1,
+      color: C.colour, transparent: true, opacity: 0.22,
       side: THREE.DoubleSide, depthWrite: false
     }));
     C.planeEdge = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(quad),
-      new THREE.LineBasicMaterial({ color: C.colour, transparent: true, opacity: 0.4 }));
+      new THREE.LineBasicMaterial({ color: C.colour, transparent: true, opacity: 0.8 }));
     C.plane.visible = C.planeEdge.visible = false;
     C.group.add(C.plane); C.group.add(C.planeEdge);
 
@@ -591,8 +591,8 @@
       if (Math.abs(want - C.grow) < 0.003) C.grow = want;
 
       C.plane.visible = C.planeEdge.visible = C.grow > 0.01;
-      C.plane.material.opacity = 0.1 * C.grow;
-      C.planeEdge.material.opacity = 0.4 * C.grow;
+      C.plane.material.opacity = 0.22 * C.grow;
+      C.planeEdge.material.opacity = 0.8 * C.grow;
 
       // the parabola draws itself in from one end, the way Create() does
       C.trace.visible = C.grow > 0.02;
@@ -621,6 +621,46 @@
   refreshReadout();
   placeCamera();
   tick();
+})();
+</script>
+<!-- m13-fullscreen-button -->
+<script>
+(function () {
+  "use strict";
+  var btn = document.createElement("button");
+  btn.id = "m13FsBtn";
+  btn.type = "button";
+  btn.title = "Full screen";
+  btn.setAttribute("aria-label", "Toggle full screen");
+  btn.innerHTML = "\u26f6";
+  btn.style.cssText = [
+    "position:fixed", "right:10px", "bottom:10px", "z-index:2147483647",
+    "width:34px", "height:34px", "border-radius:50%",
+    "border:1px solid rgba(127,127,127,.55)",
+    "background:rgba(20,22,30,.62)", "color:#ece6e2",
+    "font-size:17px", "line-height:1", "cursor:pointer", "padding:0",
+    "opacity:.55", "transition:opacity .15s"
+  ].join(";");
+  btn.addEventListener("mouseenter", function () { btn.style.opacity = "1"; });
+  btn.addEventListener("mouseleave", function () { btn.style.opacity = ".55"; });
+  btn.addEventListener("click", function () {
+    if (window.parent && window.parent !== window) {
+      try {
+        window.parent.postMessage({ type: "m13-fullscreen-toggle" }, "*");
+        return;
+      } catch (e) { /* fall through to the standalone path */ }
+    }
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  });
+  function add() { document.body.appendChild(btn); }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", add);
+  } else {
+    add();
+  }
 })();
 </script>
 </body>

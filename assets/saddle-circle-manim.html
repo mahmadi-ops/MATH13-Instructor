@@ -530,5 +530,45 @@
   tick();
 })();
 </script>
+<!-- m13-fullscreen-button -->
+<script>
+(function () {
+  "use strict";
+  var btn = document.createElement("button");
+  btn.id = "m13FsBtn";
+  btn.type = "button";
+  btn.title = "Full screen";
+  btn.setAttribute("aria-label", "Toggle full screen");
+  btn.innerHTML = "\u26f6";
+  btn.style.cssText = [
+    "position:fixed", "right:10px", "bottom:10px", "z-index:2147483647",
+    "width:34px", "height:34px", "border-radius:50%",
+    "border:1px solid rgba(127,127,127,.55)",
+    "background:rgba(20,22,30,.62)", "color:#ece6e2",
+    "font-size:17px", "line-height:1", "cursor:pointer", "padding:0",
+    "opacity:.55", "transition:opacity .15s"
+  ].join(";");
+  btn.addEventListener("mouseenter", function () { btn.style.opacity = "1"; });
+  btn.addEventListener("mouseleave", function () { btn.style.opacity = ".55"; });
+  btn.addEventListener("click", function () {
+    if (window.parent && window.parent !== window) {
+      try {
+        window.parent.postMessage({ type: "m13-fullscreen-toggle" }, "*");
+        return;
+      } catch (e) { /* fall through to the standalone path */ }
+    }
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    }
+  });
+  function add() { document.body.appendChild(btn); }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", add);
+  } else {
+    add();
+  }
+})();
+</script>
 </body>
 </html>

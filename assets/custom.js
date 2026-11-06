@@ -570,3 +570,33 @@
     }
   } catch (e) {}
 })();
+
+/* ==================================================================
+ * Full-screen support for the interactive figures.
+ *
+ * Each interactive page (assets/*.html, embedded by PreTeXt as an
+ * <iframe> without an allowfullscreen attribute) carries a small
+ * full-screen button that cannot call requestFullscreen itself: the
+ * iframe has no fullscreen permission. Instead the button posts
+ * {type: "m13-fullscreen-toggle"} to this, the parent page, which is
+ * always allowed to full-screen one of its own elements. The listener
+ * finds the iframe the message came from and toggles it.
+ * ================================================================== */
+(function () {
+  "use strict";
+  window.addEventListener("message", function (ev) {
+    var d = ev.data;
+    if (!d || d.type !== "m13-fullscreen-toggle") return;
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+      return;
+    }
+    var frames = document.getElementsByTagName("iframe");
+    for (var i = 0; i < frames.length; i++) {
+      if (frames[i].contentWindow === ev.source) {
+        if (frames[i].requestFullscreen) frames[i].requestFullscreen();
+        return;
+      }
+    }
+  });
+})();
