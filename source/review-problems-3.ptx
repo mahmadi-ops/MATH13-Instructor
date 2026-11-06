@@ -1207,15 +1207,9 @@ Click on that line.
 </statement>
 <feedback>
 <p>
-The error is in the third line. The formula
-<m>D_{\mathbf u}f = \nabla f\cdot\mathbf u</m> requires a <em>unit</em>
-vector. Since <m>\left|\vec v\right| = 5</m>, the correct direction is
-<m>\mathbf u = \left\langle \tfrac35, \tfrac45 \right\rangle</m>, giving
-<md>
-D_{\mathbf u}f(1,2) = 4\cdot\tfrac35 + 1\cdot\tfrac45 = \frac{16}{5} = 3.2,
-</md>
-not <m>16</m>. Lines 1, 2 and 4 are each correct given the line before
-them — line 4 faithfully reports the (wrong) number produced by line 3.
+Not quite. Check each line against the one before it, and ask which
+kind of vector the directional-derivative formula needs. The solution
+below explains the error.
 </p>
 </feedback>
 <areas>
@@ -1225,6 +1219,20 @@ them — line 4 faithfully reports the (wrong) number produced by line 3.
   = (4)(3) + (1)(4) = 16</m></area></p>
 <p><area correct="no">So the directional derivative equals <m>16</m>.</area></p>
 </areas>
+<solution>
+<p>
+The error is in the third line. The formula
+<m>D_{\mathbf u}f = \nabla f\cdot\mathbf u</m> requires a <em>unit</em>
+vector. Since <m>\left|\vec v\right| = 5</m>, the correct direction is
+<m>\mathbf u = \left\langle \tfrac35, \tfrac45 \right\rangle</m>, giving
+<md>
+<mrow>D_{\mathbf u}f(1,2) \amp = 4\cdot\tfrac35 + 1\cdot\tfrac45</mrow>
+<mrow>\amp = \frac{16}{5} = 3.2,</mrow>
+</md>
+not <m>16</m>. Lines 1, 2 and 4 are each correct given the line before
+them: line 4 faithfully reports the (wrong) number produced by line 3.
+</p>
+</solution>
 </exercise>
 
 </worksheet>
