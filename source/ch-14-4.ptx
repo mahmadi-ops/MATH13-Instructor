@@ -158,7 +158,8 @@ and the chain rule adds one term for each.
 
 <!-- The espresso example and its practice problems: from the instructor's
      handout "Pulling an Espresso Shot" (Nov 2026). The statement shows the
-     instructor's photo with its hints taken out (assets/espresso-shot.jpg);
+     instructor's photo with its hints taken out (assets/espresso-shot.jpg:
+     no incoming-stream label, and the box on the cup asks "C(t) = ?");
      the solution ends with the full picture (espresso-shot-summary.jpg). -->
 <example xml:id="example-cr-espresso">
 <title>Pulling an Espresso Shot</title>
@@ -178,14 +179,14 @@ Both change during the shot, so <m>m = m(t)</m> and <m>V = V(t)</m>, with
 
 <image source="espresso-shot.jpg" width="70%">
 <shortdescription>
-An espresso shot pouring into a glass cup, labelled with m of t, V of t, and C of t equals m of t over V of t.
+An espresso shot pouring into a glass cup, labelled with m of t and V of t, and a box on the cup asking C of t equals what.
 </shortdescription>
 <description>
 <p>
 A photograph of an espresso shot pouring from a machine into a clear glass
 cup. A label pointing at the cup reads <q><m>m(t)</m>, mass of dissolved
 solids (g)</q>, a second reads <q><m>V(t)</m>, volume of liquid (mL)</q>,
-and a box on the cup reads <m>C(t) = \frac{m(t)}{V(t)}</m>.
+and a box on the cup asks <q><m>C(t) = {}</m>?</q>.
 </p>
 </description>
 </image>
