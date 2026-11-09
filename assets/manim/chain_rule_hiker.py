@@ -26,8 +26,7 @@ beside it.  The acts:
 4. the north leg: its rise is about f_y times the northward step, so
    Delta w is about f_x Delta x + f_y Delta y;
 5. the step shrinks: the true rate Delta w / Delta t and the estimate
-   (f_x Delta x + f_y Delta y) / Delta t converge, giving the chain rule;
-6. a walk whose second leg goes south, downhill: a negative contribution.
+   (f_x Delta x + f_y Delta y) / Delta t converge, giving the chain rule.
 
 Design notes:
 
@@ -199,7 +198,6 @@ class ChainRuleHiker(Scene):
         self.east_leg()
         self.north_leg()
         self.shrink()
-        self.downhill()
         self.conclusion()
 
     # ------------------------------------------------------------------
@@ -587,71 +585,6 @@ class ChainRuleHiker(Scene):
             mob.clear_updaters()
         self.play(FadeOut(VGroup(L3, LM, R, base_line, r_title, r_lab1, r_lab2, clock)),
                   run_time=0.7)
-
-    # ------------------------------------------------------------------
-    # act 6: a negative contribution
-    def downhill(self):
-        A3, B3, C3 = np.array([1.6, 2.6]), np.array([2.6, 2.6]), np.array([2.6, 2.0])
-        w0 = f(*A3)
-        self.caption("A different walk: east, then south. Going south here leads downhill.")
-        s = ValueTracker(0.0)
-
-        def pos():
-            return two_leg_point(A3, B3, C3, s.get_value())
-
-        def legs():
-            q = pos()
-            if q[1] >= A3[1] - 1e-9:
-                return VGroup(surface_path(segment(A3, q, 25), EAST_COLOR, 6),
-                              Line(on_map(*A3), on_map(*q), color=EAST_COLOR, stroke_width=6))
-            return VGroup(surface_path(segment(A3, B3, 25), EAST_COLOR, 6),
-                          surface_path(segment(B3, q, 25), NORTH_COLOR, 6),
-                          Line(on_map(*A3), on_map(*B3), color=EAST_COLOR, stroke_width=6),
-                          Line(on_map(*B3), on_map(*q), color=NORTH_COLOR, stroke_width=6))
-
-        gx1, gx2 = GAUGE_X
-        base_y = -0.45
-
-        def gauge():
-            q = pos()
-            on_first = q[1] >= A3[1] - 1e-9
-            e = f(*(q if on_first else B3)) - w0
-            n_ = 0.0 if on_first else f(*q) - f(*B3)
-            return VGroup(bar(gx1, base_y, e * GAUGE_SCALE, EAST_COLOR),
-                          bar(gx2, base_y, n_ * GAUGE_SCALE, NORTH_COLOR))
-
-        hiker = always_redraw(lambda: VGroup(
-            Dot(on_hill(*pos(), 0.03), radius=0.11, color=TWO_LEG_COLOR,
-                stroke_color=WHITE, stroke_width=2),
-            Dot(on_map(*pos()), radius=0.1, color=TWO_LEG_COLOR,
-                stroke_color=WHITE, stroke_width=2)))
-        L, G = always_redraw(legs), always_redraw(gauge)
-        base_line = Line([gx1 - 0.45, base_y, 0], [gx2 + 0.45, base_y, 0],
-                         color=GREY_C, stroke_width=2)
-        g_title = VGroup(
-            Text("change in height", font=TEXT_FONT, font_size=17, color=MUTED_COLOR),
-            VGroup(Text("east leg", font=TEXT_FONT, font_size=14, color=EAST_COLOR),
-                   Text("south leg", font=TEXT_FONT, font_size=14, color=NORTH_COLOR)
-                   ).arrange(RIGHT, buff=0.3),
-        ).arrange(DOWN, buff=0.16).move_to([(gx1 + gx2) / 2, 2.1, 0])
-        eq = self.equation(r"\frac{dw}{dt}", "=",
-                           r"\underbrace{\frac{\partial f}{\partial x}\frac{dx}{dt}}_{>\,0}",
-                           "+",
-                           r"\underbrace{\frac{\partial f}{\partial y}\frac{dy}{dt}}_{<\,0}",
-                           colors={2: EAST_COLOR, 4: NORTH_COLOR}, font_size=36)
-        eq.shift(DOWN * 0.15)
-        self.play(FadeOut(self.current_equation), FadeIn(eq), run_time=0.8)
-        self.current_equation = eq
-        self.add(L, G, hiker)
-        self.play(FadeIn(base_line), FadeIn(g_title), run_time=0.5)
-        self.play(s.animate.set_value(1.0), run_time=4.5, rate_func=linear)
-        self.wait(0.5)
-        self.caption("The southward leg gives a negative contribution: "
-                     "that part of the motion carries the hiker downhill.")
-        self.wait(2.6)
-        for mob in (L, G, hiker):
-            mob.clear_updaters()
-        self.play(FadeOut(VGroup(L, G, hiker, base_line, g_title)), run_time=0.6)
 
     # ------------------------------------------------------------------
     def conclusion(self):

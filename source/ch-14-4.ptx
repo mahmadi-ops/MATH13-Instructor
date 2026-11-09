@@ -281,9 +281,8 @@ downhill.
 The two-variable chain rule on a hill, in 3D and from above. Two hikers
 leave <m>A</m> together, one walking straight to <m>C</m>, the other east
 to <m>B</m> and then north to <m>C</m>; they arrive together and have
-climbed the same amount. The video then takes the two legs one at a time,
-lets the step shrink to reach the chain rule, and ends with a walk whose
-second leg goes downhill.
+climbed the same amount. The video then takes the two legs one at a time
+and lets the step shrink to reach the chain rule.
 </caption>
 <video xml:id="video-cr-hiker"
        source="videos/chain_rule_hiker_manim.mp4"
