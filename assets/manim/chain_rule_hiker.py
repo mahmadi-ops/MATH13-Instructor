@@ -42,8 +42,15 @@ Design notes:
   colours as the surface, so the two panels read as one object.
 * Colours follow the book's figure: the east leg BLUE, the north leg ORANGE.
   The straight-line hiker is PINK, on a white dashed path, and the hiker who
-  walks the two legs is GOLD.  The black background, DejaVu Sans captions at the bottom and the
-  equation at the top follow the repository's other animations.
+  walks the two legs is GOLD.  The black background, the captions at the
+  bottom and the equation at the top follow the repository's other
+  animations.
+* Lettering.  Captions and labels are set in Open Sans and the title in PT
+  Serif, the body and heading fonts of the book's web pages (the PreTeXt
+  theme's --font-body and --font-headings), rather than the DejaVu Sans of the
+  repository's earlier animations; the mathematics is LaTeX's Computer Modern,
+  which matches the book's MathJax.  Install the fonts first (Debian/Ubuntu:
+  fonts-open-sans and fonts-paratype), or Pango silently substitutes another.
 """
 
 from manim import *
@@ -54,7 +61,8 @@ TEX = TexTemplate(preamble=r"\usepackage{amsmath}" "\n" r"\usepackage{amssymb}")
 config.tex_template = TEX
 config.background_color = BLACK
 
-TEXT_FONT = "DejaVu Sans"
+TEXT_FONT = "Open Sans"                  # the book's body font
+TITLE_FONT = "PT Serif"                  # the book's heading font
 EAST_COLOR = BLUE
 NORTH_COLOR = ORANGE
 STRAIGHT_COLOR = PINK
@@ -297,7 +305,7 @@ class ChainRuleHiker(Scene):
                       ).next_to(square, UP, buff=0.14)
         self.tags = VGroup(tag3d, tagmap)
 
-        title = Text("Why do the rates add?", font=TEXT_FONT, font_size=40)
+        title = Text("Why do the rates add?", font=TITLE_FONT, font_size=42)
         title.move_to([0, 3.42, 0])
         self.play(FadeIn(title), run_time=0.8)
         self.play(FadeIn(self.hill, lag_ratio=0.0), FadeIn(self.compass3d),
@@ -597,4 +605,7 @@ class ChainRuleHiker(Scene):
         self.current_equation = VGroup(final, box)
         self.caption("Each coordinate motion contributes to the rate of climbing, "
                      "and those contributions add.")
+        self.wait(3.0)
+        self.caption("We will gain a deeper understanding of this when we discuss "
+                     "directional derivatives (Section 4.5).")
         self.wait(3.5)

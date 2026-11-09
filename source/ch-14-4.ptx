@@ -275,6 +275,11 @@ rate of climbing, and those contributions <em>add</em>. A negative
 contribution means that component of the motion carries the hiker
 downhill.
 </p>
+<p>
+We will gain a deeper understanding of this when we discuss directional
+derivatives, in Section 4.5, <q>Directional Derivatives and Gradient
+Vectors</q>.
+</p>
 
 <figure xml:id="fig-cr-hiker-video">
 <caption>
