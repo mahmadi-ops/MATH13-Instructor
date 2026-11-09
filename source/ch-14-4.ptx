@@ -156,6 +156,243 @@ and the chain rule adds one term for each.
 </image>
 </figure>
 
+<!-- The espresso example and its practice problems: from the instructor's
+     handout "Pulling an Espresso Shot" (Nov 2026). -->
+<example xml:id="example-cr-espresso">
+<title>Pulling an Espresso Shot</title>
+<statement>
+<p>
+As an espresso shot pours, coffee solids dissolve into the water and the
+cup fills. The strength of what is in the cup is its
+<term>concentration</term>
+<md>
+C(m,V) = \frac{m}{V},
+</md>
+where <m>m</m> is the mass of dissolved coffee solids in the cup (in
+grams) and <m>V</m> is the volume of liquid in the cup (in milliliters).
+Both change during the shot, so <m>m = m(t)</m> and <m>V = V(t)</m>, with
+<m>t</m> in seconds. At <m>t = 20</m> s,
+<md>
+<mrow>m = 4\,\text{g}, \quad V = 40\,\text{mL},</mrow>
+<mrow>\frac{dm}{dt} = 0.12\,\text{g/s}, \quad \frac{dV}{dt} = 1.6\,\text{mL/s}.</mrow>
+</md>
+At <m>t = 20</m> s, is the cup getting stronger or weaker, and how fast?
+</p>
+</statement>
+
+<solution>
+<p>
+<alert>Step 1: Dependence.</alert> <m>C</m> depends on <m>m</m> and
+<m>V</m>, and each of those depends on <m>t</m>, as the tree diagram
+below shows.
+</p>
+
+<image width="46%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-tree-espresso">
+<diagram dimensions="(280,300)" margins="14">
+<coordinates bbox="(-1.7,-0.5,1.7,3.5)">
+<line at="te-cm" endpoints="((0,3),(-1.2,1.5))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="te-cv" endpoints="((0,3),(1.2,1.5))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="te-mt" endpoints="((-1.2,1.5),(0,0))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="te-vt" endpoints="((1.2,1.5),(0,0))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<point at="te-c" p="(0,3)" fill="black"/>
+<point at="te-m" p="(-1.2,1.5)" fill="#D55E00"/>
+<point at="te-v" p="(1.2,1.5)" fill="#D55E00"/>
+<point at="te-t" p="(0,0)" fill="#009E73"/>
+<label at="te-c-lab" anchor="(0,3.1)" alignment="n">
+<m>C=\frac{m}{V}</m>
+</label>
+<label at="te-m-lab" anchor="(-1.3,1.5)" alignment="w" color="#D55E00">
+<m>m</m>
+</label>
+<label at="te-v-lab" anchor="(1.3,1.5)" alignment="e" color="#D55E00">
+<m>V</m>
+</label>
+<label at="te-t-lab" anchor="(0,-0.12)" alignment="s" color="#009E73">
+<m>t</m>
+</label>
+<label at="te-cm-lab" anchor="(-0.72,2.4)" alignment="w" color="#0072B2">
+<m>\frac{\partial C}{\partial m}</m>
+</label>
+<label at="te-cv-lab" anchor="(0.72,2.4)" alignment="e" color="#0072B2">
+<m>\frac{\partial C}{\partial V}</m>
+</label>
+<label at="te-mt-lab" anchor="(-0.72,0.6)" alignment="w" color="#0072B2">
+<m>\frac{dm}{dt}</m>
+</label>
+<label at="te-vt-lab" anchor="(0.72,0.6)" alignment="e" color="#0072B2">
+<m>\frac{dV}{dt}</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A diamond shaped tree diagram. At the top is the concentration C equals m over V. Two dashed blue branches descend from it, the left labelled partial C partial m leading to a node m, and the right labelled partial C partial V leading to a node V. From m and V two further branches, labelled d m d t and d V d t, descend and meet at the bottom node t.">
+  <annotation ref="te-c" text="The concentration C at the top of the tree."/>
+  <annotation ref="te-m" text="The intermediate variable m, the mass of dissolved coffee solids."/>
+  <annotation ref="te-v" text="The intermediate variable V, the volume of liquid in the cup."/>
+  <annotation ref="te-t" text="The independent variable t, time in seconds, at the bottom."/>
+  <annotation ref="te-cm" text="The branch from C to m contributes the factor partial C partial m."/>
+  <annotation ref="te-mt" text="The branch from m to t contributes the factor d m d t. Multiplying along this path gives the first term of the chain rule."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+
+<p>
+<alert>Step 2: Chain rule.</alert> There are two paths from <m>C</m> down
+to <m>t</m>, so <xref ref="eq-chain-rule-two"/>, with <m>C</m> in place
+of <m>w</m>, has two terms:
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{\partial C}{\partial m}\frac{dm}{dt}
+      + \frac{\partial C}{\partial V}\frac{dV}{dt}</mrow>
+<mrow>\amp = \frac{1}{V}\frac{dm}{dt} - \frac{m}{V^2}\frac{dV}{dt}.</mrow>
+</md>
+</p>
+<p>
+<alert>Step 3: Plug in.</alert> First,
+<m>C = \frac{4}{40} = 0.10\,\text{g/mL}</m>, about <m>10\%</m>, a typical
+espresso strength. Then
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{0.12}{40} - \frac{4}{40^2}\,(1.6)</mrow>
+<mrow>\amp = 0.003 - 0.004</mrow>
+<mrow>\amp = -0.001\,(\text{g/mL})/\text{s}.</mrow>
+</md>
+</p>
+<p>
+<alert>Step 4: Interpret.</alert> The concentration is
+<em>decreasing</em> by about <m>0.001</m> g/mL (<m>0.1</m> percentage
+point) per second. Solids are still going into the cup, but the cup is
+getting weaker.
+</p>
+<p>
+<alert>Why?</alert> Write <m>m' = \frac{dm}{dt}</m> and
+<m>V' = \frac{dV}{dt}</m>, and factor the derivative:
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{1}{V}\bigl(m' - C\,V'\bigr)</mrow>
+<mrow>\amp = \frac{V'}{V}\left(\frac{m'}{V'} - C\right).</mrow>
+</md>
+The ratio <m>m'/V'</m> is the concentration of the stream <em>coming out
+of the machine right now</em>. Since <m>V'/V \gt 0</m>, the cup gets
+weaker exactly when the stream is weaker than the cup:
+<md>
+\frac{dC}{dt} \lt 0 \iff \frac{m'}{V'} \lt C.
+</md>
+Here the stream is <m>0.12/1.6 = 0.075\,\text{g/mL}</m> (<m>7.5\%</m>),
+weaker than the <m>10\%</m> already in the cup, so adding it dilutes the
+shot. This is why baristas cut a shot once the stream turns pale.
+</p>
+</solution>
+</example>
+
+<example xml:id="example-cr-espresso-practice">
+<title>Pulling an Espresso Shot, Continued</title>
+<introduction>
+<p>
+Use the same data at <m>t = 20</m> s as in
+<xref ref="example-cr-espresso"/>.
+</p>
+</introduction>
+
+<task xml:id="task-cr-espresso-constant">
+<statement>
+<p>
+What flow rate <m>\frac{dV}{dt}</m> would make the strength of the cup
+momentarily constant at <m>t = 20</m> s (with <m>m</m>, <m>V</m>, and
+<m>\frac{dm}{dt}</m> unchanged)? Interpret your answer.
+</p>
+</statement>
+<solution>
+<p>
+Set <m>\frac{dC}{dt} = 0</m>:
+<md>
+\frac{1}{V}\frac{dm}{dt} = \frac{m}{V^2}\frac{dV}{dt},
+</md>
+so
+<md>
+<mrow>\frac{dV}{dt} \amp = \frac{V}{m}\frac{dm}{dt}</mrow>
+<mrow>\amp = \frac{40}{4}\,(0.12) = 1.2\,\text{mL/s}.</mrow>
+</md>
+At <m>1.2</m> mL/s, the stream's concentration is
+<m>0.12/1.2 = 0.10\,\text{g/mL}</m>, exactly the cup's concentration.
+Adding liquid of the same strength leaves the strength unchanged. A
+faster flow dilutes the cup, and a slower flow strengthens it.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-cr-espresso-linear">
+<statement>
+<p>
+Use a linear approximation to estimate the concentration at
+<m>t = 22</m> s.
+</p>
+</statement>
+<solution>
+<p>
+With <m>\Delta t = 2</m> s,
+<md>
+<mrow>C(22) \amp \approx C(20) + \left.\frac{dC}{dt}\right|_{t=20}\Delta t</mrow>
+<mrow>\amp = 0.10 + (-0.001)(2)</mrow>
+<mrow>\amp = 0.098\,\text{g/mL},</mrow>
+</md>
+about <m>9.8\%</m>.
+</p>
+</solution>
+</task>
+
+<task xml:id="task-cr-espresso-paths">
+<statement>
+<p>
+Explain, using the tree diagram, why the chain rule for
+<m>\frac{dC}{dt}</m> has two terms, and what each term means physically.
+</p>
+</statement>
+<solution>
+<p>
+<m>C</m> depends on <m>t</m> only <em>through</em> <m>m</m> and
+<m>V</m>, and the tree has two paths from <m>C</m> down to <m>t</m>: one
+through <m>m</m> and one through <m>V</m>. Each path contributes the
+product of the derivatives along its edges, and the total rate is the
+sum of the paths:
+</p>
+<ul>
+<li>
+<p>
+<alert>Path through <m>m</m>:</alert>
+<md>
+<mrow>\frac{\partial C}{\partial m}\frac{dm}{dt} \amp = \frac{1}{V}\frac{dm}{dt}
+      = \frac{0.12}{40}</mrow>
+<mrow>\amp = +0.003\,(\text{g/mL})/\text{s}.</mrow>
+</md>
+New dissolved solids make the cup <em>stronger</em>.
+</p>
+</li>
+<li>
+<p>
+<alert>Path through <m>V</m>:</alert>
+<md>
+<mrow>\frac{\partial C}{\partial V}\frac{dV}{dt} \amp = -\frac{m}{V^2}\frac{dV}{dt}</mrow>
+<mrow>\amp = -\frac{4}{1600}\,(1.6)</mrow>
+<mrow>\amp = -0.004\,(\text{g/mL})/\text{s}.</mrow>
+</md>
+New liquid makes the cup <em>weaker</em>.
+</p>
+</li>
+</ul>
+<p>
+The two effects compete. At <m>t = 20</m> s dilution wins, so
+<m>\frac{dC}{dt} \lt 0</m>.
+</p>
+</solution>
+</task>
+</example>
+
+
 <theorem xml:id="thm-chain-rule-three-intermediate">
 <title>Chain Rule for Functions of Three Independent Variables</title>
 <statement>
