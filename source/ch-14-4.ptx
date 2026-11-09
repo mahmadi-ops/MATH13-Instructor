@@ -158,7 +158,8 @@ and the chain rule adds one term for each.
 
 <!-- Geometric intuition for the chain rule and the hiker example: from the
      instructor's handout "Walking uphill: why do the rates add?" (Nov 2026).
-     The contour picture is schematic, not a measured map. -->
+     The contour picture is schematic, not a measured map. The video after
+     "The central idea" is assets/manim/chain_rule_hiker.py. -->
 <p>
 We now give a <term>geometric intuition</term> behind the chain rule
 <xref ref="eq-chain-rule-two"/>: why it holds, and in particular why the
@@ -274,6 +275,21 @@ rate of climbing, and those contributions <em>add</em>. A negative
 contribution means that component of the motion carries the hiker
 downhill.
 </p>
+
+<figure xml:id="fig-cr-hiker-video">
+<caption>
+The two-variable chain rule on a hill, in 3D and from above. Two hikers
+leave <m>A</m> together, one walking straight to <m>C</m>, the other east
+to <m>B</m> and then north to <m>C</m>; they arrive together and have
+climbed the same amount. The video then takes the two legs one at a time,
+lets the step shrink to reach the chain rule, and ends with a walk whose
+second leg goes downhill.
+</caption>
+<video xml:id="video-cr-hiker"
+       source="videos/chain_rule_hiker_manim.mp4"
+       preview="videos/previews/chain_rule_hiker_manim.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
 
 <example xml:id="example-cr-hiker">
 <title>How Fast Is the Hiker Climbing?</title>
