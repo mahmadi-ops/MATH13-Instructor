@@ -156,220 +156,6 @@ and the chain rule adds one term for each.
 </image>
 </figure>
 
-<example xml:id="example-cr-xy-circle">
-<title>Differentiating Along a Circle</title>
-<statement>
-<p>
-Consider the function <m>w = f(x,y) = xy</m>, where <m>x = \cos t</m> and
-<m>y = \sin t</m>. Evaluate
-<m>\left.\dfrac{dw}{dt}\right|_{t=\pi/2}</m>.
-</p>
-</statement>
-
-<solution>
-<p>
-<alert>Method 1: using the chain rule.</alert> By
-<xref ref="eq-chain-rule-two"/>,
-<md>
-<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
-      + \frac{\partial f}{\partial y}\frac{dy}{dt}
-      = (y)(-\sin t) + (x)(\cos t)</mrow>
-<mrow>\amp= (\sin t)(-\sin t) + (\cos t)(\cos t)</mrow>
-<mrow>\amp= \cos^2 t - \sin^2 t = \cos(2t),</mrow>
-</md>
-and therefore
-<md>
-\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
-</md>
-</p>
-<p>
-<alert>Method 2: without using the chain rule.</alert> We can substitute
-first and then differentiate:
-<md>
-<mrow>w = f(x,y) = xy \amp \;\Rightarrow\; w(t) = \cos t \sin t
-= \frac{1}{2}\sin(2t)</mrow>
-<mrow>\amp \;\Rightarrow\; \frac{dw}{dt} = \cos(2t),</mrow>
-</md>
-so again
-<md>
-\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
-</md>
-Note that the two results agree with each other.
-</p>
-<p>
-Geometrically, the constraint <m>x = \cos t</m>, <m>y = \sin t</m>
-confines the point <m>(x,y)</m> to the unit circle
-<m>x^2+y^2 = 1</m>, so the composition traces a curve on the saddle
-<m>z = xy</m>, as shown in <xref ref="fig-cr-saddle"/>. The derivative
-<m>\frac{dw}{dt}</m> is the rate at which the height of that curve
-changes.
-</p>
-
-<figure xml:id="fig-cr-saddle">
-<caption>
-The curve traced on the surface <m>z = xy</m> as <m>(x,y)</m> runs around
-the unit circle <m>x^2+y^2=1</m>. Marked are the points at <m>t = 0</m>,
-<m>t = \pi/4</m>, and <m>t = \pi/2</m>.
-</caption>
-<image width="100%">
-<description>
-<p>
-A saddle shaped surface, the graph of z equals x y, shaded blue where it
-dips below the x y plane and gold where it rises above it. A closed green
-curve is drawn on the surface, lying above the unit circle in the x y
-plane, which is drawn in dark purple. Three points on the curve are marked
-in magenta, red and black, corresponding to t equals zero, t equals pi
-over four, and t equals pi over two. A legend above the axes names the
-surface, the circle, the curve and the three marked points.
-</p>
-</description>
-<latex-image><![CDATA[
-\begin{tikzpicture}[font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont]
-\begin{axis}[
-  width=12cm, height=8.5cm,
-  view={-35}{24},
-  xmin=-1.45, xmax=1.45, ymin=-1.45, ymax=1.45, zmin=-0.95, zmax=0.95,
-  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-  xtick={-1,0,1}, ytick={-1,0,1}, ztick={-0.5,0,0.5},
-  clip=false,
-  % blue where the surface falls below the xy-plane, gold where it rises above
-  % it, so the two rising and two falling quarters of the trip read apart
-  colormap={saddle}{rgb255(0cm)=(70,148,190)
-                    rgb255(1cm)=(238,240,242)
-                    rgb255(2cm)=(228,158,72)},
-  point meta min=-0.9, point meta max=0.9,
-  legend cell align=left,
-  legend columns=2,
-  legend style={
-    at={(0.5,1.03)}, anchor=south,
-    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
-    inner sep=5pt, row sep=2pt,
-    /tikz/every even column/.append style={column sep=10pt},
-    font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont,
-  },
-]
-% the saddle z = xy, drawn over the disc that the unit circle sits inside so
-% that it stays within the axis box instead of running off the top and bottom
-% shader=flat, not interp: an interpolated shader emits a PDF smooth shading,
-% which the pdf-to-svg step flattens to a low-resolution bitmap and leaves the
-% rim of the disc visibly pixelated. Flat cells stay vector, and at this mesh
-% density they read as a continuous gradient anyway.
-\addplot3[surf, shader=flat corner, point meta=z,
-          fill opacity=0.8, draw=mapped color, draw opacity=0.8, line width=0.1pt,
-          z buffer=sort, forget plot,
-          domain=0:1.32, y domain=0:360, samples=17, samples y=97]
-  ({x*cos(y)},{x*sin(y)},{x^2*cos(y)*sin(y)});
-% the unit circle in the xy-plane
-\addplot3[very thick, violet!75!black, forget plot, domain=0:360, samples=64]
-  ({cos(x)},{sin(x)},{0});
-% the curve on the surface: (cos t, sin t, cos t sin t)
-\addplot3[ultra thick, green!45!black, forget plot, domain=0:360, samples=80]
-  ({cos(x)},{sin(x)},{cos(x)*sin(x)});
-% marked points, ringed in white so they read against either colour
-\addplot3[only marks, mark=*, mark size=2.2, color=magenta, forget plot,
-          mark options={fill=magenta, draw=white, line width=0.5pt}]
-  coordinates {(1,0,0)};
-\addplot3[only marks, mark=*, mark size=2.2, color=red!70!black, forget plot,
-          mark options={fill=red!70!black, draw=white, line width=0.5pt}]
-  coordinates {(0.7071,0.7071,0.5)};
-\addplot3[only marks, mark=*, mark size=2.2, color=black, forget plot,
-          mark options={fill=black, draw=white, line width=0.5pt}]
-  coordinates {(0,1,0)};
-% the legend: the three objects on the left, the three marked points on the
-% right, in the order they are met as t runs from 0 to pi/2
-\addlegendimage{area legend, draw=black!25, shading=axis,
-                left color=blue!30, right color=orange!45}
-\addlegendentry{the surface $z=xy$}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=magenta,
-                mark options={fill=magenta, draw=white, line width=0.5pt}}
-\addlegendentry{$t=0:\;(1,0,0)$}
-\addlegendimage{very thick, violet!75!black}
-\addlegendentry{the circle $x^2+y^2=1$}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=red!70!black,
-                mark options={fill=red!70!black, draw=white, line width=0.5pt}}
-\addlegendentry{$t=\frac{\pi}{4}:\;\left(\frac{1}{\sqrt2},\frac{1}{\sqrt2},\frac12\right)$}
-\addlegendimage{ultra thick, green!45!black}
-\addlegendentry{the traced curve}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=black,
-                mark options={fill=black, draw=white, line width=0.5pt}}
-\addlegendentry{$t=\frac{\pi}{2}:\;(0,1,0)$}
-\end{axis}
-\end{tikzpicture}
-]]></latex-image>
-</image>
-</figure>
-
-<p>
-<xref ref="fig-cr-saddle-interactive"/> sets that picture moving. As
-<m>t</m> runs from <m>0</m> to <m>2\pi</m> the point travels once round
-the circle while the curve above it climbs and falls twice, and the
-readout carries both the height <m>w</m> and the rate
-<m>\frac{dw}{dt} = \cos 2t</m> the chain rule predicts. At
-<m>t = \pi/2</m> that rate reads <m>-1</m>, the answer computed above.
-</p>
-
-<figure xml:id="fig-cr-saddle-interactive">
-<caption>
-<xref ref="fig-cr-saddle"/>, set moving. Send the point round the circle
-with the slider, or
-jump to <m>t = 0</m>, <m>t = \pi/4</m> and <m>t = \pi/2</m>: the legend
-gives the height <m>w = \tfrac12\sin 2t</m> of the curve and the rate
-<m>\frac{dw}{dt} = \cos 2t</m> at which that height is changing, which is
-the number the chain rule computes.
-</caption>
-<interactive xml:id="interactive-cr-saddle"
-             iframe="saddle-circle-manim.html" width="100%" aspect="3:2">
-<instructions>
-<p>
-The saddle is <m>z = xy</m>, the mauve ring below it is the unit circle
-<m>x = \cos t</m>, <m>y = \sin t</m>, and the green curve is the path
-traced on the saddle as <m>t</m> increases. The white point marks the
-current <m>t</m>; the arrow on it points along the curve and grows with
-<m>\left|\frac{dw}{dt}\right|</m>, turning amber where the height is
-rising and red where it is falling. The three coloured dots are the
-marked points <m>t=0</m>, <m>t=\pi/4</m> and <m>t=\pi/2</m>. Drag the
-picture to turn it.
-</p>
-</instructions>
-</interactive>
-</figure>
-</solution>
-</example>
-
-<example xml:id="example-cr-second">
-<title>A Second Application of the Chain Rule</title>
-<statement>
-<p>
-Consider the function <m>w = f(x,y) = xy + y^2</m>, where
-<m>x = \cos t</m> and <m>y = 1 + 2\sin t</m>. Evaluate
-<m>\left.\dfrac{dw}{dt}\right|_{t=\pi}</m>.
-</p>
-</statement>
-
-<solution>
-<p>
-By <xref ref="eq-chain-rule-two"/>, with
-<m>\frac{\partial f}{\partial x} = y</m> and
-<m>\frac{\partial f}{\partial y} = x + 2y</m>,
-<md>
-<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
-      + \frac{\partial f}{\partial y}\frac{dy}{dt}
-      = (y)(-\sin t) + (x+2y)(2\cos t)</mrow>
-<mrow>\amp= (1+2\sin t)(-\sin t)
-      + \bigl(\cos t + 2(1+2\sin t)\bigr)(2\cos t)</mrow>
-<mrow>\amp= -\sin t - 2\sin^2 t + 2\cos^2 t + 4\cos t
-      + 8 \sin t \cos t.</mrow>
-</md>
-At <m>t = \pi</m> we have <m>\sin \pi = 0</m> and
-<m>\cos \pi = -1</m>, so the surviving terms are
-<m>2\cos^2 \pi = 2</m> and <m>4\cos \pi = -4</m>, giving
-<md>
-\left.\frac{dw}{dt}\right|_{t=\pi} = 2 - 4 = -2.
-</md>
-</p>
-</solution>
-</example>
-
 <!-- The espresso example and its practice problems: from the instructor's
      handout "Pulling an Espresso Shot" (Nov 2026). The statement shows the
      instructor's photo with its hints taken out (assets/espresso-shot.jpg:
@@ -1212,6 +998,220 @@ and
 <!-- ================================================================ -->
 <subsection xml:id="sec-cr-applications">
 <title>More Examples</title>
+
+<example xml:id="example-cr-xy-circle">
+<title>Differentiating Along a Circle</title>
+<statement>
+<p>
+Consider the function <m>w = f(x,y) = xy</m>, where <m>x = \cos t</m> and
+<m>y = \sin t</m>. Evaluate
+<m>\left.\dfrac{dw}{dt}\right|_{t=\pi/2}</m>.
+</p>
+</statement>
+
+<solution>
+<p>
+<alert>Method 1: using the chain rule.</alert> By
+<xref ref="eq-chain-rule-two"/>,
+<md>
+<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
+      + \frac{\partial f}{\partial y}\frac{dy}{dt}
+      = (y)(-\sin t) + (x)(\cos t)</mrow>
+<mrow>\amp= (\sin t)(-\sin t) + (\cos t)(\cos t)</mrow>
+<mrow>\amp= \cos^2 t - \sin^2 t = \cos(2t),</mrow>
+</md>
+and therefore
+<md>
+\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
+</md>
+</p>
+<p>
+<alert>Method 2: without using the chain rule.</alert> We can substitute
+first and then differentiate:
+<md>
+<mrow>w = f(x,y) = xy \amp \;\Rightarrow\; w(t) = \cos t \sin t
+= \frac{1}{2}\sin(2t)</mrow>
+<mrow>\amp \;\Rightarrow\; \frac{dw}{dt} = \cos(2t),</mrow>
+</md>
+so again
+<md>
+\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
+</md>
+Note that the two results agree with each other.
+</p>
+<p>
+Geometrically, the constraint <m>x = \cos t</m>, <m>y = \sin t</m>
+confines the point <m>(x,y)</m> to the unit circle
+<m>x^2+y^2 = 1</m>, so the composition traces a curve on the saddle
+<m>z = xy</m>, as shown in <xref ref="fig-cr-saddle"/>. The derivative
+<m>\frac{dw}{dt}</m> is the rate at which the height of that curve
+changes.
+</p>
+
+<figure xml:id="fig-cr-saddle">
+<caption>
+The curve traced on the surface <m>z = xy</m> as <m>(x,y)</m> runs around
+the unit circle <m>x^2+y^2=1</m>. Marked are the points at <m>t = 0</m>,
+<m>t = \pi/4</m>, and <m>t = \pi/2</m>.
+</caption>
+<image width="100%">
+<description>
+<p>
+A saddle shaped surface, the graph of z equals x y, shaded blue where it
+dips below the x y plane and gold where it rises above it. A closed green
+curve is drawn on the surface, lying above the unit circle in the x y
+plane, which is drawn in dark purple. Three points on the curve are marked
+in magenta, red and black, corresponding to t equals zero, t equals pi
+over four, and t equals pi over two. A legend above the axes names the
+surface, the circle, the curve and the three marked points.
+</p>
+</description>
+<latex-image><![CDATA[
+\begin{tikzpicture}[font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont]
+\begin{axis}[
+  width=12cm, height=8.5cm,
+  view={-35}{24},
+  xmin=-1.45, xmax=1.45, ymin=-1.45, ymax=1.45, zmin=-0.95, zmax=0.95,
+  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+  xtick={-1,0,1}, ytick={-1,0,1}, ztick={-0.5,0,0.5},
+  clip=false,
+  % blue where the surface falls below the xy-plane, gold where it rises above
+  % it, so the two rising and two falling quarters of the trip read apart
+  colormap={saddle}{rgb255(0cm)=(70,148,190)
+                    rgb255(1cm)=(238,240,242)
+                    rgb255(2cm)=(228,158,72)},
+  point meta min=-0.9, point meta max=0.9,
+  legend cell align=left,
+  legend columns=2,
+  legend style={
+    at={(0.5,1.03)}, anchor=south,
+    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
+    inner sep=5pt, row sep=2pt,
+    /tikz/every even column/.append style={column sep=10pt},
+    font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont,
+  },
+]
+% the saddle z = xy, drawn over the disc that the unit circle sits inside so
+% that it stays within the axis box instead of running off the top and bottom
+% shader=flat, not interp: an interpolated shader emits a PDF smooth shading,
+% which the pdf-to-svg step flattens to a low-resolution bitmap and leaves the
+% rim of the disc visibly pixelated. Flat cells stay vector, and at this mesh
+% density they read as a continuous gradient anyway.
+\addplot3[surf, shader=flat corner, point meta=z,
+          fill opacity=0.8, draw=mapped color, draw opacity=0.8, line width=0.1pt,
+          z buffer=sort, forget plot,
+          domain=0:1.32, y domain=0:360, samples=17, samples y=97]
+  ({x*cos(y)},{x*sin(y)},{x^2*cos(y)*sin(y)});
+% the unit circle in the xy-plane
+\addplot3[very thick, violet!75!black, forget plot, domain=0:360, samples=64]
+  ({cos(x)},{sin(x)},{0});
+% the curve on the surface: (cos t, sin t, cos t sin t)
+\addplot3[ultra thick, green!45!black, forget plot, domain=0:360, samples=80]
+  ({cos(x)},{sin(x)},{cos(x)*sin(x)});
+% marked points, ringed in white so they read against either colour
+\addplot3[only marks, mark=*, mark size=2.2, color=magenta, forget plot,
+          mark options={fill=magenta, draw=white, line width=0.5pt}]
+  coordinates {(1,0,0)};
+\addplot3[only marks, mark=*, mark size=2.2, color=red!70!black, forget plot,
+          mark options={fill=red!70!black, draw=white, line width=0.5pt}]
+  coordinates {(0.7071,0.7071,0.5)};
+\addplot3[only marks, mark=*, mark size=2.2, color=black, forget plot,
+          mark options={fill=black, draw=white, line width=0.5pt}]
+  coordinates {(0,1,0)};
+% the legend: the three objects on the left, the three marked points on the
+% right, in the order they are met as t runs from 0 to pi/2
+\addlegendimage{area legend, draw=black!25, shading=axis,
+                left color=blue!30, right color=orange!45}
+\addlegendentry{the surface $z=xy$}
+\addlegendimage{only marks, mark=*, mark size=2.2, color=magenta,
+                mark options={fill=magenta, draw=white, line width=0.5pt}}
+\addlegendentry{$t=0:\;(1,0,0)$}
+\addlegendimage{very thick, violet!75!black}
+\addlegendentry{the circle $x^2+y^2=1$}
+\addlegendimage{only marks, mark=*, mark size=2.2, color=red!70!black,
+                mark options={fill=red!70!black, draw=white, line width=0.5pt}}
+\addlegendentry{$t=\frac{\pi}{4}:\;\left(\frac{1}{\sqrt2},\frac{1}{\sqrt2},\frac12\right)$}
+\addlegendimage{ultra thick, green!45!black}
+\addlegendentry{the traced curve}
+\addlegendimage{only marks, mark=*, mark size=2.2, color=black,
+                mark options={fill=black, draw=white, line width=0.5pt}}
+\addlegendentry{$t=\frac{\pi}{2}:\;(0,1,0)$}
+\end{axis}
+\end{tikzpicture}
+]]></latex-image>
+</image>
+</figure>
+
+<p>
+<xref ref="fig-cr-saddle-interactive"/> sets that picture moving. As
+<m>t</m> runs from <m>0</m> to <m>2\pi</m> the point travels once round
+the circle while the curve above it climbs and falls twice, and the
+readout carries both the height <m>w</m> and the rate
+<m>\frac{dw}{dt} = \cos 2t</m> the chain rule predicts. At
+<m>t = \pi/2</m> that rate reads <m>-1</m>, the answer computed above.
+</p>
+
+<figure xml:id="fig-cr-saddle-interactive">
+<caption>
+<xref ref="fig-cr-saddle"/>, set moving. Send the point round the circle
+with the slider, or
+jump to <m>t = 0</m>, <m>t = \pi/4</m> and <m>t = \pi/2</m>: the legend
+gives the height <m>w = \tfrac12\sin 2t</m> of the curve and the rate
+<m>\frac{dw}{dt} = \cos 2t</m> at which that height is changing, which is
+the number the chain rule computes.
+</caption>
+<interactive xml:id="interactive-cr-saddle"
+             iframe="saddle-circle-manim.html" width="100%" aspect="3:2">
+<instructions>
+<p>
+The saddle is <m>z = xy</m>, the mauve ring below it is the unit circle
+<m>x = \cos t</m>, <m>y = \sin t</m>, and the green curve is the path
+traced on the saddle as <m>t</m> increases. The white point marks the
+current <m>t</m>; the arrow on it points along the curve and grows with
+<m>\left|\frac{dw}{dt}\right|</m>, turning amber where the height is
+rising and red where it is falling. The three coloured dots are the
+marked points <m>t=0</m>, <m>t=\pi/4</m> and <m>t=\pi/2</m>. Drag the
+picture to turn it.
+</p>
+</instructions>
+</interactive>
+</figure>
+</solution>
+</example>
+
+<example xml:id="example-cr-second">
+<title>A Second Application of the Chain Rule</title>
+<statement>
+<p>
+Consider the function <m>w = f(x,y) = xy + y^2</m>, where
+<m>x = \cos t</m> and <m>y = 1 + 2\sin t</m>. Evaluate
+<m>\left.\dfrac{dw}{dt}\right|_{t=\pi}</m>.
+</p>
+</statement>
+
+<solution>
+<p>
+By <xref ref="eq-chain-rule-two"/>, with
+<m>\frac{\partial f}{\partial x} = y</m> and
+<m>\frac{\partial f}{\partial y} = x + 2y</m>,
+<md>
+<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
+      + \frac{\partial f}{\partial y}\frac{dy}{dt}
+      = (y)(-\sin t) + (x+2y)(2\cos t)</mrow>
+<mrow>\amp= (1+2\sin t)(-\sin t)
+      + \bigl(\cos t + 2(1+2\sin t)\bigr)(2\cos t)</mrow>
+<mrow>\amp= -\sin t - 2\sin^2 t + 2\cos^2 t + 4\cos t
+      + 8 \sin t \cos t.</mrow>
+</md>
+At <m>t = \pi</m> we have <m>\sin \pi = 0</m> and
+<m>\cos \pi = -1</m>, so the surviving terms are
+<m>2\cos^2 \pi = 2</m> and <m>4\cos \pi = -4</m>, giving
+<md>
+\left.\frac{dw}{dt}\right|_{t=\pi} = 2 - 4 = -2.
+</md>
+</p>
+</solution>
+</example>
 
 <example xml:id="example-cr-ant">
 <title>The Temperature Experienced by a Moving Ant</title>
