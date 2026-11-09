@@ -156,6 +156,220 @@ and the chain rule adds one term for each.
 </image>
 </figure>
 
+<example xml:id="example-cr-xy-circle">
+<title>Differentiating Along a Circle</title>
+<statement>
+<p>
+Consider the function <m>w = f(x,y) = xy</m>, where <m>x = \cos t</m> and
+<m>y = \sin t</m>. Evaluate
+<m>\left.\dfrac{dw}{dt}\right|_{t=\pi/2}</m>.
+</p>
+</statement>
+
+<solution>
+<p>
+<alert>Method 1: using the chain rule.</alert> By
+<xref ref="eq-chain-rule-two"/>,
+<md>
+<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
+      + \frac{\partial f}{\partial y}\frac{dy}{dt}
+      = (y)(-\sin t) + (x)(\cos t)</mrow>
+<mrow>\amp= (\sin t)(-\sin t) + (\cos t)(\cos t)</mrow>
+<mrow>\amp= \cos^2 t - \sin^2 t = \cos(2t),</mrow>
+</md>
+and therefore
+<md>
+\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
+</md>
+</p>
+<p>
+<alert>Method 2: without using the chain rule.</alert> We can substitute
+first and then differentiate:
+<md>
+<mrow>w = f(x,y) = xy \amp \;\Rightarrow\; w(t) = \cos t \sin t
+= \frac{1}{2}\sin(2t)</mrow>
+<mrow>\amp \;\Rightarrow\; \frac{dw}{dt} = \cos(2t),</mrow>
+</md>
+so again
+<md>
+\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
+</md>
+Note that the two results agree with each other.
+</p>
+<p>
+Geometrically, the constraint <m>x = \cos t</m>, <m>y = \sin t</m>
+confines the point <m>(x,y)</m> to the unit circle
+<m>x^2+y^2 = 1</m>, so the composition traces a curve on the saddle
+<m>z = xy</m>, as shown in <xref ref="fig-cr-saddle"/>. The derivative
+<m>\frac{dw}{dt}</m> is the rate at which the height of that curve
+changes.
+</p>
+
+<figure xml:id="fig-cr-saddle">
+<caption>
+The curve traced on the surface <m>z = xy</m> as <m>(x,y)</m> runs around
+the unit circle <m>x^2+y^2=1</m>. Marked are the points at <m>t = 0</m>,
+<m>t = \pi/4</m>, and <m>t = \pi/2</m>.
+</caption>
+<image width="100%">
+<description>
+<p>
+A saddle shaped surface, the graph of z equals x y, shaded blue where it
+dips below the x y plane and gold where it rises above it. A closed green
+curve is drawn on the surface, lying above the unit circle in the x y
+plane, which is drawn in dark purple. Three points on the curve are marked
+in magenta, red and black, corresponding to t equals zero, t equals pi
+over four, and t equals pi over two. A legend above the axes names the
+surface, the circle, the curve and the three marked points.
+</p>
+</description>
+<latex-image><![CDATA[
+\begin{tikzpicture}[font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont]
+\begin{axis}[
+  width=12cm, height=8.5cm,
+  view={-35}{24},
+  xmin=-1.45, xmax=1.45, ymin=-1.45, ymax=1.45, zmin=-0.95, zmax=0.95,
+  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
+  xtick={-1,0,1}, ytick={-1,0,1}, ztick={-0.5,0,0.5},
+  clip=false,
+  % blue where the surface falls below the xy-plane, gold where it rises above
+  % it, so the two rising and two falling quarters of the trip read apart
+  colormap={saddle}{rgb255(0cm)=(70,148,190)
+                    rgb255(1cm)=(238,240,242)
+                    rgb255(2cm)=(228,158,72)},
+  point meta min=-0.9, point meta max=0.9,
+  legend cell align=left,
+  legend columns=2,
+  legend style={
+    at={(0.5,1.03)}, anchor=south,
+    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
+    inner sep=5pt, row sep=2pt,
+    /tikz/every even column/.append style={column sep=10pt},
+    font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont,
+  },
+]
+% the saddle z = xy, drawn over the disc that the unit circle sits inside so
+% that it stays within the axis box instead of running off the top and bottom
+% shader=flat, not interp: an interpolated shader emits a PDF smooth shading,
+% which the pdf-to-svg step flattens to a low-resolution bitmap and leaves the
+% rim of the disc visibly pixelated. Flat cells stay vector, and at this mesh
+% density they read as a continuous gradient anyway.
+\addplot3[surf, shader=flat corner, point meta=z,
+          fill opacity=0.8, draw=mapped color, draw opacity=0.8, line width=0.1pt,
+          z buffer=sort, forget plot,
+          domain=0:1.32, y domain=0:360, samples=17, samples y=97]
+  ({x*cos(y)},{x*sin(y)},{x^2*cos(y)*sin(y)});
+% the unit circle in the xy-plane
+\addplot3[very thick, violet!75!black, forget plot, domain=0:360, samples=64]
+  ({cos(x)},{sin(x)},{0});
+% the curve on the surface: (cos t, sin t, cos t sin t)
+\addplot3[ultra thick, green!45!black, forget plot, domain=0:360, samples=80]
+  ({cos(x)},{sin(x)},{cos(x)*sin(x)});
+% marked points, ringed in white so they read against either colour
+\addplot3[only marks, mark=*, mark size=2.2, color=magenta, forget plot,
+          mark options={fill=magenta, draw=white, line width=0.5pt}]
+  coordinates {(1,0,0)};
+\addplot3[only marks, mark=*, mark size=2.2, color=red!70!black, forget plot,
+          mark options={fill=red!70!black, draw=white, line width=0.5pt}]
+  coordinates {(0.7071,0.7071,0.5)};
+\addplot3[only marks, mark=*, mark size=2.2, color=black, forget plot,
+          mark options={fill=black, draw=white, line width=0.5pt}]
+  coordinates {(0,1,0)};
+% the legend: the three objects on the left, the three marked points on the
+% right, in the order they are met as t runs from 0 to pi/2
+\addlegendimage{area legend, draw=black!25, shading=axis,
+                left color=blue!30, right color=orange!45}
+\addlegendentry{the surface $z=xy$}
+\addlegendimage{only marks, mark=*, mark size=2.2, color=magenta,
+                mark options={fill=magenta, draw=white, line width=0.5pt}}
+\addlegendentry{$t=0:\;(1,0,0)$}
+\addlegendimage{very thick, violet!75!black}
+\addlegendentry{the circle $x^2+y^2=1$}
+\addlegendimage{only marks, mark=*, mark size=2.2, color=red!70!black,
+                mark options={fill=red!70!black, draw=white, line width=0.5pt}}
+\addlegendentry{$t=\frac{\pi}{4}:\;\left(\frac{1}{\sqrt2},\frac{1}{\sqrt2},\frac12\right)$}
+\addlegendimage{ultra thick, green!45!black}
+\addlegendentry{the traced curve}
+\addlegendimage{only marks, mark=*, mark size=2.2, color=black,
+                mark options={fill=black, draw=white, line width=0.5pt}}
+\addlegendentry{$t=\frac{\pi}{2}:\;(0,1,0)$}
+\end{axis}
+\end{tikzpicture}
+]]></latex-image>
+</image>
+</figure>
+
+<p>
+<xref ref="fig-cr-saddle-interactive"/> sets that picture moving. As
+<m>t</m> runs from <m>0</m> to <m>2\pi</m> the point travels once round
+the circle while the curve above it climbs and falls twice, and the
+readout carries both the height <m>w</m> and the rate
+<m>\frac{dw}{dt} = \cos 2t</m> the chain rule predicts. At
+<m>t = \pi/2</m> that rate reads <m>-1</m>, the answer computed above.
+</p>
+
+<figure xml:id="fig-cr-saddle-interactive">
+<caption>
+<xref ref="fig-cr-saddle"/>, set moving. Send the point round the circle
+with the slider, or
+jump to <m>t = 0</m>, <m>t = \pi/4</m> and <m>t = \pi/2</m>: the legend
+gives the height <m>w = \tfrac12\sin 2t</m> of the curve and the rate
+<m>\frac{dw}{dt} = \cos 2t</m> at which that height is changing, which is
+the number the chain rule computes.
+</caption>
+<interactive xml:id="interactive-cr-saddle"
+             iframe="saddle-circle-manim.html" width="100%" aspect="3:2">
+<instructions>
+<p>
+The saddle is <m>z = xy</m>, the mauve ring below it is the unit circle
+<m>x = \cos t</m>, <m>y = \sin t</m>, and the green curve is the path
+traced on the saddle as <m>t</m> increases. The white point marks the
+current <m>t</m>; the arrow on it points along the curve and grows with
+<m>\left|\frac{dw}{dt}\right|</m>, turning amber where the height is
+rising and red where it is falling. The three coloured dots are the
+marked points <m>t=0</m>, <m>t=\pi/4</m> and <m>t=\pi/2</m>. Drag the
+picture to turn it.
+</p>
+</instructions>
+</interactive>
+</figure>
+</solution>
+</example>
+
+<example xml:id="example-cr-second">
+<title>A Second Application of the Chain Rule</title>
+<statement>
+<p>
+Consider the function <m>w = f(x,y) = xy + y^2</m>, where
+<m>x = \cos t</m> and <m>y = 1 + 2\sin t</m>. Evaluate
+<m>\left.\dfrac{dw}{dt}\right|_{t=\pi}</m>.
+</p>
+</statement>
+
+<solution>
+<p>
+By <xref ref="eq-chain-rule-two"/>, with
+<m>\frac{\partial f}{\partial x} = y</m> and
+<m>\frac{\partial f}{\partial y} = x + 2y</m>,
+<md>
+<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
+      + \frac{\partial f}{\partial y}\frac{dy}{dt}
+      = (y)(-\sin t) + (x+2y)(2\cos t)</mrow>
+<mrow>\amp= (1+2\sin t)(-\sin t)
+      + \bigl(\cos t + 2(1+2\sin t)\bigr)(2\cos t)</mrow>
+<mrow>\amp= -\sin t - 2\sin^2 t + 2\cos^2 t + 4\cos t
+      + 8 \sin t \cos t.</mrow>
+</md>
+At <m>t = \pi</m> we have <m>\sin \pi = 0</m> and
+<m>\cos \pi = -1</m>, so the surviving terms are
+<m>2\cos^2 \pi = 2</m> and <m>4\cos \pi = -4</m>, giving
+<md>
+\left.\frac{dw}{dt}\right|_{t=\pi} = 2 - 4 = -2.
+</md>
+</p>
+</solution>
+</example>
+
 <!-- The espresso example and its practice problems: from the instructor's
      handout "Pulling an Espresso Shot" (Nov 2026). The statement shows the
      instructor's photo with its hints taken out (assets/espresso-shot.jpg:
@@ -507,7 +721,6 @@ The two effects compete. At <m>t = 20</m> s dilution wins, so
 </task>
 </example>
 
-
 <theorem xml:id="thm-chain-rule-three-intermediate">
 <title>Chain Rule for Functions of Three Independent Variables</title>
 <statement>
@@ -616,218 +829,230 @@ intermediate variables contributes one term to
 </image>
 </figure>
 
-<example xml:id="example-cr-xy-circle">
-<title>Differentiating Along a Circle</title>
+<!-- The Americano example and its follow-up: the espresso shot of
+     example-cr-espresso with hot water added, for the three-variable
+     chain rule (Nov 2026). -->
+<example xml:id="example-cr-americano">
+<title>Pulling an Americano</title>
 <statement>
 <p>
-Consider the function <m>w = f(x,y) = xy</m>, where <m>x = \cos t</m> and
-<m>y = \sin t</m>. Evaluate
-<m>\left.\dfrac{dw}{dt}\right|_{t=\pi/2}</m>.
+Some espresso machines make an Americano by adding hot water to the cup
+while the shot is still pouring. The cup now holds the espresso of
+<xref ref="example-cr-espresso"/> together with the added water, so its
+concentration is
+<md>
+C(m,V,W) = \frac{m}{V + W},
+</md>
+where <m>m</m> is the mass of dissolved coffee solids in the cup (in
+grams), <m>V</m> is the volume of espresso (in milliliters), and
+<m>W</m> is the volume of added hot water (in milliliters). All three
+change during the shot, so <m>m = m(t)</m>, <m>V = V(t)</m> and
+<m>W = W(t)</m>, with <m>t</m> in seconds. At <m>t = 20</m> s,
+<md>
+<mrow>m = 4\,\text{g}, \amp \quad \frac{dm}{dt} = 0.12\,\text{g/s},</mrow>
+<mrow>V = 40\,\text{mL}, \amp \quad \frac{dV}{dt} = 1.6\,\text{mL/s},</mrow>
+<mrow>W = 40\,\text{mL}, \amp \quad \frac{dW}{dt} = 2\,\text{mL/s}.</mrow>
+</md>
+At <m>t = 20</m> s, is the cup getting stronger or weaker, and how fast?
 </p>
 </statement>
 
 <solution>
 <p>
-<alert>Method 1: using the chain rule.</alert> By
-<xref ref="eq-chain-rule-two"/>,
-<md>
-<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
-      + \frac{\partial f}{\partial y}\frac{dy}{dt}
-      = (y)(-\sin t) + (x)(\cos t)</mrow>
-<mrow>\amp= (\sin t)(-\sin t) + (\cos t)(\cos t)</mrow>
-<mrow>\amp= \cos^2 t - \sin^2 t = \cos(2t),</mrow>
-</md>
-and therefore
-<md>
-\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
-</md>
-</p>
-<p>
-<alert>Method 2: without using the chain rule.</alert> We can substitute
-first and then differentiate:
-<md>
-<mrow>w = f(x,y) = xy \amp \;\Rightarrow\; w(t) = \cos t \sin t
-= \frac{1}{2}\sin(2t)</mrow>
-<mrow>\amp \;\Rightarrow\; \frac{dw}{dt} = \cos(2t),</mrow>
-</md>
-so again
-<md>
-\left.\frac{dw}{dt}\right|_{t=\pi/2} = \cos(\pi) = -1.
-</md>
-Note that the two results agree with each other.
-</p>
-<p>
-Geometrically, the constraint <m>x = \cos t</m>, <m>y = \sin t</m>
-confines the point <m>(x,y)</m> to the unit circle
-<m>x^2+y^2 = 1</m>, so the composition traces a curve on the saddle
-<m>z = xy</m>, as shown in <xref ref="fig-cr-saddle"/>. The derivative
-<m>\frac{dw}{dt}</m> is the rate at which the height of that curve
-changes.
+<alert>Step 1: Dependence.</alert> <m>C</m> depends on <m>m</m>,
+<m>V</m> and <m>W</m>, and each of those depends on <m>t</m>, as the tree
+diagram below shows.
 </p>
 
-<figure xml:id="fig-cr-saddle">
-<caption>
-The curve traced on the surface <m>z = xy</m> as <m>(x,y)</m> runs around
-the unit circle <m>x^2+y^2=1</m>. Marked are the points at <m>t = 0</m>,
-<m>t = \pi/4</m>, and <m>t = \pi/2</m>.
-</caption>
-<image width="100%">
-<description>
-<p>
-A saddle shaped surface, the graph of z equals x y, shaded blue where it
-dips below the x y plane and gold where it rises above it. A closed green
-curve is drawn on the surface, lying above the unit circle in the x y
-plane, which is drawn in dark purple. Three points on the curve are marked
-in magenta, red and black, corresponding to t equals zero, t equals pi
-over four, and t equals pi over two. A legend above the axes names the
-surface, the circle, the curve and the three marked points.
-</p>
-</description>
-<latex-image><![CDATA[
-\begin{tikzpicture}[font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont]
-\begin{axis}[
-  width=12cm, height=8.5cm,
-  view={-35}{24},
-  xmin=-1.45, xmax=1.45, ymin=-1.45, ymax=1.45, zmin=-0.95, zmax=0.95,
-  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-  xtick={-1,0,1}, ytick={-1,0,1}, ztick={-0.5,0,0.5},
-  clip=false,
-  % blue where the surface falls below the xy-plane, gold where it rises above
-  % it, so the two rising and two falling quarters of the trip read apart
-  colormap={saddle}{rgb255(0cm)=(70,148,190)
-                    rgb255(1cm)=(238,240,242)
-                    rgb255(2cm)=(228,158,72)},
-  point meta min=-0.9, point meta max=0.9,
-  legend cell align=left,
-  legend columns=2,
-  legend style={
-    at={(0.5,1.03)}, anchor=south,
-    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
-    inner sep=5pt, row sep=2pt,
-    /tikz/every even column/.append style={column sep=10pt},
-    font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont,
-  },
-]
-% the saddle z = xy, drawn over the disc that the unit circle sits inside so
-% that it stays within the axis box instead of running off the top and bottom
-% shader=flat, not interp: an interpolated shader emits a PDF smooth shading,
-% which the pdf-to-svg step flattens to a low-resolution bitmap and leaves the
-% rim of the disc visibly pixelated. Flat cells stay vector, and at this mesh
-% density they read as a continuous gradient anyway.
-\addplot3[surf, shader=flat corner, point meta=z,
-          fill opacity=0.8, draw=mapped color, draw opacity=0.8, line width=0.1pt,
-          z buffer=sort, forget plot,
-          domain=0:1.32, y domain=0:360, samples=17, samples y=97]
-  ({x*cos(y)},{x*sin(y)},{x^2*cos(y)*sin(y)});
-% the unit circle in the xy-plane
-\addplot3[very thick, violet!75!black, forget plot, domain=0:360, samples=64]
-  ({cos(x)},{sin(x)},{0});
-% the curve on the surface: (cos t, sin t, cos t sin t)
-\addplot3[ultra thick, green!45!black, forget plot, domain=0:360, samples=80]
-  ({cos(x)},{sin(x)},{cos(x)*sin(x)});
-% marked points, ringed in white so they read against either colour
-\addplot3[only marks, mark=*, mark size=2.2, color=magenta, forget plot,
-          mark options={fill=magenta, draw=white, line width=0.5pt}]
-  coordinates {(1,0,0)};
-\addplot3[only marks, mark=*, mark size=2.2, color=red!70!black, forget plot,
-          mark options={fill=red!70!black, draw=white, line width=0.5pt}]
-  coordinates {(0.7071,0.7071,0.5)};
-\addplot3[only marks, mark=*, mark size=2.2, color=black, forget plot,
-          mark options={fill=black, draw=white, line width=0.5pt}]
-  coordinates {(0,1,0)};
-% the legend: the three objects on the left, the three marked points on the
-% right, in the order they are met as t runs from 0 to pi/2
-\addlegendimage{area legend, draw=black!25, shading=axis,
-                left color=blue!30, right color=orange!45}
-\addlegendentry{the surface $z=xy$}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=magenta,
-                mark options={fill=magenta, draw=white, line width=0.5pt}}
-\addlegendentry{$t=0:\;(1,0,0)$}
-\addlegendimage{very thick, violet!75!black}
-\addlegendentry{the circle $x^2+y^2=1$}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=red!70!black,
-                mark options={fill=red!70!black, draw=white, line width=0.5pt}}
-\addlegendentry{$t=\frac{\pi}{4}:\;\left(\frac{1}{\sqrt2},\frac{1}{\sqrt2},\frac12\right)$}
-\addlegendimage{ultra thick, green!45!black}
-\addlegendentry{the traced curve}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=black,
-                mark options={fill=black, draw=white, line width=0.5pt}}
-\addlegendentry{$t=\frac{\pi}{2}:\;(0,1,0)$}
-\end{axis}
-\end{tikzpicture}
-]]></latex-image>
+<image width="52%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-tree-americano">
+<diagram dimensions="(320,300)" margins="14">
+<coordinates bbox="(-2.1,-0.5,2.1,3.5)">
+<line at="ta-cm" endpoints="((0,3),(-1.5,1.5))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="ta-cv" endpoints="((0,3),(0,1.5))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="ta-cw" endpoints="((0,3),(1.5,1.5))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="ta-mt" endpoints="((-1.5,1.5),(0,0))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="ta-vt" endpoints="((0,1.5),(0,0))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<line at="ta-wt" endpoints="((1.5,1.5),(0,0))" stroke="#0072B2"
+      dash="5 4" thickness="2"/>
+<point at="ta-c" p="(0,3)" fill="black"/>
+<point at="ta-m" p="(-1.5,1.5)" fill="#D55E00"/>
+<point at="ta-v" p="(0,1.5)" fill="#D55E00"/>
+<point at="ta-w" p="(1.5,1.5)" fill="#D55E00"/>
+<point at="ta-t" p="(0,0)" fill="#009E73"/>
+<label at="ta-c-lab" anchor="(0,3.1)" alignment="n">
+<m>C=\frac{m}{V+W}</m>
+</label>
+<label at="ta-m-lab" anchor="(-1.6,1.5)" alignment="w" color="#D55E00">
+<m>m</m>
+</label>
+<label at="ta-v-lab" anchor="(0.12,1.58)" alignment="e" color="#D55E00">
+<m>V</m>
+</label>
+<label at="ta-w-lab" anchor="(1.6,1.5)" alignment="e" color="#D55E00">
+<m>W</m>
+</label>
+<label at="ta-t-lab" anchor="(0,-0.12)" alignment="s" color="#009E73">
+<m>t</m>
+</label>
+<label at="ta-cm-lab" anchor="(-0.95,2.4)" alignment="w" color="#0072B2">
+<m>\frac{\partial C}{\partial m}</m>
+</label>
+<label at="ta-cv-lab" anchor="(-0.08,2.35)" alignment="w" color="#0072B2">
+<m>\frac{\partial C}{\partial V}</m>
+</label>
+<label at="ta-cw-lab" anchor="(0.95,2.4)" alignment="e" color="#0072B2">
+<m>\frac{\partial C}{\partial W}</m>
+</label>
+<label at="ta-mt-lab" anchor="(-0.95,0.6)" alignment="w" color="#0072B2">
+<m>\frac{dm}{dt}</m>
+</label>
+<label at="ta-vt-lab" anchor="(0.1,0.72)" alignment="e" color="#0072B2">
+<m>\frac{dV}{dt}</m>
+</label>
+<label at="ta-wt-lab" anchor="(0.95,0.6)" alignment="e" color="#0072B2">
+<m>\frac{dW}{dt}</m>
+</label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A tree diagram with the concentration C equals m over V plus W at the top, three intermediate nodes m, V and W in a row below it, and the single node t at the bottom. Dashed blue branches connect C to each of the three intermediate variables and each of those down to t, giving three complete paths.">
+  <annotation ref="ta-c" text="The concentration C at the top."/>
+  <annotation ref="ta-m" text="The intermediate variable m, the mass of dissolved coffee solids."/>
+  <annotation ref="ta-v" text="The intermediate variable V, the volume of espresso, on the vertical branch."/>
+  <annotation ref="ta-w" text="The intermediate variable W, the volume of added hot water."/>
+  <annotation ref="ta-t" text="The independent variable t, time in seconds, at the bottom. Because three separate paths lead from C to t, the chain rule has three terms."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
 </image>
-</figure>
 
 <p>
-<xref ref="fig-cr-saddle-interactive"/> sets that picture moving. As
-<m>t</m> runs from <m>0</m> to <m>2\pi</m> the point travels once round
-the circle while the curve above it climbs and falls twice, and the
-readout carries both the height <m>w</m> and the rate
-<m>\frac{dw}{dt} = \cos 2t</m> the chain rule predicts. At
-<m>t = \pi/2</m> that rate reads <m>-1</m>, the answer computed above.
+<alert>Step 2: Chain rule.</alert> There are three paths from <m>C</m>
+down to <m>t</m>, so <xref ref="eq-chain-rule-three"/>, with <m>C</m> in
+place of <m>w</m>, has three terms:
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{\partial C}{\partial m}\frac{dm}{dt}
+      + \frac{\partial C}{\partial V}\frac{dV}{dt}</mrow>
+<mrow>\amp \quad + \frac{\partial C}{\partial W}\frac{dW}{dt}</mrow>
+<mrow>\amp = \frac{1}{V+W}\frac{dm}{dt}</mrow>
+<mrow>\amp \quad - \frac{m}{(V+W)^2}\frac{dV}{dt}</mrow>
+<mrow>\amp \quad - \frac{m}{(V+W)^2}\frac{dW}{dt}.</mrow>
+</md>
 </p>
-
-<figure xml:id="fig-cr-saddle-interactive">
-<caption>
-<xref ref="fig-cr-saddle"/>, set moving. Send the point round the circle
-with the slider, or
-jump to <m>t = 0</m>, <m>t = \pi/4</m> and <m>t = \pi/2</m>: the legend
-gives the height <m>w = \tfrac12\sin 2t</m> of the curve and the rate
-<m>\frac{dw}{dt} = \cos 2t</m> at which that height is changing, which is
-the number the chain rule computes.
-</caption>
-<interactive xml:id="interactive-cr-saddle"
-             iframe="saddle-circle-manim.html" width="100%" aspect="3:2">
-<instructions>
 <p>
-The saddle is <m>z = xy</m>, the mauve ring below it is the unit circle
-<m>x = \cos t</m>, <m>y = \sin t</m>, and the green curve is the path
-traced on the saddle as <m>t</m> increases. The white point marks the
-current <m>t</m>; the arrow on it points along the curve and grows with
-<m>\left|\frac{dw}{dt}\right|</m>, turning amber where the height is
-rising and red where it is falling. The three coloured dots are the
-marked points <m>t=0</m>, <m>t=\pi/4</m> and <m>t=\pi/2</m>. Drag the
-picture to turn it.
+<alert>Step 3: Plug in.</alert> First,
+<m>C = \frac{4}{40 + 40} = 0.05\,\text{g/mL}</m>, about <m>5\%</m>, half
+the strength of the straight shot. Then
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{0.12}{80} - \frac{4}{80^2}\,(1.6)</mrow>
+<mrow>\amp \quad - \frac{4}{80^2}\,(2)</mrow>
+<mrow>\amp = 0.0015 - 0.001 - 0.00125</mrow>
+<mrow>\amp = -0.00075\,(\text{g/mL})/\text{s}.</mrow>
+</md>
 </p>
-</instructions>
-</interactive>
-</figure>
+<p>
+<alert>Step 4: Interpret.</alert> The concentration is
+<em>decreasing</em> by about <m>0.00075</m> g/mL (<m>0.075</m> percentage
+point) per second. The solids path adds <m>+0.0015</m>, and the two
+dilution paths take away <m>0.001</m> (espresso) and <m>0.00125</m>
+(water), so dilution wins.
+</p>
+<p>
+<alert>Why?</alert> As in <xref ref="example-cr-espresso"/>, write
+<m>m' = \frac{dm}{dt}</m>, <m>V' = \frac{dV}{dt}</m>,
+<m>W' = \frac{dW}{dt}</m>, and factor the derivative:
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{m' - C\,(V' + W')}{V+W}</mrow>
+<mrow>\amp = \frac{V'+W'}{V+W}\left(\frac{m'}{V'+W'} - C\right).</mrow>
+</md>
+What enters the cup now is espresso and water together, and
+<m>\frac{m'}{V'+W'}</m> is the concentration of that combined stream.
+Here it is <m>0.12/3.6 \approx 0.033\,\text{g/mL}</m>
+(<m>3.3\%</m>), weaker than the <m>5\%</m> already in the cup, so the cup
+gets weaker. The espresso stream by itself, at <m>7.5\%</m>, is stronger
+than the cup: it is the added water that tips the balance.
+</p>
 </solution>
 </example>
 
-<example xml:id="example-cr-second">
-<title>A Second Application of the Chain Rule</title>
+<example xml:id="example-cr-americano-practice">
+<title>Pulling an Americano, Continued</title>
+<introduction>
+<p>
+Use the same data at <m>t = 20</m> s as in
+<xref ref="example-cr-americano"/>.
+</p>
+</introduction>
+
+<task xml:id="task-cr-americano-steady">
 <statement>
 <p>
-Consider the function <m>w = f(x,y) = xy + y^2</m>, where
-<m>x = \cos t</m> and <m>y = 1 + 2\sin t</m>. Evaluate
-<m>\left.\dfrac{dw}{dt}\right|_{t=\pi}</m>.
+At what rate <m>\frac{dW}{dt}</m> should the hot water flow to keep the
+strength of the cup momentarily constant at <m>t = 20</m> s (with
+everything else unchanged)? What happens if the water is turned off?
 </p>
 </statement>
-
 <solution>
 <p>
-By <xref ref="eq-chain-rule-two"/>, with
-<m>\frac{\partial f}{\partial x} = y</m> and
-<m>\frac{\partial f}{\partial y} = x + 2y</m>,
+By the factored form, <m>\frac{dC}{dt} = 0</m> exactly when
+<m>m' = C\,(V' + W')</m>, that is,
 <md>
-<mrow>\frac{dw}{dt} \amp= \frac{\partial f}{\partial x}\frac{dx}{dt}
-      + \frac{\partial f}{\partial y}\frac{dy}{dt}
-      = (y)(-\sin t) + (x+2y)(2\cos t)</mrow>
-<mrow>\amp= (1+2\sin t)(-\sin t)
-      + \bigl(\cos t + 2(1+2\sin t)\bigr)(2\cos t)</mrow>
-<mrow>\amp= -\sin t - 2\sin^2 t + 2\cos^2 t + 4\cos t
-      + 8 \sin t \cos t.</mrow>
+<mrow>V' + W' \amp = \frac{m'}{C} = \frac{0.12}{0.05}</mrow>
+<mrow>\amp = 2.4\,\text{mL/s},</mrow>
+<mrow>W' \amp = 2.4 - 1.6</mrow>
+<mrow>\amp = 0.8\,\text{mL/s}.</mrow>
 </md>
-At <m>t = \pi</m> we have <m>\sin \pi = 0</m> and
-<m>\cos \pi = -1</m>, so the surviving terms are
-<m>2\cos^2 \pi = 2</m> and <m>4\cos \pi = -4</m>, giving
+At that rate the combined stream is <m>0.12/2.4 = 0.05\,\text{g/mL}</m>,
+the cup's own strength. Faster water dilutes the cup and slower water
+lets it strengthen. With the water off (<m>W' = 0</m>) only the
+<m>7.5\%</m> espresso stream comes in, stronger than the cup, and
 <md>
-\left.\frac{dw}{dt}\right|_{t=\pi} = 2 - 4 = -2.
+<mrow>\frac{dC}{dt} \amp = \frac{1}{80}\bigl(0.12 - 0.05\,(1.6)\bigr)</mrow>
+<mrow>\amp = +0.0005\,(\text{g/mL})/\text{s},</mrow>
 </md>
+so the cup gets stronger.
 </p>
 </solution>
+</task>
+
+<task xml:id="task-cr-americano-total-volume">
+<statement>
+<p>
+In this example <m>\frac{\partial C}{\partial V} = \frac{\partial C}{\partial W}</m>.
+Explain why, and use it to redo the computation with the chain rule for
+two intermediate variables, <xref ref="eq-chain-rule-two"/>.
+</p>
+</statement>
+<solution>
+<p>
+Both partial derivatives equal <m>-\frac{m}{(V+W)^2}</m> because
+<m>C</m> depends on <m>V</m> and <m>W</m> only through the total volume
+<m>U = V + W</m>: the cup cannot tell espresso from tap water. So
+<m>C = \frac{m}{U}</m>, a function of the two intermediate variables
+<m>m</m> and <m>U</m>, with
+<md>
+<mrow>U \amp = 40 + 40 = 80\,\text{mL},</mrow>
+<mrow>\frac{dU}{dt} \amp = \frac{dV}{dt} + \frac{dW}{dt} = 3.6\,\text{mL/s}.</mrow>
+</md>
+Then <xref ref="eq-chain-rule-two"/> gives
+<md>
+<mrow>\frac{dC}{dt} \amp = \frac{1}{U}\frac{dm}{dt} - \frac{m}{U^2}\frac{dU}{dt}</mrow>
+<mrow>\amp = \frac{0.12}{80} - \frac{4}{6400}\,(3.6)</mrow>
+<mrow>\amp = 0.0015 - 0.00225</mrow>
+<mrow>\amp = -0.00075\,(\text{g/mL})/\text{s},</mrow>
+</md>
+the same answer: the <m>V</m> and <m>W</m> terms of the three-variable
+rule combine into the single <m>U</m> term.
+</p>
+</solution>
+</task>
 </example>
 
 </subsection>
