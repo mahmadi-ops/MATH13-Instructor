@@ -157,7 +157,9 @@ and the chain rule adds one term for each.
 </figure>
 
 <!-- The espresso example and its practice problems: from the instructor's
-     handout "Pulling an Espresso Shot" (Nov 2026). -->
+     handout "Pulling an Espresso Shot" (Nov 2026). The statement shows the
+     instructor's photo with its hints taken out (assets/espresso-shot.jpg);
+     the solution ends with the full picture (espresso-shot-summary.jpg). -->
 <example xml:id="example-cr-espresso">
 <title>Pulling an Espresso Shot</title>
 <statement>
@@ -171,7 +173,25 @@ C(m,V) = \frac{m}{V},
 where <m>m</m> is the mass of dissolved coffee solids in the cup (in
 grams) and <m>V</m> is the volume of liquid in the cup (in milliliters).
 Both change during the shot, so <m>m = m(t)</m> and <m>V = V(t)</m>, with
-<m>t</m> in seconds. At <m>t = 20</m> s,
+<m>t</m> in seconds.
+</p>
+
+<image source="espresso-shot.jpg" width="70%">
+<shortdescription>
+An espresso shot pouring into a glass cup, labelled with m of t, V of t, and C of t equals m of t over V of t.
+</shortdescription>
+<description>
+<p>
+A photograph of an espresso shot pouring from a machine into a clear glass
+cup. A label pointing at the cup reads <q><m>m(t)</m>, mass of dissolved
+solids (g)</q>, a second reads <q><m>V(t)</m>, volume of liquid (mL)</q>,
+and a box on the cup reads <m>C(t) = \frac{m(t)}{V(t)}</m>.
+</p>
+</description>
+</image>
+
+<p>
+At <m>t = 20</m> s,
 <md>
 <mrow>m = 4\,\text{g}, \quad V = 40\,\text{mL},</mrow>
 <mrow>\frac{dm}{dt} = 0.12\,\text{g/s}, \quad \frac{dV}{dt} = 1.6\,\text{mL/s}.</mrow>
@@ -286,6 +306,28 @@ Here the stream is <m>0.12/1.6 = 0.075\,\text{g/mL}</m> (<m>7.5\%</m>),
 weaker than the <m>10\%</m> already in the cup, so adding it dilutes the
 shot. This is why baristas cut a shot once the stream turns pale.
 </p>
+
+<image source="espresso-shot-summary.jpg" width="100%">
+<shortdescription>
+Summary of the solution: the espresso photo with the incoming stream labelled, the tree diagram, the chain rule, and its interpretation.
+</shortdescription>
+<description>
+<p>
+The espresso photograph, now with the stream leaving the machine labelled
+<q>Incoming stream <m>\frac{m'(t)}{V'(t)}</m></q>. Beside it, a tree
+diagram: <m>C(m,V)</m> at the top, arrows down to <m>m(t)</m> and
+<m>V(t)</m>, and from each an arrow down to <m>t</m>. Below the tree, the
+chain rule <m>\frac{dC}{dt} = \frac{\partial C}{\partial m}\frac{dm}{dt}
++ \frac{\partial C}{\partial V}\frac{dV}{dt}
+= \frac{1}{V}\frac{dm}{dt} - \frac{m}{V^2}\frac{dV}{dt}</m>. Along the
+bottom, the interpretation: the term <m>\frac{1}{V}\frac{dm}{dt}</m> adds
+solids and makes the cup stronger, the term
+<m>-\frac{m}{V^2}\frac{dV}{dt}</m> adds liquid and makes the cup weaker,
+and <m>\frac{dC}{dt} \lt 0</m> exactly when
+<m>\frac{m'(t)}{V'(t)} \lt C(t)</m>.
+</p>
+</description>
+</image>
 </solution>
 </example>
 
