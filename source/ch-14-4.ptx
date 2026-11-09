@@ -377,13 +377,85 @@ Use a linear approximation to estimate the concentration at
 </statement>
 <solution>
 <p>
-With <m>\Delta t = 2</m> s,
+A linear approximation replaces the graph of <m>C</m> near <m>t = 20</m>
+by its tangent line there,
+<md>
+<mrow>L(t) \amp = C(20) + \left.\frac{dC}{dt}\right|_{t=20}(t - 20)</mrow>
+<mrow>\amp = 0.10 - 0.001\,(t - 20).</mrow>
+</md>
+Close to <m>t = 20</m> the curve and its tangent line are close, so
+<m>C(22) \approx L(22)</m>. With <m>\Delta t = 2</m> s,
 <md>
 <mrow>C(22) \amp \approx C(20) + \left.\frac{dC}{dt}\right|_{t=20}\Delta t</mrow>
 <mrow>\amp = 0.10 + (-0.001)(2)</mrow>
 <mrow>\amp = 0.098\,\text{g/mL},</mrow>
 </md>
 about <m>9.8\%</m>.
+</p>
+
+<image width="85%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-espresso-linear">
+<diagram dimensions="(440,280)" margins="(46,14,22,14)">
+<!-- A sketch: only C(20) = 0.10 and C'(20) = -0.001 are known, so the
+     curve is illustrative. The tangent line at t = 20 is exact. -->
+<definition>Cs(t) = 0.10 - 0.001*(t - 20) + 0.00012*(t - 20)^2</definition>
+<definition>L(t) = 0.10 - 0.001*(t - 20)</definition>
+<coordinates bbox="(16.6, 0.0948, 24.6, 0.1040)">
+<group at="axes">
+<line endpoints="((17, 0.0955), (24.4, 0.0955))" stroke="black" thickness="2" arrows="1"/>
+<line endpoints="((17, 0.0955), (17, 0.1037))" stroke="black" thickness="2" arrows="1"/>
+<label anchor="(24.4, 0.0955)" alignment="se" offset="(2,-2)"><m>t</m></label>
+<label anchor="(17, 0.1037)" alignment="ne" offset="(4,0)"><m>C</m></label>
+<label anchor="(18, 0.0955)" alignment="s" offset="(0,-3)"><m>18</m></label>
+<label anchor="(20, 0.0955)" alignment="s" offset="(0,-3)"><m>20</m></label>
+<label anchor="(22, 0.0955)" alignment="s" offset="(0,-3)"><m>22</m></label>
+<label anchor="(17, 0.098)" alignment="w" offset="(-3,0)"><m>0.098</m></label>
+<label anchor="(17, 0.100)" alignment="w" offset="(-3,0)"><m>0.100</m></label>
+<label anchor="(17, 0.102)" alignment="w" offset="(-3,0)"><m>0.102</m></label>
+<line endpoints="((18, 0.0955), (18, 0.09568))" stroke="black" thickness="1"/>
+<line endpoints="((20, 0.0955), (20, 0.09568))" stroke="black" thickness="1"/>
+<line endpoints="((22, 0.0955), (22, 0.09568))" stroke="black" thickness="1"/>
+<line endpoints="((17, 0.098), (17.12, 0.098))" stroke="black" thickness="1"/>
+<line endpoints="((17, 0.100), (17.12, 0.100))" stroke="black" thickness="1"/>
+<line endpoints="((17, 0.102), (17.12, 0.102))" stroke="black" thickness="1"/>
+</group>
+<group at="guides">
+<line endpoints="((20, 0.0955), (20, 0.100))" stroke="gray" dash="4 4" thickness="1"/>
+<line endpoints="((17, 0.100), (20, 0.100))" stroke="gray" dash="4 4" thickness="1"/>
+<line endpoints="((22, 0.0955), (22, 0.098))" stroke="gray" dash="4 4" thickness="1"/>
+<line endpoints="((17, 0.098), (22, 0.098))" stroke="gray" dash="4 4" thickness="1"/>
+</group>
+<graph at="curve" function="Cs" domain="(17.5, 23.6)" stroke="#0072B2" thickness="2.5"/>
+<graph at="tangent" function="L" domain="(17.5, 23.6)" stroke="#D55E00" thickness="2"/>
+<point at="base" p="(20, 0.100)" fill="black" size="3.5"/>
+<group at="estimate">
+<point p="(22, L(22))" fill="#D55E00" size="3.5"/>
+<point p="(22, Cs(22))" fill="#0072B2" size="3.5"/>
+<line endpoints="((22.3, L(22)), (22.3, Cs(22)))" stroke="black" thickness="3"/>
+<label anchor="(22.3, 0.09824)" alignment="e" offset="(4,0)"><m>\text{error}</m></label>
+</group>
+<label at="curve-lab" anchor="(17.6, Cs(17.6))" alignment="ne" offset="(4,2)" color="#0072B2"><m>C(t)</m></label>
+<label at="tangent-lab" anchor="(23.3, L(23.3))" alignment="sw" offset="(-2,-4)" color="#D55E00"><m>L(t)</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="A sketch of the concentration C of t near t equals 20, with its tangent line L of t at t equals 20. The estimate for C of 22 is read off the tangent line.">
+  <annotation ref="curve" text="The graph of C of t, drawn in blue. Only its value and slope at t equals 20 are known, so this curve is a sketch." sonify="yes"/>
+  <annotation ref="tangent" text="The tangent line L of t equals 0.10 minus 0.001 times t minus 20, drawn in orange." sonify="yes"/>
+  <annotation ref="base" text="The point t equals 20, C equals 0.10, where the curve and its tangent line touch."/>
+  <annotation ref="estimate" text="At t equals 22 the tangent line is at 0.098, the estimate. The curve is a little away from it; the short vertical gap is the error of the linear approximation."/>
+  <annotation ref="axes" text="The horizontal axis is time t in seconds, with 18, 20 and 22 marked. The vertical axis is the concentration C in grams per milliliter, with 0.098, 0.100 and 0.102 marked."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+
+<p>
+In the sketch above only <m>C(20)</m> and the slope there are known, so
+the blue curve is drawn for illustration; the tangent line is exact. The
+estimate is read off the tangent line at <m>t = 22</m>, and the short
+vertical gap between line and curve there is the error of the
+approximation, which shrinks as <m>t</m> gets closer to <m>20</m>.
 </p>
 </solution>
 </task>
