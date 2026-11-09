@@ -156,6 +156,193 @@ and the chain rule adds one term for each.
 </image>
 </figure>
 
+<!-- Geometric intuition for the chain rule and the hiker example: from the
+     instructor's handout "Walking uphill: why do the rates add?" (Nov 2026).
+     The contour picture is schematic, not a measured map. -->
+<p>
+We now give a <term>geometric intuition</term> behind the chain rule
+<xref ref="eq-chain-rule-two"/>: why it holds, and in particular why the
+two rates <em>add</em>, without ever finding an equation for the surface.
+Imagine a hiker walking over terrain whose elevation is
+<m>w = f(x,y)</m>, where <m>x</m> measures eastward position and
+<m>y</m> measures northward position. Both coordinates change with time,
+<m>x = x(t)</m> and <m>y = y(t)</m>, and we want to know <em>how quickly
+the hiker's elevation changes</em>.
+</p>
+
+<figure xml:id="fig-cr-hiker-split">
+<caption>
+One movement, two components (a top view with schematic contours). The
+hiker may walk directly from <m>A</m> to <m>C</m>; we imagine going from
+<m>A</m> to <m>B</m> and then from <m>B</m> to <m>C</m> only to separate
+the two contributions to the change in elevation.
+</caption>
+<image width="85%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-hiker-split">
+<diagram dimensions="(520,260)" margins="6">
+<coordinates bbox="(0,0,10,5)">
+<rectangle at="hs-ground" lower-left="(-1,-1)" dimensions="(12,7)" fill="#eef2f5" stroke="none"/>
+<group at="hs-contours">
+<circle center="(12.5,7.5)" radius="9.5" fill="#e3eee6" stroke="#9cbfa6" thickness="1"/>
+<circle center="(12.5,7.5)" radius="7.5" fill="#cfe3d5" stroke="#9cbfa6" thickness="1"/>
+<circle center="(12.5,7.5)" radius="5.5" fill="#b5d4bf" stroke="#9cbfa6" thickness="1"/>
+<circle center="(12.5,7.5)" radius="3.5" fill="#94c0a3" stroke="#7fa98c" thickness="1"/>
+</group>
+<label at="hs-higher" anchor="(9.85,4.85)" alignment="sw"><m>\text{higher ground}</m></label>
+<group at="hs-compass">
+<line endpoints="((0.45,3.55),(1.35,3.55))" stroke="#444444" thickness="2" arrows="1"/>
+<line endpoints="((0.45,3.55),(0.45,4.55))" stroke="#444444" thickness="2" arrows="1"/>
+<label anchor="(1.35,3.55)" alignment="e" offset="(2,0)"><m>\text{east}</m></label>
+<label anchor="(0.45,4.55)" alignment="e" offset="(4,-2)"><m>\text{north}</m></label>
+</group>
+<line at="hs-diagonal" endpoints="((1.5,1.2),(6.5,3.7))" stroke="#555555" dash="6 4" thickness="2" arrows="1"/>
+<line at="hs-east" endpoints="((1.5,1.2),(6.5,1.2))" stroke="#0072B2" thickness="3" arrows="1"/>
+<line at="hs-north" endpoints="((6.5,1.2),(6.5,3.7))" stroke="#D55E00" thickness="3" arrows="1"/>
+<point at="hs-A" p="(1.5,1.2)" fill="white" size="4"/>
+<point at="hs-B" p="(6.5,1.2)" fill="white" size="4"/>
+<point at="hs-C" p="(6.5,3.7)" fill="white" size="4"/>
+<label anchor="(1.5,1.2)" alignment="sw" offset="(-2,-2)"><m>A</m></label>
+<label anchor="(6.5,1.2)" alignment="se" offset="(2,-2)"><m>B</m></label>
+<label anchor="(6.5,3.7)" alignment="nw" offset="(-2,2)"><m>C</m></label>
+<label anchor="(4,1.2)" alignment="s" offset="(0,-4)" color="#0072B2"><m>\text{east: } \Delta x</m></label>
+<label anchor="(6.5,2.45)" alignment="e" offset="(6,0)" color="#D55E00"><m>\text{north: } \Delta y</m></label>
+<label anchor="(3.5,2.2)" alignment="nw" offset="(-2,2)"><m>\text{actual diagonal motion}</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="A top view of the hiker's terrain. Shaded contour bands in the upper right mark higher ground. The hiker's actual motion is a dashed diagonal arrow from point A to point C. It is split into a blue arrow due east from A to B, labelled east delta x, followed by an orange arrow due north from B to C, labelled north delta y.">
+  <annotation ref="hs-contours" text="Schematic contour bands; the ground rises toward the upper right corner."/>
+  <annotation ref="hs-diagonal" text="The actual diagonal motion from A to C, drawn dashed."/>
+  <annotation ref="hs-east" text="The eastward stage, from A to B, a displacement delta x. It contributes about f x times delta x to the change in elevation." sonify="no"/>
+  <annotation ref="hs-north" text="The northward stage, from B to C, a displacement delta y. It contributes about f y times delta y to the change in elevation." sonify="no"/>
+  <annotation ref="hs-compass" text="Compass arrows: east points right and north points up."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
+<p>
+<alert>Why splitting the motion works.</alert> The total change in
+elevation depends only on the <em>starting and ending positions</em>, not
+on which route we imagine between them, so we may compute it in two
+stages:
+<ol>
+<li>
+<p>
+<alert>Move east.</alert> Over a very small eastward displacement
+<m>\Delta x</m>, the local eastward slope <m>f_x</m> gives an elevation
+change of approximately <m>f_x\,\Delta x</m>.
+</p>
+</li>
+<li>
+<p>
+<alert>Move north.</alert> Over a very small northward displacement
+<m>\Delta y</m>, the local northward slope <m>f_y</m> gives an additional
+elevation change of approximately <m>f_y\,\Delta y</m>.
+</p>
+</li>
+</ol>
+</p>
+<p>
+Together,
+<md>
+\underbrace{\Delta w}_{\text{total}}
+\approx \underbrace{f_x\,\Delta x}_{\text{east}}
++ \underbrace{f_y\,\Delta y}_{\text{north}} .
+</md>
+For a tiny displacement the slopes vary very little. (The northward slope
+is really taken at <m>B</m> rather than at <m>A</m>; the continuity of
+<m>f_x</m> and <m>f_y</m> in <xref ref="thm-chain-rule-two-intermediate"/>
+is what makes that difference negligible.) Dividing by the elapsed time
+<m>\Delta t</m>,
+<md>
+\frac{\Delta w}{\Delta t}
+\approx f_x\,\frac{\Delta x}{\Delta t} + f_y\,\frac{\Delta y}{\Delta t},
+</md>
+and letting <m>\Delta t \to 0</m> gives
+<md>
+\frac{dw}{dt}
+= \frac{\partial f}{\partial x}\frac{dx}{dt}
++ \frac{\partial f}{\partial y}\frac{dy}{dt},
+</md>
+which is <xref ref="eq-chain-rule-two"/>.
+</p>
+<p>
+<alert>The central idea:</alert> each coordinate motion contributes to the
+rate of climbing, and those contributions <em>add</em>. A negative
+contribution means that component of the motion carries the hiker
+downhill.
+</p>
+
+<example xml:id="example-cr-hiker">
+<title>How Fast Is the Hiker Climbing?</title>
+<statement>
+<p>
+At a particular instant, a hiker is walking on a hill whose elevation (in
+meters) is <m>w = f(x,y)</m>, with <m>x</m> and <m>y</m> measured in
+kilometers east and north, respectively. We do not know a formula for the
+hill, only its slopes at the hiker's current position,
+<md>
+\frac{\partial f}{\partial x} = 40\,\frac{\text{m}}{\text{km}}, \qquad
+\frac{\partial f}{\partial y} = 30\,\frac{\text{m}}{\text{km}}.
+</md>
+At that same instant the hiker is moving east at <m>3</m> km/h and north
+at <m>4</m> km/h:
+<md>
+\frac{dx}{dt} = 3\,\frac{\text{km}}{\text{h}}, \qquad
+\frac{dy}{dt} = 4\,\frac{\text{km}}{\text{h}}.
+</md>
+How quickly is the hiker's elevation increasing, in meters per hour?
+</p>
+
+<image width="50%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-cr-hiker-velocity">
+<diagram dimensions="(330,290)" margins="(8,8,8,8)">
+<coordinates bbox="(-1.2,-1.0,5.3,4.7)">
+<line at="hv-diagonal" endpoints="((0,0),(3,4))" stroke="#555555" dash="6 4" thickness="2" arrows="1"/>
+<line at="hv-east" endpoints="((0,0),(3,0))" stroke="#0072B2" thickness="3" arrows="1"/>
+<line at="hv-north" endpoints="((3,0),(3,4))" stroke="#D55E00" thickness="3" arrows="1"/>
+<point at="hv-start" p="(0,0)" fill="black" size="3.5"/>
+<label anchor="(1.5,0)" alignment="s" offset="(0,-4)" color="#0072B2"><m>3\text{ km/h east}</m></label>
+<label anchor="(3,2)" alignment="e" offset="(6,0)" color="#D55E00"><m>4\text{ km/h north}</m></label>
+<label anchor="(1.5,2.0)" alignment="nw" offset="(-2,2)"><m>\text{actual direction}</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The hiker's velocity in the horizontal plane, drawn to scale: a blue arrow of 3 kilometers per hour to the east, followed by an orange arrow of 4 kilometers per hour to the north. A dashed arrow from the start to the tip of the orange arrow is the actual direction of motion.">
+  <annotation ref="hv-east" text="The eastward component, 3 kilometers per hour."/>
+  <annotation ref="hv-north" text="The northward component, 4 kilometers per hour."/>
+  <annotation ref="hv-diagonal" text="The actual direction of motion, the sum of the two components."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</statement>
+
+<solution>
+<p>
+By the chain rule <xref ref="eq-chain-rule-two"/>,
+<md>
+<mrow>\frac{dw}{dt} \amp = \frac{\partial f}{\partial x}\frac{dx}{dt}
+      + \frac{\partial f}{\partial y}\frac{dy}{dt}</mrow>
+<mrow>\amp = \underbrace{(40)(3)}_{\text{east}}
+      + \underbrace{(30)(4)}_{\text{north}}</mrow>
+<mrow>\amp = 120 + 120 = 240\,\text{m/h}.</mrow>
+</md>
+The units work out: <m>\frac{\text{m}}{\text{km}}\cdot\frac{\text{km}}{\text{h}}
+= \frac{\text{m}}{\text{h}}</m>. The hiker's elevation is increasing at
+<m>240</m> meters per hour, and each component of the motion accounts for
+<m>120</m> m/h of this increase.
+</p>
+<p>
+<alert>Keep the two speeds distinct.</alert> The hiker's horizontal walking
+speed is <m>\sqrt{3^2 + 4^2} = 5</m> km/h, whereas the vertical climbing
+rate is <m>240</m> m/h. The question asks for the latter.
+</p>
+</solution>
+</example>
+
 <!-- The espresso example and its practice problems: from the instructor's
      handout "Pulling an Espresso Shot" (Nov 2026). The statement shows the
      instructor's photo with its hints taken out (assets/espresso-shot.jpg:
