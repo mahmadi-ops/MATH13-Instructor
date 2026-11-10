@@ -295,6 +295,108 @@ and lets the step shrink to reach the chain rule.
        width="100%" aspect="16:9"/>
 </figure>
 
+<!-- A proof of Theorem 4.4.1 from the instructor's handout "The Chain Rule"
+     (Section 4, "A second proof, assuming continuous partial derivatives"),
+     Nov 2026, with z renamed w as in this book and the two moves taken
+     east first, then north, so that the proof follows the route A, B, C of
+     fig-cr-hiker-split.  The handout moves north first; the argument is the
+     same. -->
+<p>
+The geometric argument above can be turned into a proof of
+<xref ref="thm-chain-rule-two-intermediate"/>. It uses the hypothesis that
+<m>f_x</m> and <m>f_y</m> are continuous, and nothing more than the
+one-variable Mean Value Theorem, and it follows the hiker's route
+<m>A \to B \to C</m> of <xref ref="fig-cr-hiker-split"/>: east first,
+then north.
+</p>
+
+<proof xml:id="proof-cr-chain-rule-mvt">
+<title>A proof, assuming continuous partial derivatives</title>
+<p>
+Fix <m>t_0</m> and let <m>(a,b) = \bigl(x(t_0), y(t_0)\bigr)</m>. For
+<m>h \neq 0</m> small, set
+<md>
+\Delta x = x(t_0+h) - x(t_0), \qquad \Delta y = y(t_0+h) - y(t_0).
+</md>
+Since <m>x</m> and <m>y</m> are differentiable at <m>t_0</m>, they are
+continuous there, so <m>\Delta x \to 0</m> and <m>\Delta y \to 0</m> as
+<m>h \to 0</m>. Let <m>D</m> be an open disk centered at <m>(a,b)</m> on
+which <m>f_x</m> and <m>f_y</m> exist, and take <m>h</m> small enough that
+<m>\sqrt{\Delta x^2 + \Delta y^2}</m> is less than the radius of <m>D</m>.
+Name the corners of the route as in <xref ref="fig-cr-hiker-split"/>:
+<md>
+A = (a,b), \qquad B = (a + \Delta x,\, b), \qquad C = (a + \Delta x,\, b + \Delta y).
+</md>
+The two legs, the points <m>(a + s\,\Delta x,\, b)</m> and
+<m>(a + \Delta x,\, b + s\,\Delta y)</m> for <m>0 \le s \le 1</m>, then
+lie in <m>D</m>.
+</p>
+<p>
+<alert>Step 1: Move one variable at a time.</alert> Since
+<m>w(t_0) = f(A)</m> and <m>w(t_0+h) = f(C)</m>, adding and subtracting
+<m>f(B)</m>, the elevation at the corner, gives
+<md>
+<mrow>\amp w(t_0+h) - w(t_0) = f(C) - f(A)</mrow>
+<mrow>\amp \quad = \underbrace{\bigl[f(B) - f(A)\bigr]}_{\text{only } x \text{ changes}}
+      + \underbrace{\bigl[f(C) - f(B)\bigr]}_{\text{only } y \text{ changes}}.</mrow>
+</md>
+</p>
+<p>
+<alert>Step 2: Apply the Mean Value Theorem to each bracket.</alert> The
+function <m>g(s) = f(s, b)</m> is differentiable for <m>s</m> between
+<m>a</m> and <m>a + \Delta x</m>, with <m>g'(s) = f_x(s, b)</m>. By the
+Mean Value Theorem there is a <m>\theta_1</m> in <m>(0,1)</m> with
+<md>
+<mrow>\amp f(B) - f(A)</mrow>
+<mrow>\amp \quad = f(a+\Delta x, b) - f(a,b)</mrow>
+<mrow>\amp \quad = f_x(a + \theta_1\Delta x,\, b)\,\Delta x.</mrow>
+</md>
+(If <m>\Delta x = 0</m>, both sides are <m>0</m> and any <m>\theta_1</m>
+works.) Similarly, the Mean Value Theorem applied to
+<m>s \mapsto f(a + \Delta x,\, s)</m> gives a <m>\theta_2</m> in
+<m>(0,1)</m> with
+<md>
+<mrow>\amp f(C) - f(B)</mrow>
+<mrow>\amp \quad = f(a+\Delta x, b+\Delta y) - f(a+\Delta x, b)</mrow>
+<mrow>\amp \quad = f_y(a+\Delta x,\, b + \theta_2\Delta y)\,\Delta y.</mrow>
+</md>
+</p>
+<p>
+<alert>Step 3: Divide by <m>h</m>.</alert> Writing
+<m>P_h = (a+\theta_1\Delta x,\, b)</m> and
+<m>Q_h = (a+\Delta x,\, b+\theta_2\Delta y)</m>,
+<md>
+<mrow>\frac{w(t_0+h) - w(t_0)}{h}
+      \amp = f_x(P_h)\,\frac{\Delta x}{h}</mrow>
+<mrow>\amp \quad + f_y(Q_h)\,\frac{\Delta y}{h}.</mrow>
+</md>
+</p>
+<p>
+<alert>Step 4: Take the limit.</alert> Both <m>P_h</m> and <m>Q_h</m> are
+within distance <m>\sqrt{\Delta x^2 + \Delta y^2}</m> of <m>(a,b)</m>, and
+this distance tends to <m>0</m> as <m>h \to 0</m>. Hence
+<m>P_h \to (a,b)</m> and <m>Q_h \to (a,b)</m>, and by the continuity of
+<m>f_x</m> and <m>f_y</m> at <m>(a,b)</m>,
+<md>
+f_x(P_h) \to f_x(a,b), \qquad f_y(Q_h) \to f_y(a,b).
+</md>
+(The numbers <m>\theta_1</m> and <m>\theta_2</m> depend on <m>h</m>, but
+this does not matter: only the location of <m>P_h</m> and <m>Q_h</m> is
+used.) Combined with <m>\Delta x/h \to x'(t_0)</m> and
+<m>\Delta y/h \to y'(t_0)</m>, the product and sum rules for limits give
+<md>
+<mrow>\frac{dw}{dt}(t_0) \amp = \lim_{h \to 0}\frac{w(t_0+h) - w(t_0)}{h}</mrow>
+<mrow>\amp = f_x(a,b)\,x'(t_0) + f_y(a,b)\,y'(t_0),</mrow>
+</md>
+which is <xref ref="eq-chain-rule-two"/> at <m>t = t_0</m>.
+</p>
+<p>
+The proof used less than <xref ref="thm-chain-rule-two-intermediate"/>
+assumes: only that <m>f_x</m> and <m>f_y</m> exist near <m>(a,b)</m> and
+are continuous at <m>(a,b)</m>.
+</p>
+</proof>
+
 <example xml:id="example-cr-hiker">
 <title>How Fast Is the Hiker Climbing?</title>
 <statement>
