@@ -1652,16 +1652,19 @@ directions of most rapid increase and decrease are perpendicular to it.
 <xi:include href="subsec-scalar-fields-potentials.ptx"/>
 
 <!-- ================================================================ -->
-<!-- Video Summary: two Manim videos that recap the section (Nov 2026).
-     Scenes: assets/manim/dirderiv_definition_chain_rule.py and
+<!-- Video Summary: three Manim videos that recap the section (Nov 2026).
+     Scenes: assets/manim/dirderiv_definition_chain_rule.py,
+     assets/manim/dirderiv_partials.py, and
      assets/manim/dirderiv_max_min_zero.py (1920x1080, 30 fps). -->
 <subsection xml:id="sec-dirderiv-video-summary">
 <title>Video Summary</title>
 
 <p>
-The two videos below recap this section: the first goes from the
-definition of the directional derivative to the gradient vector, and the
-second uses the gradient to find the directions in which the rate of
+The three videos below recap this section: the first goes from the
+definition of the directional derivative to the gradient vector, the
+second shows that the partial derivatives are the directional derivatives
+in the directions <m>\hat{\imath}</m> and <m>\hat{\jmath}</m>, and the
+third uses the gradient to find the directions in which the rate of
 change is largest, smallest, and zero.
 </p>
 
@@ -1726,6 +1729,62 @@ gradient vector, and no limit to compute.
 </ul>
 </p>
 
+<figure xml:id="fig-dirderiv-video-partials">
+<caption>
+The partial derivatives are directional derivatives: taking
+<m>\hat{u} = \hat{\imath}</m> in the definition gives
+<m>f_x(x_0,y_0)</m>, and taking <m>\hat{u} = \hat{\jmath}</m> gives
+<m>f_y(x_0,y_0)</m>.
+</caption>
+<video xml:id="video-dirderiv-partials"
+       source="videos/dirderiv_partials.mp4"
+       preview="videos/previews/dirderiv_partials.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+
+<p>
+What the second video explains:
+<ul>
+<li>
+<p>
+<em>One definition, two pictures.</em> The limit definition of
+<m>\left(D_{\hat{u}} f\right)_{P_0}</m> is shown for a general unit vector
+<m>\hat{u} = u_1\hat{\imath} + u_2\hat{\jmath}</m>, in the <m>xy</m>-plane
+and on the surface <m>z = f(x,y)</m>, both driven by the direction of
+<m>\hat{u}</m> and the distance <m>s</m> from <m>P_0</m> to <m>P</m>.
+</p>
+</li>
+<li>
+<p>
+<em>The direction <m>\hat{\imath}</m>.</em> When <m>\hat{u}</m> turns onto
+<m>\hat{\imath}</m>, <m>u_1 = 1</m> and <m>u_2 = 0</m>, so
+<m>P = (x_0 + s,\, y_0)</m>: only <m>x</m> changes, <m>y</m> is held at
+<m>y_0</m>, and the vertical plane is <m>y = y_0</m>. The limit that is
+left is the one that defines the partial derivative, so
+<m>\left(D_{\hat{\imath}} f\right)_{P_0} = f_x(x_0,y_0)</m>, and as
+<m>s \to 0</m> the secant turns onto the tangent line of the curve cut by
+that plane.
+</p>
+</li>
+<li>
+<p>
+<em>The direction <m>\hat{\jmath}</m>.</em> When <m>\hat{u}</m> turns onto
+<m>\hat{\jmath}</m>, <m>u_1 = 0</m> and <m>u_2 = 1</m>, so
+<m>P = (x_0,\, y_0 + s)</m>, the plane is <m>x = x_0</m>, and
+<m>\left(D_{\hat{\jmath}} f\right)_{P_0} = f_y(x_0,y_0)</m>.
+</p>
+</li>
+<li>
+<p>
+<em>Both at once.</em> The two curves and their tangent lines, of slopes
+<m>f_x(x_0,y_0)</m> and <m>f_y(x_0,y_0)</m>, are shown together on the
+surface: the partial derivatives are the directional derivatives in the
+two coordinate directions.
+</p>
+</li>
+</ul>
+</p>
+
 <figure xml:id="fig-dirderiv-video-max-min-zero">
 <caption>
 In which directions is the rate of change maximum, minimum, and zero? The
@@ -1740,7 +1799,7 @@ answer <m>\left(D_{\hat{u}} f\right)_{P_0}
 </figure>
 
 <p>
-What the second video explains:
+What the third video explains:
 <ul>
 <li>
 <p>
