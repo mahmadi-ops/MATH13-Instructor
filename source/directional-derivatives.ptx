@@ -1651,4 +1651,148 @@ directions of most rapid increase and decrease are perpendicular to it.
 
 <xi:include href="subsec-scalar-fields-potentials.ptx"/>
 
+<!-- ================================================================ -->
+<!-- Video Summary: two Manim videos that recap the section (Nov 2026).
+     Scenes: assets/manim/dirderiv_definition_chain_rule.py and
+     assets/manim/dirderiv_max_min_zero.py (1920x1080, 30 fps). -->
+<subsection xml:id="sec-dirderiv-video-summary">
+<title>Video Summary</title>
+
+<p>
+The two videos below recap this section: the first goes from the
+definition of the directional derivative to the gradient vector, and the
+second uses the gradient to find the directions in which the rate of
+change is largest, smallest, and zero.
+</p>
+
+<figure xml:id="fig-dirderiv-video-definition-chain-rule">
+<caption>
+The directional derivative: its definition, its meaning as the slope of a
+tangent line, and the formula
+<m>\left(D_{\hat{u}} f\right)_{P_0} = \left(\nabla f\right)_{P_0}\cdot\hat{u}</m>
+from the chain rule.
+</caption>
+<video xml:id="video-dirderiv-definition-chain-rule"
+       source="videos/dirderiv_definition_chain_rule.mp4"
+       preview="videos/previews/dirderiv_definition_chain_rule.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+
+<p>
+What the first video explains:
+<ul>
+<li>
+<p>
+<em>The definition.</em> Starting at <m>P_0(x_0,y_0)</m>, move a distance
+<m>s</m> along the unit vector <m>\hat{u} = u_1\hat{\imath} + u_2\hat{\jmath}</m>
+to the point <m>P(x_0+su_1,\, y_0+su_2)</m>. The directional derivative
+<m>\left(D_{\hat{u}} f\right)_{P_0}</m> is the limit, as <m>s \to 0</m>, of
+the change in <m>f</m> from <m>P_0</m> to <m>P</m> divided by the distance
+<m>s</m>.
+</p>
+</li>
+<li>
+<p>
+<em>What it measures.</em> The vertical plane through <m>P_0</m> along
+<m>\hat{u}</m> cuts the surface <m>z = f(x,y)</m> in a curve. The
+difference quotient <m>\big(f(P)-f(P_0)\big)/s</m> is the slope (rise over
+run) of the secant line through <m>(P_0, f(P_0))</m> and
+<m>(P, f(P))</m>; as <m>s \to 0</m> the secant line turns onto the tangent
+line, so <m>\left(D_{\hat{u}} f\right)_{P_0}</m> is the slope of the
+tangent line, the rate of change of <m>f</m> at <m>P_0</m> in the direction
+<m>\hat{u}</m>.
+</p>
+</li>
+<li>
+<p>
+<em>The line through <m>P_0</m> and <m>P</m>.</em> As <m>s</m> changes,
+<m>P</m> runs along the line <m>x(s) = x_0 + su_1</m>,
+<m>y(s) = y_0 + su_2</m>, with <m>s = 0</m> giving <m>P_0</m>. On this line
+<m>z = f\big(x(s),\, y(s)\big)</m> depends on <m>s</m> alone, and its
+derivative at <m>s = 0</m> is the limit in the definition.
+</p>
+</li>
+<li>
+<p>
+<em>The chain rule.</em> With the dependency diagram and
+<m>dx/ds = u_1</m>, <m>dy/ds = u_2</m>, the chain rule gives
+<m>\left(D_{\hat{u}} f\right)_{P_0}
+= \left(\frac{\partial f}{\partial x}\right)_{P_0} u_1
++ \left(\frac{\partial f}{\partial y}\right)_{P_0} u_2
+= \left(\nabla f\right)_{P_0}\cdot\hat{u}</m>: one dot product with the
+gradient vector, and no limit to compute.
+</p>
+</li>
+</ul>
+</p>
+
+<figure xml:id="fig-dirderiv-video-max-min-zero">
+<caption>
+In which directions is the rate of change maximum, minimum, and zero? The
+answer <m>\left(D_{\hat{u}} f\right)_{P_0}
+= \left\|\left(\nabla f\right)_{P_0}\right\|\cos\theta</m>, shown for
+<m>f(x,y) = 4 - x^2 - y^2</m> at <m>P_0(1,1)</m>.
+</caption>
+<video xml:id="video-dirderiv-max-min-zero"
+       source="videos/dirderiv_max_min_zero.mp4"
+       preview="videos/previews/dirderiv_max_min_zero.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+
+<p>
+What the second video explains:
+<ul>
+<li>
+<p>
+<em>A reminder of what the number means.</em> On
+<m>z = 4 - x^2 - y^2</m> at <m>P_0(1,1)</m>, the unit vector
+<m>\hat{u}</m> turns once around <m>P_0</m>; each direction cuts its own
+slice of the surface and has its own tangent line, whose slope is
+<m>\left(D_{\hat{u}} f\right)_{P_0}</m>.
+</p>
+</li>
+<li>
+<p>
+<em>The question.</em> For which directions <m>\hat{u}</m> is this rate of
+change maximum, minimum, and zero? The hint is to combine
+<m>\left(D_{\hat{u}} f\right)_{P_0} = \left(\nabla f\right)_{P_0}\cdot\hat{u}</m>
+with the definition of the dot product.
+</p>
+</li>
+<li>
+<p>
+<em>The answer.</em> Since <m>\|\hat{u}\| = 1</m>,
+<m>\left(D_{\hat{u}} f\right)_{P_0}
+= \left\|\left(\nabla f\right)_{P_0}\right\|\cos\theta</m>, where
+<m>\theta</m> is the angle between <m>\left(\nabla f\right)_{P_0}</m> and
+<m>\hat{u}</m>; as <m>\hat{u}</m> turns, only <m>\cos\theta</m> changes.
+</p>
+</li>
+<li>
+<p>
+<em>The example.</em> For <m>f(x,y) = 4 - x^2 - y^2</m> at <m>P_0(1,1)</m>,
+<m>\left(\nabla f\right)_{P_0} = -2\hat{\imath} - 2\hat{\jmath}</m> and
+<m>\left\|\left(\nabla f\right)_{P_0}\right\| = 2\sqrt{2}</m>. The flat
+picture and the 3D graph turn together and stop at <m>\theta = 0</m>
+(maximum, <m>2\sqrt{2}</m>), <m>\theta = \pi/2</m> (zero),
+<m>\theta = \pi</m> (minimum, <m>-2\sqrt{2}</m>), and <m>\theta = \pi/2</m>
+on the other side (zero again).
+</p>
+</li>
+<li>
+<p>
+<em>The summary.</em> The maximum value is
+<m>\left\|\left(\nabla f\right)_{P_0}\right\|</m>, in the direction
+<m>\hat{u}_{\max} = \left(\nabla f\right)_{P_0}/\left\|\left(\nabla f\right)_{P_0}\right\|</m>;
+the minimum value is <m>-\left\|\left(\nabla f\right)_{P_0}\right\|</m>, in
+the direction <m>\hat{u}_{\min} = -\hat{u}_{\max}</m>; and the rate of
+change is zero in two directions. The video ends with a question for you:
+what are these two directions?
+</p>
+</li>
+</ul>
+</p>
+
+</subsection>
+
 </section>
