@@ -32,6 +32,8 @@
   pictures), and differential-estimate-manim.html, in assets, is the
   interactive that compares df with Delta f for the example of that
   subsection.
+  The figure of the first example (the paraboloid with its tangent plane and
+  normal line) is Asymptote too.
 
   In HTML output the first figure is the interactive explorer; in PDF it
   falls back to the TikZ picture kept in the <static> element, so print is
@@ -659,68 +661,72 @@ The graph of <m>z = -x^2 - y^2</m>, the tangent plane
 <m>P_0(1,1,-2)</m>.
 </caption>
 <image width="80%">
+<shortdescription>The paraboloid z equals negative x squared minus y squared with its tangent plane and normal line at the point 1, 1, negative 2.</shortdescription>
 <description>
 <p>
 A downward-opening paraboloid drawn as a blue mesh, the graph of z equals
 negative x squared minus y squared. A green tangent plane patch touches
 the surface at the red point P 0 with coordinates 1, 1, negative 2, on
 the side of the dome. A black line passes through P 0 perpendicular to
-the plane: the normal line to the surface. A legend above the axes names
-the surface, the point P 0, the tangent plane and the normal line.
+the plane: the normal line to the surface. Labels beside them name the
+surface, the point P 0, the tangent plane with its equation, and the
+normal line with its parametric equations.
 </p>
 </description>
-<latex-image>
-\begin{tikzpicture}[font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont]
-\begin{axis}[
-  width=11.5cm, height=10cm,
-  view={-40}{25},
-  xmin=-2.3, xmax=2.9, ymin=-2.3, ymax=2.9, zmin=-8.3, zmax=2.4,
-  xlabel={$x$}, ylabel={$y$}, zlabel={$z$},
-  xtick={-2,0,2}, ytick={-2,0,2}, ztick={2,0,-2,-4,-6,-8},
-  clip=false,
-  % the legend of fig-cr-saddle: above the axes, two columns, Helvetica, so
-  % that nothing has to be named by a callout line inside the picture
-  legend cell align=left,
-  legend columns=2,
-  legend style={
-    at={(0.5,1.03)}, anchor=south,
-    draw=gray!50, fill=white, fill opacity=0.92, text opacity=1,
-    inner sep=5pt, row sep=2pt,
-    /tikz/every even column/.append style={column sep=10pt},
-    font=\fontfamily{phv}\fontsize{10}{12.5}\selectfont,
-  },
-]
-% the surface z = -x^2 - y^2 (blue mesh)
-\addplot3[surf, shader=flat, fill=blue!8, draw=blue!60,
-          fill opacity=0.85, draw opacity=0.9, forget plot,
-          domain=-2:2, y domain=-2:2, samples=17, z buffer=sort]
-  {-x^2 - y^2};
-% the tangent plane -2x - 2y - z = -2 (green)
-\addplot3[surf, shader=flat, samples=2, domain=0.2:1.8, y domain=0.2:1.8,
-          fill=green!45!gray, fill opacity=0.50, draw=green!25!black,
-          draw opacity=0.7, forget plot]
-  {2 - 2*x - 2*y};
-% the normal line (1-2t, 1-2t, -2-t) (black)
-\addplot3[very thick, black, samples=2, domain=-0.55:0.4, forget plot]
-  ({1-2*x},{1-2*x},{-2-x});
-% the point P0, ringed in white so it reads against the surface
-\addplot3[only marks, mark=*, mark size=2.2, color=red, forget plot,
-          mark options={fill=red, draw=white, line width=0.5pt}]
-  coordinates {(1,1,-2)};
-% the legend: the two surfaces on the left, the point and the line on the right
-\addlegendimage{area legend, draw=blue!60, fill=blue!8}
-\addlegendentry{the surface $z=-x^2-y^2$}
-\addlegendimage{only marks, mark=*, mark size=2.2, color=red,
-                mark options={fill=red, draw=white, line width=0.5pt}}
-\addlegendentry{$P_0(1,1,-2)$}
-\addlegendimage{area legend, draw=green!25!black, fill=green!45!gray,
-                fill opacity=0.5}
-\addlegendentry{the tangent plane $-2x-2y-z=-2$}
-\addlegendimage{very thick, black}
-\addlegendentry{the normal line $(1-2t,\,1-2t,\,-2-t)$}
-\end{axis}
-\end{tikzpicture}
-</latex-image>
+<asymptote label="asymptote-tp-example-paraboloid"><![CDATA[
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(11.5cm,11cm);
+currentprojection=orthographic(camera=(9,-1,5),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+// the surface z = -x^2 - y^2 over the disc of radius 2.4
+triple dome(pair p) {return (p.x*cos(p.y),p.x*sin(p.y),-p.x^2);}
+surface s=surface(dome,(0,0),(2.4,2pi),12,36);
+draw(s,surfacepen=rgb(0.82,0.86,1)+opacity(0.55),
+     meshpen=rgb(0.25,0.35,0.85)+opacity(0.55)+linewidth(0.3pt));
+
+// the tangent plane -2x - 2y - z = -2 at P0(1,1,-2)
+triple P0=(1,1,-2);
+// a square patch of it, centred at P0: e1 is horizontal and e2 runs down the plane
+triple e1=unit((1,-1,0)), e2=unit((1,1,-4));
+pen planeFill=rgb("5fae5f")+opacity(0.5);
+pen planeEdge=rgb("1f5f1f")+linewidth(0.6pt);
+real h=1.05;
+path3 patch=(P0-h*e1-h*e2)--(P0+h*e1-h*e2)--(P0+h*e1+h*e2)--(P0-h*e1+h*e2)--cycle;
+draw(surface(patch),planeFill,nolight);
+draw(patch,planeEdge);
+
+// the normal line (1 - 2t, 1 - 2t, -2 - t)
+triple n=(-2,-2,-1);
+draw((P0-0.6n)--(P0+0.45n),black+linewidth(1.6pt));
+
+dot(P0,red+linewidth(6pt));
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$",1),(-2.3,0,0)--(3.1,0,0),ax,Arrow3);
+draw(Label("$y$",1),(0,-2.3,0)--(0,3.1,0),ax,Arrow3);
+draw(Label("$z$",1),(0,0,-6.6)--(0,0,2.2),ax,Arrow3);
+// a few ticks, to place the point (1,1,-2)
+pen tick=gray(0.25)+linewidth(0.6pt);
+for(int k=-6; k <= 2; k += 2) {
+  if(k != 0) {
+    draw((0,-0.08,k)--(0,0.08,k),tick);
+    label("$"+string(k)+"$",(0,-0.08,k),W,fontsize(8pt)+gray(0.25));
+  }
+}
+draw((2,-0.08,0)--(2,0.08,0),tick);
+label("$2$",(2,-0.08,0),W,fontsize(8pt)+gray(0.25));
+draw((-0.08,2,0)--(0.08,2,0),tick);
+label("$2$",(0.08,2,0),S,fontsize(8pt)+gray(0.25));
+
+// named beside the patch and in front of it, so that the plane does not hide the name
+label("$P_0(1,1,-2)$",P0+(h+0.1)*e1-0.2*unit(n),W,red);
+label("tangent plane $-2x-2y-z=-2$",P0-h*e1-h*e2,NE,rgb("1f5f1f"));
+label("normal line $(1-2t,\,1-2t,\,-2-t)$",P0-0.6n,E,black);
+label("$z=-x^2-y^2$",dome((2.4,pi/2)),E,rgb(0.2,0.3,0.75));
+]]></asymptote>
 </image>
 </figure>
 
