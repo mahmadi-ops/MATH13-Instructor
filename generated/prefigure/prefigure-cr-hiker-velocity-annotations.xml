@@ -1,0 +1,39 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-hiker-velocity-figure" speech2="The hiker's velocity in the horizontal plane, drawn to scale: a blue arrow of 3 kilometers per hour to the east, followed by an orange arrow of 4 kilometers per hour to the north. A dashed arrow from the start to the tip of the orange arrow is the actual direction of motion.">
+      <grouped>prefigure-cr-hiker-velocity-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-hiker-velocity-hv-east</active>
+        <active>prefigure-cr-hiker-velocity-hv-north</active>
+        <active>prefigure-cr-hiker-velocity-hv-diagonal</active>
+      </children>
+      <components>
+        <active>prefigure-cr-hiker-velocity-hv-east</active>
+        <active>prefigure-cr-hiker-velocity-hv-north</active>
+        <active>prefigure-cr-hiker-velocity-hv-diagonal</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-velocity-hv-east" speech2="The eastward component, 3 kilometers per hour.">
+      <active>prefigure-cr-hiker-velocity-hv-east</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-velocity-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-velocity-hv-north" speech2="The northward component, 4 kilometers per hour.">
+      <active>prefigure-cr-hiker-velocity-hv-north</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-velocity-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-velocity-hv-diagonal" speech2="The actual direction of motion, the sum of the two components.">
+      <active>prefigure-cr-hiker-velocity-hv-diagonal</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-velocity-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

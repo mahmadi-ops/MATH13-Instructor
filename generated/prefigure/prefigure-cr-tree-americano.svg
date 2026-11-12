@@ -1,0 +1,351 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-cr-tree-americano-figure" width="348" height="328" viewBox="0 0 348 328">
+  <defs>
+    <clipPath id="prefigure-cr-tree-americano-__clipPath-0">
+      <rect x="14.0" y="14.0" width="320.0" height="300.0"/>
+    </clipPath>
+    <clipPath id="prefigure-cr-tree-americano-__clipPath-1">
+      <rect x="14.0" y="14.0" width="320.0" height="300.0"/>
+    </clipPath>
+  </defs>
+  <line id="prefigure-cr-tree-americano-ta-cm" x1="174.0" y1="51.5" x2="59.7" y2="164.0" stroke="#0072B2" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <line id="prefigure-cr-tree-americano-ta-cv" x1="174.0" y1="51.5" x2="174.0" y2="164.0" stroke="#0072B2" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <line id="prefigure-cr-tree-americano-ta-cw" x1="174.0" y1="51.5" x2="288.3" y2="164.0" stroke="#0072B2" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <line id="prefigure-cr-tree-americano-ta-mt" x1="59.7" y1="164.0" x2="174.0" y2="276.5" stroke="#0072B2" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <line id="prefigure-cr-tree-americano-ta-vt" x1="174.0" y1="164.0" x2="174.0" y2="276.5" stroke="#0072B2" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <line id="prefigure-cr-tree-americano-ta-wt" x1="288.3" y1="164.0" x2="174.0" y2="276.5" stroke="#0072B2" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <circle id="prefigure-cr-tree-americano-ta-c" cx="174.0" cy="51.5" r="4" stroke="black" stroke-width="2" fill="black"/>
+  <circle id="prefigure-cr-tree-americano-ta-m" cx="59.7" cy="164.0" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-cr-tree-americano-ta-v" cx="174.0" cy="164.0" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-cr-tree-americano-ta-w" cx="288.3" cy="164.0" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-cr-tree-americano-ta-t" cx="174.0" cy="276.5" r="4" stroke="black" stroke-width="2" fill="#009E73"/>
+  <g id="prefigure-cr-tree-americano-ta-c-lab" transform="translate(174.0,40.0) translate(-39.5,-20.1)">
+    <g id="prefigure-cr-tree-americano-__g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -7.296px" width="79.064px" height="20.080px" role="img" focusable="false" viewBox="0 -706.5 4368.5 1109.5" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-2-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-2-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-2-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-2-TEX-I-1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-2-TEX-N-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-2-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="relseq" data-semantic-role="equality" data-semantic-id="8" data-semantic-children="0,7" data-semantic-content="1" data-semantic-speech="upper C equals StartFraction m Over upper V plus upper W EndFraction">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="8" data-semantic-speech="upper C">
+              <use data-c="1D436" xlink:href="#prefigure-cr-tree-americano-MJX-2-TEX-I-1D436"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="relation" data-semantic-role="equality" data-semantic-id="1" data-semantic-parent="8" data-semantic-operator="relseq,=" data-semantic-speech="equals" transform="translate(1037.8,0)">
+              <use data-c="3D" xlink:href="#prefigure-cr-tree-americano-MJX-2-TEX-N-3D"/>
+            </g>
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="7" data-semantic-children="2,6" data-semantic-parent="8" data-semantic-speech="StartFraction m Over upper V plus upper W EndFraction" transform="translate(2093.6,0)">
+              <g data-mml-node="mi" transform="translate(827.1,394) scale(0.707)" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="7" data-semantic-speech="m" data-semantic-prefix="Numerator">
+                <use data-c="1D45A" xlink:href="#prefigure-cr-tree-americano-MJX-2-TEX-I-1D45A"/>
+              </g>
+              <g data-mml-node="mrow" transform="translate(220,-345) scale(0.707)" data-semantic-type="infixop" data-semantic-role="addition" data-semantic-id="6" data-semantic-children="3,5" data-semantic-content="4" data-semantic-parent="7" data-semantic-speech="upper V plus upper W" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="3" data-semantic-parent="6" data-semantic-speech="upper V">
+                  <use data-c="1D449" xlink:href="#prefigure-cr-tree-americano-MJX-2-TEX-I-1D449"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="addition" data-semantic-id="4" data-semantic-parent="6" data-semantic-operator="infixop,+" data-semantic-speech="plus" transform="translate(769,0)">
+                  <use data-c="2B" xlink:href="#prefigure-cr-tree-americano-MJX-2-TEX-N-2B"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="6" data-semantic-speech="upper W" transform="translate(1547,0)">
+                  <use data-c="1D44A" xlink:href="#prefigure-cr-tree-americano-MJX-2-TEX-I-1D44A"/>
+                </g>
+              </g>
+              <rect width="2034.9" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-m-lab" transform="translate(48.1,164.0) translate(-15.9,-4.1)">
+    <g id="prefigure-cr-tree-americano-__g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#D55E00" width="15.888px" height="8.200px" role="img" focusable="false" viewBox="0 -442 878 453" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-3-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="m">
+              <use data-c="1D45A" xlink:href="#prefigure-cr-tree-americano-MJX-3-TEX-I-1D45A"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-v-lab" transform="translate(187.1,158.0) translate(0.0,-6.4)">
+    <g id="prefigure-cr-tree-americano-__g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px; color:#D55E00" width="13.920px" height="12.760px" role="img" focusable="false" viewBox="0 -683 769 705" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-4-TEX-I-1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper V">
+              <use data-c="1D449" xlink:href="#prefigure-cr-tree-americano-MJX-4-TEX-I-1D449"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-w-lab" transform="translate(299.9,164.0) translate(0.0,-6.4)">
+    <g id="prefigure-cr-tree-americano-__g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px; color:#D55E00" width="18.968px" height="12.760px" role="img" focusable="false" viewBox="0 -683 1048 705" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-5-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper W">
+              <use data-c="1D44A" xlink:href="#prefigure-cr-tree-americano-MJX-5-TEX-I-1D44A"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-t-lab" transform="translate(174.0,289.5) translate(-3.3,-0.0)">
+    <g id="prefigure-cr-tree-americano-__g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#009E73" width="6.536px" height="11.528px" role="img" focusable="false" viewBox="0 -626 361 637" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-6-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="t">
+              <use data-c="1D461" xlink:href="#prefigure-cr-tree-americano-MJX-6-TEX-I-1D461"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-cm-lab" transform="translate(97.6,96.5) translate(-26.4,-11.4)">
+    <g id="prefigure-cr-tree-americano-__g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.536px; color:#0072B2" width="26.448px" height="22.816px" role="img" focusable="false" viewBox="0 -899.6 1461.1 1260.7" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-7-TEX-I-1D715" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-7-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-7-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="6" data-semantic-children="2,5" data-semantic-speech="StartFraction partial differential upper C Over partial differential m EndFraction">
+              <g data-mml-node="mrow" transform="translate(261.7,394) scale(0.707)" data-semantic-type="prefixop" data-semantic-role="prefix operator" data-semantic-id="2" data-semantic-children="1" data-semantic-content="0" data-semantic-parent="6" data-semantic-speech="partial differential upper C" data-semantic-prefix="Numerator">
+                <g data-mml-node="mi" data-semantic-type="operator" data-semantic-role="prefix operator" data-semantic-id="0" data-semantic-parent="2" data-semantic-operator="prefixop,∂" data-semantic-speech="partial differential">
+                  <use data-c="1D715" xlink:href="#prefigure-cr-tree-americano-MJX-7-TEX-I-1D715"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="upper C" transform="translate(566,0)">
+                  <use data-c="1D436" xlink:href="#prefigure-cr-tree-americano-MJX-7-TEX-I-1D436"/>
+                </g>
+              </g>
+              <g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)" data-semantic-type="prefixop" data-semantic-role="prefix operator" data-semantic-id="5" data-semantic-children="4" data-semantic-content="3" data-semantic-parent="6" data-semantic-speech="partial differential m" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="operator" data-semantic-role="prefix operator" data-semantic-id="3" data-semantic-parent="5" data-semantic-operator="prefixop,∂" data-semantic-speech="partial differential">
+                  <use data-c="1D715" xlink:href="#prefigure-cr-tree-americano-MJX-7-TEX-I-1D715"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="5" data-semantic-speech="m" transform="translate(566,0)">
+                  <use data-c="1D45A" xlink:href="#prefigure-cr-tree-americano-MJX-7-TEX-I-1D45A"/>
+                </g>
+              </g>
+              <rect width="1221.1" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-cv-lab" transform="translate(163.9,100.2) translate(-25.0,-11.4)">
+    <g id="prefigure-cr-tree-americano-__g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.536px; color:#0072B2" width="25.048px" height="22.816px" role="img" focusable="false" viewBox="0 -899.6 1384 1260.7" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-8-TEX-I-1D715" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-8-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-8-TEX-I-1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="6" data-semantic-children="2,5" data-semantic-speech="StartFraction partial differential upper C Over partial differential upper V EndFraction">
+              <g data-mml-node="mrow" transform="translate(223.2,394) scale(0.707)" data-semantic-type="prefixop" data-semantic-role="prefix operator" data-semantic-id="2" data-semantic-children="1" data-semantic-content="0" data-semantic-parent="6" data-semantic-speech="partial differential upper C" data-semantic-prefix="Numerator">
+                <g data-mml-node="mi" data-semantic-type="operator" data-semantic-role="prefix operator" data-semantic-id="0" data-semantic-parent="2" data-semantic-operator="prefixop,∂" data-semantic-speech="partial differential">
+                  <use data-c="1D715" xlink:href="#prefigure-cr-tree-americano-MJX-8-TEX-I-1D715"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="upper C" transform="translate(566,0)">
+                  <use data-c="1D436" xlink:href="#prefigure-cr-tree-americano-MJX-8-TEX-I-1D436"/>
+                </g>
+              </g>
+              <g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)" data-semantic-type="prefixop" data-semantic-role="prefix operator" data-semantic-id="5" data-semantic-children="4" data-semantic-content="3" data-semantic-parent="6" data-semantic-speech="partial differential upper V" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="operator" data-semantic-role="prefix operator" data-semantic-id="3" data-semantic-parent="5" data-semantic-operator="prefixop,∂" data-semantic-speech="partial differential">
+                  <use data-c="1D715" xlink:href="#prefigure-cr-tree-americano-MJX-8-TEX-I-1D715"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="5" data-semantic-speech="upper V" transform="translate(566,0)">
+                  <use data-c="1D449" xlink:href="#prefigure-cr-tree-americano-MJX-8-TEX-I-1D449"/>
+                </g>
+              </g>
+              <rect width="1144" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-cw-lab" transform="translate(250.4,96.5) translate(0.0,-11.4)">
+    <g id="prefigure-cr-tree-americano-__g-7">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.536px; color:#0072B2" width="28.624px" height="22.816px" role="img" focusable="false" viewBox="0 -899.6 1581.3 1260.7" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-9-TEX-I-1D715" d="M202 508Q179 508 169 520T158 547Q158 557 164 577T185 624T230 675T301 710L333 715H345Q378 715 384 714Q447 703 489 661T549 568T566 457Q566 362 519 240T402 53Q321 -22 223 -22Q123 -22 73 56Q42 102 42 148V159Q42 276 129 370T322 465Q383 465 414 434T455 367L458 378Q478 461 478 515Q478 603 437 639T344 676Q266 676 223 612Q264 606 264 572Q264 547 246 528T202 508ZM430 306Q430 372 401 400T333 428Q270 428 222 382Q197 354 183 323T150 221Q132 149 132 116Q132 21 232 21Q244 21 250 22Q327 35 374 112Q389 137 409 196T430 306Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-9-TEX-I-1D436" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-9-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="6" data-semantic-children="2,5" data-semantic-speech="StartFraction partial differential upper C Over partial differential upper W EndFraction">
+              <g data-mml-node="mrow" transform="translate(321.8,394) scale(0.707)" data-semantic-type="prefixop" data-semantic-role="prefix operator" data-semantic-id="2" data-semantic-children="1" data-semantic-content="0" data-semantic-parent="6" data-semantic-speech="partial differential upper C" data-semantic-prefix="Numerator">
+                <g data-mml-node="mi" data-semantic-type="operator" data-semantic-role="prefix operator" data-semantic-id="0" data-semantic-parent="2" data-semantic-operator="prefixop,∂" data-semantic-speech="partial differential">
+                  <use data-c="1D715" xlink:href="#prefigure-cr-tree-americano-MJX-9-TEX-I-1D715"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="upper C" transform="translate(566,0)">
+                  <use data-c="1D436" xlink:href="#prefigure-cr-tree-americano-MJX-9-TEX-I-1D436"/>
+                </g>
+              </g>
+              <g data-mml-node="mrow" transform="translate(220,-345.6) scale(0.707)" data-semantic-type="prefixop" data-semantic-role="prefix operator" data-semantic-id="5" data-semantic-children="4" data-semantic-content="3" data-semantic-parent="6" data-semantic-speech="partial differential upper W" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="operator" data-semantic-role="prefix operator" data-semantic-id="3" data-semantic-parent="5" data-semantic-operator="prefixop,∂" data-semantic-speech="partial differential">
+                  <use data-c="1D715" xlink:href="#prefigure-cr-tree-americano-MJX-9-TEX-I-1D715"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="5" data-semantic-speech="upper W" transform="translate(566,0)">
+                  <use data-c="1D44A" xlink:href="#prefigure-cr-tree-americano-MJX-9-TEX-I-1D44A"/>
+                </g>
+              </g>
+              <rect width="1341.3" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-mt-lab" transform="translate(97.6,231.5) translate(-25.9,-11.2)">
+    <g id="prefigure-cr-tree-americano-__g-8">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.384px; color:#0072B2" width="25.856px" height="22.400px" role="img" focusable="false" viewBox="0 -884.7 1428.5 1237.5" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-10-TEX-I-1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-10-TEX-N-2062" d=""/>
+          <path id="prefigure-cr-tree-americano-MJX-10-TEX-I-1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-10-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="8" data-semantic-children="3,7" data-semantic-speech="StartFraction d m Over d t EndFraction">
+              <g data-mml-node="mrow" transform="translate(220,394) scale(0.707)" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="3" data-semantic-children="0,1" data-semantic-content="2" data-semantic-parent="8" data-semantic-speech="d m" data-semantic-prefix="Numerator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="d">
+                  <use data-c="1D451" xlink:href="#prefigure-cr-tree-americano-MJX-10-TEX-I-1D451"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="2" data-semantic-parent="3" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(520,0)">
+                  <use data-c="2062" xlink:href="#prefigure-cr-tree-americano-MJX-10-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="3" data-semantic-speech="m" transform="translate(520,0)">
+                  <use data-c="1D45A" xlink:href="#prefigure-cr-tree-americano-MJX-10-TEX-I-1D45A"/>
+                </g>
+              </g>
+              <g data-mml-node="mrow" transform="translate(402.8,-345) scale(0.707)" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="7" data-semantic-children="4,5" data-semantic-content="6" data-semantic-parent="8" data-semantic-speech="d t" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="7" data-semantic-speech="d">
+                  <use data-c="1D451" xlink:href="#prefigure-cr-tree-americano-MJX-10-TEX-I-1D451"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="6" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(520,0)">
+                  <use data-c="2062" xlink:href="#prefigure-cr-tree-americano-MJX-10-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="7" data-semantic-speech="t" transform="translate(520,0)">
+                  <use data-c="1D461" xlink:href="#prefigure-cr-tree-americano-MJX-10-TEX-I-1D461"/>
+                </g>
+              </g>
+              <rect width="1188.5" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-vt-lab" transform="translate(185.6,222.5) translate(0.0,-11.2)">
+    <g id="prefigure-cr-tree-americano-__g-9">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.384px; color:#0072B2" width="24.464px" height="22.400px" role="img" focusable="false" viewBox="0 -884.7 1351.5 1237.5" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-11-TEX-I-1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-11-TEX-N-2062" d=""/>
+          <path id="prefigure-cr-tree-americano-MJX-11-TEX-I-1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-11-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="8" data-semantic-children="3,7" data-semantic-speech="StartFraction d upper V Over d t EndFraction">
+              <g data-mml-node="mrow" transform="translate(220,394) scale(0.707)" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="3" data-semantic-children="0,1" data-semantic-content="2" data-semantic-parent="8" data-semantic-speech="d upper V" data-semantic-prefix="Numerator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="d">
+                  <use data-c="1D451" xlink:href="#prefigure-cr-tree-americano-MJX-11-TEX-I-1D451"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="2" data-semantic-parent="3" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(520,0)">
+                  <use data-c="2062" xlink:href="#prefigure-cr-tree-americano-MJX-11-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="3" data-semantic-speech="upper V" transform="translate(520,0)">
+                  <use data-c="1D449" xlink:href="#prefigure-cr-tree-americano-MJX-11-TEX-I-1D449"/>
+                </g>
+              </g>
+              <g data-mml-node="mrow" transform="translate(364.2,-345) scale(0.707)" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="7" data-semantic-children="4,5" data-semantic-content="6" data-semantic-parent="8" data-semantic-speech="d t" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="7" data-semantic-speech="d">
+                  <use data-c="1D451" xlink:href="#prefigure-cr-tree-americano-MJX-11-TEX-I-1D451"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="6" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(520,0)">
+                  <use data-c="2062" xlink:href="#prefigure-cr-tree-americano-MJX-11-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="7" data-semantic-speech="t" transform="translate(520,0)">
+                  <use data-c="1D461" xlink:href="#prefigure-cr-tree-americano-MJX-11-TEX-I-1D461"/>
+                </g>
+              </g>
+              <rect width="1111.5" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-tree-americano-ta-wt-lab" transform="translate(250.4,231.5) translate(0.0,-11.2)">
+    <g id="prefigure-cr-tree-americano-__g-10">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -6.384px; color:#0072B2" width="28.032px" height="22.400px" role="img" focusable="false" viewBox="0 -884.7 1548.7 1237.5" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-tree-americano-MJX-12-TEX-I-1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-12-TEX-N-2062" d=""/>
+          <path id="prefigure-cr-tree-americano-MJX-12-TEX-I-1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"/>
+          <path id="prefigure-cr-tree-americano-MJX-12-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mfrac" data-semantic-type="fraction" data-semantic-role="division" data-semantic-id="8" data-semantic-children="3,7" data-semantic-speech="StartFraction d upper W Over d t EndFraction">
+              <g data-mml-node="mrow" transform="translate(220,394) scale(0.707)" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="3" data-semantic-children="0,1" data-semantic-content="2" data-semantic-parent="8" data-semantic-speech="d upper W" data-semantic-prefix="Numerator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="d">
+                  <use data-c="1D451" xlink:href="#prefigure-cr-tree-americano-MJX-12-TEX-I-1D451"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="2" data-semantic-parent="3" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(520,0)">
+                  <use data-c="2062" xlink:href="#prefigure-cr-tree-americano-MJX-12-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="3" data-semantic-speech="upper W" transform="translate(520,0)">
+                  <use data-c="1D44A" xlink:href="#prefigure-cr-tree-americano-MJX-12-TEX-I-1D44A"/>
+                </g>
+              </g>
+              <g data-mml-node="mrow" transform="translate(462.9,-345) scale(0.707)" data-semantic-type="infixop" data-semantic-role="implicit" data-semantic-annotation="clearspeak:simple;clearspeak:unit" data-semantic-id="7" data-semantic-children="4,5" data-semantic-content="6" data-semantic-parent="8" data-semantic-speech="d t" data-semantic-prefix="Denominator">
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="7" data-semantic-speech="d">
+                  <use data-c="1D451" xlink:href="#prefigure-cr-tree-americano-MJX-12-TEX-I-1D451"/>
+                </g>
+                <g data-mml-node="mo" data-semantic-type="operator" data-semantic-role="multiplication" data-semantic-id="6" data-semantic-parent="7" data-semantic-added="true" data-semantic-operator="infixop,⁢" data-semantic-speech="times" transform="translate(520,0)">
+                  <use data-c="2062" xlink:href="#prefigure-cr-tree-americano-MJX-12-TEX-N-2062"/>
+                </g>
+                <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="5" data-semantic-parent="7" data-semantic-speech="t" transform="translate(520,0)">
+                  <use data-c="1D461" xlink:href="#prefigure-cr-tree-americano-MJX-12-TEX-I-1D461"/>
+                </g>
+              </g>
+              <rect width="1308.7" height="60" x="120" y="220"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

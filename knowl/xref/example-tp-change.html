@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.6.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Estimating the Change in a Given Direction.</span>
+</h2>
+<div class="para">Consider the function <span class="process-math">\(f(x,y) = 1 + x^2 + y^2\text{,}\)</span> the point <span class="process-math">\(P_0(1,1)\text{,}\)</span> and the unit vector <span class="process-math">\(\hat{u} = \frac{1}{\sqrt 2}\,\hat{\imath} +
+\frac{1}{\sqrt 2}\,\hat{\jmath}\text{.}\)</span> Estimate the change in the value of <span class="process-math">\(f\)</span> as a result of moving away from <span class="process-math">\(P_0(1,1)\)</span> in the direction of <span class="process-math">\(\hat{u}\)</span> by <span class="process-math">\(0.1\)</span> units.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-tp-change-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Note that from the question we know <span class="process-math">\(ds = 0.1\)</span> units. Our goal is to estimate the change in <span class="process-math">\(f\text{.}\)</span> We compute the gradient of <span class="process-math">\(f\)</span> and evaluate it at <span class="process-math">\(P_0\text{:}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-tp-df.html ./knowl/xref/fig-tp-example-change.html">
+\begin{align*}
+\nabla f \amp= 2x\,\hat{\imath} + 2y\,\hat{\jmath}\\
+\nabla f \Big|_{(1,1)} \amp= 2\,\hat{\imath} + 2\,\hat{\jmath}.
+\end{align*}
+</div>
+<div class="para">By <a href="sec-tp-change.html#eq-tp-df" class="xref" data-knowl="./knowl/xref/eq-tp-df.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 4.6.12">(4.6.12)</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-tp-df.html ./knowl/xref/fig-tp-example-change.html">
+\begin{equation}
+df = \left(\nabla f \Big|_{P_0} \cdot \hat{u}\right) ds
+= \left(\langle 2, 2 \rangle \cdot
+\Bigl\langle \frac{1}{\sqrt 2}, \frac{1}{\sqrt 2} \Bigr\rangle\right)(0.1)
+= 0.2\sqrt 2 \approx 0.28 \text{ units}.\tag{4.6.13}
+\end{equation}
+</div>
+<div class="para">This means the change in <span class="process-math">\(f\)</span> is approximately <span class="process-math">\(0.28\)</span> units. See <a href="sec-tp-change.html#fig-tp-example-change" class="xref" data-knowl="./knowl/xref/fig-tp-example-change.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.6.11">Figure 4.6.11</a>.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#solution-tp-change-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">For comparison, the exact change is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-tp-example-change-zoom.html">
+\begin{align*}
+\Delta f \amp= f\left(1 + \frac{0.1}{\sqrt 2},\,
+1 + \frac{0.1}{\sqrt 2}\right) - f(1,1)\\
+\amp= \left(3 + 0.2\sqrt 2 + 0.01\right) - 3
+= 0.2\sqrt 2 + 0.01,
+\end{align*}
+</div>
+<div class="para">so the estimate <span class="process-math">\(df\)</span> is off by only <span class="process-math">\(0.01\)</span> units. <a href="sec-tp-change.html#fig-tp-example-change-zoom" class="xref" data-knowl="./knowl/xref/fig-tp-example-change-zoom.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 4.6.12">Figure 4.6.12</a> zooms in on the stretch just past <span class="process-math">\(P_0\)</span> and shows this gap between the tangent line and the surface.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#solution-tp-change-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.6.10.1"><a tabindex="-1" href="#solution-tp-change" title="Copy heading and permalink for Solution 4.6.10.1" aria-label="Copy heading and permalink for Solution 4.6.10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.6.10: Estimating the Change in a Given Direction"><a tabindex="-1" href="#example-tp-change" title="Copy heading and permalink for Example 4.6.10: Estimating the Change in a Given Direction" aria-label="Copy heading and permalink for Example 4.6.10: Estimating the Change in a Given Direction">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec-tp-change.html#example-tp-change">In Context</a></span>
+</body>
+</html>

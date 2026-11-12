@@ -1,0 +1,75 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-rope-trees-figure" speech2="Two tree trunks one hundred feet apart on level ground. A rope is tied to the left tree at point A, one hundred feet up, and to the right tree at point B, fifty feet up. The taut rope is drawn at three moments, each time as two straight pieces meeting at a point P below the rope's chord, and the three points P lie on a blue curve that sags between the trees, bending down like the lower half of an oval.">
+      <grouped>prefigure-rope-trees-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rope-trees-rt-tree1</active>
+        <active>prefigure-rope-trees-rt-tree2</active>
+        <active>prefigure-rope-trees-rt-A</active>
+        <active>prefigure-rope-trees-rt-B</active>
+        <active>prefigure-rope-trees-rt-rope2a</active>
+        <active>prefigure-rope-trees-rt-rope2b</active>
+        <active>prefigure-rope-trees-rt-path</active>
+      </children>
+      <components>
+        <active>prefigure-rope-trees-rt-tree1</active>
+        <active>prefigure-rope-trees-rt-tree2</active>
+        <active>prefigure-rope-trees-rt-A</active>
+        <active>prefigure-rope-trees-rt-B</active>
+        <active>prefigure-rope-trees-rt-rope2a</active>
+        <active>prefigure-rope-trees-rt-rope2b</active>
+        <active>prefigure-rope-trees-rt-path</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-tree1" speech2="The first tree, one hundred and six feet tall, with the rope tied to it at A.">
+      <active>prefigure-rope-trees-rt-tree1</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-tree2" speech2="The second tree, sixty-two feet tall, with the rope tied to it at B.">
+      <active>prefigure-rope-trees-rt-tree2</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-A" speech2="The point A, one hundred feet up the first tree.">
+      <active>prefigure-rope-trees-rt-A</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-B" speech2="The point B, fifty feet up the second tree.">
+      <active>prefigure-rope-trees-rt-B</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-rope2a" speech2="One of the three rope positions: the piece from A down to the bottle at P.">
+      <active>prefigure-rope-trees-rt-rope2a</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-rope2b" speech2="The other piece of the same rope position, from P up to B.">
+      <active>prefigure-rope-trees-rt-rope2b</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-trees-rt-path" speech2="The blue curve traced by the point P, from the first tree down and across to the second tree.">
+      <active>prefigure-rope-trees-rt-path</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-rope-trees-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

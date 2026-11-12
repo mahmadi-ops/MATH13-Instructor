@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-tree-espresso-figure" speech2="A diamond shaped tree diagram. At the top is the concentration C equals m over V. Two dashed blue branches descend from it, the left labelled partial C partial m leading to a node m, and the right labelled partial C partial V leading to a node V. From m and V two further branches, labelled d m d t and d V d t, descend and meet at the bottom node t.">
+      <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-tree-espresso-te-c</active>
+        <active>prefigure-cr-tree-espresso-te-m</active>
+        <active>prefigure-cr-tree-espresso-te-v</active>
+        <active>prefigure-cr-tree-espresso-te-t</active>
+        <active>prefigure-cr-tree-espresso-te-cm</active>
+        <active>prefigure-cr-tree-espresso-te-mt</active>
+      </children>
+      <components>
+        <active>prefigure-cr-tree-espresso-te-c</active>
+        <active>prefigure-cr-tree-espresso-te-m</active>
+        <active>prefigure-cr-tree-espresso-te-v</active>
+        <active>prefigure-cr-tree-espresso-te-t</active>
+        <active>prefigure-cr-tree-espresso-te-cm</active>
+        <active>prefigure-cr-tree-espresso-te-mt</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-tree-espresso-te-c" speech2="The concentration C at the top of the tree.">
+      <active>prefigure-cr-tree-espresso-te-c</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-tree-espresso-te-m" speech2="The intermediate variable m, the mass of dissolved coffee solids.">
+      <active>prefigure-cr-tree-espresso-te-m</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-tree-espresso-te-v" speech2="The intermediate variable V, the volume of liquid in the cup.">
+      <active>prefigure-cr-tree-espresso-te-v</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-tree-espresso-te-t" speech2="The independent variable t, time in seconds, at the bottom.">
+      <active>prefigure-cr-tree-espresso-te-t</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-tree-espresso-te-cm" speech2="The branch from C to m contributes the factor partial C partial m.">
+      <active>prefigure-cr-tree-espresso-te-cm</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-tree-espresso-te-mt" speech2="The branch from m to t contributes the factor d m d t. Multiplying along this path gives the first term of the chain rule.">
+      <active>prefigure-cr-tree-espresso-te-mt</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-cr-tree-espresso-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
