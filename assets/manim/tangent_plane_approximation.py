@@ -21,8 +21,14 @@ z = f(x,y)" of the course notes.
    L(x,y) = f_x (x - x0) + f_y (y - y0) + f(x0, y0), whose graph is the tangent
    plane: it hugs the surface near P0 and the surface curves away farther out.
 
-The colours are those of the interactive figure of the notes: blue for the
-tangent line and df, orange for Delta f, pink for the error.  The 3D picture
+Each colour has one meaning all the way through, with df, Delta f and the error
+as in the interactive figure of the notes: ORANGE is the function (the curve
+y = f(x), the surface, its slice, Delta f, f(x,y) and the point on the
+surface), BLUE is the tangent approximation (the tangent line, df, the tangent
+plane, L(x,y) and the point on the plane), and PINK is the error between the
+two.  That is why the surface is orange here and not blue as in the other
+videos: a blue surface made the blue point on the plane look like a point of
+the surface (instructor report, Nov 2026).  The 3D picture
 is drawn with a fixed orthographic projection inside an ordinary Scene (faces
 depth-sorted once), as in dirderiv_partials.py.  The surface is only a prop for
 "a general f"; its formula is never shown.
@@ -59,12 +65,13 @@ Z0 = f(X0, Y0)
 FX, FY = -2 * C_F * X0, -2 * C_F * Y0
 
 # ---- colours ----------------------------------------------------------------
-DF_C = "#58C4DD"                        # the tangent line and df
-DEL_C = "#FF9F43"                       # Delta f
+DF_C = "#58C4DD"                        # the tangent line, df, the tangent plane, L(x,y)
+DEL_C = "#FF9F43"                       # Delta f, f(x,y), and the curves of the function
 ERR_C = "#E07AC8"                       # the error
 U_C = "#7CE07C"                         # the unit vector u
 INK = "#ECE6E2"
-PL_C = "#E88A8A"                        # the tangent plane, as in tangent_plane_cross_product.py
+PL_C = DF_C                             # the tangent plane: the same blue as its lines
+SURF_C = "#FFB45E"                      # outline and label of the surface (orange family)
 KEY_C = YELLOW
 
 FAST = os.environ.get("FAST", "") == "1"
@@ -181,9 +188,9 @@ class TangentPlaneApproximation(Scene):
         DX = dx.get_value
         a_x = arrow(q(-0.2, 0), q(4.45, 0), GREY_A, sw=3, tip=0.2)
         a_y = arrow(q(0, -0.2), q(0, 4.6), GREY_A, sw=3, tip=0.2)
-        curve = VMobject(color=INK, stroke_width=4.5)
+        curve = VMobject(color=DEL_C, stroke_width=4.5)
         curve.set_points_as_corners([q(x, h(x)) for x in np.linspace(0, 3.75, 60)])
-        c_lab = M("y=f(x)", fs=30).move_to(q(3.75, h(3.75)) + np.array([0.15, 0.3, 0]))
+        c_lab = M("y=f(x)", fs=30, color=DEL_C).move_to(q(3.75, h(3.75)) + np.array([0.15, 0.3, 0]))
         g0 = DashedLine(q(XA, 0), q(XA, h(XA)), color=GREY_B, stroke_width=2, dash_length=0.08)
         t0 = M("x", fs=28).move_to(q(XA, -0.28))
         d0 = Dot(q(XA, h(XA)), radius=0.07, color=WHITE).set_z_index(5)
@@ -295,18 +302,18 @@ class TangentPlaneApproximation(Scene):
                 b = 0.2 + 0.8 * max(0.0, float(n @ light))
                 poly = Polygon(*[v.p(*pt) for pt in pts3],
                                stroke_color=WHITE, stroke_width=0.6, stroke_opacity=0.2,
-                               fill_color=interpolate_color(ManimColor("#123A66"),
-                                                            ManimColor("#4FA3E8"), b),
+                               fill_color=interpolate_color(ManimColor("#4A2A0C"),
+                                                            ManimColor("#D98A3A"), b),
                                fill_opacity=0.4)
                 faces.append((v.depth(c[0], c[1], c[2]), poly))
         faces.sort(key=lambda t: t[0])
         surface = VGroup(*[poly for _, poly in faces])
         edge = [(r, 0.0) for r in rs] + [(R_S, t) for t in ts] + [(r, PI / 2) for r in rs[::-1]]
-        rim = VMobject(color=BLUE_B, stroke_width=1.5, stroke_opacity=0.7)
+        rim = VMobject(color=SURF_C, stroke_width=1.5, stroke_opacity=0.7)
         rim.set_points_as_corners([v.p(r * np.cos(t), r * np.sin(t),
                                        f(r * np.cos(t), r * np.sin(t))) for r, t in edge])
         surface.add(rim)
-        surf_label = M("z = f(x,y)", fs=30, color=BLUE_B).move_to(v.po(2.4, 0, f(2.4, 0), -0.95, 0.3))
+        surf_label = M("z = f(x,y)", fs=30, color=SURF_C).move_to(v.po(2.4, 0, f(2.4, 0), -0.95, 0.3))
 
         g_dot = Dot(v.p(X0, Y0, 0), radius=0.06, color=WHITE).set_z_index(5)
         g_lab = M("P_0", fs=30).move_to(v.po(X0, Y0, 0, -0.3, -0.16))
@@ -350,7 +357,7 @@ class TangentPlaneApproximation(Scene):
             return m
 
         def mk_trace():
-            m = VMobject(color=INK, stroke_width=4.5, stroke_opacity=sl.get_value())
+            m = VMobject(color=DEL_C, stroke_width=4.5, stroke_opacity=sl.get_value())
             m.set_points_as_corners(trace_pts())
             return m
 
@@ -386,9 +393,11 @@ class TangentPlaneApproximation(Scene):
         gapl = always_redraw(lambda: seg(S3(S(), Z0 + D() * S()), S3(S(), gz(S())), ERR_C, 7,
                                          gap.get_value()))
         bracket = always_redraw(mk_bracket)
-        b_dot = always_redraw(lambda: Dot(S3(S(), Z0 + D() * S()), radius=0.06, color=DF_C).set_opacity(
+        b_dot = always_redraw(lambda: Dot(S3(S(), Z0 + D() * S()), radius=0.06 + 0.03 * gap.get_value(),
+                                          color=DF_C, stroke_color=BLACK, stroke_width=1.5).set_opacity(
             max(tri.get_value(), gap.get_value())))
-        o_dot = always_redraw(lambda: Dot(S3(S(), gz(S())), radius=0.065, color=DEL_C).set_opacity(
+        o_dot = always_redraw(lambda: Dot(S3(S(), gz(S())), radius=0.065 + 0.03 * gap.get_value(),
+                                          color=DEL_C, stroke_color=BLACK, stroke_width=1.5).set_opacity(
             max(brk.get_value(), gap.get_value())))
 
         big = lambda: ramp(S(), 0.5, 0.3)
@@ -411,9 +420,9 @@ class TangentPlaneApproximation(Scene):
                        lambda: big() * tri.get_value())
         far = lambda: ramp(S(), 0.45, 0.25) * gap.get_value()
         l_L = follow(M("L(x,y)", fs=28, color=DF_C),
-                     lambda: S3(S(), Z0 + D() * S()) + np.array([0.0, 0.3, 0.0]), far)
+                     lambda: S3(S(), Z0 + D() * S()) + np.array([0.52, 0.36, 0.0]), far)
         l_f = follow(M("f(x,y)", fs=28, color=DEL_C),
-                     lambda: S3(S(), gz(S())) + np.array([0.62, -0.1, 0.0]), far)
+                     lambda: S3(S(), gz(S())) + np.array([0.66, -0.12, 0.0]), far)
         dyn = [curtain, trace, riser, disp, u_arr, p_dot, tangent, run, leg, err, gapl, bracket,
                b_dot, o_dot, l_u, l_p, l_xy, l_ds, l_df, l_Df, l_err, l_L, l_f]
         for m in (tangent, run, leg, err, gapl, bracket):
@@ -489,7 +498,7 @@ class TangentPlaneApproximation(Scene):
             n = max(3, int(40 * span / PI))
             for a0 in (ANG0, ANG0 + PI):
                 pts = [v.p(X0, Y0, Z0)] + [rim_pt(t) for t in np.linspace(a0, a0 + span, n)]
-                m.add(Polygon(*pts, stroke_width=0, fill_color=PL_C, fill_opacity=0.26))
+                m.add(Polygon(*pts, stroke_width=0, fill_color=PL_C, fill_opacity=0.3))
             return m
 
         sweep = always_redraw(mk_sweep).set_z_index(3)
@@ -497,10 +506,12 @@ class TangentPlaneApproximation(Scene):
         self.play(ang.animate.set_value(ANG0 + TAU), run_time=9.0, rate_func=ease)
         patch = Polygon(*[rim_pt(t) for t in np.linspace(0, TAU, 60, endpoint=False)],
                         stroke_color=PL_C, stroke_width=2, stroke_opacity=0.9,
-                        fill_color=PL_C, fill_opacity=0.26).set_z_index(3)
+                        fill_color=PL_C, fill_opacity=0.3).set_z_index(3)
+        # up and to the left of the highest point of the patch, clear of the labels
+        # that move with P
         top = max((rim_pt(t) for t in np.linspace(0, TAU, 90)), key=lambda p: p[1])
         patch_lab = T("tangent plane", fs=26, color=PL_C).move_to(
-            top + np.array([-1.25, 0.3, 0])).set_z_index(6)
+            top + np.array([-1.9, 0.25, 0])).set_z_index(6)
         sweep.clear_updaters()
         self.remove(sweep)
         self.add(patch)
@@ -546,11 +557,24 @@ class TangentPlaneApproximation(Scene):
         e4 = put(T(r"curves away from the plane."), -0.25)
         u_arr.clear_updaters()
         l_u.clear_updaters()
+        # The slice stays: the orange point rides the orange curve on the surface and
+        # the blue point rides the blue tangent line in the plane, straight above the
+        # same point (x, y).  A key says which is which.
+        def key_row(mark, tex, color, y):
+            mark.move_to(np.array([LEFT_X + 0.16, y, 0]))
+            txt = T(tex, fs=27, color=color)
+            txt.move_to(np.array([LEFT_X + 0.5, y, 0]), aligned_edge=LEFT)
+            return VGroup(mark, txt)
+
+        k1 = key_row(Dot(radius=0.09, color=DF_C), r"on the tangent plane: height $L(x,y)$", DF_C, -0.95)
+        k2 = key_row(Dot(radius=0.09, color=DEL_C), r"on the surface: height $f(x,y)$", DEL_C, -1.42)
+        k3 = key_row(Line(UP * 0.14, DOWN * 0.14, color=ERR_C, stroke_width=7),
+                     r"the error $f(x,y)-L(x,y)$", ERR_C, -1.89)
         self.play(FadeOut(VGroup(d3, d4, d5, d6)), tri.animate.set_value(0.0),
-                  brk.animate.set_value(0.0), tl.animate.set_value(0.0), sl.animate.set_value(0.0),
-                  FadeOut(u_arr), FadeOut(l_u), run_time=1.0)
+                  brk.animate.set_value(0.0), FadeOut(u_arr), FadeOut(l_u), run_time=1.0)
         self.play(FadeIn(e1), gap.animate.set_value(1.0), run_time=1.2)
-        self.w(1.0)
+        self.play(LaggedStart(FadeIn(k1), FadeIn(k2), FadeIn(k3), lag_ratio=0.5), run_time=2.0)
+        self.w(1.5)
         self.play(FadeIn(e2), s.animate.set_value(0.15), run_time=3.0, rate_func=ease)
         self.w(0.6)
         self.play(FadeIn(e3), FadeIn(e4), s.animate.set_value(1.1),

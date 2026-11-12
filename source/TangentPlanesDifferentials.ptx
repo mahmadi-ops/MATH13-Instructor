@@ -1627,9 +1627,11 @@ df = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0).
 f(x,y) \approx f(x_0,y_0) + df = L(x,y),
 </md>
 the linearization of <xref ref="eq-tp-linearization"/>, whose graph is the
-tangent plane. Near
-<m>P_0</m> the plane hugs the surface; farther out, the surface curves
-away from the plane.
+tangent plane. Above each point <m>(x,y)</m> the blue point is on the
+tangent plane, at height <m>L(x,y)</m>, and the orange point is on the
+surface, at height <m>f(x,y)</m>; the pink segment between them is the
+error. Near <m>P_0</m> the plane hugs the surface; farther out, the
+surface curves away from the plane.
 </p>
 </li>
 </ul>
