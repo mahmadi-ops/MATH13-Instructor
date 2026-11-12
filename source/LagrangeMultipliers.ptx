@@ -56,7 +56,8 @@ a subset of the plane such as a curve, namely the problem
 <md xml:id="eq-lagrange-problem" number="yes">
 \begin{aligned}
 \amp \text{maximize or minimize } f(x,y) \\
-\amp \text{subject to the constraint } g(x,y) = 0.
+\amp \text{subject to the constraint} \\
+\amp \quad g(x,y) = 0.
 \end{aligned}
 </md>
 More generally, one can impose several constraints on a function of many
@@ -350,9 +351,10 @@ find the local maximum and minimum values of <m>f</m> subject to the
 constraint <m>g(x,y,z) = 0</m>, find the values of <m>x</m>, <m>y</m>,
 <m>z</m>, and <m>\lambda</m> that simultaneously satisfy the equations
 <md xml:id="eq-lagrange-method" number="yes">
-\nabla f = \lambda\, \nabla g
-\qquad \text{and} \qquad
-g(x,y,z) = 0.
+\begin{aligned}
+\amp \nabla f = \lambda\, \nabla g \quad \text{and} \\
+\amp g(x,y,z) = 0.
+\end{aligned}
 </md>
 For functions of two variables <m>f(x,y)</m> and <m>g(x,y)</m>, the same
 equations apply, with the variable <m>z</m> omitted.
@@ -411,7 +413,10 @@ curve. We wish to find the extrema of <m>f(x,y) = xy</m> subject to the
 constraint <xref ref="eq-lagrange-ellipse"/>, written in the form required
 by <xref ref="eq-lagrange-method"/>:
 <md xml:id="eq-lagrange-ellipse-constraint" number="yes">
-g(x,y) = \frac{x^2}{8} + \frac{y^2}{2} - 1 = 0.
+\begin{aligned}
+\amp g(x,y) \\
+\amp = \frac{x^2}{8} + \frac{y^2}{2} - 1 = 0.
+\end{aligned}
 </md>
 </p>
 <p>
@@ -432,14 +437,13 @@ The Lagrange multiplier equation gives
 After substituting <m>x = \lambda y</m> into
 <m>y = \lambda\frac{x}{4}</m>, we get
 <md xml:id="eq-lagrange-ellipse-lambda">
-<mrow>y = \frac{\lambda^2}{4}\, y \amp\;\Rightarrow\; \lambda = \pm 2
-\;\Rightarrow\; x = \pm 2y.</mrow>
+<mrow>y = \frac{\lambda^2}{4}\, y \amp\;\Rightarrow\; \lambda = \pm 2</mrow>
+<mrow>\amp\;\Rightarrow\; x = \pm 2y.</mrow>
 </md>
 After plugging <m>x = \pm 2y</m> into the constraint equation we get
 <md xml:id="eq-lagrange-ellipse-points">
-<mrow>g(\pm 2y, y) \amp= \frac{y^2}{2} + \frac{y^2}{2} - 1 = 0</mrow>
-<mrow>\amp\;\Rightarrow\; y^2 = 1
-\;\Rightarrow\; y = \pm 1.</mrow>
+<mrow>\amp g(\pm 2y, y) = \frac{y^2}{2} + \frac{y^2}{2} - 1</mrow>
+<mrow>\amp \quad = 0 \;\Rightarrow\; y^2 = 1 \;\Rightarrow\; y = \pm 1.</mrow>
 </md>
 Note that <m>y = 0</m> is another solution of
 <m>y = \frac{\lambda^2}{4}y</m>; however, when <m>y = 0</m>, from
@@ -450,8 +454,10 @@ Note that <m>y = 0</m> is another solution of
 <p>
 Therefore there are four local extrema:
 <md>
-<mrow>(\pm 2, 1)\colon \amp\quad f(2,1) = 2, \quad f(-2,1) = -2</mrow>
-<mrow>(\pm 2, -1)\colon \amp\quad f(2,-1) = -2, \quad f(-2,-1) = 2.</mrow>
+<mrow>(\pm 2, 1)\colon \amp\quad f(2,1) = 2,</mrow>
+<mrow>\amp\quad f(-2,1) = -2,</mrow>
+<mrow>(\pm 2, -1)\colon \amp\quad f(2,-1) = -2,</mrow>
+<mrow>\amp\quad f(-2,-1) = 2.</mrow>
 </md>
 Since the ellipse is a closed and bounded curve and <m>f</m> is
 continuous, <m>f</m> attains its absolute extrema over the ellipse, and
@@ -608,7 +614,10 @@ Find the absolute maximum and minimum of
 <p>
 Completing the squares shows that
 <md xml:id="eq-lagrange-circle-square" number="yes">
-f(x,y) = (x-1)^2 + (y+1)^2 + 3,
+\begin{aligned}
+\amp f(x,y) = (x-1)^2 \\
+\amp \qquad {} + (y+1)^2 + 3,
+\end{aligned}
 </md>
 so the graph of <m>f</m> is a paraboloid with vertex at
 <m>(1,-1,3)</m>. The constraint can be thought of as
@@ -633,8 +642,10 @@ We compute the gradients:
 The Lagrange multiplier equation gives
 <md xml:id="eq-lagrange-circle-system">
 <mrow>\nabla f \amp= \lambda\,\nabla g</mrow>
-<mrow>\amp\;\Rightarrow\; (2x-2)\,\hat{\imath} + (2y+2)\,\hat{\jmath} = 2\lambda x\,\hat{\imath} + 2\lambda y\,\hat{\jmath}</mrow>
-<mrow>\amp\;\Rightarrow\; x - 1 = \lambda x, \quad y + 1 = \lambda y.</mrow>
+<mrow>\amp\;\Rightarrow\; (2x-2)\,\hat{\imath} + (2y+2)\,\hat{\jmath}</mrow>
+<mrow>\amp\qquad = 2\lambda x\,\hat{\imath} + 2\lambda y\,\hat{\jmath}</mrow>
+<mrow>\amp\;\Rightarrow\; x - 1 = \lambda x,</mrow>
+<mrow>\amp\qquad y + 1 = \lambda y.</mrow>
 </md>
 Adding the two equations yields
 <md xml:id="eq-lagrange-circle-add" number="yes">
@@ -645,8 +656,8 @@ This equation is satisfied if <m>\lambda = 1</m> or if
 substituting it into <m>x - 1 = \lambda x</m> gives <m>-1 = 0</m>.
 Hence <m>y = -x</m>, which we substitute into the constraint:
 <md xml:id="eq-lagrange-circle-points">
-<mrow>x^2 + y^2 = 4 \amp\;\Rightarrow\; 2x^2 = 4
-\;\Rightarrow\; x = -y = \pm\sqrt{2}.</mrow>
+<mrow>\amp x^2 + y^2 = 4 \;\Rightarrow\; 2x^2 = 4</mrow>
+<mrow>\amp \quad \Rightarrow\; x = -y = \pm\sqrt{2}.</mrow>
 </md>
 </p>
 <p>
@@ -654,8 +665,10 @@ Therefore the solutions are <m>(x,y) = (\sqrt 2, -\sqrt 2)</m> and
 <m>(x,y) = (-\sqrt 2, \sqrt 2)</m>. Using
 <xref ref="eq-lagrange-circle-square"/>,
 <md>
-<mrow>f(\sqrt 2, -\sqrt 2) \amp= 2(\sqrt 2 - 1)^2 + 3 = 9 - 4\sqrt 2</mrow>
-<mrow>f(-\sqrt 2, \sqrt 2) \amp= 2(\sqrt 2 + 1)^2 + 3 = 9 + 4\sqrt 2.</mrow>
+<mrow>\amp f(\sqrt 2, -\sqrt 2)</mrow>
+<mrow>\amp \quad = 2(\sqrt 2 - 1)^2 + 3 = 9 - 4\sqrt 2,</mrow>
+<mrow>\amp f(-\sqrt 2, \sqrt 2)</mrow>
+<mrow>\amp \quad = 2(\sqrt 2 + 1)^2 + 3 = 9 + 4\sqrt 2.</mrow>
 </md>
 Since the circle is closed and bounded and <m>f</m> is continuous, these
 are the absolute extrema: <m>f(\sqrt 2, -\sqrt 2) = 9 - 4\sqrt 2</m> is
@@ -668,9 +681,9 @@ The answer agrees with the geometry of
 <m>f</m> equals <m>3</m> plus the square of the distance to the point
 <m>(1,-1)</m>. The point of the circle farthest from <m>(1,-1)</m> is
 <m>(-\sqrt 2, \sqrt 2)</m>, at distance <m>2 + \sqrt 2</m>, giving
-<m>f = 3 + (2+\sqrt 2)^2 = 9 + 4\sqrt 2</m>, and the nearest point is
+<m>f = 3 + (2+\sqrt 2)^2</m>, which is <m>9 + 4\sqrt 2</m>, and the nearest point is
 <m>(\sqrt 2, -\sqrt 2)</m>, at distance <m>2 - \sqrt 2</m>, giving
-<m>f = 3 + (2-\sqrt 2)^2 = 9 - 4\sqrt 2</m>. Note also that in
+<m>f = 3 + (2-\sqrt 2)^2</m>, which is <m>9 - 4\sqrt 2</m>. Note also that in
 <xref ref="fig-lagrange-circle-prefigure"/> the gradients
 <m>\nabla f</m> and <m>\nabla g</m> point in the same direction at both
 extrema, but with different multipliers: from
@@ -848,37 +861,47 @@ point <m>(1,0,-2)</m>. The distance from a point <m>(x,y,z)</m> to
 <m>\sqrt{(x-1)^2 + y^2 + (z+2)^2}</m>, and, as before, minimizing the
 distance is the same as minimizing its square. So we minimize
 <md xml:id="eq-lagrange-distance-f" number="yes">
-f(x,y,z) = (x-1)^2 + y^2 + (z+2)^2
+\begin{aligned}
+\amp f(x,y,z) = (x-1)^2 \\
+\amp \qquad {} + y^2 + (z+2)^2
+\end{aligned}
 </md>
 subject to the constraint
 <md xml:id="eq-lagrange-distance-g" number="yes">
-g(x,y,z) = x + 2y + z - 4 = 0.
+\begin{aligned}
+\amp g(x,y,z) \\
+\amp = x + 2y + z - 4 = 0.
+\end{aligned}
 </md>
 </p>
 <p>
 We compute the gradients:
 <md>
-<mrow>\nabla f \amp= 2(x-1)\,\hat{\imath} + 2y\,\hat{\jmath} + 2(z+2)\,\hat{k}</mrow>
+<mrow>\nabla f \amp= 2(x-1)\,\hat{\imath} + 2y\,\hat{\jmath}</mrow>
+<mrow>\amp\qquad + 2(z+2)\,\hat{k}</mrow>
 <mrow>\nabla g \amp= \hat{\imath} + 2\,\hat{\jmath} + \hat{k}.</mrow>
 </md>
 The Lagrange multiplier equation gives
 <md xml:id="eq-lagrange-distance-system">
-<mrow>\nabla f = \lambda\,\nabla g \amp\;\Rightarrow\;
-2(x-1)\,\hat{\imath} + 2y\,\hat{\jmath} + 2(z+2)\,\hat{k}</mrow>
-<mrow>\amp= \lambda\,\hat{\imath} + 2\lambda\,\hat{\jmath} + \lambda\,\hat{k}.</mrow>
+<mrow>\nabla f \amp= \lambda\,\nabla g</mrow>
+<mrow>\amp\;\Rightarrow\; 2(x-1)\,\hat{\imath} + 2y\,\hat{\jmath}</mrow>
+<mrow>\amp\qquad + 2(z+2)\,\hat{k}</mrow>
+<mrow>\amp\qquad = \lambda\,\hat{\imath} + 2\lambda\,\hat{\jmath} + \lambda\,\hat{k}.</mrow>
 </md>
 so that
 <md xml:id="eq-lagrange-distance-xyz" number="yes">
-x = \frac{\lambda}{2} + 1, \qquad
-y = \lambda, \qquad
-z = \frac{\lambda}{2} - 2.
+\begin{aligned}
+x \amp= \frac{\lambda}{2} + 1, \\
+y \amp= \lambda, \\
+z \amp= \frac{\lambda}{2} - 2.
+\end{aligned}
 </md>
 We substitute these into the equation of the constraint to find
 <m>\lambda</m>:
 <md xml:id="eq-lagrange-distance-lambda">
-<mrow>g(x,y,z) = x + 2y + z - 4 \amp= 0</mrow>
-<mrow>\amp\;\Rightarrow\; 3\lambda - 5 = 0
-\;\Rightarrow\; \lambda = \frac{5}{3}.</mrow>
+<mrow>g(x,y,z) \amp= x + 2y + z - 4 = 0</mrow>
+<mrow>\amp\;\Rightarrow\; 3\lambda - 5 = 0</mrow>
+<mrow>\amp\;\Rightarrow\; \lambda = \frac{5}{3}.</mrow>
 </md>
 </p>
 <p>
@@ -887,12 +910,14 @@ point <m>(1,0,-2)</m> is
 <md xml:id="eq-lagrange-distance-point" number="yes">
 \left(\frac{11}{6},\; \frac{5}{3},\; -\frac{7}{6}\right)
 </md>
-and their distance is
+and their distance <m>d</m> is given by
 <md xml:id="eq-lagrange-distance-value" number="yes">
-d = \sqrt{\left(\frac{11}{6} - 1\right)^2
-+ \left(\frac{5}{3}\right)^2
-+ \left(-\frac{7}{6} + 2\right)^2}
-= \frac{5}{6}\sqrt{6},
+\begin{aligned}
+d^2 \amp= \left(\frac{11}{6} - 1\right)^2 \\
+\amp\quad {} + \left(\frac{5}{3}\right)^2 \\
+\amp\quad {} + \left(-\frac{7}{6} + 2\right)^2, \\
+d \amp= \frac{5}{6}\sqrt{6},
+\end{aligned}
 </md>
 in agreement with <xref ref="example-shortest-distance"/>.
 </p>
@@ -910,22 +935,29 @@ the shortest distance meets the plane perpendicularly, so the vector
 <m>\overrightarrow{P_0 P}</m> must be parallel to the normal vector
 <m>\mathbf n = \hat{\imath} + 2\,\hat{\jmath} + \hat{k}</m> of the plane:
 <md>
-<mrow>\overrightarrow{P_0 P} = \langle x - 1,\; y,\; z + 2\rangle \amp= \lambda\,\langle 1, 2, 1\rangle</mrow>
-<mrow xml:id="eq-lagrange-normal-parallel" number="yes">\amp\;\Rightarrow\; x = \lambda + 1, \quad y = 2\lambda, \quad z = \lambda - 2.</mrow>
+<mrow>\overrightarrow{P_0 P} \amp= \langle x - 1,\; y,\; z + 2\rangle</mrow>
+<mrow>\amp= \lambda\,\langle 1, 2, 1\rangle,</mrow>
+</md>
+so that
+<md>
+<mrow>x \amp= \lambda + 1,</mrow>
+<mrow xml:id="eq-lagrange-normal-parallel" number="yes">y \amp= 2\lambda,</mrow>
+<mrow>z \amp= \lambda - 2.</mrow>
 </md>
 We then substitute <xref ref="eq-lagrange-normal-parallel"/> into the
 equation of the plane:
 <md xml:id="eq-lagrange-normal-solve">
-<mrow>(\lambda + 1) + 2(2\lambda) + (\lambda - 2) \amp= 4
-\;\Rightarrow\; \lambda = \frac{5}{6}</mrow>
-<mrow>\amp\;\Rightarrow\; x = \frac{11}{6}, \quad y = \frac{5}{3}, \quad z = -\frac{7}{6},</mrow>
+<mrow>\amp (\lambda + 1) + 2(2\lambda) + (\lambda - 2) = 4</mrow>
+<mrow>\amp \quad \Rightarrow\; \lambda = \frac{5}{6}</mrow>
+<mrow>\amp \quad \Rightarrow\; x = \frac{11}{6}, \quad y = \frac{5}{3},</mrow>
+<mrow>\amp \quad \phantom{\Rightarrow\;} z = -\frac{7}{6},</mrow>
 </md>
 and therefore the minimum distance is again
 <m>d = \frac{5}{6}\sqrt{6}</m>.
 </p>
 <p>
 The two solutions are closely related. At the closest point,
-<m>\nabla f = 2\langle x-1,\, y,\, z+2\rangle = 2\,\overrightarrow{P_0 P}</m>,
+<m>\nabla f = 2\langle x-1,\, y,\, z+2\rangle</m>, which is <m>2\,\overrightarrow{P_0 P}</m>,
 while <m>\nabla g = \langle 1,2,1\rangle = \mathbf n</m>. So the
 Lagrange condition <m>\nabla f = \lambda\,\nabla g</m> says precisely
 that <m>\overrightarrow{P_0 P}</m> is parallel to the normal <m>\mathbf n</m>: the
@@ -1017,38 +1049,53 @@ which reach the plane in any other direction, are longer.
         <m>yz</m>.
       </caption>
       <image xml:id="img-jewelry-box" width="45%">
+        <shortdescription>A rectangular box with its edges labeled x, y and z.</shortdescription>
         <description>
           A rectangular box drawn in three dimensions, with the
           horizontal edges of the base labeled x and y and the vertical
-          edge labeled z.
+          edge labeled z. On the web page the box can be turned by
+          dragging it.
         </description>
-        <latex-image label="jewelry-box">
-          \begin{tikzpicture}[line join=round, scale=1.0]
-            \def\W{4}   % x : front width
-            \def\H{2.5} % z : height
-            \def\OX{1.5}\def\OY{0.85} % oblique offsets for the y depth
-            % faces
-            \fill[orange!30] (0,0) rectangle (\W,\H);
-            \fill[orange!50]
-              (0,\H) -- (\OX,\H+\OY) -- (\W+\OX,\H+\OY) -- (\W,\H) -- cycle;
-            \fill[orange!40]
-              (\W,0) -- (\W+\OX,\OY) -- (\W+\OX,\H+\OY) -- (\W,\H) -- cycle;
-            % hidden edges
-            \draw[orange!60!black, dashed]
-              (0,0) -- (\OX,\OY) -- (\W+\OX,\OY);
-            \draw[orange!60!black, dashed] (\OX,\OY) -- (\OX,\H+\OY);
-            % visible edges
-            \draw[orange!60!black, thick] (0,0) rectangle (\W,\H);
-            \draw[orange!60!black, thick]
-              (0,\H) -- (\OX,\H+\OY) -- (\W+\OX,\H+\OY) -- (\W,\H);
-            \draw[orange!60!black, thick]
-              (\W,0) -- (\W+\OX,\OY) -- (\W+\OX,\H+\OY);
-            % dimension labels
-            \node[below] at (\W/2, 0) {$x$};
-            \node[below right] at (\W + 0.5*\OX, 0.5*\OY) {$y$};
-            \node[right] at (\W+\OX, \OY + 0.5*\H) {$z$};
-          \end{tikzpicture}
-        </latex-image>
+        <asymptote label="asymptote-lagrange-jewelry-box"><![CDATA[
+import three;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(6cm,0);
+currentprojection=orthographic(camera=(8,-18,9),up=Z);
+
+// The box: a base of x by y and a height of z.  The corner D at the back,
+// left and bottom is the one hidden from the viewer.
+real a=4, b=2.6, c=2.5;
+triple A=(0,0,0), B=(a,0,0), C=(a,b,0), D=(0,b,0);
+triple A1=A+c*Z, B1=B+c*Z, C1=C+c*Z, D1=D+c*Z;
+
+// the colours of the earlier drawing: front and back, top and bottom, sides
+pen frontFill=rgb(1,0.85,0.7), topFill=rgb(1,0.75,0.5), sideFill=rgb(1,0.8,0.6);
+pen edge=rgb(0.6,0.3,0)+linewidth(1.2pt);
+pen hidden=rgb(0.6,0.3,0)+linewidth(0.8pt)+linetype(new real[] {4,3});
+
+draw(surface(A--B--B1--A1--cycle),frontFill,nolight);   // front, y = 0
+draw(surface(A1--B1--C1--D1--cycle),topFill,nolight);   // top
+draw(surface(B--C--C1--B1--cycle),sideFill,nolight);    // right, x = a
+if(settings.outformat == "html") {
+  // WebGL hides whatever is behind the box, so the box can be turned freely.
+  draw(surface(D--C--C1--D1--cycle),frontFill,nolight); // back
+  draw(surface(A--B--C--D--cycle),topFill,nolight);     // bottom
+  draw(surface(A--D--D1--A1--cycle),sideFill,nolight);  // left
+  draw(C--D--A,edge); draw(D--D1,edge);
+} else {
+  // Print draws in the order given, so the three edges at D go on top, dashed.
+  draw(C--D--A,hidden); draw(D--D1,hidden);
+}
+draw(A--B--C,edge);
+draw(A--A1,edge); draw(B--B1,edge); draw(C--C1,edge);
+draw(A1--B1--C1--D1--cycle,edge);
+
+// the three dimensions
+label("$x$",(A+B)/2,S);
+label("$y$",(B+C)/2,SE);
+label("$z$",(C+C1)/2,E);
+]]></asymptote>
       </image>
     </figure>
   </statement>
@@ -1064,9 +1111,11 @@ which reach the plane in any other direction, are longer.
       </me>
       with partial derivatives
       <me>
-        C_x = 6y + 4z, \qquad
-        C_y = 6x + 4z, \qquad
-        C_z = 4x + 4y.
+        \begin{aligned}
+          C_x \amp= 6y + 4z, \\
+          C_y \amp= 6x + 4z, \\
+          C_z \amp= 4x + 4y.
+        \end{aligned}
       </me>
       The volume requirement gives the constraint
       <me>
@@ -1079,15 +1128,20 @@ which reach the plane in any other direction, are longer.
       The Lagrange condition <m>\nabla C = \lambda\,\nabla g</m> gives
       the system
       <me>
-        6y + 4z = \lambda yz, \qquad
-        6x + 4z = \lambda xz, \qquad
-        4x + 4y = \lambda xy.
+        \begin{aligned}
+          6y + 4z \amp= \lambda yz, \\
+          6x + 4z \amp= \lambda xz, \\
+          4x + 4y \amp= \lambda xy.
+        \end{aligned}
       </me>
       Multiplying the equations by <m>x</m>, <m>y</m>, <m>z</m>
       respectively makes each right-hand side equal to
       <m>\lambda xyz</m>:
       <me>
-        6xy + 4xz = 6xy + 4yz = 4xz + 4yz.
+        \begin{aligned}
+          6xy + 4xz \amp= 6xy + 4yz \\
+          \amp= 4xz + 4yz.
+        \end{aligned}
       </me>
       The first equality gives <m>4xz = 4yz</m>, so <m>x = y</m>.
       The second gives <m>6xy = 4xz</m>, so <m>z = \frac{3}{2}y</m>.
@@ -1097,9 +1151,10 @@ which reach the plane in any other direction, are longer.
       Substituting <m>y = x</m> and <m>z = \frac{3}{2}x</m> into the
       constraint <m>xyz = 96</m>,
       <me>
-        (x)(x)\left(\tfrac{3}{2}x\right) = 96
-        \qquad\Longrightarrow\qquad
-        x^3 = 64,
+        \begin{aligned}
+          (x)(x)\left(\tfrac{3}{2}x\right) \amp= 96 \\
+          \Longrightarrow\qquad x^3 \amp= 64,
+        \end{aligned}
       </me>
       so <m>x = 4</m>.  The cost is minimized by the dimensions
       <me>
@@ -1145,9 +1200,10 @@ minimum values of <m>f</m> subject to the constraint
 <m>x_1, x_2, \ldots, x_n</m> and <m>\lambda</m> that simultaneously
 satisfy the equations
 <md xml:id="eq-lagrange-n-method" number="yes">
-\nabla f = \lambda\, \nabla g
-\qquad \text{and} \qquad
-g(x_1, x_2, \ldots, x_n) = 0 .
+\begin{aligned}
+\amp \nabla f = \lambda\, \nabla g \quad \text{and} \\
+\amp g(x_1, x_2, \ldots, x_n) = 0 .
+\end{aligned}
 </md>
 </p>
 </statement>
@@ -1214,9 +1270,10 @@ average for rates: drive one mile at <m>30</m> mph and the next at
 <m>60</m> mph and your average speed over the two miles is the harmonic
 mean <m>40</m> mph, not the arithmetic mean <m>45</m> mph.</fn> are
 <md xml:id="eq-hm-gm-definitions" number="yes">
-H = \frac{n}{1/x_1 + 1/x_2 + \cdots + 1/x_n},
-\qquad
-G = \sqrt[n]{x_1 x_2 \cdots x_n} .
+\begin{aligned}
+H \amp= \frac{n}{1/x_1 + \cdots + 1/x_n}, \\
+G \amp= \sqrt[n]{x_1 x_2 \cdots x_n} .
+\end{aligned}
 </md>
 The example below proves that <m>H \le G</m> always, with equality
 exactly when all the numbers are the same. If you are curious about
@@ -1234,8 +1291,10 @@ optional.
 Let <m>n \ge 2</m> and let <m>x_1, x_2, \ldots, x_n</m> be positive real
 numbers. Use the method of Lagrange multipliers to prove that
 <md xml:id="eq-hm-gm-claim" number="yes">
-\frac{n}{1/x_1 + 1/x_2 + \cdots + 1/x_n}
-\;\le\; \sqrt[n]{x_1 x_2 \cdots x_n},
+\begin{aligned}
+\amp \frac{n}{1/x_1 + 1/x_2 + \cdots + 1/x_n} \\
+\amp \qquad \le \sqrt[n]{x_1 x_2 \cdots x_n},
+\end{aligned}
 </md>
 that is, <m>H \le G</m>, with equality if and only if
 <m>x_1 = x_2 = \cdots = x_n</m>.
@@ -1253,9 +1312,9 @@ each surface where that product is constant. Write
 constant <m>C \gt 0</m>, and work on
 <md xml:id="eq-hm-gm-surface" number="yes">
 \begin{aligned}
-S_C = \bigl\{\, (x_1, \ldots, x_n) : \amp\ x_j \gt 0
-  \text{ for all } j, \\
-\amp\ g(x_1, \ldots, x_n) = C \,\bigr\},
+\amp S_C = \bigl\{\, (x_1, \ldots, x_n) : \\
+\amp \quad x_j \gt 0 \text{ for all } j, \\
+\amp \quad g(x_1, \ldots, x_n) = C \,\bigr\},
 \end{aligned}
 </md>
 on which <m>G = \sqrt[n]{C}</m> at every single point. Every choice of
@@ -1271,8 +1330,11 @@ Maximizing <m>H</m> is the same as minimizing the sum in its
 denominator, since
 <m>H = \dfrac{n}{F}</m> with
 <md xml:id="eq-hm-gm-F" number="yes">
-F(x_1, \ldots, x_n) = \frac{1}{x_1} + \frac{1}{x_2} + \cdots
-+ \frac{1}{x_n} \gt 0 ,
+\begin{aligned}
+\amp F(x_1, \ldots, x_n) \\
+\amp \quad = \frac{1}{x_1} + \frac{1}{x_2} + \cdots \\
+\amp \qquad {} + \frac{1}{x_n} \gt 0 ,
+\end{aligned}
 </md>
 and <m>n/F</m> is largest exactly where the positive quantity <m>F</m> is
 smallest. So the problem to solve is: <em>minimize <m>F</m> subject to
@@ -1290,8 +1352,8 @@ edges of <m>S_C</m> therefore drive <m>F</m> up without bound, so
 itself. That point is one the method of Lagrange
 multipliers will find, because
 <md>
-<mrow>\nabla g \amp= \left( x_2x_3\cdots x_n,\ \ x_1x_3 \cdots x_n,\ \
-\ldots,\ \ x_1x_2 \cdots x_{n-1} \right)</mrow>
+<mrow>\nabla g \amp= ( x_2x_3\cdots x_n,\ \ x_1x_3 \cdots x_n,</mrow>
+<mrow>\amp\qquad \ldots,\ \ x_1x_2 \cdots x_{n-1} )</mrow>
 <mrow>\amp= \left( \frac{C}{x_1},\ \frac{C}{x_2},\ \ldots,\
 \frac{C}{x_n} \right)</mrow>
 </md>
@@ -1314,8 +1376,9 @@ Rearranging, by multiplying through by <m>x_k^2</m>, restores the missing
 factor and leaves one spare copy of <m>x_k</m>:
 <md number="yes">
 <mrow number="no">-1 \amp= \lambda\, x_1 \cdots x_k^2 \cdots x_n</mrow>
-<mrow xml:id="eq-hm-gm-cleared">\amp= \lambda\, x_k
-\left( x_1x_2\cdots x_n \right) = C\lambda\,x_k .</mrow>
+<mrow number="no">\amp= \lambda\, x_k
+\left( x_1x_2\cdots x_n \right)</mrow>
+<mrow xml:id="eq-hm-gm-cleared">\amp= C\lambda\,x_k .</mrow>
 </md>
 </p>
 
@@ -1339,7 +1402,8 @@ Since the absolute minimum of <m>F</m> on <m>S_C</m> exists and must
 occur at a Lagrange point, that one point is where it occurs. There
 <md>
 <mrow>F \amp= \underbrace{\frac{1}{\sqrt[n]{C}} + \cdots
-+ \frac{1}{\sqrt[n]{C}}}_{n \text{ terms}} = \frac{n}{\sqrt[n]{C}},</mrow>
++ \frac{1}{\sqrt[n]{C}}}_{n \text{ terms}}</mrow>
+<mrow>\amp= \frac{n}{\sqrt[n]{C}},</mrow>
 <mrow>\text{so}\quad H \amp= \frac{n}{F} = \sqrt[n]{C} = G,</mrow>
 </md>
 which is the promised equality. At every other point of <m>S_C</m> the
@@ -1368,7 +1432,10 @@ arithmetic mean of the <m>x_j</m>, and the geometric mean of the
 <m>y_j</m> is <m>1/G</m>. So <m>H(y) \le G(y)</m> reads
 <m>\frac{1}{A} \le \frac{1}{G}</m>, that is,
 <md xml:id="eq-gm-am" number="yes">
-\sqrt[n]{x_1x_2\cdots x_n} \;\le\; \frac{x_1 + x_2 + \cdots + x_n}{n} ,
+\begin{aligned}
+\amp \sqrt[n]{x_1x_2\cdots x_n} \\
+\amp \qquad \le \frac{x_1 + x_2 + \cdots + x_n}{n} ,
+\end{aligned}
 </md>
 the celebrated inequality between the geometric and arithmetic means,
 again with equality exactly when all the <m>x_j</m> are equal. Together
@@ -1393,26 +1460,27 @@ arithmetic mean for good measure.
 For <m>n = 2</m> no calculus is needed at all. Write the two positive
 numbers as <m>a</m> and <m>b</m>. Then
 <md xml:id="eq-hm-gm-two-var" number="yes">
-H = \frac{2}{\frac1a + \frac1b} = \frac{2ab}{a+b},
-\qquad
-G = \sqrt{ab},
+\begin{aligned}
+H \amp= \frac{2}{\frac1a + \frac1b} = \frac{2ab}{a+b}, \\
+G \amp= \sqrt{ab},
+\end{aligned}
 </md>
 and since <m>a + b \gt 0</m> and <m>\sqrt{ab} \gt 0</m> we may multiply
 and divide freely without reversing the inequality:
 <md>
-<mrow>\frac{2ab}{a+b} \le \sqrt{ab}
-\amp\;\Longleftrightarrow\; 2ab \le \sqrt{ab}\,(a+b)</mrow>
-<mrow>\amp\;\Longleftrightarrow\; 2\sqrt{ab} \le a + b</mrow>
-<mrow>\amp\;\Longleftrightarrow\; 0 \le a - 2\sqrt{ab} + b
-= \left(\sqrt a - \sqrt b\,\right)^2 ,</mrow>
+<mrow>\amp \frac{2ab}{a+b} \le \sqrt{ab}</mrow>
+<mrow>\amp \quad \Longleftrightarrow\; 2ab \le \sqrt{ab}\,(a+b)</mrow>
+<mrow>\amp \quad \Longleftrightarrow\; 2\sqrt{ab} \le a + b</mrow>
+<mrow>\amp \quad \Longleftrightarrow\; 0 \le a - 2\sqrt{ab} + b</mrow>
+<mrow>\amp \quad \phantom{\Longleftrightarrow\; 0} = \left(\sqrt a - \sqrt b\,\right)^2 ,</mrow>
 </md>
-where the second line divides through by <m>\sqrt{ab} \gt 0</m>, using
+where the third line divides through by <m>\sqrt{ab} \gt 0</m>, using
 <m>ab = \sqrt{ab}\cdot\sqrt{ab}</m>. The last line is true for every
 choice of <m>a</m> and <m>b</m>, and it is an equality exactly when
 <m>\sqrt a = \sqrt b</m>, that is, when <m>a = b</m>.
 </p>
 <p>
-The middle line of that chain is worth a second look. It says
+The third line of that chain is worth a second look. It says
 <m>\sqrt{ab} \le \frac{a+b}{2}</m>, so for two numbers the statement
 <m>H \le G</m> is the very same statement as <m>G \le A</m>, where
 <m>A</m> is the arithmetic mean. The two-variable case therefore carries
@@ -1431,11 +1499,13 @@ pieces of lengths <m>a</m> and <m>b</m>. The two small triangles
 <m>ACB</m>, hence to each other, so matching the short leg of one against
 the long leg of the other gives
 <md xml:id="eq-hm-gm-altitude" number="yes">
-\frac{a}{h} = \frac{h}{b}
+\begin{aligned}
+\amp \frac{a}{h} = \frac{h}{b}
 \quad\Longrightarrow\quad
-h^2 = ab
-\quad\Longrightarrow\quad
+h^2 = ab \\
+\amp \quad \Longrightarrow\quad
 h = \sqrt{ab} = G .
+\end{aligned}
 </md>
 </p>
 <p>
@@ -1452,8 +1522,8 @@ meeting it at <m>M</m>. Applying <xref ref="eq-hm-gm-altitude"/> a
 second time, now to the right triangle <m>ODC</m> with its right angle at
 <m>D</m>, gives <m>DC^2 = CM \cdot CO</m>, so
 <md>
-CM = \frac{DC^2}{CO} = \frac{G^2}{A} = \frac{ab}{\frac{a+b}{2}}
-   = \frac{2ab}{a+b} = H .
+<mrow>CM \amp= \frac{DC^2}{CO} = \frac{G^2}{A}</mrow>
+<mrow>\amp= \frac{ab}{\frac{a+b}{2}} = \frac{2ab}{a+b} = H .</mrow>
 </md>
 The chain <xref ref="eq-hm-gm-chain"/> is now visible rather than
 computed: <m>CM \le CD</m> because a leg of the right triangle
