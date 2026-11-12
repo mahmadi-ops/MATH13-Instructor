@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The tangent plane at P0, built from the two slices</title>
+<title>The tangent plane at P0, from the cross product of two tangent directions</title>
 <!-- The same two families the book itself loads (see pretext-html.xsl), so the
      figure's lettering matches the surrounding page rather than the reader's
      system UI font: Open Sans for text, PT Serif for the mathematics. -->
@@ -72,7 +72,7 @@
      listed (a dash until its layer is chosen) so the bar keeps a constant
      height and the stage below it never jumps */
   #readout {
-    margin-left: auto; min-width: 250px;
+    margin-left: auto; min-width: 300px;
     padding: 8px 12px 9px 12px;
     background: #14161e;
     border: 1px solid var(--edge); border-radius: 6px;
@@ -94,6 +94,8 @@
                        white-space: nowrap; padding-left: 10px; }
   #readout sub, #verdict sub { font-size: 0.62em; }
   #readout i, #verdict i { font-style: italic; }
+  /* vectors are upright bold, as in the book */
+  #readout b, #caption b, button b { font-family: var(--serif); font-weight: 700; }
   /* the tangent-plane equation keeps its space even while hidden, again so
      the header height (and with it the canvas) stays put */
   #verdict {
@@ -138,7 +140,7 @@
   button .eq { font-family: var(--serif); font-style: italic; }
   /* an active layer button wears its own colour, set from the palette in JS */
   button.on { color: #06070a; font-weight: 700; }
-  #btnBuild.running, #btnSide.on, #btnSpin.on {
+  #btnBuild.running, #btnSide.on, #btnSpin.on, #btnSwap.on {
     background: var(--blue); border-color: var(--blue);
     color: #06070a; font-weight: 600;
   }
@@ -150,6 +152,7 @@
     .math { font-size: 16px; }
     #readout { min-width: 0; font-size: 12.5px; padding: 6px 9px 7px 9px; }
     #readout .row { font-size: 14.5px; }
+    #readout .sym { display: none; }
     #caption { font-size: 12.5px; min-height: 28px; padding: 5px 10px; }
     .lbl { display: none; }
     button { font-size: 12.5px; padding: 4px 10px; }
@@ -167,7 +170,7 @@
       <div class="math">
         <i>P</i><sub>0</sub> = (0.5,&#8202;0.5,&#8202;2.825)
       </div>
-      <div class="sub">the surface and the point of the figure above</div>
+      <div class="sub">the surface and the point of the figures above</div>
     </div>
 
     <div id="readout">
@@ -186,17 +189,18 @@
       <span class="lbl">Add a layer:</span>
       <button class="layerBtn" data-i="0"><span class="eq">y</span> = <span class="eq">y</span><sub>0</sub> slice</button>
       <button class="layerBtn" data-i="1"><span class="eq">x</span> = <span class="eq">x</span><sub>0</sub> slice</button>
-      <button class="layerBtn" data-i="2">tangent plane</button>
-      <button class="layerBtn" data-i="3">normal <span class="eq">n</span></button>
-      <span style="flex:1"></span>
-      <button id="btnAll">Show all</button>
-      <button id="btnClear">Clear</button>
+      <button class="layerBtn" data-i="2"><b>v</b><sub>1</sub> &#215; <b>v</b><sub>2</sub></button>
+      <button class="layerBtn" data-i="3">tangent plane</button>
+      <button id="btnSwap">Swap</button>
     </div>
     <div class="row">
       <span class="lbl">View:</span>
       <button id="btnBuild">&#9654;&nbsp;Build it up</button>
       <button id="btnSide">Side view</button>
       <button id="btnSpin">Spin</button>
+      <span style="flex:1"></span>
+      <button id="btnAll">Show all</button>
+      <button id="btnClear">Clear</button>
     </div>
   </div>
 </div>
@@ -236,7 +240,10 @@
   camera.up.set(0, 0, 1);                 // z is up, the usual maths convention
 
   var CENTER = new THREE.Vector3(0, 0, 1.55);
-  var radius = 8.5, theta = -0.95, phi = 1.08;
+  // the opening view looks from the +x, +y side, the view of the two Asymptote
+  // figures in the text, so that v1 and v2 both run towards the reader
+  var THETA0 = 0.62;
+  var radius = 8.5, theta = THETA0, phi = 1.08;
   var targetPhi = null, targetTheta = null;   // set by the view buttons
   var aspect = 1;
 
@@ -292,15 +299,43 @@
   // Drawn in the book's serif. The webfont may still be loading when a sprite is
   // first painted, so every sprite is repainted once document.fonts settles.
   var LABELS = [];
+  // A little markup, so that vectors look the way the book prints them:
+  // *v* is an upright bold letter and _1 puts the next character in a subscript.
+  var FAMILY = '"PT Serif", "Times New Roman", Times, serif';
+  function labelRuns(text) {
+    var out = [], bold = false, i = 0;
+    while (i < text.length) {
+      var ch = text[i];
+      if (ch === "*") { bold = !bold; i += 1; continue; }
+      if (ch === "_") { out.push({ t: text[i + 1], bold: bold, sub: true }); i += 2; continue; }
+      out.push({ t: ch, bold: bold, sub: false });
+      i += 1;
+    }
+    return out;
+  }
+  function runFont(r) {
+    var upright = r.bold || /[0-9×=()⟨⟩,−]/.test(r.t);
+    return (r.bold ? "bold " : (upright ? "" : "italic ")) +
+           (r.sub ? 34 : 52) + "px " + FAMILY;
+  }
   function paintLabel(rec) {
     var w = 256, h = 96, cv = document.createElement("canvas");
     cv.width = w; cv.height = h;
     var g = cv.getContext("2d");
-    g.font = 'italic 52px "PT Serif", "Times New Roman", Times, serif';
     g.fillStyle = rec.colour;
-    g.textAlign = "center";
+    g.textAlign = "left";
     g.textBaseline = "middle";
-    g.fillText(rec.text, w / 2, h / 2);
+    var runs = labelRuns(rec.text), total = 0;
+    runs.forEach(function (r) { g.font = runFont(r); r.w = g.measureText(r.t).width; total += r.w; });
+    var x = (w - total) / 2;
+    runs.forEach(function (r) {
+      g.font = runFont(r);
+      // a dark halo keeps the lettering readable over the planes and arrows
+      g.lineWidth = 7; g.lineJoin = "round"; g.strokeStyle = "#06070a";
+      g.strokeText(r.t, x, h / 2 + (r.sub ? 15 : 0));
+      g.fillText(r.t, x, h / 2 + (r.sub ? 15 : 0));
+      x += r.w;
+    });
     var tex = new THREE.CanvasTexture(cv);
     tex.minFilter = THREE.LinearFilter;
     if (rec.sprite.material.map) rec.sprite.material.map.dispose();
@@ -408,6 +443,19 @@
     return m;
   }
 
+  // an arrow from a point along a vector: a shaft and a cone, returned as two
+  // meshes so that each can be handed to a layer
+  function arrowParts(from, vec, r, colour) {
+    var len = vec.length(), dir = vec.clone().normalize();
+    var headLen = Math.min(0.26, 0.3 * len);
+    var shaftEnd = from.clone().addScaledVector(dir, len - headLen);
+    var cone = new THREE.Mesh(new THREE.ConeGeometry(2.6 * r, headLen, 16),
+                              new THREE.MeshBasicMaterial({ color: colour }));
+    cone.position.copy(shaftEnd).addScaledVector(dir, headLen / 2);
+    cone.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir);
+    return [rod(from, shaftEnd, r, colour), cone];
+  }
+
   // ---------- the floor ----------
   (function buildFloor() {
     var g = [], n = 8, ext = DOM * 1.1, i;
@@ -479,17 +527,42 @@
     return group;
   }
 
-  // ---------- the four layers ----------
-  // 0: the slice y = y0 (green curve, blue tangent line, slope fx)
-  // 1: the slice x = x0 (amber curve, dark-red tangent line, slope fy)
-  // 2: the tangent plane (pink)
-  // 3: the normal vector n (red)
+  // ---------- the four layers, in the order of the derivation ----------
+  // 0: the slice y = y0 (green curve, blue tangent line of slope fx, and its
+  //    direction vector v1 = <1, 0, fx>)
+  // 1: the slice x = x0 (amber curve, purple tangent line of slope fy, and
+  //    its direction vector v2 = <0, 1, fy>)
+  // 2: the cross product v1 x v2 = <-fx, -fy, 1> (red), with the parallelogram
+  //    v1 and v2 span; "Swap" turns it into v2 x v1 = n = <fx, fy, -1>
+  // 3: the tangent plane (pink), the plane through P0 with that normal
   var LAYERS = [
     { css: "#83c167", on: false, grow: 0, members: [] },
     { css: "#f0ac5f", on: false, grow: 0, members: [] },
-    { css: "#e07ac8", on: false, grow: 0, members: [] },
-    { css: "#fc6255", on: false, grow: 0, members: [] }
+    { css: "#fc6255", on: false, grow: 0, members: [] },
+    { css: "#e07ac8", on: false, grow: 0, members: [] }
   ];
+  var BLUE_B = 0x9cdceb, PURPLE_B = 0xe2b3f2;      // the two direction vectors
+  var P0V = new THREE.Vector3(X0, Y0, Z0 + LIFT);
+  var V1 = new THREE.Vector3(1, 0, FX), V2 = new THREE.Vector3(0, 1, FY);
+  var V_R = 0.05;                                  // shaft radius of v1 and v2
+
+  // a direction vector on its tangent line: the arrow, its name, and the
+  // run of 1 and rise of the slope that make it up
+  function directionVector(i, vec, runDir, colour, css, name, slopeName, nameOff, slopeOff) {
+    arrowParts(P0V, vec, V_R, colour).forEach(function (m) { addTo(i, m, 1); });
+    var corner = P0V.clone().add(runDir);
+    addTo(i, rod(P0V, corner, 0.012, INK), 0.7);
+    addTo(i, rod(corner, P0V.clone().add(vec), 0.012, INK), 0.7);
+    var one = makeLabel("1", "#ece6e2", 0.3);
+    one.position.copy(P0V).addScaledVector(runDir, 0.5).add(new THREE.Vector3(0, 0, 0.14));
+    addTo(i, one, 0.9);
+    var rise = makeLabel(slopeName, "#ece6e2", 0.3);
+    rise.position.copy(corner).add(slopeOff);
+    addTo(i, rise, 0.9);
+    var lab = makeLabel(name, css, 0.4);
+    lab.position.copy(P0V).add(vec).add(nameOff);
+    addTo(i, lab, 1);
+  }
   function addTo(i, mesh, baseOpacity, label) {
     var m = fadeable(mesh, baseOpacity);
     if (label) m.userData.labelRec = label;
@@ -509,6 +582,8 @@
   var lab0 = makeLabel("y = y₀", "#83c167", 0.3);
   lab0.position.set(-DOM * 1.02, Y0, SLICE_TOP + 0.18);
   addTo(0, lab0, 0.9);
+  directionVector(0, V1, new THREE.Vector3(1, 0, 0), BLUE_B, "#9cdceb", "*v*_1", "f_x",
+                  new THREE.Vector3(0.22, 0, -0.2), new THREE.Vector3(0.2, 0, FX / 2));
 
   // layer 1: the slice x = x0
   slicePlane(false, GOLD_C).forEach(function (m) { LAYERS[1].members.push(m); scene.add(m); });
@@ -521,8 +596,43 @@
   var lab1 = makeLabel("x = x₀", "#f0ac5f", 0.3);
   lab1.position.set(X0, DOM * 1.02, SLICE_TOP + 0.18);
   addTo(1, lab1, 0.9);
+  directionVector(1, V2, new THREE.Vector3(0, 1, 0), PURPLE_B, "#e2b3f2", "*v*_2", "f_y",
+                  new THREE.Vector3(0, 0.22, -0.2), new THREE.Vector3(0, 0.2, FY / 2));
 
-  // layer 2: the tangent plane, a quad touching the surface at P0 only
+  // layer 2: the cross product of the two direction vectors. The layer carries
+  // its own copies of v1 and v2, so it makes sense with the slices switched
+  // off. Members marked side "up" belong to v1 x v2 and those marked "down" to
+  // v2 x v1; the Swap button cross-fades between the two.
+  (function buildCrossProduct() {
+    arrowParts(P0V, V1, V_R, BLUE_B).forEach(function (m) { addTo(2, m, 1); });
+    arrowParts(P0V, V2, V_R, PURPLE_B).forEach(function (m) { addTo(2, m, 1); });
+
+    // the parallelogram spanned by v1 and v2; it lies in the tangent plane
+    var A = P0V.clone().add(V1), B = A.clone().add(V2), C = P0V.clone().add(V2);
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.Float32BufferAttribute(
+      [P0V.x, P0V.y, P0V.z, A.x, A.y, A.z, B.x, B.y, B.z, C.x, C.y, C.z], 3));
+    geo.setIndex([0, 1, 2, 0, 2, 3]);
+    addTo(2, new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
+      color: RED_C, side: THREE.DoubleSide, depthWrite: false
+    })), 0.26);
+    addTo(2, rod(A, B, 0.012, RED_C), 0.8);
+    addTo(2, rod(C, B, 0.012, RED_C), 0.8);
+
+    function sided(mesh, side) { mesh.userData.side = side; return mesh; }
+    var up = new THREE.Vector3().crossVectors(V1, V2);        // <-fx, -fy, 1>
+    var down = up.clone().negate();                           // <fx, fy, -1>
+    arrowParts(P0V, up, 0.04, RED_C).forEach(function (m) { addTo(2, sided(m, "up"), 1); });
+    arrowParts(P0V, down, 0.04, RED_C).forEach(function (m) { addTo(2, sided(m, "down"), 1); });
+    var labUp = makeLabel("*v*_1 × *v*_2", "#fc6255", 0.4);
+    labUp.position.copy(P0V).add(up).addScaledVector(up.clone().normalize(), 0.3);
+    addTo(2, sided(labUp, "up"), 1);
+    var labDown = makeLabel("*n* = *v*_2 × *v*_1", "#fc6255", 0.4);
+    labDown.position.copy(P0V).add(down).addScaledVector(down.clone().normalize(), 0.62);
+    addTo(2, sided(labDown, "down"), 1);
+  })();
+
+  // layer 3: the tangent plane, a quad touching the surface at P0 only
   (function buildTangentPlane() {
     function zt(x, y) { return Z0 + FX * (x - X0) + FY * (y - Y0); }
     var R = 1.35, xs = [X0 - R, X0 + R], ys = [Y0 - R, Y0 + R];
@@ -534,7 +644,7 @@
     geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
     geo.setIndex([0, 1, 2, 0, 2, 3]);
     geo.computeVertexNormals();
-    addTo(2, new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
+    addTo(3, new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
       color: PINK_C, side: THREE.DoubleSide, depthWrite: false
     })), 0.38);
 
@@ -546,24 +656,8 @@
     }
     var egeo = new THREE.BufferGeometry();
     egeo.setAttribute("position", new THREE.Float32BufferAttribute(e, 3));
-    addTo(2, new THREE.LineSegments(egeo,
+    addTo(3, new THREE.LineSegments(egeo,
       new THREE.LineBasicMaterial({ color: PINK_C })), 0.85);
-  })();
-
-  // layer 3: the normal vector n = <fx, fy, -1>, drawn with the upward sign
-  (function buildNormal() {
-    var dir = new THREE.Vector3(-FX, -FY, 1).normalize();
-    var from = new THREE.Vector3(X0, Y0, Z0);
-    var shaftEnd = from.clone().addScaledVector(dir, 1.05);
-    addTo(3, rod(from, shaftEnd, 0.03, RED_C), 1);
-    var cone = new THREE.Mesh(new THREE.ConeGeometry(0.085, 0.24, 14),
-                              new THREE.MeshBasicMaterial({ color: RED_C }));
-    cone.position.copy(shaftEnd);
-    cone.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir);
-    addTo(3, cone, 1);
-    var lab = makeLabel("n", "#fc6255", 0.32);
-    lab.position.copy(shaftEnd).addScaledVector(dir, 0.32);
-    addTo(3, lab, 1);
   })();
 
   // the point P0, always there: everything in the picture happens at it
@@ -596,15 +690,25 @@
     P0: "<i>P</i><sub>0</sub>",
     x0: "<i>x</i><sub>0</sub>",
     y0: "<i>y</i><sub>0</sub>",
-    z0: "<i>z</i><sub>0</sub>"
+    z0: "<i>z</i><sub>0</sub>",
+    v1: "<b>v</b><sub>1</sub>",
+    v2: "<b>v</b><sub>2</sub>"
   };
+  var swapped = false, swapT = 0;      // false: v1 x v2 (up); true: v2 x v1 = n (down)
   var ROWS = [
-    { swatch: "#58c4dd", label: SUB.fx + "(" + SUB.x0 + "," + SUB.y0 + ")",
-      value: "−0.25", layer: 0 },
-    { swatch: "#c678dd", label: SUB.fy + "(" + SUB.x0 + "," + SUB.y0 + ")",
-      value: "−0.45", layer: 1 },
-    { swatch: "#fc6255", label: "normal <i>n</i>",
-      value: "⟨−0.25,&#8202;−0.45,&#8202;−1⟩", layer: 3 }
+    { swatch: "#9cdceb", layer: 0,
+      label: function () { return SUB.v1 + '<span class="sym"> = ⟨1,&#8202;0,&#8202;' + SUB.fx + '⟩</span>'; },
+      value: function () { return "⟨1,&#8202;0,&#8202;−0.25⟩"; } },
+    { swatch: "#e2b3f2", layer: 1,
+      label: function () { return SUB.v2 + '<span class="sym"> = ⟨0,&#8202;1,&#8202;' + SUB.fy + '⟩</span>'; },
+      value: function () { return "⟨0,&#8202;1,&#8202;−0.45⟩"; } },
+    { swatch: "#fc6255", layer: 2,
+      label: function () {
+        return swapped ? "<b>n</b> = " + SUB.v2 + " × " + SUB.v1 : SUB.v1 + " × " + SUB.v2;
+      },
+      value: function () {
+        return swapped ? "⟨−0.25,&#8202;−0.45,&#8202;−1⟩" : "⟨0.25,&#8202;0.45,&#8202;1⟩";
+      } }
   ];
   function refreshReadout() {
     // every row is always rendered (with a dash until its layer is on), so
@@ -613,23 +717,24 @@
       var on = LAYERS[R.layer].on;
       return '<div class="row' + (on ? '' : ' off') + '">' +
              '<span class="swatch" style="background:' + R.swatch + '"></span>' +
-             '<span>' + R.label + '</span>' +
+             '<span>' + R.label() + '</span>' +
              '<span class="val"' + (on ? ' style="color:' + R.swatch + '"' : '') + '>' +
-             (on ? R.value : "—") + '</span></div>';
+             (on ? R.value() : "—") + '</span></div>';
     }).join("");
-    verdictEl.innerHTML = LAYERS[2].on
-      ? "<i>z</i> − " + SUB.z0 + " = −0.25(<i>x</i> − " + SUB.x0 +
-        ") − 0.45(<i>y</i> − " + SUB.y0 + ")"
+    verdictEl.innerHTML = LAYERS[3].on
+      ? "−0.25(<i>x</i> − " + SUB.x0 + ") − 0.45(<i>y</i> − " + SUB.y0 +
+        ") − (<i>z</i> − " + SUB.z0 + ") = 0"
       : "";
-    verdictEl.classList.toggle("show", LAYERS[2].on);
+    verdictEl.classList.toggle("show", LAYERS[3].on);
   }
 
   var CAPTIONS = [
-    "The plane <i>y</i> = " + SUB.y0 + " cuts the surface in the green parabola; its tangent line at " + SUB.P0 + " (blue) has slope " + SUB.fx + " = −0.25.",
-    "The plane <i>x</i> = " + SUB.x0 + " cuts the surface in the amber parabola; its tangent line at " + SUB.P0 + " (dark red) has slope " + SUB.fy + " = −0.45.",
-    "One plane contains both tangent lines: the tangent plane to the surface at " + SUB.P0 + ".",
-    "<i>n</i> = ⟨" + SUB.fx + ", " + SUB.fy + ", −1⟩ stands perpendicular to the tangent plane (drawn with the upward sign)."
+    "The plane <i>y</i> = " + SUB.y0 + " cuts the surface in the green parabola; its tangent line at " + SUB.P0 + " (blue) has slope " + SUB.fx + " = −0.25, so a run of 1 in <i>x</i> comes with a rise of " + SUB.fx + ": " + SUB.v1 + " = ⟨1, 0, " + SUB.fx + "⟩.",
+    "The plane <i>x</i> = " + SUB.x0 + " cuts the surface in the amber parabola; its tangent line at " + SUB.P0 + " (purple) has slope " + SUB.fy + " = −0.45, so a run of 1 in <i>y</i> comes with a rise of " + SUB.fy + ": " + SUB.v2 + " = ⟨0, 1, " + SUB.fy + "⟩.",
+    SUB.v1 + " × " + SUB.v2 + " = ⟨−" + SUB.fx + ", −" + SUB.fy + ", 1⟩ is perpendicular to both direction vectors, and so to the plane that contains them.",
+    "The tangent plane is the plane through " + SUB.P0 + " with normal " + SUB.v1 + " × " + SUB.v2 + "; it contains both tangent lines."
   ];
+  var SWAP_CAPTION = "Swapping the order reverses the cross product: " + SUB.v2 + " × " + SUB.v1 + " = ⟨" + SUB.fx + ", " + SUB.fy + ", −1⟩ = <b>n</b>, the gradient of <i>w</i> = <i>f</i>(<i>x</i>,<i>y</i>) − <i>z</i>. Either vector is normal to the tangent plane.";
   var IDLE = "Add the layers with the buttons below, or press ▶ Build it up.";
 
   function toggleLayer(i, force) {
@@ -652,11 +757,25 @@
   document.getElementById("btnAll").addEventListener("click", function () {
     stopBuild();
     LAYERS.forEach(function (L, i) { toggleLayer(i, true); });
-    say("Both tangent lines lie in the tangent plane, and <i>n</i> stands at a right angle to it.");
+    say("Both tangent lines lie in the tangent plane, and the cross product of their direction vectors stands at a right angle to it.");
   });
   document.getElementById("btnClear").addEventListener("click", function () {
     stopBuild();
+    swapped = false;
+    document.getElementById("btnSwap").classList.remove("on");
     LAYERS.forEach(function (L, i) { toggleLayer(i, false); });
+    refreshReadout();
+  });
+
+  // v1 x v2 or v2 x v1: the two orders give opposite normal vectors
+  var btnSwap = document.getElementById("btnSwap");
+  btnSwap.addEventListener("click", function () {
+    stopBuild();
+    swapped = !swapped;
+    btnSwap.classList.toggle("on", swapped);
+    toggleLayer(2, true);
+    refreshReadout();
+    say(swapped ? SWAP_CAPTION : CAPTIONS[2]);
   });
 
   // ---------- drag to orbit ----------
@@ -699,7 +818,7 @@
     var side = !btnSide.classList.contains("on");
     btnSide.classList.toggle("on", side);
     targetPhi = side ? 1.42 : 1.08;
-    targetTheta = side ? -Math.PI / 2 : -0.95;
+    targetTheta = side ? -Math.PI / 2 : THETA0;
     if (side) say("Looking straight down the <i>y</i> axis: the plane <i>y</i> = <i>y</i><sub>0</sub> is seen edge-on and the blue tangent line shows its slope <i>f</i><sub>x</sub> = −0.25.");
   });
 
@@ -739,14 +858,19 @@
       }
     }
 
+    swapT += Math.max(-1, Math.min(1, (swapped ? 1 : 0) - swapT)) * Math.min(1, dt * 3.5);
+    if (Math.abs((swapped ? 1 : 0) - swapT) < 0.002) swapT = swapped ? 1 : 0;
+
     LAYERS.forEach(function (L) {
       var want = L.on ? 1 : 0;
       L.grow += Math.max(-1, Math.min(1, want - L.grow)) * Math.min(1, dt * 2.8);
       if (Math.abs(want - L.grow) < 0.002) L.grow = want;
       L.members.forEach(function (m) {
+        var side = m.userData.side;
+        var show = L.grow * (side === "up" ? 1 - swapT : side === "down" ? swapT : 1);
         m.material.opacity = (m.userData.baseOpacity === undefined
-                              ? 1 : m.userData.baseOpacity) * L.grow;
-        m.visible = L.grow > 0.01;
+                              ? 1 : m.userData.baseOpacity) * show;
+        m.visible = show > 0.01;
       });
     });
 

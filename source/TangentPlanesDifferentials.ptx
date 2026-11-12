@@ -21,6 +21,12 @@
     - ComputingNormalVector.mp4          (video for Example I)
     - ComputingNormalVector-preview.png  (poster frame for that video)
 
+  The tangent plane is derived from the cross product of the direction
+  vectors of the two tangent lines (instructor request, Nov 2026); the two
+  figures of that derivation are Asymptote (interactive WebGL in HTML, vector
+  PDF in print), drawn on the surface and point of fig-pd-tangent-x.  The
+  layers of tangent-plane-manim.html follow the same order.
+
   In HTML output the first figure is the interactive explorer; in PDF it
   falls back to the TikZ picture kept in the <static> element, so print is
   unchanged.  The video renders inline in HTML and as the poster image with
@@ -40,8 +46,9 @@ After completing this section, you should be able to:
 <li>
 <p>
 Derive the equation of the tangent plane to the surface <m>z = f(x,y)</m>
-at a point <m>P_0(x_0, y_0, f(x_0,y_0))</m> from the slopes
-<m>f_x(x_0,y_0)</m> and <m>f_y(x_0,y_0)</m> of the two tangent lines in
+at a point <m>P_0(x_0, y_0, f(x_0,y_0))</m> from the cross product of the
+direction vectors <m>\hat{\imath} + f_x(x_0,y_0)\,\hat{k}</m> and
+<m>\hat{\jmath} + f_y(x_0,y_0)\,\hat{k}</m> of the two tangent lines in
 the planes <m>y = y_0</m> and <m>x = x_0</m>.
 </p>
 </li>
@@ -78,7 +85,8 @@ and that <m>f_y(x_0,y_0)</m> is the slope of the tangent line to the
 curve cut by the plane <m>x = x_0</m>. In this section we put these two
 tangent lines together: the plane containing both of them is the tangent
 plane to the surface at <m>P_0(x_0, y_0, f(x_0,y_0))</m>. We find its
-equation, use its normal vector to write the equation of the normal line
+equation from the cross product of the direction vectors of the two
+tangent lines, use its normal vector to write the equation of the normal line
 to the surface, estimate the change in <m>f</m> caused by moving a small
 distance away from <m>P_0</m> in a given direction, and finally use the
 tangent plane to linearize <m>f</m> near a point.
@@ -90,55 +98,284 @@ tangent plane to linearize <m>f</m> near a point.
 <title>Equation of the Tangent Plane</title>
 
 <p>
-We use what we learned about the partial derivatives and slopes of
-tangent lines to calculate the equation of the tangent plane to the
-surface <m>z = f(x,y)</m> at <m>P_0(x_0, y_0, f(x_0,y_0))</m>.
+We use two things we already know to calculate the equation of the
+tangent plane to the surface <m>z = f(x,y)</m> at
+<m>P_0(x_0, y_0, z_0)</m>, where <m>z_0 = f(x_0,y_0)</m>: the partial
+derivatives are the slopes of two tangent lines at <m>P_0</m>, and the
+cross product of two vectors is perpendicular to both of them
+(<xref ref="section-cross-product"/>).
 </p>
 
 <p>
-Let us consider the equation of the tangent plane
-<m>A(x - x_0) + B(y - y_0) + C(z - z_0) = 0</m>, where
-<m>z_0 = f(x_0,y_0)</m>. We then rewrite the equation as
-<md xml:id="eq-tp-plane-rewrite" number="yes">
-z - z_0 = -\frac{A}{C}(x - x_0) - \frac{B}{C}(y - y_0).
+<em>The direction vectors of the two tangent lines.</em> Consider the
+tangent line at <m>P_0</m> to the curve cut from the surface by the plane
+<m>y = y_0</m>. Along this line <m>y</m> stays equal to <m>y_0</m>, and
+the slope of the line is <m>f_x(x_0,y_0)</m>: each time <m>x</m>
+increases by <m>1</m>, <m>z</m> changes by <m>f_x(x_0,y_0)</m>. Therefore
+the displacement <m>\langle 1, 0, f_x(x_0,y_0)\rangle</m> takes
+<m>P_0</m> to another point of the line, which means it is a direction
+vector of this tangent line. Similarly, along the tangent line at
+<m>P_0</m> in the plane <m>x = x_0</m>, <m>x</m> stays equal to
+<m>x_0</m> and each time <m>y</m> increases by <m>1</m>, <m>z</m> changes
+by <m>f_y(x_0,y_0)</m>. The direction vectors of the two tangent lines
+are therefore
+<md xml:id="eq-tp-direction-vectors" number="yes">
+\mathbf v_1 = \hat{\imath} + f_x(x_0,y_0)\,\hat{k}
+\qquad\text{and}\qquad
+\mathbf v_2 = \hat{\jmath} + f_y(x_0,y_0)\,\hat{k},
 </md>
+as shown in <xref ref="fig-tp-direction-vectors"/>.
 </p>
 
-<p>
-When <m>y = y_0</m>, we have <m>z - z_0 = -\frac{A}{C}(x - x_0)</m>,
-which is the equation of the tangent line at <m>P_0</m> in the plane
-<m>y = y_0</m>, and therefore its slope <m>-\frac{A}{C}</m> is
-<m>f_x(x_0,y_0)</m>. Similarly, when <m>x = x_0</m>, we have
-<m>z - z_0 = -\frac{B}{C}(y - y_0)</m>, which is the equation of the
-tangent line at <m>P_0</m> in the plane <m>x = x_0</m>, and therefore its
-slope <m>-\frac{B}{C}</m> is <m>f_y(x_0,y_0)</m>.
-<xref ref="fig-tp-plane-normal"/> shows the two tangent lines inside
-the planes <m>y = y_0</m> and <m>x = x_0</m>.
-</p>
+<figure xml:id="fig-tp-direction-vectors">
+<caption>
+The direction vectors of the two tangent lines at <m>P_0</m>. In the
+plane <m>y = y_0</m> a run of <m>1</m> in the <m>x</m> direction comes
+with a rise of <m>f_x(x_0,y_0)</m>, so
+<m>\mathbf v_1 = \hat{\imath} + f_x(x_0,y_0)\,\hat{k}</m>; in the plane
+<m>x = x_0</m> a run of <m>1</m> in the <m>y</m> direction comes with a
+rise of <m>f_y(x_0,y_0)</m>, so
+<m>\mathbf v_2 = \hat{\jmath} + f_y(x_0,y_0)\,\hat{k}</m>. (Both slopes
+are negative at this point, so both rises point down.)
+</caption>
+<image width="86%">
+<shortdescription>A grey surface with two curves through a magenta point P 0, the tangent line to each curve, and an arrow along each tangent line.</shortdescription>
+<description><p>
+A patch of the surface z equals 3 minus one quarter x squared minus 0.45
+y squared around the point P 0 at (0.5, 0.5, 2.825). The green curve cut
+by the plane y equals y 0 and the amber curve cut by the plane x equals
+x 0 cross at P 0. The teal tangent line to the green curve carries the
+teal arrow v 1 from P 0, and the dark purple tangent line to the amber
+curve carries the dark purple arrow v 2 from P 0. Dashed legs show each
+arrow as a run of 1, parallel to the x axis for v 1 and to the y axis for
+v 2, followed by a vertical rise labelled f x for v 1 and f y for v 2.
+</p></description>
+<asymptote label="asymptote-tp-direction-vectors"><![CDATA[
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,9cm);
+currentprojection=orthographic(camera=(7,5,5),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+// The surface, the point and the colours of fig-pd-tangent-x and
+// fig-pd-tangent-y, drawn on a smaller patch around P0 so that the two
+// direction vectors (each of run 1) are large enough to read.
+real a=-0.6, b=1.8;
+triple surfacePoint(pair p) {
+  return (p.x,p.y,3-0.25*p.x^2-0.45*p.y^2);
+}
+surface s=surface(surfacePoint,(a,a),(b,b),12,12);
+draw(s,surfacepen=gray(0.75)+opacity(0.35),
+     meshpen=gray(0.55)+opacity(0.4)+linewidth(0.3pt));
+
+real fx=-0.25, fy=-0.45;
+triple P=(0.5,0.5,2.825);
+triple v1=(1,0,fx), v2=(0,1,fy);
+pen xTrace=rgb("008000")+linewidth(1.4pt);
+pen yTrace=orange+linewidth(1.4pt);
+pen xTan=rgb("009999");
+pen yTan=rgb("660066");
+draw(graph(new triple(real t) {return (t,0.5,2.8875-0.25*t^2);},a,b),xTrace);
+draw(graph(new triple(real t) {return (0.5,t,2.9375-0.45*t^2);},a,b),yTrace);
+// the two tangent lines (thin), and a direction vector on each (thick)
+draw((P-1.1v1)--(P+1.15v1),xTan+linewidth(0.9pt));
+draw((P-1.1v2)--(P+1.15v2),yTan+linewidth(0.9pt));
+draw(P--P+v1,xTan+linewidth(3pt),Arrow3(size=12pt));
+draw(P--P+v2,yTan+linewidth(3pt),Arrow3(size=12pt));
+
+// run 1, rise f_x in the plane y = y0; run 1, rise f_y in the plane x = x0
+pen leg=gray(0.15)+linewidth(0.8pt)+linetype("4 3");
+draw(P--P+X--P+v1,leg);
+draw(P--P+Y--P+v2,leg);
+label("$1$",P+0.5X,N,gray(0.15));
+label("$f_x$",P+X+0.5*fx*Z,W,gray(0.15));
+label("$1$",P+0.5Y,N,gray(0.15));
+label("$f_y$",P+Y+0.5*fy*Z,E,gray(0.15));
+
+dot(P,magenta+linewidth(5pt));
+label("$P_0$",P+0.05Z,N,magenta);
+label("$\mathbf{v}_1$",P+1.18v1,SW,xTan);
+label("$\mathbf{v}_2$",P+1.18v2,SE,yTan);
+label("$y=y_0$",(b,0.5,2.8875-0.25*b^2),SE,xTrace);
+label("$x=x_0$",(0.5,b,2.9375-0.45*b^2),E,yTrace);
+label("$z=f(x,y)$",surfacePoint((1.8,-0.6)),W,gray(0.4));
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+triple O=(a-0.2,a-0.2,0.7);
+draw(Label("$x$",1),O--(b+0.3,a-0.2,0.7),ax,Arrow3);
+draw(Label("$y$",1),O--(a-0.2,b+0.3,0.7),ax,Arrow3);
+draw(Label("$z$",1),O--(a-0.2,a-0.2,3.6),ax,Arrow3);
+]]></asymptote>
+</image>
+</figure>
 
 <p>
-Therefore the equation of the <term>tangent plane to the surface</term>
-<m>z = f(x,y)</m> at <m>P_0(x_0, y_0, f(x_0,y_0))</m> is
+<em>The normal vector.</em> The tangent plane at <m>P_0</m> is the plane
+that contains both tangent lines, so <m>\mathbf v_1</m> and
+<m>\mathbf v_2</m> are both parallel to it. These two vectors are not
+parallel to each other, so their cross product is a nonzero vector
+perpendicular to both of them, and hence it is normal to the tangent
+plane. Using <xref ref="eq-cross-determinant"/>, with <m>f_x</m> and
+<m>f_y</m> evaluated at <m>(x_0,y_0)</m>,
+<md>
+<mrow>
+\mathbf v_1 \times \mathbf v_2 \amp =
+\begin{vmatrix}
+\hat{\imath} \amp \hat{\jmath} \amp \hat{k} \\
+1 \amp 0 \amp f_x \\
+0 \amp 1 \amp f_y
+\end{vmatrix}
+</mrow>
+<mrow>
+\amp =
+\begin{vmatrix} 0 \amp f_x \\ 1 \amp f_y \end{vmatrix}\hat{\imath}
+- \begin{vmatrix} 1 \amp f_x \\ 0 \amp f_y \end{vmatrix}\hat{\jmath}
++ \begin{vmatrix} 1 \amp 0 \\ 0 \amp 1 \end{vmatrix}\hat{k}
+</mrow>
+<mrow xml:id="eq-tp-v1-cross-v2" number="yes">
+\amp = -f_x(x_0,y_0)\,\hat{\imath} - f_y(x_0,y_0)\,\hat{\jmath} + \hat{k}.
+</mrow>
+</md>
+<xref ref="fig-tp-cross-product"/> shows this vector standing at a right
+angle to the tangent plane.
+</p>
+
+<figure xml:id="fig-tp-cross-product">
+<caption>
+The tangent plane at <m>P_0</m> contains <m>\mathbf v_1</m> and
+<m>\mathbf v_2</m>, and with them the parallelogram they span. The cross
+product
+<m>\mathbf v_1 \times \mathbf v_2 = -f_x\,\hat{\imath} - f_y\,\hat{\jmath} + \hat{k}</m>
+is perpendicular to both vectors, so it is normal to the tangent plane.
+Taking the cross product in the other order gives the opposite normal
+vector
+<m>\mathbf n = \mathbf v_2 \times \mathbf v_1 = f_x\,\hat{\imath} + f_y\,\hat{\jmath} - \hat{k}</m>.
+</caption>
+<image width="86%">
+<shortdescription>The surface with its pink tangent plane at P 0, the arrows v 1 and v 2 in the plane, and two opposite arrows perpendicular to the plane.</shortdescription>
+<description><p>
+The same patch of the surface and the same point P 0 as in the previous
+figure, now with the pink tangent plane touching the surface at P 0. The
+teal arrow v 1 and the dark purple arrow v 2 start at P 0 and lie in the
+plane, and the parallelogram they span is shaded darker. A black arrow,
+the cross product v 1 cross v 2, points up from P 0 at a right angle to
+the plane, with small right-angle marks against v 1 and v 2. A grey
+arrow, the vector n equals v 2 cross v 1, points from P 0 in the opposite
+direction, below the plane.
+</p></description>
+<asymptote label="asymptote-tp-cross-product"><![CDATA[
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,9cm);
+currentprojection=orthographic(camera=(7,5,5),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+// the same patch of the surface as in the figure of the direction vectors
+real a=-0.6, b=1.8;
+triple surfacePoint(pair p) {
+  return (p.x,p.y,3-0.25*p.x^2-0.45*p.y^2);
+}
+surface s=surface(surfacePoint,(a,a),(b,b),12,12);
+draw(s,surfacepen=gray(0.75)+opacity(0.35),
+     meshpen=gray(0.55)+opacity(0.4)+linewidth(0.3pt));
+
+real fx=-0.25, fy=-0.45;
+triple P=(0.5,0.5,2.825);
+triple v1=(1,0,fx), v2=(0,1,fy);
+triple n=cross(v1,v2);            // (-fx,-fy,1)
+
+// the tangent plane: the points P0 + s v1 + t v2
+pen planePen=rgb("e88a8a")+opacity(0.4);
+pen planeEdge=rgb("993333")+linewidth(0.5pt);
+path3 plane=(P-1.1v1-1.1v2)--(P+1.4v1-1.1v2)--(P+1.4v1+1.4v2)--(P-1.1v1+1.4v2)--cycle;
+draw(surface(plane),planePen,nolight);
+draw(plane,planeEdge);
+// the parallelogram spanned by v1 and v2 lies in the tangent plane
+path3 par=P--(P+v1)--(P+v1+v2)--(P+v2)--cycle;
+draw(surface(par),rgb("cc4444")+opacity(0.35),nolight);
+draw((P+v1)--(P+v1+v2)--(P+v2),rgb("993333")+linewidth(0.7pt)+linetype("4 3"));
+
+pen xTan=rgb("009999");
+pen yTan=rgb("660066");
+draw(P--P+v1,xTan+linewidth(3pt),Arrow3(size=12pt));
+draw(P--P+v2,yTan+linewidth(3pt),Arrow3(size=12pt));
+draw(P--P+n,black+linewidth(3pt),Arrow3(size=12pt));
+draw(P--P-n,gray(0.35)+linewidth(2.2pt),Arrow3(size=10pt));
+
+// right-angle marks between the cross product and each of v1, v2
+real m=0.16;
+triple nh=unit(n), e1=unit(v1), e2=unit(v2);
+draw((P+m*e1)--(P+m*e1+m*nh)--(P+m*nh),black+linewidth(0.6pt));
+draw((P+m*e2)--(P+m*e2+m*nh)--(P+m*nh),black+linewidth(0.6pt));
+
+dot(P,magenta+linewidth(5pt));
+label("$P_0$",P-0.1Z,S,magenta);
+label("$\mathbf{v}_1$",P+v1,NW,xTan);
+label("$\mathbf{v}_2$",P+v2,E,yTan);
+label("$\mathbf{v}_1\times\mathbf{v}_2=-f_x\,\hat{\imath}-f_y\,\hat{\jmath}+\hat{k}$",P+n,N,black);
+label("$\mathbf{n}=\mathbf{v}_2\times\mathbf{v}_1$",P-n,3S,gray(0.25));
+label("tangent plane",P+1.4v1-1.1v2,W,rgb("993333"));
+label("$z=f(x,y)$",surfacePoint((1.8,-0.6)),W,gray(0.4));
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+triple O=(a-0.2,a-0.2,0.7);
+draw(Label("$x$",1),O--(b+0.3,a-0.2,0.7),ax,Arrow3);
+draw(Label("$y$",1),O--(a-0.2,b+0.3,0.7),ax,Arrow3);
+draw(Label("$z$",1),O--(a-0.2,a-0.2,3.6),ax,Arrow3);
+]]></asymptote>
+</image>
+</figure>
+
+<p>
+<em>The equation of the plane.</em> Recall from
+<xref ref="eq-planes-point-normal"/> that the plane through
+<m>P_0(x_0,y_0,z_0)</m> with normal vector
+<m>\langle A, B, C\rangle</m> has the equation
+<m>A(x - x_0) + B(y - y_0) + C(z - z_0) = 0</m>. Taking
+<m>\langle A, B, C\rangle = \mathbf v_1 \times \mathbf v_2</m> from
+<xref ref="eq-tp-v1-cross-v2"/> gives
+<md>
+-f_x(x_0,y_0)(x - x_0) - f_y(x_0,y_0)(y - y_0) + (z - z_0) = 0.
+</md>
+Multiplying both sides by <m>-1</m>, the equation of the
+<term>tangent plane to the surface</term> <m>z = f(x,y)</m> at
+<m>P_0(x_0, y_0, f(x_0,y_0))</m> is
 <md xml:id="eq-tp-tangent-plane" number="yes">
 f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0) - (z - z_0) = 0.
 </md>
 </p>
 
 <p>
-Note that we can write the equation of the surface as
+As a check, set <m>y = y_0</m> in <xref ref="eq-tp-tangent-plane"/>. We
+get <m>z - z_0 = f_x(x_0,y_0)(x - x_0)</m>, the line through <m>P_0</m>
+in the plane <m>y = y_0</m> with slope <m>f_x(x_0,y_0)</m>, which is the
+first tangent line. Similarly, setting <m>x = x_0</m> gives
+<m>z - z_0 = f_y(x_0,y_0)(y - y_0)</m>, the second tangent line. So the
+plane contains both tangent lines, as it should.
+</p>
+
+<p>
+The coefficients in <xref ref="eq-tp-tangent-plane"/> are the components
+of <m>-(\mathbf v_1 \times \mathbf v_2) = \mathbf v_2 \times \mathbf v_1</m>,
+which is also normal to the tangent plane, since multiplying a normal
+vector by <m>-1</m> gives another normal vector. This vector is a
+gradient. Note that we can write the equation of the surface as
 <m>w(x,y,z) = f(x,y) - z = 0</m> and define the gradient of <m>w</m> as
 <md>
 \nabla w = \left(\frac{\partial w}{\partial x}\right)\hat{\imath}
 + \left(\frac{\partial w}{\partial y}\right)\hat{\jmath}
 + \left(\frac{\partial w}{\partial z}\right)\hat{k}.
 </md>
-Then, reading off the coefficients in
-<xref ref="eq-tp-tangent-plane"/>, the <term>normal vector to the
-tangent plane</term> is
+Then the <term>normal vector to the tangent plane</term> is
 <md xml:id="eq-tp-normal-vector" number="yes">
 \mathbf n = \nabla w \Big|_{P_0}
-= f_x(x_0,y_0)\,\hat{\imath} + f_y(x_0,y_0)\,\hat{\jmath} - \hat{k}.
+= f_x(x_0,y_0)\,\hat{\imath} + f_y(x_0,y_0)\,\hat{\jmath} - \hat{k}
+= \mathbf v_2 \times \mathbf v_1.
 </md>
+<xref ref="fig-tp-plane-normal"/> puts the whole construction in one
+picture.
 </p>
 
 <figure xml:id="fig-tp-plane-normal">
@@ -149,10 +386,13 @@ The two vertical planes <m>y = y_0</m> and <m>x = x_0</m> cut the surface
 tangent lines at <m>P_0</m> have slopes <m>f_x(x_0,y_0)</m> and
 <m>f_y(x_0,y_0)</m>.
 The tangent plane at <m>P_0</m> contains both tangent lines, and its
-normal vector is <m>\mathbf n = \nabla w \Big|_{P_0}</m>. Equivalently,
-<m>\mathbf n</m> is given (up to sign) by the cross product of the
-direction vectors <m>\hat{\imath} + f_x(x_0,y_0)\,\hat{k}</m> and
-<m>\hat{\jmath} + f_y(x_0,y_0)\,\hat{k}</m> of the two tangent lines.
+normal vector is the cross product of the direction vectors
+<m>\mathbf v_1 = \hat{\imath} + f_x(x_0,y_0)\,\hat{k}</m> and
+<m>\mathbf v_2 = \hat{\jmath} + f_y(x_0,y_0)\,\hat{k}</m> of the two
+tangent lines. The normal arrow is drawn pointing up, in the direction of
+<m>\mathbf v_1 \times \mathbf v_2</m>; the vector
+<m>\mathbf n = \nabla w \Big|_{P_0} = \mathbf v_2 \times \mathbf v_1</m>
+points the opposite way, and both are normal to the plane.
 </caption>
 <image width="85%">
 <description>
@@ -249,9 +489,10 @@ the picture names each of these seven elements.
 
 <p>
 <xref ref="fig-tp-plane-interactive"/> rebuilds the picture above one
-layer at a time, so each ingredient of the construction can be seen
-arriving: the two slices with their tangent lines first, then the
-tangent plane that contains both lines, and finally the normal vector.
+layer at a time, in the order of the derivation: the two slices, each
+with its tangent line and its direction vector, then the cross product
+of the two direction vectors, and finally the tangent plane that this
+normal vector determines.
 </p>
 
 <figure xml:id="fig-tp-plane-interactive">
@@ -261,25 +502,35 @@ time. The plane <m>y = y_0</m> cuts the surface along the green curve of
 <xref ref="fig-pd-tangent-x"/>, whose tangent line at <m>P_0</m> has
 slope <m>f_x(x_0,y_0)</m>; the plane <m>x = x_0</m> cuts it along the
 amber curve of <xref ref="fig-pd-tangent-y"/>, whose tangent line has
-slope <m>f_y(x_0,y_0)</m>. The tangent plane contains both tangent
-lines, and <m>\mathbf n = \langle f_x, f_y, -1\rangle</m> stands
-perpendicular to it.
+slope <m>f_y(x_0,y_0)</m>. Their direction vectors are
+<m>\mathbf v_1 = \langle 1, 0, f_x\rangle</m> and
+<m>\mathbf v_2 = \langle 0, 1, f_y\rangle</m>, the cross product
+<m>\mathbf v_1 \times \mathbf v_2 = \langle -f_x, -f_y, 1\rangle</m> is
+perpendicular to both, and the tangent plane is the plane through
+<m>P_0</m> with this normal vector. Swapping the order gives
+<m>\mathbf n = \mathbf v_2 \times \mathbf v_1 = \langle f_x, f_y, -1\rangle</m>.
 </caption>
-<!-- aspect 6:5 rather than 3:2: like limit-paths-manim.html, the equation
+<!-- aspect 1:1 rather than 3:2: like limit-paths-manim.html, the equation
      card and the readout sit in a bar above the picture (and the caption in
      a strip below it) rather than overlaying it, so the frame needs the
-     extra height to keep the surface itself the same size. -->
+     extra height to keep the surface itself large enough for the direction
+     vectors and their labels to be read. -->
 <interactive xml:id="interactive-tp-plane"
-             iframe="tangent-plane-manim.html" width="100%" aspect="6:5">
+             iframe="tangent-plane-manim.html" width="100%" aspect="1:1">
 <instructions>
 <p>
 The surface and the point <m>P_0</m> are those of the figure above. Add
 the layers with the buttons <mdash/> the slice <m>y = y_0</m> with its
-blue tangent line, the slice <m>x = x_0</m> with its dark red tangent
-line, the pink tangent plane, and the normal vector <m>\mathbf n</m>
-<mdash/> in any order, or press <q>Build it up</q> to watch them arrive
-one at a time. The values of <m>f_x</m>, <m>f_y</m> and <m>\mathbf n</m>
-are collected in the panel above the picture. <q>Side view</q> looks
+blue tangent line and the direction vector <m>\mathbf v_1</m>, the slice
+<m>x = x_0</m> with its purple tangent line and the direction vector
+<m>\mathbf v_2</m>, the cross product
+<m>\mathbf v_1 \times \mathbf v_2</m> with the parallelogram the two
+vectors span, and the pink tangent plane <mdash/> in any order, or press
+<q>Build it up</q> to watch them arrive one at a time. <q>Swap</q>
+turns the cross product into
+<m>\mathbf v_2 \times \mathbf v_1 = \mathbf n</m>, which points the
+opposite way. The vectors <m>\mathbf v_1</m>, <m>\mathbf v_2</m> and
+their cross product are collected in the panel above the picture. <q>Side view</q> looks
 straight down the <m>y</m> axis so the slope of the blue tangent line can
 be read directly, <q>Spin</q> turns the picture, and dragging rotates it
 by hand.
