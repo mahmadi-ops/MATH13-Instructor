@@ -1215,10 +1215,12 @@ changes its height by
 surface itself changes its height by <m>\Delta f</m> (orange); the red
 segment between the two is the error <m>\Delta f - df = (ds)^2</m>.
 </caption>
-<!-- aspect 1:1, as for tangent-plane-manim.html: the readout sits in a bar
-     above the picture and the sliders and buttons in a panel below it. -->
+<!-- aspect 5:6: the readout sits in a bar above the picture and the sliders
+     and buttons in a panel below it, all in type large enough to read in the
+     book's frame, so the frame is taller than it is wide to leave the
+     picture its room. -->
 <interactive xml:id="interactive-tp-change"
-             iframe="differential-estimate-manim.html" width="100%" aspect="1:1">
+             iframe="differential-estimate-manim.html" width="100%" aspect="5:6">
 <instructions>
 <p>
 The surface, the point <m>P_0</m> and the gradient

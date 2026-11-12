@@ -19,7 +19,7 @@
     --panel:     #101218;
     --edge:      #262a36;
     --ink:       #ece6e2;
-    --dim:       #9aa0ad;
+    --dim:       #c3c9d6;
     --blue:      #58c4dd;
     --green:     #83c167;
     --gold:      #f0ac5f;
@@ -63,9 +63,9 @@
     border-radius: 6px;
     line-height: 1.5;
   }
-  .math { font-family: var(--serif); font-size: 18px; }
+  .math { font-family: var(--serif); font-size: 21px; }
   .math i { font-style: italic; }
-  .math sub { font-size: 12px; }
+  .math sub { font-size: 14px; }
   #eqcard .sub { font-size: 13px; color: var(--dim); font-family: var(--sans); }
 
   /* what the layers report, right half of the header bar: every row is always
@@ -76,13 +76,13 @@
     padding: 8px 12px 9px 12px;
     background: #14161e;
     border: 1px solid var(--edge); border-radius: 6px;
-    font-size: 13.5px; color: var(--dim);
+    font-size: 15px; color: var(--dim);
   }
-  #readout .title { font-size: 12.5px; letter-spacing: .3px;
+  #readout .title { font-size: 13.5px; letter-spacing: .3px;
                     text-transform: uppercase; color: var(--dim); }
   #readout .row {
     display: flex; align-items: baseline; gap: 8px;
-    margin-top: 4px; font-family: var(--serif); font-size: 16px;
+    margin-top: 5px; font-family: var(--serif); font-size: 19px;
     color: var(--ink);
   }
   #readout .row.off { opacity: 0.45; }
@@ -111,7 +111,7 @@
   #caption {
     flex: 0 0 auto; box-sizing: border-box;
     width: 100%; min-height: 32px;
-    text-align: center; font-size: 14.5px; line-height: 1.4; color: var(--dim);
+    text-align: center; font-size: 17px; line-height: 1.4; color: var(--ink);
     background: var(--bg); border-top: 1px solid var(--edge);
     padding: 6px 14px;
     opacity: 0; transition: opacity .45s ease;
@@ -127,11 +127,11 @@
   }
   .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
   .row + .row { margin-top: 9px; }
-  .lbl { font-size: 13px; color: var(--dim); }
+  .lbl { font-size: 16px; color: var(--ink); }
 
   button {
-    font: inherit; font-size: 13.5px;
-    padding: 5px 12px; border-radius: 999px;
+    font: inherit; font-size: 16px; font-weight: 500;
+    padding: 6px 13px; border-radius: 999px;
     color: var(--ink); background: #1a1d26;
     border: 1px solid var(--edge);
     cursor: pointer; transition: background .15s, border-color .15s, color .15s;
@@ -145,28 +145,38 @@
     color: #06070a; font-weight: 600;
   }
 
+  /* The book shows this page in a frame about 600px wide. The type stays
+     large there: only the paddings tighten, and the note under the function
+     is dropped to leave the room to the picture. */
   @media (max-width: 620px) {
-    #top { padding: 6px 10px; }
+    #top { padding: 6px 10px; gap: 8px; }
     #eqcard { padding: 7px 10px 8px 10px; }
     #eqcard .sub { display: none; }
-    .math { font-size: 16px; }
-    #readout { min-width: 0; font-size: 12.5px; padding: 6px 9px 7px 9px; }
-    #readout .row { font-size: 14.5px; }
-    #readout .sym { display: none; }
-    #caption { font-size: 12.5px; min-height: 28px; padding: 5px 10px; }
-    .lbl { display: none; }
-    button { font-size: 12.5px; padding: 4px 10px; }
+    .math { font-size: 19px; }
+    #readout { min-width: 0; padding: 6px 10px 8px 10px; }
+    #readout .row { font-size: 17.5px; }
+    #caption { font-size: 16px; padding: 6px 10px; }
+    button { font-size: 15px; padding: 5px 11px; }
+    .lbl { font-size: 15px; }
+  }
+  @media (max-width: 430px) {
+    #top { flex-direction: column; }
+    #readout { margin-left: 0; }
+    .math { font-size: 17px; }
+    #readout .row { font-size: 16px; margin-top: 2px; }
+    #readout .title { display: none; }
+    #caption { font-size: 14.5px; }
+    button { font-size: 14px; padding: 4px 9px; }
   }
 
   /* sliders */
   .ctl { display: flex; align-items: center; gap: 8px; flex: 1 1 230px; min-width: 0; }
   .ctl .lbl { display: inline; white-space: nowrap; }
   .ctl input[type=range] { flex: 1 1 auto; min-width: 70px; accent-color: var(--blue); }
-  .ctl output { font-family: var(--serif); font-size: 15px; color: var(--ink);
+  .ctl output { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink);
                 min-width: 3.2em; text-align: right; }
   #readout .row .val { font-variant-numeric: tabular-nums; }
   @media (max-width: 620px) {
-    #btnSpin { display: none; }       /* dragging turns the picture as well */
     .ctl { flex-basis: 200px; }
   }
 </style>
@@ -209,7 +219,8 @@
       <button id="btnEx" title="The example: direction 45 degrees, ds = 0.1">Example</button>
       <button id="btnShrink">&#9654;&nbsp;Shrink <i style="font-family:var(--serif)">ds</i></button>
       <button id="btnTurn">&#9654;&nbsp;Turn &#251;</button>
-      <span style="flex:1"></span>
+    </div>
+    <div class="row">
       <button id="btnZoom">Zoom in</button>
       <button id="btnSlice">Slice view</button>
       <button id="btnPlane">Tangent plane</button>
@@ -276,6 +287,7 @@
       pts.push(new THREE.Vector3(2.3 * Math.cos(t), 2.3 * Math.sin(t), 0));
       pts.push(new THREE.Vector3(R_DISC * Math.cos(t), R_DISC * Math.sin(t), f(R_DISC, 0)));
     }
+    pts.push(new THREE.Vector3(3.0, 0, 0), new THREE.Vector3(0, 3.0, 0));   // the axis labels
     return cloudAround(new THREE.Vector3(0, 0, 2.5), pts);
   })();
   var NEAR = (function () {
@@ -334,7 +346,7 @@
   }
   function runFont(r) {
     var upright = r.bold || /[0-9×=()⟨⟩,−Δû]/.test(r.t);
-    return (r.bold ? "bold " : (upright ? "" : "italic ")) + (r.sub ? 34 : 52) + "px " + FAMILY;
+    return "bold " + (upright ? "" : "italic ") + (r.sub ? 36 : 54) + "px " + FAMILY;
   }
   function paintLabel(rec) {
     var w = 256, h = 96, cv = document.createElement("canvas");
@@ -349,7 +361,7 @@
     runs.forEach(function (r) {
       g.font = runFont(r);
       // a dark halo keeps the lettering readable over the surface and the lines
-      g.lineWidth = 7; g.lineJoin = "round"; g.strokeStyle = "#06070a";
+      g.lineWidth = 10; g.lineJoin = "round"; g.strokeStyle = "#06070a";
       g.strokeText(r.t, x, h / 2 + (r.sub ? 15 : 0));
       g.fillText(r.t, x, h / 2 + (r.sub ? 15 : 0));
       x += r.w;
@@ -360,15 +372,32 @@
     rec.sprite.material.map = tex;
     rec.sprite.material.needsUpdate = true;
   }
-  function makeLabel(text, colour, scale) {
-    var sp = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthTest: false }));
-    sp.userData.scale0 = scale;
-    sp.scale.set(scale * 2.667, scale, 1);   // canvas is 256 x 96
-    var rec = { text: text, colour: colour, sprite: sp };
+  // Every label keeps the same size on screen, wherever the camera is: `px` is
+  // the height of its 256 x 96 canvas in CSS pixels (so the letters are about
+  // 0.56 px tall). It sits at `anchor`, a point of the scene, moved by `off`,
+  // which is measured in pixels along directions of the scene.
+  function makeLabel(text, colour, px) {
+    var sp = new THREE.Sprite(new THREE.SpriteMaterial({
+      transparent: true, depthTest: false, sizeAttenuation: false
+    }));
+    var rec = { text: text, colour: colour, sprite: sp, px: px,
+                anchor: new THREE.Vector3(), off: new THREE.Vector3(), show: true };
     LABELS.push(rec);
     paintLabel(rec);
     scene.add(sp);
-    return sp;
+    return rec;
+  }
+  var _lp = new THREE.Vector3();
+  function placeLabels() {
+    var h = stage.clientHeight || 1, k = 2 * Math.tan(camera.fov * Math.PI / 360);
+    LABELS.forEach(function (rec) {
+      var s = rec.px / h * k;
+      rec.sprite.scale.set(s * 2.667, s, 1);
+      // world units per pixel at the depth of this label
+      var wpp = camera.position.distanceTo(rec.anchor) * k / h;
+      rec.sprite.position.copy(rec.anchor).addScaledVector(rec.off, wpp);
+      rec.sprite.visible = rec.show;
+    });
   }
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () { LABELS.forEach(paintLabel); });
@@ -484,8 +513,8 @@
     arrowParts(new THREE.Vector3(-2.3, 0, 0), new THREE.Vector3(2.6, 0, 0), 0.012, 0x8a8f9c)
       .concat(arrowParts(new THREE.Vector3(0, -2.3, 0), new THREE.Vector3(0, 2.6, 0), 0.012, 0x8a8f9c))
       .forEach(function (m) { scene.add(m); });
-    makeLabel("x", "#9aa0ad", 0.3).position.set(2.8, 0, 0.05);
-    makeLabel("y", "#9aa0ad", 0.3).position.set(0, 2.8, 0.05);
+    makeLabel("x", "#c3c9d6", 38).anchor.set(2.8, 0, 0.05);
+    makeLabel("y", "#c3c9d6", 38).anchor.set(0, 2.8, 0.05);
 
     // the riser from P0 on the floor up to the surface
     for (var k = 0; k < 12; k++) {
@@ -531,13 +560,12 @@
   var dyn = new THREE.Group();
   scene.add(dyn);
   var LAB = {
-    P0: makeLabel("P_0", "#ece6e2", 0.46),
-    P: makeLabel("P", "#f0ac5f", 0.46),
-    u: makeLabel("û ds", "#f0ac5f", 0.46),
-    df: makeLabel("df", "#58c4dd", 0.52),
-    Df: makeLabel("Δf", "#ff9f43", 0.52)
+    P0: makeLabel("P_0", "#ffffff", 44),
+    P: makeLabel("P", "#ffc57a", 44),
+    u: makeLabel("û ds", "#ffc57a", 44),
+    df: makeLabel("df", "#7fd8ee", 48),
+    Df: makeLabel("Δf", "#ffb060", 48)
   };
-  LAB.P0.position.set(X0 - 0.26, Y0 - 0.26, -0.2);
 
   function clearDyn() {
     while (dyn.children.length) {
@@ -599,12 +627,19 @@
     dyn.add(ball(V(ds, zLine), 0.05, BLUE_C));
     dyn.add(ball(V(ds, zSurf), 0.05, ORANGE_C));
 
-    // lettering
-    var out = new THREE.Vector3(c, s, 0);
-    LAB.P.position.copy(V(ds, -0.2)).addScaledVector(out, 0.24);
-    LAB.u.position.copy(V(ds / 2, 0.26)).addScaledVector(side, -0.3);
-    LAB.df.position.copy(V(ds, (Z0 + zLine) / 2)).addScaledVector(out, 0.26).addScaledVector(side, -0.16);
-    LAB.Df.position.copy(V(ds, (Z0 + zSurf) / 2)).addScaledVector(side, 0.42);
+    // lettering: anchors in the scene, offsets in pixels
+    var out = new THREE.Vector3(c, s, 0), up = new THREE.Vector3(0, 0, 1);
+    var sgn = zSurf >= Z0 ? 1 : -1;
+    LAB.P0.anchor.set(X0, Y0, 0);
+    LAB.P0.off.copy(out).multiplyScalar(-16).addScaledVector(up, -20);
+    LAB.P.anchor.copy(V(ds, 0));
+    LAB.P.off.copy(out).multiplyScalar(16).addScaledVector(up, -20);
+    LAB.u.anchor.copy(V(ds / 2, 0));
+    LAB.u.off.copy(up).multiplyScalar(20);
+    LAB.df.anchor.copy(V(ds, (Z0 + zLine) / 2));
+    LAB.df.off.copy(out).multiplyScalar(30).addScaledVector(up, -14 * sgn);
+    LAB.Df.anchor.copy(V(ds, zSurf));
+    LAB.Df.off.copy(out).multiplyScalar(34).addScaledVector(up, 22 * sgn);
     refreshReadout();
   }
 
@@ -782,12 +817,6 @@
 
     zoomT += Math.max(-1, Math.min(1, (zoomed ? 1 : 0) - zoomT)) * Math.min(1, dt * 3);
     if (Math.abs((zoomed ? 1 : 0) - zoomT) < 0.002) zoomT = zoomed ? 1 : 0;
-    // lettering keeps a readable size when the camera moves in
-    var ls = 1 - 0.4 * zoomT;
-    LABELS.forEach(function (rec) {
-      var s0 = rec.sprite.userData.scale0 * ls;
-      rec.sprite.scale.set(s0 * 2.667, s0, 1);
-    });
 
     if (targetPhi !== null) {
       var tt = nearestAngle(theta, targetTheta);
@@ -800,6 +829,12 @@
     if (spinning && !dragging) theta += 0.3 * dt;
 
     placeCamera();
+    // the step u ds is named only while it is long enough on screen to carry
+    // the name; the two points and the two changes are always named
+    var hpx = stage.clientHeight || 1;
+    var wppP0 = camera.position.distanceTo(LAB.P0.anchor) * 2 * Math.tan(camera.fov * Math.PI / 360) / hpx;
+    LAB.u.show = ds / wppP0 > 70;
+    placeLabels();
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
   }
