@@ -1049,38 +1049,53 @@ which reach the plane in any other direction, are longer.
         <m>yz</m>.
       </caption>
       <image xml:id="img-jewelry-box" width="45%">
+        <shortdescription>A rectangular box with its edges labeled x, y and z.</shortdescription>
         <description>
           A rectangular box drawn in three dimensions, with the
           horizontal edges of the base labeled x and y and the vertical
-          edge labeled z.
+          edge labeled z. On the web page the box can be turned by
+          dragging it.
         </description>
-        <latex-image label="jewelry-box">
-          \begin{tikzpicture}[line join=round, scale=1.0]
-            \def\W{4}   % x : front width
-            \def\H{2.5} % z : height
-            \def\OX{1.5}\def\OY{0.85} % oblique offsets for the y depth
-            % faces
-            \fill[orange!30] (0,0) rectangle (\W,\H);
-            \fill[orange!50]
-              (0,\H) -- (\OX,\H+\OY) -- (\W+\OX,\H+\OY) -- (\W,\H) -- cycle;
-            \fill[orange!40]
-              (\W,0) -- (\W+\OX,\OY) -- (\W+\OX,\H+\OY) -- (\W,\H) -- cycle;
-            % hidden edges
-            \draw[orange!60!black, dashed]
-              (0,0) -- (\OX,\OY) -- (\W+\OX,\OY);
-            \draw[orange!60!black, dashed] (\OX,\OY) -- (\OX,\H+\OY);
-            % visible edges
-            \draw[orange!60!black, thick] (0,0) rectangle (\W,\H);
-            \draw[orange!60!black, thick]
-              (0,\H) -- (\OX,\H+\OY) -- (\W+\OX,\H+\OY) -- (\W,\H);
-            \draw[orange!60!black, thick]
-              (\W,0) -- (\W+\OX,\OY) -- (\W+\OX,\H+\OY);
-            % dimension labels
-            \node[below] at (\W/2, 0) {$x$};
-            \node[below right] at (\W + 0.5*\OX, 0.5*\OY) {$y$};
-            \node[right] at (\W+\OX, \OY + 0.5*\H) {$z$};
-          \end{tikzpicture}
-        </latex-image>
+        <asymptote label="asymptote-lagrange-jewelry-box"><![CDATA[
+import three;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(6cm,0);
+currentprojection=orthographic(camera=(8,-18,9),up=Z);
+
+// The box: a base of x by y and a height of z.  The corner D at the back,
+// left and bottom is the one hidden from the viewer.
+real a=4, b=2.6, c=2.5;
+triple A=(0,0,0), B=(a,0,0), C=(a,b,0), D=(0,b,0);
+triple A1=A+c*Z, B1=B+c*Z, C1=C+c*Z, D1=D+c*Z;
+
+// the colours of the earlier drawing: front and back, top and bottom, sides
+pen frontFill=rgb(1,0.85,0.7), topFill=rgb(1,0.75,0.5), sideFill=rgb(1,0.8,0.6);
+pen edge=rgb(0.6,0.3,0)+linewidth(1.2pt);
+pen hidden=rgb(0.6,0.3,0)+linewidth(0.8pt)+linetype(new real[] {4,3});
+
+draw(surface(A--B--B1--A1--cycle),frontFill,nolight);   // front, y = 0
+draw(surface(A1--B1--C1--D1--cycle),topFill,nolight);   // top
+draw(surface(B--C--C1--B1--cycle),sideFill,nolight);    // right, x = a
+if(settings.outformat == "html") {
+  // WebGL hides whatever is behind the box, so the box can be turned freely.
+  draw(surface(D--C--C1--D1--cycle),frontFill,nolight); // back
+  draw(surface(A--B--C--D--cycle),topFill,nolight);     // bottom
+  draw(surface(A--D--D1--A1--cycle),sideFill,nolight);  // left
+  draw(C--D--A,edge); draw(D--D1,edge);
+} else {
+  // Print draws in the order given, so the three edges at D go on top, dashed.
+  draw(C--D--A,hidden); draw(D--D1,hidden);
+}
+draw(A--B--C,edge);
+draw(A--A1,edge); draw(B--B1,edge); draw(C--C1,edge);
+draw(A1--B1--C1--D1--cycle,edge);
+
+// the three dimensions
+label("$x$",(A+B)/2,S);
+label("$y$",(B+C)/2,SE);
+label("$z$",(C+C1)/2,E);
+]]></asymptote>
       </image>
     </figure>
   </statement>
