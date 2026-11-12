@@ -39,6 +39,11 @@
   falls back to the TikZ picture kept in the <static> element, so print is
   unchanged.  The video renders inline in HTML and as the poster image with
   a QR code in print.
+
+  The closing subsection "Video Summary" holds two Manim videos, with a list
+  of what each explains: tangent_plane_cross_product.mp4 (the derivation of
+  the tangent plane) and tangent_plane_approximation.mp4 (df against Delta f
+  and the linearization).  Their scripts are in assets/manim.
 -->
 <section xml:id="section-tangent-planes-differentials" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Tangent Planes and Differentials</title>
@@ -1479,6 +1484,156 @@ normal direction.
 </latex-image>
 </image>
 </figure>
+
+</subsection>
+
+<!-- ================================================================ -->
+<subsection xml:id="sec-tp-video-summary">
+<title>Video Summary</title>
+
+<p>
+The two videos below recap this section: the first builds the equation of
+the tangent plane from two tangent lines and a cross product, and the
+second uses the tangent plane to approximate the function, first in one
+direction and then with the linearization.
+</p>
+
+<figure xml:id="fig-tp-video-tangent-plane">
+<caption>
+The tangent plane to <m>z = f(x,y)</m> at <m>P_0</m>: the direction
+vectors <m>\mathbf v_1</m> and <m>\mathbf v_2</m> of two tangent lines,
+their cross product, the equation of the plane, the normal vector
+<m>\mathbf n = \nabla w \Big|_{P_0}</m> and the normal line.
+</caption>
+<video xml:id="video-tp-tangent-plane"
+       source="videos/tangent_plane_cross_product.mp4"
+       preview="videos/previews/tangent_plane_cross_product.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+
+<p>
+What the first video explains:
+<ul>
+<li>
+<p>
+<em>Two tangent lines.</em> The plane <m>y = y_0</m> cuts the surface in a
+curve whose tangent line at <m>P_0</m> has slope <m>f_x(x_0,y_0)</m>: a
+run of <m>1</m> in <m>x</m> comes with a rise of <m>f_x(x_0,y_0)</m>, so
+<m>\mathbf v_1 = \hat{\imath} + f_x(x_0,y_0)\,\hat{k}</m> is a direction
+vector of that line. In the same way, the plane <m>x = x_0</m> gives
+<m>\mathbf v_2 = \hat{\jmath} + f_y(x_0,y_0)\,\hat{k}</m>.
+</p>
+</li>
+<li>
+<p>
+<em>The cross product.</em> The tangent plane contains both tangent lines,
+so <m>\mathbf v_1</m> and <m>\mathbf v_2</m> are parallel to it, and their
+cross product is normal to it:
+<md>
+\mathbf v_1 \times \mathbf v_2 = -f_x(x_0,y_0)\,\hat{\imath} - f_y(x_0,y_0)\,\hat{\jmath} + \hat{k}.
+</md>
+</p>
+</li>
+<li>
+<p>
+<em>The equation of the plane.</em> The plane through
+<m>P_0(x_0,y_0,z_0)</m> with normal vector <m>\langle A, B, C\rangle</m>
+is
+<md>
+A(x - x_0) + B(y - y_0) + C(z - z_0) = 0.
+</md>
+Taking
+<m>\langle A, B, C\rangle = \mathbf v_1 \times \mathbf v_2</m> and
+multiplying by <m>-1</m> gives the tangent plane of
+<xref ref="eq-tp-tangent-plane"/>.
+</p>
+</li>
+<li>
+<p>
+<em>The normal vector and the normal line.</em> The coefficients of that
+equation are the components of
+<md>
+\mathbf n = \mathbf v_2 \times \mathbf v_1 = f_x(x_0,y_0)\,\hat{\imath} + f_y(x_0,y_0)\,\hat{\jmath} - \hat{k},
+</md>
+which is the gradient of <m>w(x,y,z) = f(x,y) - z</m> at <m>P_0</m>. It
+is also the direction vector of the normal line of
+<xref ref="eq-tp-normal-line"/>.
+</p>
+</li>
+</ul>
+</p>
+
+<figure xml:id="fig-tp-video-approximation">
+<caption>
+Approximating with the tangent plane: the differential <m>df</m> against
+the actual change <m>\Delta f</m>, in one variable and then in a direction
+<m>\hat{u}</m>, and the linearization <m>L(x,y)</m>.
+</caption>
+<video xml:id="video-tp-approximation"
+       source="videos/tangent_plane_approximation.mp4"
+       preview="videos/previews/tangent_plane_approximation.jpg"
+       width="100%" aspect="16:9"/>
+</figure>
+
+<p>
+What the second video explains:
+<ul>
+<li>
+<p>
+<em>One variable.</em> Moving a small distance <m>dx</m> away from
+<m>x</m> changes the function by <m>\Delta f = f(x+dx) - f(x)</m> along
+the curve; along the tangent line the change is the differential
+<m>df = f'(x)\,dx</m>, which closely approximates <m>\Delta f</m> when
+<m>dx</m> is small.
+</p>
+</li>
+<li>
+<p>
+<em>A distance and a direction.</em> With two variables, moving away from
+<m>P_0(x_0,y_0)</m> takes a distance <m>ds</m> and a direction
+<m>\hat{u} = u_1\,\hat{\imath} + u_2\,\hat{\jmath}</m>. It takes us to
+<m>P(x_0 + u_1\,ds,\; y_0 + u_2\,ds)</m>, and the actual change (orange)
+is the <m>\Delta f</m> of <xref ref="eq-tp-delta-f"/>.
+</p>
+</li>
+<li>
+<p>
+<em>The estimate.</em> The rate of change in the direction
+<m>\hat{u}</m> is <m>\nabla f \Big|_{P_0} \cdot \hat{u}</m>, the slope of
+the tangent line (blue) to the curve that the vertical plane through
+<m>P_0</m> along <m>\hat{u}</m> cuts from the surface. Walking along that
+line gives the estimate of <xref ref="eq-tp-df"/>,
+<md>
+\Delta f \approx df = \left(\nabla f \Big|_{P_0} \cdot \hat{u}\right) ds.
+</md>
+As <m>ds</m> shrinks, the error (pink) shrinks much faster than
+<m>ds</m> itself.
+</p>
+</li>
+<li>
+<p>
+<em>Every direction.</em> As <m>\hat{u}</m> turns, the tangent line sweeps
+out the tangent plane at <m>P_0</m>. At the point <m>P(x,y)</m> we have
+<m>u_1\,ds = x - x_0</m> and <m>u_2\,ds = y - y_0</m>, so
+<md>
+df = f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0).
+</md>
+</p>
+</li>
+<li>
+<p>
+<em>The linearization.</em> Then
+<md>
+f(x,y) \approx f(x_0,y_0) + df = L(x,y),
+</md>
+the linearization of <xref ref="eq-tp-linearization"/>, whose graph is the
+tangent plane. Near
+<m>P_0</m> the plane hugs the surface; farther out, the surface curves
+away from the plane.
+</p>
+</li>
+</ul>
+</p>
 
 </subsection>
 

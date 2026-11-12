@@ -236,6 +236,8 @@
     "#chapter-partial-derivatives, #chapter-chain-rule, " +
     "section[id^='sec-fsv-'], section[id^='sec-lim-'], " +
     "section[id^='sec-pd-'], section[id^='sec-cr-'], " +
+    // the video summary of Section 4.5 (its chain-rule display is long)
+    "#sec-dirderiv-video-summary, " +
     // Section 4.6 (tangent planes and differentials) and its subsections
     "#section-tangent-planes-differentials, section[id^='sec-tp-'], " +
     // Section 4.7 (extreme values), its subsections and the included

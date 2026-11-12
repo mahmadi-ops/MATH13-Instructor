@@ -1719,11 +1719,13 @@ derivative at <m>s = 0</m> is the limit in the definition.
 <p>
 <em>The chain rule.</em> With the dependency diagram and
 <m>dx/ds = u_1</m>, <m>dy/ds = u_2</m>, the chain rule gives
-<m>\left(D_{\hat{u}} f\right)_{P_0}
+<md>
+\left(D_{\hat{u}} f\right)_{P_0}
 = \left(\frac{\partial f}{\partial x}\right)_{P_0} u_1
 + \left(\frac{\partial f}{\partial y}\right)_{P_0} u_2
-= \left(\nabla f\right)_{P_0}\cdot\hat{u}</m>: one dot product with the
-gradient vector, and no limit to compute.
+= \left(\nabla f\right)_{P_0}\cdot\hat{u},
+</md>
+one dot product with the gradient vector, and no limit to compute.
 </p>
 </li>
 </ul>
