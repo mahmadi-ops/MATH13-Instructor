@@ -540,8 +540,8 @@ turns the cross product into
 opposite way. The vectors <m>\mathbf v_1</m>, <m>\mathbf v_2</m> and
 their cross product are collected in the panel above the picture. <q>Side view</q> looks
 straight down the <m>y</m> axis so the slope of the blue tangent line can
-be read directly, <q>Spin</q> turns the picture, and dragging rotates it
-by hand.
+be read directly, <q>Spin</q> turns the picture, dragging rotates it
+by hand, and the button at the bottom right shows the figure full screen.
 </p>
 </instructions>
 </interactive>
@@ -1243,8 +1243,8 @@ the direction and the distance of the example, <q>Shrink
 looks straight at the vertical plane so that the picture becomes the
 single-variable one of <xref ref="fig-tp-linear-approx-1d"/>,
 <q>Tangent plane</q> adds the tangent plane at <m>P_0</m>, which contains
-the tangent line of every direction, and dragging rotates the picture by
-hand.
+the tangent line of every direction, dragging rotates the picture by
+hand, and the button at the bottom right shows the figure full screen.
 </p>
 </instructions>
 </interactive>
