@@ -579,25 +579,96 @@
  * <iframe> without an allowfullscreen attribute) carries a small
  * full-screen button that cannot call requestFullscreen itself: the
  * iframe has no fullscreen permission. Instead the button posts
- * {type: "m13-fullscreen-toggle"} to this, the parent page, which is
- * always allowed to full-screen one of its own elements. The listener
- * finds the iframe the message came from and toggles it.
+ * {type: "m13-fullscreen-toggle"} to this, the parent page, which finds
+ * the iframe the message came from and toggles it.
+ *
+ * The Fullscreen API cannot always do that. iPhones (every browser on
+ * iOS) have it for video only, older Safari has it only under a webkit
+ * prefix, and Safari may refuse a request made after a click inside the
+ * iframe rather than on this page. Whenever the API is missing or the
+ * request is refused, the iframe is instead pinned over the whole window
+ * (class m13-pseudo-fs) until the same button is pressed again, or Escape.
  * ================================================================== */
 (function () {
   "use strict";
+  var pinned = null;      // the iframe pinned over the window, if any
+
+  var css = document.createElement("style");
+  css.textContent =
+    "iframe.m13-pseudo-fs, .interactive-iframe-container iframe.fits-column.m13-pseudo-fs {" +
+    " position: fixed !important; top: 0 !important; left: 0 !important;" +
+    " width: 100vw !important; height: 100vh !important; height: 100dvh !important;" +
+    " max-width: none !important; max-height: none !important;" +
+    " aspect-ratio: auto !important; margin: 0 !important; border: 0 !important;" +
+    " transform: none !important; z-index: 2147483646 !important;" +
+    " background: #fff !important; }" +
+    "html.m13-pseudo-fs-open, html.m13-pseudo-fs-open body { overflow: hidden !important; }";
+  document.head.appendChild(css);
+
+  function nativeElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement || null;
+  }
+
+  function exitNative() {
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+  }
+
+  function pin(frame) {
+    if (nativeElement()) return;          // the real full screen came after all
+    pinned = frame;
+    frame.classList.add("m13-pseudo-fs");
+    document.documentElement.classList.add("m13-pseudo-fs-open");
+  }
+
+  function unpin() {
+    if (!pinned) return;
+    pinned.classList.remove("m13-pseudo-fs");
+    document.documentElement.classList.remove("m13-pseudo-fs-open");
+    pinned = null;
+  }
+
+  function enter(frame) {
+    var request = frame.requestFullscreen || frame.webkitRequestFullscreen;
+    if (!request) { pin(frame); return; }
+    var settled = false;
+    function refused() { if (!settled) { settled = true; pin(frame); } }
+    try {
+      var p = request.call(frame);
+      if (p && typeof p.then === "function") {
+        p.then(function () { settled = true; }, refused);
+      }
+    } catch (e) {
+      refused();
+      return;
+    }
+    // The prefixed call returns nothing and may fail silently: check.
+    setTimeout(function () {
+      if (nativeElement() === frame) settled = true;
+      else refused();
+    }, 1000);
+  }
+
+  ["fullscreenerror", "webkitfullscreenerror"].forEach(function (name) {
+    document.addEventListener(name, function (ev) {
+      if (ev.target && ev.target.tagName === "IFRAME") pin(ev.target);
+    });
+  });
+  ["fullscreenchange", "webkitfullscreenchange"].forEach(function (name) {
+    document.addEventListener(name, function () { if (nativeElement()) unpin(); });
+  });
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape") unpin();
+  });
+
   window.addEventListener("message", function (ev) {
     var d = ev.data;
     if (!d || d.type !== "m13-fullscreen-toggle") return;
-    if (document.fullscreenElement) {
-      document.exitFullscreen();
-      return;
-    }
+    if (nativeElement()) { exitNative(); return; }
+    if (pinned) { unpin(); return; }
     var frames = document.getElementsByTagName("iframe");
     for (var i = 0; i < frames.length; i++) {
-      if (frames[i].contentWindow === ev.source) {
-        if (frames[i].requestFullscreen) frames[i].requestFullscreen();
-        return;
-      }
+      if (frames[i].contentWindow === ev.source) { enter(frames[i]); return; }
     }
   });
 })();
