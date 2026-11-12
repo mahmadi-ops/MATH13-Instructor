@@ -665,10 +665,10 @@ Therefore the solutions are <m>(x,y) = (\sqrt 2, -\sqrt 2)</m> and
 <m>(x,y) = (-\sqrt 2, \sqrt 2)</m>. Using
 <xref ref="eq-lagrange-circle-square"/>,
 <md>
-<mrow>f(\sqrt 2, -\sqrt 2) \amp= 2(\sqrt 2 - 1)^2 + 3</mrow>
-<mrow>\amp= 9 - 4\sqrt 2,</mrow>
-<mrow>f(-\sqrt 2, \sqrt 2) \amp= 2(\sqrt 2 + 1)^2 + 3</mrow>
-<mrow>\amp= 9 + 4\sqrt 2.</mrow>
+<mrow>\amp f(\sqrt 2, -\sqrt 2)</mrow>
+<mrow>\amp \quad = 2(\sqrt 2 - 1)^2 + 3 = 9 - 4\sqrt 2,</mrow>
+<mrow>\amp f(-\sqrt 2, \sqrt 2)</mrow>
+<mrow>\amp \quad = 2(\sqrt 2 + 1)^2 + 3 = 9 + 4\sqrt 2.</mrow>
 </md>
 Since the circle is closed and bounded and <m>f</m> is continuous, these
 are the absolute extrema: <m>f(\sqrt 2, -\sqrt 2) = 9 - 4\sqrt 2</m> is
@@ -681,9 +681,9 @@ The answer agrees with the geometry of
 <m>f</m> equals <m>3</m> plus the square of the distance to the point
 <m>(1,-1)</m>. The point of the circle farthest from <m>(1,-1)</m> is
 <m>(-\sqrt 2, \sqrt 2)</m>, at distance <m>2 + \sqrt 2</m>, giving
-<m>f = 3 + (2+\sqrt 2)^2 = 9 + 4\sqrt 2</m>, and the nearest point is
+<m>f = 3 + (2+\sqrt 2)^2</m>, which is <m>9 + 4\sqrt 2</m>, and the nearest point is
 <m>(\sqrt 2, -\sqrt 2)</m>, at distance <m>2 - \sqrt 2</m>, giving
-<m>f = 3 + (2-\sqrt 2)^2 = 9 - 4\sqrt 2</m>. Note also that in
+<m>f = 3 + (2-\sqrt 2)^2</m>, which is <m>9 - 4\sqrt 2</m>. Note also that in
 <xref ref="fig-lagrange-circle-prefigure"/> the gradients
 <m>\nabla f</m> and <m>\nabla g</m> point in the same direction at both
 extrema, but with different multipliers: from
@@ -957,7 +957,7 @@ and therefore the minimum distance is again
 </p>
 <p>
 The two solutions are closely related. At the closest point,
-<m>\nabla f = 2\langle x-1,\, y,\, z+2\rangle = 2\,\overrightarrow{P_0 P}</m>,
+<m>\nabla f = 2\langle x-1,\, y,\, z+2\rangle</m>, which is <m>2\,\overrightarrow{P_0 P}</m>,
 while <m>\nabla g = \langle 1,2,1\rangle = \mathbf n</m>. So the
 Lagrange condition <m>\nabla f = \lambda\,\nabla g</m> says precisely
 that <m>\overrightarrow{P_0 P}</m> is parallel to the normal <m>\mathbf n</m>: the
@@ -1453,19 +1453,19 @@ G \amp= \sqrt{ab},
 and since <m>a + b \gt 0</m> and <m>\sqrt{ab} \gt 0</m> we may multiply
 and divide freely without reversing the inequality:
 <md>
-<mrow>\amp \frac{2ab}{a+b} \le \sqrt{ab}
-\;\Longleftrightarrow\; 2ab \le \sqrt{ab}\,(a+b)</mrow>
+<mrow>\amp \frac{2ab}{a+b} \le \sqrt{ab}</mrow>
+<mrow>\amp \quad \Longleftrightarrow\; 2ab \le \sqrt{ab}\,(a+b)</mrow>
 <mrow>\amp \quad \Longleftrightarrow\; 2\sqrt{ab} \le a + b</mrow>
 <mrow>\amp \quad \Longleftrightarrow\; 0 \le a - 2\sqrt{ab} + b</mrow>
 <mrow>\amp \quad \phantom{\Longleftrightarrow\; 0} = \left(\sqrt a - \sqrt b\,\right)^2 ,</mrow>
 </md>
-where the second line divides through by <m>\sqrt{ab} \gt 0</m>, using
+where the third line divides through by <m>\sqrt{ab} \gt 0</m>, using
 <m>ab = \sqrt{ab}\cdot\sqrt{ab}</m>. The last line is true for every
 choice of <m>a</m> and <m>b</m>, and it is an equality exactly when
 <m>\sqrt a = \sqrt b</m>, that is, when <m>a = b</m>.
 </p>
 <p>
-The middle line of that chain is worth a second look. It says
+The third line of that chain is worth a second look. It says
 <m>\sqrt{ab} \le \frac{a+b}{2}</m>, so for two numbers the statement
 <m>H \le G</m> is the very same statement as <m>G \le A</m>, where
 <m>A</m> is the arithmetic mean. The two-variable case therefore carries
