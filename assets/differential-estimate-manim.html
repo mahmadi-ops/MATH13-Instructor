@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 <style>
   /* Manim-style palette: dark stage, saturated accents, light serif math.
-     Kept in step with the book's other animated figures, in particular
-     limit-paths-manim.html, whose layout this file follows. */
+     Three colours carry the comparison and nothing else uses them:
+     blue for the tangent line and df, orange for Delta f, pink for the error. */
   :root {
     --bg:        #06070a;
     --panel:     #101218;
@@ -21,11 +21,8 @@
     --ink:       #ece6e2;
     --dim:       #c3c9d6;
     --blue:      #58c4dd;
-    --green:     #83c167;
-    --gold:      #f0ac5f;
-    --purple:    #c678dd;
+    --orange:    #ff9f43;
     --pink:      #e07ac8;
-    --red:       #fc6255;
     --sans:  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --serif: "PT Serif", "Times New Roman", Times, serif;
   }
@@ -36,7 +33,7 @@
   #app { width: 100%; height: 100%; box-sizing: border-box;
          display: flex; flex-direction: column; }
 
-  /* ---- header: the equation and the readout, in their own bar above the
+  /* ---- header: the function and the readout, in their own bar above the
      stage so that nothing sits on top of the picture itself ---- */
   #top {
     flex: 0 0 auto; display: flex; align-items: stretch; gap: 10px;
@@ -59,18 +56,15 @@
     padding: 9px 13px 10px 13px;
     background: #14161e;
     border: 1px solid var(--edge);
-    border-left: 3px solid var(--blue);
+    border-left: 3px solid var(--dim);
     border-radius: 6px;
     line-height: 1.5;
   }
   .math { font-family: var(--serif); font-size: 21px; }
   .math i { font-style: italic; }
   .math sub { font-size: 14px; }
-  #eqcard .sub { font-size: 13px; color: var(--dim); font-family: var(--sans); }
 
-  /* what the layers report, right half of the header bar: every row is always
-     listed (a dash until its layer is chosen) so the bar keeps a constant
-     height and the stage below it never jumps */
+  /* the three numbers of the comparison, right half of the header bar */
   #readout {
     margin-left: auto; min-width: 300px;
     padding: 8px 12px 9px 12px;
@@ -78,47 +72,34 @@
     border: 1px solid var(--edge); border-radius: 6px;
     font-size: 15px; color: var(--dim);
   }
-  #readout .title { font-size: 13.5px; letter-spacing: .3px;
-                    text-transform: uppercase; color: var(--dim); }
   #readout .row {
     display: flex; align-items: baseline; gap: 8px;
-    margin-top: 5px; font-family: var(--serif); font-size: 19px;
+    margin-top: 4px; font-family: var(--serif); font-size: 19px;
     color: var(--ink);
   }
-  #readout .row.off { opacity: 0.45; }
+  #readout .row:first-child { margin-top: 0; }
   #readout .row .swatch {
-    width: 16px; height: 3px; border-radius: 2px; flex: 0 0 auto;
+    width: 16px; height: 4px; border-radius: 2px; flex: 0 0 auto;
     transform: translateY(-4px);
   }
   #readout .row .val { margin-left: auto; font-weight: 700;
-                       white-space: nowrap; padding-left: 10px; }
-  #readout sub, #verdict sub { font-size: 0.62em; }
-  #readout i, #verdict i { font-style: italic; }
-  /* vectors are upright bold, as in the book */
-  #readout b, #caption b, button b { font-family: var(--serif); font-weight: 700; }
-  /* the tangent-plane equation keeps its space even while hidden, again so
-     the header height (and with it the canvas) stays put */
-  #verdict {
-    margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--edge);
-    font-size: 13.5px; line-height: 1.35; color: var(--pink); font-weight: 600;
-    font-family: var(--serif);
-    min-height: 1.35em; visibility: hidden;
-  }
-  #verdict.show { visibility: visible; }
+                       white-space: nowrap; padding-left: 10px;
+                       font-variant-numeric: tabular-nums; }
+  #readout sub { font-size: 0.62em; }
+  #readout i { font-style: italic; }
 
-  /* guidance, its own strip between the stage and the buttons, fading in
-     like a manim Write() but never laid over the picture */
+  /* a one-line key to the colours, or a note from a button, between the
+     stage and the controls; never laid over the picture */
   #caption {
     flex: 0 0 auto; box-sizing: border-box;
     width: 100%; min-height: 32px;
     text-align: center; font-size: 17px; line-height: 1.4; color: var(--ink);
     background: var(--bg); border-top: 1px solid var(--edge);
     padding: 6px 14px;
-    opacity: 0; transition: opacity .45s ease;
   }
-  #caption.show { opacity: 1; }
   #caption i, #caption sub { font-family: var(--serif); }
   #caption sub { font-size: 0.65em; }
+  #caption .k { font-weight: 700; }
 
   /* ---- control panel ---- */
   #panel {
@@ -137,51 +118,42 @@
     cursor: pointer; transition: background .15s, border-color .15s, color .15s;
   }
   button:hover { background: #232734; }
-  button .eq { font-family: var(--serif); font-style: italic; }
-  /* an active layer button wears its own colour, set from the palette in JS */
-  button.on { color: #06070a; font-weight: 700; }
   button.on, button.running {
-    background: var(--blue); border-color: var(--blue);
+    background: var(--dim); border-color: var(--dim);
     color: #06070a; font-weight: 600;
   }
 
+  /* sliders */
+  .ctl { display: flex; align-items: center; gap: 8px; flex: 1 1 230px; min-width: 0; }
+  .ctl .lbl { display: inline; white-space: nowrap; }
+  .ctl input[type=range] { flex: 1 1 auto; min-width: 70px; accent-color: var(--dim); }
+  .ctl output { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink);
+                min-width: 3.2em; text-align: right; }
+
+  /* room for the full-screen button, which sits at the bottom right of the frame */
+  #panel .row:last-child { padding-right: 46px; }
+
   /* The book shows this page in a frame about 600px wide. The type stays
-     large there: only the paddings tighten, and the note under the function
-     is dropped to leave the room to the picture. */
+     large there; only the paddings tighten. */
   @media (max-width: 620px) {
     #top { padding: 6px 10px; gap: 8px; }
     #eqcard { padding: 7px 10px 8px 10px; }
-    #eqcard .sub { display: none; }
     .math { font-size: 19px; }
     #readout { min-width: 0; padding: 6px 10px 8px 10px; }
     #readout .row { font-size: 17.5px; }
     #caption { font-size: 16px; padding: 6px 10px; }
     button { font-size: 15px; padding: 5px 11px; }
     .lbl { font-size: 15px; }
+    .ctl { flex-basis: 200px; }
   }
   @media (max-width: 430px) {
     #top { flex-direction: column; }
     #readout { margin-left: 0; }
     .math { font-size: 17px; }
     #readout .row { font-size: 16px; margin-top: 2px; }
-    #readout .title { display: none; }
     #caption { font-size: 14.5px; }
     button { font-size: 14px; padding: 4px 9px; }
   }
-
-  /* sliders */
-  .ctl { display: flex; align-items: center; gap: 8px; flex: 1 1 230px; min-width: 0; }
-  .ctl .lbl { display: inline; white-space: nowrap; }
-  .ctl input[type=range] { flex: 1 1 auto; min-width: 70px; accent-color: var(--blue); }
-  .ctl output { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink);
-                min-width: 3.2em; text-align: right; }
-  #readout .row .val { font-variant-numeric: tabular-nums; }
-  @media (max-width: 620px) {
-    .ctl { flex-basis: 200px; }
-  }
-
-  /* room for the full-screen button, which sits at the bottom right of the frame */
-  #panel .row:last-child { padding-right: 46px; }
 </style>
 </head>
 
@@ -189,18 +161,16 @@
 <div id="app">
   <div id="top">
     <div id="eqcard">
-      <div class="math" style="color:#9cdceb">
+      <div class="math">
         <i>f</i>(<i>x</i>,<i>y</i>) = 1 + <i>x</i>&#178; + <i>y</i>&#178;
       </div>
       <div class="math">
         <i>P</i><sub>0</sub> = (1,&#8202;1), &nbsp; &#8711;<i>f</i>(<i>P</i><sub>0</sub>) = &#10216;2,&#8202;2&#10217;
       </div>
       <div class="math" id="uline"></div>
-      <div class="sub">the function and the point of the example</div>
     </div>
 
     <div id="readout">
-      <div class="title">moving <span style="font-family:var(--serif); font-style:italic; text-transform:none">ds</span> from <span style="font-family:var(--serif); font-style:italic; text-transform:none">P</span><sub>0</sub> along <span style="font-family:var(--serif); text-transform:none">&#251;</span></div>
       <div id="rows"></div>
     </div>
   </div>
@@ -222,12 +192,8 @@
       <button id="btnEx" title="The example: direction 45 degrees, ds = 0.1">Example</button>
       <button id="btnShrink">&#9654;&nbsp;Shrink <i style="font-family:var(--serif)">ds</i></button>
       <button id="btnTurn">&#9654;&nbsp;Turn &#251;</button>
-    </div>
-    <div class="row">
       <button id="btnZoom">Zoom in</button>
       <button id="btnSlice">Slice view</button>
-      <button id="btnPlane">Tangent plane</button>
-      <button id="btnSpin">Spin</button>
     </div>
   </div>
 </div>
@@ -237,9 +203,14 @@
 (function () {
   "use strict";
 
-  // Manim colour constants, as in the book's other animated figures.
-  var BLUE_C = 0x58c4dd, GOLD_C = 0xf0ac5f, PINK_C = 0xe07ac8, RED_C = 0xfc6255,
-      ORANGE_C = 0xff9f43, INK = 0xece6e2;
+  // The skeletal (fill-in) books set this to true in their copy of the file:
+  // there the worked example is left to the student, so the Example button and
+  // the closed form ds^2 of the error are not shown. Nothing else changes.
+  var SKELETAL = false;
+
+  // The colours of the comparison, and the neutral ones of everything else.
+  var BLUE_C = 0x58c4dd, ORANGE_C = 0xff9f43, PINK_C = 0xe07ac8,
+      INK = 0xece6e2, DIM = 0xc3c9d6, GREY = 0x8a8f9c, SURFACE_C = 0x6f86a8;
 
   // ---------- the construction ----------
   // The example of the section: f(x,y) = 1 + x^2 + y^2 at P0 = (1,1), where
@@ -296,8 +267,8 @@
   var NEAR = (function () {
     var pts = [], i, j, k;
     for (i = -1; i <= 1; i += 2) for (j = -1; j <= 1; j += 2) for (k = 0; k <= 1; k++)
-      pts.push(new THREE.Vector3(X0 + 0.8 * i, Y0 + 0.8 * j, k ? 4.75 : 1.9));
-    return cloudAround(new THREE.Vector3(X0, Y0, 3.2), pts);
+      pts.push(new THREE.Vector3(X0 + 0.8 * i, Y0 + 0.8 * j, k ? 5.1 : 1.9));
+    return cloudAround(new THREE.Vector3(X0, Y0, 3.3), pts);
   })();
 
   var _e = new THREE.Vector3(), _upv = new THREE.Vector3(), _rt = new THREE.Vector3();
@@ -328,27 +299,25 @@
     camera.lookAt(_c.x, _c.y, _c.z);
   }
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-  var key = new THREE.DirectionalLight(0xffffff, 0.55); key.position.set(5, 3, 6);
-  var fill = new THREE.DirectionalLight(0x9fd8ff, 0.28); fill.position.set(-4, -5, 2);
-  scene.add(key); scene.add(fill);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+  var key = new THREE.DirectionalLight(0xffffff, 0.5); key.position.set(5, 3, 6);
+  scene.add(key);
 
   // ---------- text sprites ----------
-  // *v* is an upright bold letter and _1 puts the next character in a subscript.
+  // _1 puts the next character in a subscript.
   var LABELS = [], FAMILY = '"PT Serif", "Times New Roman", Times, serif';
   function labelRuns(text) {
-    var out = [], bold = false, i = 0;
+    var out = [], i = 0;
     while (i < text.length) {
       var ch = text[i];
-      if (ch === "*") { bold = !bold; i += 1; continue; }
-      if (ch === "_") { out.push({ t: text[i + 1], bold: bold, sub: true }); i += 2; continue; }
-      out.push({ t: ch, bold: bold, sub: false });
+      if (ch === "_") { out.push({ t: text[i + 1], sub: true }); i += 2; continue; }
+      out.push({ t: ch, sub: false });
       i += 1;
     }
     return out;
   }
   function runFont(r) {
-    var upright = r.bold || /[0-9×=()⟨⟩,−Δû]/.test(r.t);
+    var upright = /[0-9×=()⟨⟩,−Δû ]/.test(r.t) || r.word;
     return "bold " + (upright ? "" : "italic ") + (r.sub ? 36 : 54) + "px " + FAMILY;
   }
   function paintLabel(rec) {
@@ -358,7 +327,7 @@
     g.fillStyle = rec.colour;
     g.textAlign = "left";
     g.textBaseline = "middle";
-    var runs = labelRuns(rec.text), total = 0;
+    var runs = rec.word ? [{ t: rec.text, sub: false, word: true }] : labelRuns(rec.text), total = 0;
     runs.forEach(function (r) { g.font = runFont(r); r.w = g.measureText(r.t).width; total += r.w; });
     var x = (w - total) / 2;
     runs.forEach(function (r) {
@@ -376,21 +345,20 @@
     rec.sprite.material.needsUpdate = true;
   }
   // Every label keeps the same size on screen, wherever the camera is: `px` is
-  // the height of its 256 x 96 canvas in CSS pixels (so the letters are about
-  // 0.56 px tall). It sits at `anchor`, a point of the scene, moved by `off`,
-  // which is measured in pixels along directions of the scene.
-  function makeLabel(text, colour, px) {
+  // the height of its 256 x 96 canvas in CSS pixels. It sits at `anchor`, a
+  // point of the scene, moved by `off`, which is measured in pixels along
+  // directions of the scene. `word` labels are set upright, as plain words.
+  function makeLabel(text, colour, px, word) {
     var sp = new THREE.Sprite(new THREE.SpriteMaterial({
       transparent: true, depthTest: false, sizeAttenuation: false
     }));
-    var rec = { text: text, colour: colour, sprite: sp, px: px,
+    var rec = { text: text, colour: colour, sprite: sp, px: px, word: !!word,
                 anchor: new THREE.Vector3(), off: new THREE.Vector3(), show: true };
     LABELS.push(rec);
     paintLabel(rec);
     scene.add(sp);
     return rec;
   }
-  var _lp = new THREE.Vector3();
   function placeLabels() {
     var h = stage.clientHeight || 1, k = 2 * Math.tan(camera.fov * Math.PI / 360);
     LABELS.forEach(function (rec) {
@@ -405,25 +373,22 @@
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () { LABELS.forEach(paintLabel); });
   }
-
-  // ---------- the surface ----------
-  function surfaceColour(z) {
-    var t = Math.max(0, Math.min(1, (z - 1) / 4.4)), c = new THREE.Color();
-    var lo = new THREE.Color(0x1c758a), mid = new THREE.Color(0x3a4150),
-        hi = new THREE.Color(GOLD_C);
-    if (t < 0.5) c.copy(lo).lerp(mid, t / 0.5);
-    else c.copy(mid).lerp(hi, (t - 0.5) / 0.5);
-    return c;
+  // the distance on screen, in CSS pixels, between two points of the scene
+  var _pa = new THREE.Vector3(), _pb = new THREE.Vector3();
+  function screenDist(a, b) {
+    var w = stage.clientWidth || 1, h = stage.clientHeight || 1;
+    _pa.copy(a).project(camera); _pb.copy(b).project(camera);
+    return Math.hypot((_pa.x - _pb.x) * w / 2, (_pa.y - _pb.y) * h / 2);
   }
+
+  // ---------- the surface: one neutral colour, so that the comparison stands out ----------
   (function buildSurface() {
-    var NR = 22, NT = 64, pos = [], col = [], idx = [], i, j;
+    var NR = 22, NT = 64, pos = [], idx = [], i, j;
     for (i = 0; i <= NR; i++) {
       var r = R_DISC * i / NR;
       for (j = 0; j <= NT; j++) {
-        var t = 2 * Math.PI * j / NT, x = r * Math.cos(t), y = r * Math.sin(t), z = f(x, y);
-        pos.push(x, y, z);
-        var c = surfaceColour(z);
-        col.push(c.r, c.g, c.b);
+        var t = 2 * Math.PI * j / NT, x = r * Math.cos(t), y = r * Math.sin(t);
+        pos.push(x, y, f(x, y));
       }
     }
     for (i = 0; i < NR; i++) for (j = 0; j < NT; j++) {
@@ -432,25 +397,24 @@
     }
     var geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    geo.setAttribute("color", new THREE.Float32BufferAttribute(col, 3));
     geo.setIndex(idx);
     geo.computeVertexNormals();
     scene.add(new THREE.Mesh(geo, new THREE.MeshPhongMaterial({
-      vertexColors: true, transparent: true, opacity: 0.5,
-      side: THREE.DoubleSide, shininess: 18, depthWrite: false
+      color: SURFACE_C, transparent: true, opacity: 0.34,
+      side: THREE.DoubleSide, shininess: 12, depthWrite: false
     })));
 
-    // a coarse wireframe: circles of constant r and rays of constant angle
+    // a light wireframe, just enough to show the shape: four circles, twelve rays
     var w = [], k, m;
-    for (k = 1; k <= 6; k++) {
-      var rr = R_DISC * k / 6;
+    for (k = 1; k <= 4; k++) {
+      var rr = R_DISC * k / 4;
       for (m = 0; m < 72; m++) {
         var t1 = 2 * Math.PI * m / 72, t2 = 2 * Math.PI * (m + 1) / 72;
         w.push(rr * Math.cos(t1), rr * Math.sin(t1), f(rr, 0), rr * Math.cos(t2), rr * Math.sin(t2), f(rr, 0));
       }
     }
-    for (k = 0; k < 16; k++) {
-      var tt = 2 * Math.PI * k / 16;
+    for (k = 0; k < 12; k++) {
+      var tt = 2 * Math.PI * k / 12;
       for (m = 0; m < 14; m++) {
         var r1 = R_DISC * m / 14, r2 = R_DISC * (m + 1) / 14;
         w.push(r1 * Math.cos(tt), r1 * Math.sin(tt), f(r1, 0), r2 * Math.cos(tt), r2 * Math.sin(tt), f(r2, 0));
@@ -459,16 +423,18 @@
     var wgeo = new THREE.BufferGeometry();
     wgeo.setAttribute("position", new THREE.Float32BufferAttribute(w, 3));
     scene.add(new THREE.LineSegments(wgeo, new THREE.LineBasicMaterial({
-      color: 0x8fa4b8, transparent: true, opacity: 0.16
+      color: 0xb5c2d6, transparent: true, opacity: 0.13
     })));
   })();
 
-  // ---------- straight rods and arrows ----------
+  // ---------- straight rods ----------
   // three.js draws every line one pixel wide, so the things the reader is meant
   // to look at are thin cylinders instead.
   var ROD = new THREE.CylinderGeometry(1, 1, 1, 12, 1, true);
   ROD.translate(0, 0.5, 0);          // grows from its base along +y
   var CONE = new THREE.ConeGeometry(1, 1, 16);
+  var BALL = new THREE.SphereGeometry(1, 18, 12);
+  var SHARED = [ROD, CONE, BALL];
   var _up = new THREE.Vector3(0, 1, 0), _dir = new THREE.Vector3();
   function rod(from, to, r, colour, opacity) {
     var m = new THREE.Mesh(ROD, new THREE.MeshBasicMaterial({
@@ -496,67 +462,25 @@
     m.position.copy(p); m.scale.set(r, r, r);
     return m;
   }
-  var BALL = new THREE.SphereGeometry(1, 18, 12);
-  var SHARED = [ROD, CONE, BALL];
+  // a dashed vertical line, from height z1 to z2 above the point (x, y)
+  function riser(group, x, y, z1, z2) {
+    var n = Math.max(2, Math.round(Math.abs(z2 - z1) / 0.25));
+    for (var k = 0; k < n; k++) {
+      group.add(rod(new THREE.Vector3(x, y, z1 + (z2 - z1) * (k + 0.15) / n),
+                    new THREE.Vector3(x, y, z1 + (z2 - z1) * (k + 0.6) / n), 0.008, GREY, 0.7));
+    }
+  }
 
-  // ---------- the floor, P0 and the point above it (these never move) ----------
+  // ---------- what never moves: the axes, P0 and the point of the surface above it ----------
   (function buildFixed() {
-    var g = [], n = 8, ext = 2.3, i;
-    for (i = -n; i <= n; i++) {
-      var u = ext * i / n;
-      g.push(-ext, u, 0, ext, u, 0);
-      g.push(u, -ext, 0, u, ext, 0);
-    }
-    var geo = new THREE.BufferGeometry();
-    geo.setAttribute("position", new THREE.Float32BufferAttribute(g, 3));
-    scene.add(new THREE.LineSegments(geo, new THREE.LineBasicMaterial({
-      color: 0x39404e, transparent: true, opacity: 0.5
-    })));
-    // the x and y axes on the floor
-    arrowParts(new THREE.Vector3(-2.3, 0, 0), new THREE.Vector3(2.6, 0, 0), 0.012, 0x8a8f9c)
-      .concat(arrowParts(new THREE.Vector3(0, -2.3, 0), new THREE.Vector3(0, 2.6, 0), 0.012, 0x8a8f9c))
+    arrowParts(new THREE.Vector3(-2.3, 0, 0), new THREE.Vector3(2.6, 0, 0), 0.01, GREY)
+      .concat(arrowParts(new THREE.Vector3(0, -2.3, 0), new THREE.Vector3(0, 2.6, 0), 0.01, GREY))
       .forEach(function (m) { scene.add(m); });
-    makeLabel("x", "#c3c9d6", 38).anchor.set(2.8, 0, 0.05);
-    makeLabel("y", "#c3c9d6", 38).anchor.set(0, 2.8, 0.05);
-
-    // the riser from P0 on the floor up to the surface
-    for (var k = 0; k < 12; k++) {
-      scene.add(rod(new THREE.Vector3(X0, Y0, Z0 * (k + 0.15) / 12),
-                    new THREE.Vector3(X0, Y0, Z0 * (k + 0.6) / 12), 0.008, INK, 0.55));
-    }
+    makeLabel("x", "#c3c9d6", 36).anchor.set(2.8, 0, 0.05);
+    makeLabel("y", "#c3c9d6", 36).anchor.set(0, 2.8, 0.05);
+    riser(scene, X0, Y0, 0, Z0);
     scene.add(ball(new THREE.Vector3(X0, Y0, 0), 0.05, INK));
     scene.add(ball(new THREE.Vector3(X0, Y0, Z0), 0.055, INK));
-  })();
-
-  // the tangent plane at P0, off until asked for: the tangent line of every
-  // direction lies in it
-  var tangentPlane = (function () {
-    function zt(x, y) { return Z0 + GX * (x - X0) + GY * (y - Y0); }
-    var R = 0.72, xs = [X0 - R, X0 + R], ys = [Y0 - R, Y0 + R];
-    var pos = [
-      xs[0], ys[0], zt(xs[0], ys[0]),  xs[1], ys[0], zt(xs[1], ys[0]),
-      xs[1], ys[1], zt(xs[1], ys[1]),  xs[0], ys[1], zt(xs[0], ys[1])
-    ];
-    var geo = new THREE.BufferGeometry();
-    geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    geo.setIndex([0, 1, 2, 0, 2, 3]);
-    var grp = new THREE.Group();
-    grp.add(new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
-      color: PINK_C, side: THREE.DoubleSide, depthWrite: false, transparent: true, opacity: 0.3
-    })));
-    var e = [];
-    for (var k = 0; k < 4; k++) {
-      var j = (k + 1) % 4;
-      e.push(pos[3 * k], pos[3 * k + 1], pos[3 * k + 2], pos[3 * j], pos[3 * j + 1], pos[3 * j + 2]);
-    }
-    var egeo = new THREE.BufferGeometry();
-    egeo.setAttribute("position", new THREE.Float32BufferAttribute(e, 3));
-    grp.add(new THREE.LineSegments(egeo, new THREE.LineBasicMaterial({
-      color: PINK_C, transparent: true, opacity: 0.85
-    })));
-    grp.visible = false;
-    scene.add(grp);
-    return grp;
   })();
 
   // ---------- everything that depends on the direction and on ds ----------
@@ -564,11 +488,13 @@
   scene.add(dyn);
   var LAB = {
     P0: makeLabel("P_0", "#ffffff", 44),
-    P: makeLabel("P", "#ffc57a", 44),
-    u: makeLabel("û ds", "#ffc57a", 44),
-    df: makeLabel("df", "#7fd8ee", 48),
-    Df: makeLabel("Δf", "#ffb060", 48)
+    P: makeLabel("P", "#ffffff", 44),
+    ds: makeLabel("ds", "#c3c9d6", 44),
+    df: makeLabel("df", "#7fd8ee", 50),
+    Df: makeLabel("Δf", "#ffb060", 50),
+    err: makeLabel("error", "#ea9bdb", 40, true)
   };
+  var G = {};                              // points of the triangle, for the labels
 
   function clearDyn() {
     while (dyn.children.length) {
@@ -582,9 +508,9 @@
     clearDyn();
     var c = Math.cos(ang), s = Math.sin(ang), D = rate();
     function V(t, z) { return new THREE.Vector3(X0 + t * c, Y0 + t * s, z); }
-    var side = new THREE.Vector3(-s, c, 0);          // horizontal, perpendicular to u
 
-    // the vertical plane through P0 along u, as far as the surface is drawn
+    // the vertical plane through P0 along u, as far as the surface is drawn:
+    // a faint sheet, the line it makes on the floor, and the curve it cuts
     var b = X0 * c + Y0 * s, rt = Math.sqrt(b * b + R_DISC * R_DISC - X0 * X0 - Y0 * Y0);
     var tLo = -b - rt, tHi = -b + rt, N = 48, k;
     var pos = [], idx = [], pts = [];
@@ -598,37 +524,39 @@
     geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
     geo.setIndex(idx);
     dyn.add(new THREE.Mesh(geo, new THREE.MeshBasicMaterial({
-      color: GOLD_C, side: THREE.DoubleSide, depthWrite: false, transparent: true, opacity: 0.12
+      color: DIM, side: THREE.DoubleSide, depthWrite: false, transparent: true, opacity: 0.07
     })));
-    dyn.add(rod(V(tLo, 0), V(tHi, 0), 0.008, GOLD_C, 0.6));
-    // the curve it cuts from the surface
-    dyn.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 96, 0.02, 8, false),
-                           new THREE.MeshBasicMaterial({ color: GOLD_C })));
+    dyn.add(rod(V(tLo, 0), V(tHi, 0), 0.007, GREY, 0.7));
+    dyn.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts), 96, 0.022, 8, false),
+                           new THREE.MeshBasicMaterial({ color: INK })));
 
-    // the tangent line of that curve at P0: height Z0 + (grad f . u) t
-    var t1 = -0.75, t2 = Math.max(ds + 0.3, 0.75);
-    dyn.add(rod(V(t1, Z0 + D * t1), V(t2, Z0 + D * t2), 0.016, BLUE_C));
+    // the tangent line of that curve at P0, height Z0 + (grad f . u) t; it ends
+    // just past P, where the comparison is made
+    var t1 = -0.6, t2 = ds + 0.05;
+    dyn.add(rod(V(t1, Z0 + D * t1), V(t2, Z0 + D * t2), 0.017, BLUE_C));
 
-    // on the floor: the unit vector u (thin) and the displacement u ds (thick)
-    arrowParts(V(0, 0), V(1, 0), 0.012, BLUE_C).forEach(function (m) { dyn.add(m); });
-    arrowParts(V(0, 0.004), V(ds, 0.004), 0.03, GOLD_C).forEach(function (m) { dyn.add(m); });
-    dyn.add(ball(V(ds, 0), 0.05, GOLD_C));
-
-    // above P: the height the tangent line predicts and the height of the surface
+    // P on the floor, and a dashed riser up to the level of f(P0)
     var zLine = Z0 + D * ds, zSurf = along(ds);
-    var top = Math.max(zLine, zSurf, Z0);
-    for (k = 0; k < 14; k++) {
-      dyn.add(rod(V(ds, top * (k + 0.15) / 14), V(ds, top * (k + 0.6) / 14), 0.007, GOLD_C, 0.6));
-    }
-    // the run ds at the height of f(P0)
-    dyn.add(rod(V(0, Z0), V(ds, Z0), 0.01, INK, 0.8));
-    // df along the riser (blue); Delta f beside it (orange); the gap in red
-    var off = side.clone().multiplyScalar(0.07);
-    dyn.add(rod(V(ds, Z0), V(ds, zLine), 0.022, BLUE_C));
-    dyn.add(rod(V(ds, Z0).add(off), V(ds, zSurf).add(off), 0.022, ORANGE_C));
-    dyn.add(rod(V(ds, zLine), V(ds, zSurf), 0.03, RED_C));
-    dyn.add(ball(V(ds, zLine), 0.05, BLUE_C));
+    dyn.add(ball(V(ds, 0), 0.05, INK));
+    riser(dyn, X0 + ds * c, Y0 + ds * s, 0, Math.min(Z0, zLine, zSurf));
+
+    // the triangle: the run ds at the level of f(P0), the rise df of the
+    // tangent line (blue), and from there the error up to the surface (pink).
+    // Uphill the error continues the blue leg; downhill it runs back up along
+    // it, so it is drawn just beside the leg instead of on top of it.
+    var e = D * ds < 0 ? -0.04 : 0;
+    dyn.add(rod(V(0, Z0), V(ds, Z0), 0.012, DIM));
+    dyn.add(rod(V(ds, Z0), V(ds, zLine), 0.024, BLUE_C));
+    dyn.add(rod(V(ds + e, zLine), V(ds + e, zSurf), 0.03, PINK_C));
+    dyn.add(ball(V(ds, zLine), 0.048, BLUE_C));
     dyn.add(ball(V(ds, zSurf), 0.05, ORANGE_C));
+
+    // Delta f, the whole rise of the surface: an orange bracket just beyond P,
+    // in the vertical plane, so that it stays beside the blue and pink in every view
+    var o = 0.075;
+    dyn.add(rod(V(ds + o, Z0), V(ds + o, zSurf), 0.014, ORANGE_C));
+    dyn.add(rod(V(ds, Z0), V(ds + o, Z0), 0.01, ORANGE_C));
+    dyn.add(rod(V(ds, zSurf), V(ds + o, zSurf), 0.01, ORANGE_C));
 
     // lettering: anchors in the scene, offsets in pixels
     var out = new THREE.Vector3(c, s, 0), up = new THREE.Vector3(0, 0, 1);
@@ -637,16 +565,19 @@
     LAB.P0.off.copy(out).multiplyScalar(-16).addScaledVector(up, -20);
     LAB.P.anchor.copy(V(ds, 0));
     LAB.P.off.copy(out).multiplyScalar(16).addScaledVector(up, -20);
-    LAB.u.anchor.copy(V(ds / 2, 0));
-    LAB.u.off.copy(up).multiplyScalar(20);
+    LAB.ds.anchor.copy(V(ds / 2, Z0));
+    LAB.ds.off.copy(up).multiplyScalar(-20 * sgn);
     LAB.df.anchor.copy(V(ds, (Z0 + zLine) / 2));
-    LAB.df.off.copy(out).multiplyScalar(30).addScaledVector(up, -14 * sgn);
-    LAB.Df.anchor.copy(V(ds, zSurf));
-    LAB.Df.off.copy(out).multiplyScalar(34).addScaledVector(up, 22 * sgn);
+    LAB.df.off.copy(out).multiplyScalar(-26);
+    LAB.Df.anchor.copy(V(ds + o, (Z0 + zSurf) / 2));
+    LAB.Df.off.copy(out).multiplyScalar(30);
+    LAB.err.anchor.copy(V(ds + e, (zLine + zSurf) / 2));
+    LAB.err.off.copy(out).multiplyScalar(-40);
+    G = { run0: V(0, Z0), run1: V(ds, Z0), line: V(ds + e, zLine), surf: V(ds + e, zSurf) };
     refreshReadout();
   }
 
-  // ---------- the readout ----------
+  // ---------- the readout and the caption ----------
   var rowsEl = document.getElementById("rows"), captionEl = document.getElementById("caption"),
       ulineEl = document.getElementById("uline");
   function num(v, d) {
@@ -654,32 +585,31 @@
     if (parseFloat(s) === 0) return s;
     return (v < 0 ? "−" : "") + s;
   }
-  function say(html) { captionEl.innerHTML = html; captionEl.classList.add("show"); }
+  function say(html) { captionEl.innerHTML = html; }
   var note = null;                       // a caption set by a button; cleared by the sliders
+  var KEY = '<span class="k" style="color:var(--blue)">Blue</span>: the tangent line rises <i>df</i>. ' +
+            '<span class="k" style="color:var(--orange)">Orange</span>: the surface rises Δ<i>f</i>. ' +
+            '<span class="k" style="color:var(--pink)">Pink</span>: the error.';
 
   function refreshReadout() {
     var D = rate(), df = D * ds, Df = along(ds) - Z0, gap = Df - df;
     ulineEl.innerHTML = "û = ⟨" + num(Math.cos(ang)) + ",&#8202;" + num(Math.sin(ang)) + "⟩";
     var rows = [
-      ["#ece6e2", "∇<i>f</i>(<i>P</i><sub>0</sub>) · û", num(D), "#ece6e2"],
-      ["#58c4dd", "<i>df</i> = (∇<i>f</i> · û) <i>ds</i>", num(df, 3), "#58c4dd"],
-      ["#ff9f43", "Δ<i>f</i> = <i>f</i>(<i>P</i>) − <i>f</i>(<i>P</i><sub>0</sub>)", num(Df, 3), "#ff9f43"],
-      ["#fc6255", "Δ<i>f</i> − <i>df</i>", num(gap, 4), "#fc6255"]
+      ["#58c4dd", "<i>df</i> = (∇<i>f</i> · û) <i>ds</i>", num(df, 3)],
+      ["#ff9f43", "Δ<i>f</i> = <i>f</i>(<i>P</i>) − <i>f</i>(<i>P</i><sub>0</sub>)", num(Df, 3)],
+      ["#e07ac8", "error Δ<i>f</i> − <i>df</i>" + (SKELETAL ? "" : " = <i>ds</i>²"), num(gap, 4)]
     ];
     rowsEl.innerHTML = rows.map(function (R) {
       return '<div class="row"><span class="swatch" style="background:' + R[0] + '"></span>' +
-             '<span>' + R[1] + '</span><span class="val" style="color:' + R[3] + '">' + R[2] +
+             '<span>' + R[1] + '</span><span class="val" style="color:' + R[0] + '">' + R[2] +
              '</span></div>';
     }).join("");
     document.getElementById("oAng").textContent = Math.round(ang * 180 / Math.PI) + "°";
     document.getElementById("oDs").textContent = ds.toFixed(2);
     if (note) { say(note); return; }
-    var pct = Math.abs(df) > 1e-9 ? Math.abs(gap / Df) * 100 : null;
-    var dir = Math.abs(D) < 0.005
-      ? "In this direction ∇<i>f</i> · û = 0, so <i>df</i> = 0: to first order <i>f</i> does not change, and the surface moves only by <i>ds</i>² = " + num(gap, 4) + "."
-      : "The tangent line predicts <i>df</i> = " + num(df, 3) + "; the surface actually changes by Δ<i>f</i> = " + num(Df, 3) + ". The estimate is off by <i>ds</i>² = " + num(gap, 4) +
-        (pct !== null && isFinite(pct) ? " (" + (pct < 0.95 ? pct.toFixed(1) : Math.round(pct)) + "% of Δ<i>f</i>)." : ".");
-    say(dir);
+    say(Math.abs(D) < 0.005
+      ? "In this direction ∇<i>f</i> · û = 0, so <i>df</i> = 0: the tangent line is level, and all of Δ<i>f</i> is error."
+      : KEY);
   }
 
   // ---------- controls ----------
@@ -700,11 +630,16 @@
   sAng.addEventListener("input", function () { stopAnim(); note = null; setState(+sAng.value * Math.PI / 180, ds); });
   sDs.addEventListener("input", function () { stopAnim(); note = null; setState(ang, +sDs.value); });
 
-  document.getElementById("btnEx").addEventListener("click", function () {
-    stopAnim();
-    note = "The example: û = ⟨1/√2, 1/√2⟩ and <i>ds</i> = 0.1 give <i>df</i> = 0.2√2 ≈ 0.283, while Δ<i>f</i> = 0.2√2 + 0.01 ≈ 0.293. Press Zoom in to see the two heights apart.";
-    setState(Math.PI / 4, 0.1);
-  });
+  var btnEx = document.getElementById("btnEx");
+  if (SKELETAL) {
+    btnEx.parentNode.removeChild(btnEx);
+  } else {
+    btnEx.addEventListener("click", function () {
+      stopAnim();
+      note = "The example: û = ⟨1/√2, 1/√2⟩ and <i>ds</i> = 0.1 give <i>df</i> = 0.2√2 ≈ 0.283 and Δ<i>f</i> = 0.2√2 + 0.01 ≈ 0.293; the error, 0.01, is too small to see at this scale.";
+      setState(Math.PI / 4, 0.1);
+    });
+  }
   document.getElementById("btnShrink").addEventListener("click", function () {
     var was = anim && anim.kind === "shrink";
     stopAnim();
@@ -732,30 +667,12 @@
   btnSlice.addEventListener("click", function () {
     slice = !slice;
     btnSlice.classList.toggle("on", slice);
-    spinning = false; btnSpin.classList.remove("on");
     targetTheta = slice ? ang - Math.PI / 2 : THETA0;
     targetPhi = slice ? 1.47 : PHI0;
-    if (slice) {
-      note = "Looking straight at the vertical plane through <i>P</i><sub>0</sub> along û: this is the single-variable picture, with <i>ds</i> in the place of <i>dx</i>.";
-      say(note);
-    }
-  });
-  var btnPlane = document.getElementById("btnPlane");
-  btnPlane.addEventListener("click", function () {
-    tangentPlane.visible = !tangentPlane.visible;
-    btnPlane.classList.toggle("on", tangentPlane.visible);
-    btnPlane.style.background = tangentPlane.visible ? "#e07ac8" : "";
-    btnPlane.style.borderColor = tangentPlane.visible ? "#e07ac8" : "";
-    if (tangentPlane.visible) {
-      note = "The tangent line of every direction û lies in the tangent plane at <i>P</i><sub>0</sub>, so <i>df</i> is the change in height of the tangent plane.";
-      say(note);
-    }
-  });
-  var spinning = false, btnSpin = document.getElementById("btnSpin");
-  btnSpin.addEventListener("click", function () {
-    spinning = !spinning;
-    btnSpin.classList.toggle("on", spinning);
-    if (spinning) { targetPhi = targetTheta = null; slice = false; btnSlice.classList.remove("on"); }
+    note = slice
+      ? "Looking straight at the vertical plane through <i>P</i><sub>0</sub> along û: the single-variable picture, with <i>ds</i> in the place of <i>dx</i>."
+      : null;
+    refreshReadout();
   });
 
   // ---------- drag to orbit ----------
@@ -767,7 +684,7 @@
   canvas.addEventListener("pointermove", function (e) {
     if (!dragging) return;
     targetPhi = targetTheta = null;
-    slice = false; btnSlice.classList.remove("on");
+    if (slice) { slice = false; btnSlice.classList.remove("on"); note = null; refreshReadout(); }
     theta -= (e.clientX - lastX) * 0.008;
     phi = Math.max(0.16, Math.min(Math.PI / 2 + 0.25, phi - (e.clientY - lastY) * 0.008));
     lastX = e.clientX; lastY = e.clientY;
@@ -808,7 +725,9 @@
         setState(ang, Math.round((anim.from + (0.02 - anim.from) * u) * 100) / 100);
         if (anim.t >= 6) {
           stopAnim();
-          note = "As <i>ds</i> shrinks the gap Δ<i>f</i> − <i>df</i> = <i>ds</i>² shrinks much faster than <i>ds</i> itself: the smaller the step, the better the estimate.";
+          note = SKELETAL
+            ? "As <i>ds</i> shrinks, the error shrinks much faster than <i>ds</i> itself: the smaller the step, the better the estimate."
+            : "As <i>ds</i> shrinks, the error Δ<i>f</i> − <i>df</i> = <i>ds</i>² shrinks much faster than <i>ds</i> itself: the smaller the step, the better the estimate.";
           say(note);
         }
       } else {
@@ -829,14 +748,14 @@
         phi = targetPhi; theta = tt; targetPhi = targetTheta = null;
       }
     }
-    if (spinning && !dragging) theta += 0.3 * dt;
 
     placeCamera();
-    // the step u ds is named only while it is long enough on screen to carry
-    // the name; the two points and the two changes are always named
-    var hpx = stage.clientHeight || 1;
-    var wppP0 = camera.position.distanceTo(LAB.P0.anchor) * 2 * Math.tan(camera.fov * Math.PI / 360) / hpx;
-    LAB.u.show = ds / wppP0 > 70;
+    // a name is shown only while what it names is long enough on screen to
+    // carry it; the points and the two changes are always named
+    if (G.run0) {
+      LAB.ds.show = screenDist(G.run0, G.run1) > 34;
+      LAB.err.show = screenDist(G.line, G.surf) > 24;
+    }
     placeLabels();
     renderer.render(scene, camera);
     requestAnimationFrame(tick);
@@ -857,7 +776,7 @@
   btn.type = "button";
   btn.title = "Full screen";
   btn.setAttribute("aria-label", "Toggle full screen");
-  btn.innerHTML = "\u26f6";
+  btn.innerHTML = "⛶";
   btn.style.cssText = [
     "position:fixed", "right:10px", "bottom:10px", "z-index:2147483647",
     "width:34px", "height:34px", "border-radius:50%",

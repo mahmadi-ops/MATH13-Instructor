@@ -1214,11 +1214,11 @@ the error shrinks much faster than the distance <m>ds</m> itself.
 <caption>
 The differential <m>df</m> against the actual change <m>\Delta f</m> for
 <m>f(x,y) = 1 + x^2 + y^2</m> at <m>P_0(1,1)</m>. The vertical plane
-through <m>P_0</m> along <m>\hat{u}</m> cuts the surface in the gold
+through <m>P_0</m> along <m>\hat{u}</m> cuts the surface in the white
 curve. Over the distance <m>ds</m>, the tangent line to that curve (blue)
 changes its height by
 <m>df = \left(\nabla f \Big|_{P_0} \cdot \hat{u}\right) ds</m>, while the
-surface itself changes its height by <m>\Delta f</m> (orange); the red
+surface itself changes its height by <m>\Delta f</m> (orange); the pink
 segment between the two is the error <m>\Delta f - df = (ds)^2</m>.
 </caption>
 <!-- aspect 5:6: the readout sits in a bar above the picture and the sliders
@@ -1233,18 +1233,16 @@ The surface, the point <m>P_0</m> and the gradient
 <m>\nabla f \Big|_{P_0} = \langle 2, 2\rangle</m> are those of
 <xref ref="example-tp-change"/>. Choose the direction of
 <m>\hat{u}</m> and the distance <m>ds</m> with the two sliders; the panel
-above the picture reports the rate of change
-<m>\nabla f \Big|_{P_0} \cdot \hat{u}</m>, the estimate <m>df</m>, the
-actual change <m>\Delta f</m> and their difference. <q>Example</q> sets
-the direction and the distance of the example, <q>Shrink
-<m>ds</m></q> lets the distance go to zero, and <q>Turn
-<m>\hat{u}</m></q> takes the direction once around <m>P_0</m>.
+above the picture reports the estimate <m>df</m>, the actual change
+<m>\Delta f</m> and the error between them. <q>Example</q> sets the
+direction and the distance of the example, <q>Shrink <m>ds</m></q> lets
+the distance go to zero, and <q>Turn <m>\hat{u}</m></q> takes the
+direction once around <m>P_0</m>.
 <q>Zoom in</q> moves the camera close to <m>P_0</m>, <q>Slice view</q>
 looks straight at the vertical plane so that the picture becomes the
-single-variable one of <xref ref="fig-tp-linear-approx-1d"/>,
-<q>Tangent plane</q> adds the tangent plane at <m>P_0</m>, which contains
-the tangent line of every direction, dragging rotates the picture by
-hand, and the button at the bottom right shows the figure full screen.
+single-variable one of <xref ref="fig-tp-linear-approx-1d"/>, dragging
+rotates the picture by hand, and the button at the bottom right shows the
+figure full screen.
 </p>
 </instructions>
 </interactive>

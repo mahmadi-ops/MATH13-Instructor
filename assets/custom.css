@@ -109,6 +109,30 @@ body.a4 .diagcess-navigation-controls {
   }
 }
 
+/* Section 4.7: numbered displays that MathJax does not break where the
+ * equation number needs the room -- the four of Shortest Distance to a
+ * Plane, built around a square root, the region of the absolute-extrema
+ * example, and three of Why the Second Derivative Test Works. Within a band of
+ * up to about 20 px of phone widths below the width at which each fits,
+ * MathJax keeps the formula on one line beside its number although the two
+ * are a few pixels (at most about 22) wider than the column, and the
+ * display's own scroll box then clips the number. Let these spill into the
+ * page's 28 px side padding instead (measured from 320 to 640 px wide). */
+@media (max-width: 640px) {
+  #eq-distance-formula,
+  #eq-distance-xy,
+  #eq-distance-squared,
+  #eq-shortest-distance,
+  #eq-rectangle-region,
+  #eq-sdt-slice,
+  #eq-sdt-first,
+  #eq-sdt-angle {
+    /* both axes: the theme sets overflow-y: hidden, and with that
+       overflow-x: visible would compute to auto */
+    overflow: visible;
+  }
+}
+
 /* ------------------------------------------------------------------ *
  * The "Assignments and Review Problems" chapter is unnumbered.
  *
