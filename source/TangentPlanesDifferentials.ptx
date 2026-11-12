@@ -128,9 +128,10 @@ vector of this tangent line. Similarly, along the tangent line at
 by <m>f_y(x_0,y_0)</m>. The direction vectors of the two tangent lines
 are therefore
 <md xml:id="eq-tp-direction-vectors" number="yes">
-\mathbf v_1 = \hat{\imath} + f_x(x_0,y_0)\,\hat{k}
-\qquad\text{and}\qquad
-\mathbf v_2 = \hat{\jmath} + f_y(x_0,y_0)\,\hat{k},
+\begin{aligned}
+\mathbf v_1 \amp= \hat{\imath} + f_x(x_0,y_0)\,\hat{k},\\
+\mathbf v_2 \amp= \hat{\jmath} + f_y(x_0,y_0)\,\hat{k},
+\end{aligned}
 </md>
 as shown in <xref ref="fig-tp-direction-vectors"/>.
 </p>
@@ -344,7 +345,7 @@ draw(Label("$z$",1),O--(a-0.2,a-0.2,3.6),ax,Arrow3);
 <m>A(x - x_0) + B(y - y_0) + C(z - z_0) = 0</m>. Taking
 <m>\langle A, B, C\rangle = \mathbf v_1 \times \mathbf v_2</m> from
 <xref ref="eq-tp-v1-cross-v2"/> gives
-<md>
+<md xml:id="eq-tp-plane-from-cross">
 -f_x(x_0,y_0)(x - x_0) - f_y(x_0,y_0)(y - y_0) + (z - z_0) = 0.
 </md>
 Multiplying both sides by <m>-1</m>, the equation of the
@@ -564,14 +565,12 @@ Also, note that <m>\mathbf n = \nabla w \Big|_{P_0}</m> is the direction
 vector of the line normal to the surface at
 <m>P_0(x_0, y_0, f(x_0,y_0))</m>, which means the parametric equations of
 the <term>normal line to the surface</term> at <m>P_0</m> are
-<md xml:id="eq-tp-normal-line" number="yes">
-\begin{aligned}
-x(t) \amp= x_0 + f_x(x_0,y_0)\,t \\
-y(t) \amp= y_0 + f_y(x_0,y_0)\,t \\
-z(t) \amp= f(x_0,y_0) - t
-\end{aligned}
-\qquad t \in \R.
+<md number="yes">
+<mrow number="no">x(t) \amp= x_0 + f_x(x_0,y_0)\,t</mrow>
+<mrow xml:id="eq-tp-normal-line">y(t) \amp= y_0 + f_y(x_0,y_0)\,t</mrow>
+<mrow number="no">z(t) \amp= f(x_0,y_0) - t</mrow>
 </md>
+for <m>t \in \R</m>.
 </p>
 
 </subsection>
@@ -623,14 +622,15 @@ at <m>P_0(1,1,-2)</m>, which is given by
 </md>
 Hence, by <xref ref="eq-tp-normal-line"/>, the parametric equations of the
 normal line are
-<md xml:id="eq-tp-ex1-normal-line" number="yes">
-\begin{aligned}
-x(t) \amp= x_0 + f_x(x_0,y_0)\,t = 1 - 2t \\
-y(t) \amp= y_0 + f_y(x_0,y_0)\,t = 1 - 2t \\
-z(t) \amp= f(x_0,y_0) - t = -2 - t
-\end{aligned}
-\qquad t \in \R.
+<md number="yes">
+<mrow number="no">x(t) \amp= x_0 + f_x(x_0,y_0)\,t</mrow>
+<mrow number="no">\amp= 1 - 2t</mrow>
+<mrow xml:id="eq-tp-ex1-normal-line">y(t) \amp= y_0 + f_y(x_0,y_0)\,t</mrow>
+<mrow number="no">\amp= 1 - 2t</mrow>
+<mrow number="no">z(t) \amp= f(x_0,y_0) - t</mrow>
+<mrow number="no">\amp= -2 - t</mrow>
 </md>
+for <m>t \in \R</m>.
 </p>
 
 <p>
@@ -639,9 +639,12 @@ z(t) \amp= f(x_0,y_0) - t = -2 - t
 <m>P_0(1,1,-2)</m>, and we are ready to write down the equation of the
 tangent plane:
 <md number="yes">
-<mrow xml:id="eq-tp-ex1-plane">-2x - 2y - z \amp= D,</mrow>
-<mrow number="no">\text{where}\quad D \amp= \mathbf n \cdot \overrightarrow{OP_0}
-= \langle -2, -2, -1 \rangle \cdot \langle 1, 1, -2 \rangle = -2.</mrow>
+<mrow xml:id="eq-tp-ex1-plane">-2x - 2y - z = D,</mrow>
+</md>
+where
+<md>
+D = \mathbf n \cdot \overrightarrow{OP_0}
+= \langle -2, -2, -1 \rangle \cdot \langle 1, 1, -2 \rangle = -2.
 </md>
 Therefore the tangent plane is
 <md xml:id="eq-tp-ex1-plane-final" number="yes">
@@ -1006,11 +1009,11 @@ evaluate it at <m>P_0</m>:
 <mrow>\nabla f \Big|_{(1,1)} \amp= 2\,\hat{\imath} + 2\,\hat{\jmath}.</mrow>
 </md>
 By <xref ref="eq-tp-df"/>,
-<md number="yes">
-<mrow number="no">df \amp= \left(\nabla f \Big|_{P_0} \cdot \hat{u}\right) ds</mrow>
-<mrow number="no">\amp= \left(\langle 2, 2 \rangle \cdot
-\Bigl\langle \frac{1}{\sqrt 2}, \frac{1}{\sqrt 2} \Bigr\rangle\right)(0.1)</mrow>
-<mrow xml:id="eq-tp-ex2-df">\amp= 0.2\sqrt 2 \approx 0.28 \text{ units}.</mrow>
+<md xml:id="eq-tp-ex2-df" number="yes">
+df = \left(\nabla f \Big|_{P_0} \cdot \hat{u}\right) ds
+= \left(\langle 2, 2 \rangle \cdot
+\Bigl\langle \frac{1}{\sqrt 2}, \frac{1}{\sqrt 2} \Bigr\rangle\right)(0.1)
+= 0.2\sqrt 2 \approx 0.28 \text{ units}.
 </md>
 This means the change in <m>f</m> is approximately <m>0.28</m> units.
 See <xref ref="fig-tp-example-change"/>.
@@ -1384,8 +1387,8 @@ f_y(-0.5,-0.5) = \frac{3}{4}.</mrow>
 Then, by <xref ref="eq-tp-linearization"/>,
 <md number="yes">
 <mrow number="no">f(x,y) \amp\approx L(x,y)</mrow>
-<mrow number="no">\amp= f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)
-+ f(x_0,y_0)</mrow>
+<mrow number="no">\amp= f_x(x_0,y_0)(x - x_0) + f_y(x_0,y_0)(y - y_0)</mrow>
+<mrow number="no">\amp\quad + f(x_0,y_0)</mrow>
 <mrow xml:id="eq-tp-ex3-L">\amp= \frac{1}{4}\left(x + \frac{1}{2}\right)
 + \frac{3}{4}\left(y + \frac{1}{2}\right) + \frac{3}{8}.</mrow>
 </md>

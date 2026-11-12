@@ -109,16 +109,35 @@ body.a4 .diagcess-navigation-controls {
   }
 }
 
-/* Section 4.7: numbered displays that MathJax does not break where the
- * equation number needs the room -- the four of Shortest Distance to a
- * Plane, built around a square root, the region of the absolute-extrema
- * example, and three of Why the Second Derivative Test Works. Within a band of
- * up to about 20 px of phone widths below the width at which each fits,
- * MathJax keeps the formula on one line beside its number although the two
- * are a few pixels (at most about 22) wider than the column, and the
- * display's own scroll box then clips the number. Let these spill into the
- * page's 28 px side padding instead (measured from 320 to 640 px wide). */
+/* A little room at the right of every reflowed display on phones. MathJax
+ * breaks a line to the width of the display's content box but now and then
+ * lets it run a few pixels past it, and the display, a scroll box, would clip
+ * those pixels (the end of a line, or part of its equation number). With this
+ * padding MathJax breaks 0.5rem short of the edge, and any such overshoot
+ * lands in the padding, inside the box (measured every 2 px from 320 to
+ * 640 px wide, Nov 2026). */
 @media (max-width: 640px) {
+  .responsive-math .displaymath {
+    padding-right: 0.5rem;
+  }
+}
+
+/* Sections 4.6 and 4.7: displays that MathJax does not break where the
+ * equation number needs the room -- in 4.6 the plane from the cross product,
+ * the normal vector of the tangent plane, the change Delta f along u-hat and
+ * the one-variable linearization; in 4.7 the four of Shortest Distance to a
+ * Plane, built around a square root, the region of the absolute-extrema
+ * example, and three of Why the Second Derivative Test Works. Within a band
+ * of up to about 20 px of phone widths below the width at which each fits,
+ * MathJax keeps a line a few pixels (at most about 22) wider than the column,
+ * and the display's own scroll box then clips its end or its number. Let
+ * these spill into the page's 28 px side padding instead (measured from 320
+ * to 640 px wide). */
+@media (max-width: 640px) {
+  #eq-tp-plane-from-cross,
+  #eq-tp-normal-vector,
+  #eq-tp-delta-f,
+  #eq-tp-linearization-1d,
   #eq-distance-formula,
   #eq-distance-xy,
   #eq-distance-squared,
