@@ -1170,7 +1170,7 @@ label("$z$",(C+C1)/2,E);
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-lagrange-functions-n-variables">
-<title>Functions of <m>n</m> Variables</title>
+<title>*Functions of <m>n</m> Variables</title>
 
 <!-- ================================================================ -->
 <subsubsection xml:id="sec-lagrange-n-variables">

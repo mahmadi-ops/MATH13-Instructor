@@ -1076,7 +1076,7 @@ candidate((1, 1), "1", 2*NE, crit);
 
 <!-- ================================================================ -->
 <subsection xml:id="sec-equilibrium-stability">
-<title>A Physical Application: Equilibrium and Stability</title>
+<title>*A Physical Application: Equilibrium and Stability</title>
 
 <p>
 Consider a marble that rolls on the surface <m>z = f(x,y)</m> under the
