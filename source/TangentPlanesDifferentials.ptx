@@ -44,6 +44,13 @@
   of what each explains: tangent_plane_cross_product.mp4 (the derivation of
   the tangent plane) and tangent_plane_approximation.mp4 (df against Delta f
   and the linearization).  Their scripts are in assets/manim.
+
+  Two real-life examples (instructor request, Nov 2026) close two of the
+  subsections: a solar panel on a domed roof (tangent plane, normal vector,
+  the direction the panel faces and its tilt) after the paraboloid example,
+  and the height of a tree from a distance and an angle (linearization as an
+  error estimate) after the linearization example.  Their figures are
+  Asymptote.
 -->
 <section xml:id="section-tangent-planes-differentials" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Tangent Planes and Differentials</title>
@@ -762,6 +769,145 @@ turn, followed by a slow rotation of the finished figure.
        preview="videos/previews/ComputingNormalVector.jpg"
        width="90%"/>
 </figure>
+
+<p>
+The next example puts a tangent plane and its normal vector to work on a
+rooftop.
+</p>
+
+<example xml:id="example-tp-solar-panel">
+<title>A Solar Panel on a Domed Roof</title>
+<statement>
+<p>
+The roof of a pavilion is the dome
+<md>
+z = f(x,y) = 5 - \frac{x^2 + y^2}{8},
+</md>
+where <m>x</m> points east, <m>y</m> points north, <m>z</m> is the
+height, and all three are measured in meters. A flat solar panel is
+fastened to the roof at <m>P_0\left(1, -3, \frac{15}{4}\right)</m>, so
+that it lies in the tangent plane there
+(<xref ref="fig-tp-solar-panel"/>).
+<ol marker="A.">
+<li>
+<p>
+Find the equation of the plane of the panel.
+</p>
+</li>
+<li>
+<p>
+In which compass direction does the panel face, and what is its tilt,
+that is, the angle it makes with the horizontal?
+</p>
+</li>
+</ol>
+</p>
+
+<figure xml:id="fig-tp-solar-panel">
+<caption>
+The domed roof <m>z = 5 - \frac{x^2+y^2}{8}</m> and the solar panel,
+which lies in the tangent plane at <m>P_0</m>.
+</caption>
+<image width="70%">
+<shortdescription>A dome with a small flat rectangular panel lying against its south side at the point P 0.</shortdescription>
+<description>
+<p>
+A dome drawn as a grey mesh, highest at its center and falling away in
+every direction. The x axis is labeled east and the y axis north. A
+small dark blue rectangle, the solar panel, lies flat against the south
+side of the dome, a little to the east, touching it at the red point
+P 0.
+</p>
+</description>
+<asymptote label="asymptote-tp-solar-panel"><![CDATA[
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(9cm,0);
+currentprojection=orthographic(camera=(7,-10,6),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(4,-3,6),(-4,-1,3));
+
+// the roof z = 5 - (x^2 + y^2)/8 over the disc of radius 6
+triple roof(pair p) {return (p.x*cos(p.y),p.x*sin(p.y),5-p.x^2/8);}
+surface s=surface(roof,(0,0),(6,2pi),10,36);
+draw(s,surfacepen=gray(0.82)+opacity(0.6),
+     meshpen=gray(0.5)+opacity(0.6)+linewidth(0.3pt));
+
+// the panel: a rectangle in the tangent plane at P0, raised a hair above
+// the roof so that the two do not flicker against each other on the web
+triple P0=(1,-3,3.75);
+triple e1=unit((3,1,0)), e2=unit((-0.25,0.75,0.625));
+triple up=unit((1,-3,4));
+real hw=1.15, hh=0.7;
+triple C=P0+0.03up;
+path3 panel=(C-hw*e1-hh*e2)--(C+hw*e1-hh*e2)--(C+hw*e1+hh*e2)--(C-hw*e1+hh*e2)--cycle;
+draw(surface(panel),rgb(0.10,0.22,0.48),nolight);
+pen cell=rgb(0.75,0.82,0.95)+linewidth(0.5pt);
+for(int k=-2; k <= 2; ++k) draw((C+k*hw/3*e1-hh*e2+0.005up)--(C+k*hw/3*e1+hh*e2+0.005up),cell);
+draw((C-hw*e1+0.005up)--(C+hw*e1+0.005up),cell);
+draw(panel,rgb(0.05,0.10,0.25)+linewidth(0.9pt));
+dot(C+0.01up,red+linewidth(5pt));
+label("$P_0$",C+hw*e1,E,red);
+
+pen ax=gray(0.25)+linewidth(0.6pt);
+draw(Label("$x$ (east)",1),O--(8,0,0),ax,Arrow3);
+draw(Label("$y$ (north)",1),O--(0,8,0),ax,Arrow3);
+draw(Label("$z$",1),O--(0,0,6.3),ax,Arrow3);
+]]></asymptote>
+</image>
+</figure>
+</statement>
+
+<solution xml:id="solution-tp-solar-panel">
+<p>
+<alert>A.</alert> The partial derivatives of <m>f</m> are
+<m>f_x = -\frac{x}{4}</m> and <m>f_y = -\frac{y}{4}</m>, so at
+<m>(1,-3)</m>
+<md>
+<mrow>f_x(1,-3) \amp= -\frac14,</mrow>
+<mrow>f_y(1,-3) \amp= \frac34.</mrow>
+</md>
+By <xref ref="eq-tp-tangent-plane"/>, the plane of the panel is
+<md>
+<mrow>\amp -\frac14(x - 1) + \frac34(y + 3)</mrow>
+<mrow>\amp \qquad {} - \left(z - \frac{15}{4}\right) = 0,</mrow>
+</md>
+and multiplying by <m>-4</m> and collecting the constants gives
+<md xml:id="eq-tp-solar-plane" number="yes">
+x - 3y + 4z = 25.
+</md>
+</p>
+
+<p>
+<alert>B.</alert> By <xref ref="eq-tp-normal-vector"/>, the vector
+<m>\mathbf n = \left\langle -\frac14, \frac34, -1 \right\rangle</m> is
+normal to the panel. It points down, into the roof, so the panel faces
+the opposite way, along
+<md>
+-4\,\mathbf n = \langle 1, -3, 4 \rangle .
+</md>
+The horizontal part of this vector is <m>\langle 1, -3 \rangle</m>:
+<m>3</m> meters south for every meter east. So the panel faces a little
+east of due south, by <m>\arctan\frac13 \approx 18^\circ</m>.
+</p>
+<p>
+The tilt of the panel is the angle <m>\theta</m> between its normal and
+the vertical direction <m>\hat{k}</m>:
+<md>
+<mrow>\cos\theta \amp= \frac{\langle 1,-3,4\rangle \cdot \langle 0,0,1\rangle}{\left|\langle 1,-3,4\rangle\right|}</mrow>
+<mrow>\amp= \frac{4}{\sqrt{26}},</mrow>
+<mrow>\theta \amp\approx 38^\circ .</mrow>
+</md>
+</p>
+<p>
+This is nearly the best place on the roof for it. A fixed solar panel
+in the northern hemisphere collects the most energy over a year when it
+faces south and its tilt is close to the latitude, and Santa Clara is at
+latitude <m>37^\circ</m> north.
+</p>
+</solution>
+</example>
+
 
 </subsection>
 
@@ -1484,6 +1630,119 @@ normal direction.
 </latex-image>
 </image>
 </figure>
+
+<p>
+Measurements are never exact, and the linearization tells us how much
+their errors matter. The next example shows how.
+</p>
+
+<example xml:id="example-tp-tree-height">
+<title>How Tall Is the Tree?</title>
+<statement>
+<p>
+To find the height of a tree, you stand <m>d = 30</m> meters from it and
+a phone app measures the angle of elevation of the treetop,
+<m>\theta = \frac{\pi}{4}</m>. The top of the tree is then
+<md>
+h(d,\theta) = d\tan\theta = 30 \text{ meters}
+</md>
+above your eye (<xref ref="fig-tp-tree-height"/>). But the tape measure
+is only good to <m>0.3</m> meters and the app to <m>1^\circ</m>. Use the
+linearization of <m>h</m> at <m>\left(30, \frac{\pi}{4}\right)</m> to
+estimate how far off the computed height could be. Which of the two
+measurements matters more?
+</p>
+
+<figure xml:id="fig-tp-tree-height">
+<caption>
+Measuring a tree: the distance <m>d</m> to the tree and the angle of
+elevation <m>\theta</m> of its top give the height <m>h</m> of the top
+above eye level.
+</caption>
+<image width="55%">
+<shortdescription>A right triangle formed by a horizontal line of length d from an observer to a tree, the height h of the treetop above that line, and the line of sight to the treetop at angle theta.</shortdescription>
+<description>
+<p>
+An observer stands on the left and a tall tree on the right. A dashed
+horizontal line at eye level runs from the observer to the tree and is
+labeled d. A line of sight rises from the observer's eye to the top of
+the tree, making the angle theta with the horizontal line. The height
+of the treetop above the horizontal line is labeled h.
+</p>
+</description>
+<asymptote label="asymptote-tp-tree-height"><![CDATA[
+size(6.5cm,0);
+real d=30, h=30, eye=1.7;
+pair E=(0,0), F=(d,0), T=(d,h);
+pen aux=gray(0.35)+linewidth(0.7pt);
+
+// the ground, the tree and the observer
+draw((-4,-eye)--(d+7,-eye),rgb(0.35,0.25,0.12)+linewidth(1.2pt));
+fill(box((d-0.6,-eye),(d+0.6,5)),rgb(0.45,0.30,0.14));
+fill((d-5,4)--(d+5,4)--T--cycle,rgb(0.20,0.50,0.25));
+draw((0,-eye)--(0,-0.45),black+linewidth(1.2pt));
+fill(circle(E,0.45),black);
+
+// eye level, the line of sight and the height above eye level
+draw(E--F,aux+linetype(new real[] {4,3}));
+draw(E--T,rgb("D55E00")+linewidth(1.4pt));
+draw((d+6,0)--(d+6,h),aux,Arrows(4pt));
+draw(F--(d+6.6,0),aux+linetype(new real[] {1,3}));
+draw(T--(d+6.6,h),aux+linetype(new real[] {1,3}));
+label("$h$",(d+7.6,h/2));
+label("$d$",(d/2,0),N);
+draw(arc(E,5,0,45),aux);
+label("$\theta$",E+7*dir(22.5));
+]]></asymptote>
+</image>
+</figure>
+</statement>
+
+<solution xml:id="solution-tp-tree-height">
+<p>
+The partial derivatives of <m>h(d,\theta) = d\tan\theta</m> are
+<m>h_d = \tan\theta</m> and <m>h_\theta = d\sec^2\theta</m>, so at
+<m>\left(30, \frac{\pi}{4}\right)</m>
+<md>
+<mrow>h_d \amp= \tan\frac{\pi}{4} = 1,</mrow>
+<mrow>h_\theta \amp= 30\sec^2\frac{\pi}{4} = 60.</mrow>
+</md>
+By <xref ref="eq-tp-linearization"/>, with <m>d</m> and <m>\theta</m> in
+the roles of <m>x</m> and <m>y</m>,
+<md>
+<mrow>L(d,\theta) \amp= 30 + (d - 30)</mrow>
+<mrow>\amp\quad {} + 60\left(\theta - \frac{\pi}{4}\right).</mrow>
+</md>
+So if the distance is off by <m>\Delta d</m> and the angle by
+<m>\Delta\theta</m>, the computed height is off by about
+<md xml:id="eq-tp-tree-error" number="yes">
+\Delta h \approx \Delta d + 60\,\Delta\theta .
+</md>
+</p>
+<p>
+The angle has to be in radians here, because the derivative of
+<m>\tan\theta</m> is <m>\sec^2\theta</m> only then:
+<m>1^\circ = \frac{\pi}{180} \approx 0.0175</m>. In the worst case the
+two errors push the same way, and
+<md>
+<mrow>|\Delta h| \amp\lesssim 0.3 + 60(0.0175)</mrow>
+<mrow>\amp= 0.3 + 1.05</mrow>
+<mrow>\amp= 1.35 \text{ meters}.</mrow>
+</md>
+The tree is <m>30</m> meters tall, give or take about <m>1.35</m>
+meters.
+</p>
+<p>
+The angle matters more: it accounts for <m>1.05</m> of the <m>1.35</m>
+meters. In <xref ref="eq-tp-tree-error"/> a <m>1^\circ</m> error in the
+angle costs as much as a whole meter of error in the distance, so a
+better tape measure would hardly help. The estimate itself is good: the
+exact worst case, <m>30.3\tan 46^\circ - 30 \approx 1.38</m> meters, is
+within <m>3</m> centimeters of it.
+</p>
+</solution>
+</example>
+
 
 </subsection>
 
