@@ -50,7 +50,9 @@
   the direction the panel faces and its tilt) after the paraboloid example,
   and the height of a tree from a distance and an angle (linearization as an
   error estimate) after the linearization example.  Their figures are
-  Asymptote.
+  Asymptote.  Part B of the solar panel solution has two PreFigure diagrams
+  as well (instructor request): the roof from above, for the direction the
+  panel faces, and a side view, for its tilt.
 -->
 <section xml:id="section-tangent-planes-differentials" xmlns:xi="http://www.w3.org/2001/XInclude">
 <title>Tangent Planes and Differentials</title>
@@ -888,8 +890,75 @@ the opposite way, along
 </md>
 The horizontal part of this vector is <m>\langle 1, -3 \rangle</m>:
 <m>3</m> meters south for every meter east. So the panel faces a little
-east of due south, by <m>\arctan\frac13 \approx 18^\circ</m>.
+east of due south, by <m>\arctan\frac13 \approx 18^\circ</m>, as
+<xref ref="fig-tp-solar-direction"/> shows.
 </p>
+
+<figure xml:id="fig-tp-solar-direction">
+<caption>
+The roof seen from above. The panel faces along
+<m>\langle 1, -3 \rangle</m>, the horizontal part of its upward normal:
+straight away from the top of the dome, and <m>18^\circ</m> east of due
+south.
+</caption>
+<image width="70%">
+<description>
+<p>
+The roof seen from above, a disc of radius 6 meters with the x axis
+pointing east and the y axis pointing north. The panel is a small dark
+blue rectangle at the point 1, negative 3. A red arrow from it, the
+vector 1, negative 3, points away from the center of the roof. A dashed
+right triangle with a leg of 3 pointing south and a leg of 1 pointing
+east shows that the arrow makes an angle of about 18 degrees with due
+south.
+</p>
+</description>
+<prefigure xmlns="https://prefigure.org" label="prefigure-tp-solar-direction">
+<diagram dimensions="(420,420)" margins="10">
+<definition>edge(t) = (6*cos(t), 6*sin(t))</definition>
+<definition>ring4(t) = (4*cos(t), 4*sin(t))</definition>
+<definition>ring2(t) = (2*cos(t), 2*sin(t))</definition>
+<coordinates bbox="(-7.7,-7.7,7.7,7.7)">
+<circle at="sd-roof" center="(0,0)" radius="6" fill="#E4E4E4" stroke="#7F7F7F" thickness="2"/>
+<circle at="sd-ring4" center="(0,0)" radius="4" fill="none" stroke="#B5B5B5" thickness="1"/>
+<circle at="sd-ring2" center="(0,0)" radius="2" fill="none" stroke="#B5B5B5" thickness="1"/>
+<vector at="sd-east" tail="(-7.2,0)" v="(14.3,0)" stroke="black" thickness="2"/>
+<vector at="sd-north" tail="(0,-7.2)" v="(0,14.3)" stroke="black" thickness="2"/>
+<line at="sd-radius" endpoints="((0,0),(1,-3))" stroke="#7F7F7F" thickness="1.5" dash="5 4"/>
+<polygon at="sd-panel" points="((-0.265,-2.842),(1.917,-2.114),(2.265,-3.158),(0.083,-3.886))"
+         closed="yes" fill="#1A3A7A" stroke="#0D1D40" thickness="1.5"/>
+<line at="sd-south" endpoints="((1,-3),(1,-6))" stroke="#0072B2" thickness="2" dash="5 4"/>
+<line at="sd-east-leg" endpoints="((1,-6),(2,-6))" stroke="#0072B2" thickness="2" dash="5 4"/>
+<angle-marker at="sd-angle" points="((1,-6),(1,-3),(2,-6))" radius="52" clear-background="no"/>
+<vector at="sd-faces" tail="(1,-3)" v="(1,-3)" stroke="#D55E00" thickness="4"/>
+<point at="sd-P0" p="(1,-3)" fill="#D55E00" radius="4"/>
+<label at="sd-xlabel" anchor="(7.5,-0.2)" alignment="sw"><m>x</m></label>
+<label at="sd-east-label" anchor="(7.55,0.2)" alignment="nw"><m>\text{east}</m></label>
+<label at="sd-ylabel" anchor="(-0.2,7.4)" alignment="w"><m>y</m></label>
+<label at="sd-north-label" anchor="(0.25,7.4)" alignment="e"><m>\text{north}</m></label>
+<label at="sd-P0-label" anchor="(-0.45,-3.45)" alignment="w"><m>(1,-3)</m></label>
+<label at="sd-faces-label" anchor="(2.25,-5.75)" alignment="e" color="#D55E00"><m>\langle 1,-3\rangle</m></label>
+<label at="sd-three" anchor="(0.9,-4.8)" alignment="w" color="#0072B2"><m>3</m></label>
+<label at="sd-one" anchor="(1.5,-6.15)" alignment="s" color="#0072B2"><m>1</m></label>
+<label at="sd-angle-label" anchor="(1.5,-4.75)" alignment="e"><m>18^\circ</m></label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="The roof seen from above: a grey disc of radius 6 meters centered at the origin, with the x axis pointing east and the y axis pointing north. The panel is a small dark blue rectangle at the point 1 comma negative 3, south of the center and a little to the east. A red arrow from that point shows the direction the panel faces, the vector 1 comma negative 3: it points straight away from the center of the roof, 3 meters south for every meter east, which is about 18 degrees east of due south.">
+  <annotation ref="sd-roof" text="The roof seen from above, a disc of radius 6 meters. The two inner circles are curves of equal height on the dome."/>
+  <annotation ref="sd-panel" text="The solar panel, drawn as a dark blue rectangle around the point 1 comma negative 3."/>
+  <annotation ref="sd-radius" text="The dashed segment from the top of the dome, above the origin, to the panel. The panel faces directly away from the top."/>
+  <annotation ref="sd-faces" text="The horizontal part of the upward normal, the vector 1 comma negative 3, drawn in red: the compass direction the panel faces."/>
+  <annotation ref="sd-south" text="A dashed blue segment of length 3 pointing due south from the panel."/>
+  <annotation ref="sd-east-leg" text="A dashed blue segment of length 1 pointing east, completing the right triangle with legs 3 and 1."/>
+  <annotation ref="sd-angle" text="The angle between due south and the direction the panel faces, the arctangent of one third, about 18 degrees."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
 <p>
 The tilt of the panel is the angle <m>\theta</m> between its normal and
 the vertical direction <m>\hat{k}</m>:
@@ -898,7 +967,74 @@ the vertical direction <m>\hat{k}</m>:
 <mrow>\amp= \frac{4}{\sqrt{26}},</mrow>
 <mrow>\theta \amp\approx 38^\circ .</mrow>
 </md>
+<xref ref="fig-tp-solar-tilt"/> shows why this angle is the tilt: the
+normal is perpendicular to the panel and <m>\hat{k}</m> is perpendicular
+to the horizontal, so the angle between the two arrows is the angle
+between the panel and the horizontal.
 </p>
+
+<figure xml:id="fig-tp-solar-tilt">
+<caption>
+A side view, in the vertical plane through the top of the dome and
+<m>P_0</m>. The tilt <m>\theta</m> of the panel, measured from the
+horizontal, is also the angle between its upward normal and
+<m>\hat{k}</m>.
+</caption>
+<image width="72%">
+<description>
+<p>
+A side view of the roof, a curve falling away from its top on the z
+axis. The panel is a thick dark blue segment tangent to the roof at the
+point P 0. A dashed horizontal line through P 0 makes the angle theta
+with the panel. A blue arrow k points straight up from P 0, and a red
+arrow, the upward normal 1, negative 3, 4, is perpendicular to the
+panel. The angle between the two arrows is the same angle theta.
+</p>
+</description>
+<prefigure xmlns="https://prefigure.org" label="prefigure-tp-solar-tilt">
+<diagram dimensions="(480,408)" margins="10">
+<definition>roof(r) = 5 - r^2/8</definition>
+<coordinates bbox="(-0.9,-0.7,7.1,6.1)">
+<vector at="st-raxis" tail="(-0.4,0)" v="(7.3,0)" stroke="black" thickness="2"/>
+<vector at="st-zaxis" tail="(0,-0.4)" v="(0,6.3)" stroke="black" thickness="2"/>
+<graph at="st-roof" function="roof" domain="(0,6)" stroke="#7F7F7F" thickness="2.5"/>
+<line at="st-horizontal" endpoints="((3.1623,3.75),(5.9,3.75))" stroke="#0072B2" thickness="1.5" dash="5 4"/>
+<angle-marker at="st-tilt" points="((4.025,3.068),(3.1623,3.75),(5.9,3.75))" radius="58" clear-background="no"/>
+<angle-marker at="st-normal-angle" points="((4.2785,5.1621),(3.1623,3.75),(3.1623,5.55))" radius="50" clear-background="no"/>
+<angle-marker at="st-right" points="((4.0252,3.0678),(3.1623,3.75),(4.2785,5.1621))" radius="13" clear-background="no"/>
+<line at="st-panel" endpoints="((2.2994,4.4322),(4.0252,3.0678))" stroke="#1A3A7A" thickness="6"/>
+<vector at="st-k" tail="(3.1623,3.75)" v="(0,1.8)" stroke="#0072B2" thickness="3"/>
+<vector at="st-normal" tail="(3.1623,3.75)" v="(1.1162,1.4121)" stroke="#D55E00" thickness="3"/>
+<point at="st-P0" p="(3.1623,3.75)" fill="black" radius="4"/>
+<label at="st-zlabel" anchor="(-0.1,5.8)" alignment="w"><m>z</m></label>
+<label at="st-rlabel" anchor="(3.5,-0.12)" alignment="s"><m>\text{distance from the top of the dome}</m></label>
+<label at="st-roof-label" anchor="(5.35,1.5)" alignment="ne" color="#7F7F7F"><m>\text{roof}</m></label>
+<label at="st-panel-label" anchor="(2.2,4.6)" alignment="n" color="#1A3A7A"><m>\text{panel}</m></label>
+<label at="st-P0-label" anchor="(3.05,3.65)" alignment="sw"><m>P_0</m></label>
+<label at="st-k-label" anchor="(3.1,5.5)" alignment="w" color="#0072B2"><m>\hat{k}</m></label>
+<label at="st-normal-label" anchor="(4.35,5.2)" alignment="e" color="#D55E00"><m>\langle 1,-3,4\rangle</m></label>
+<label at="st-horizontal-label" anchor="(5.9,3.82)" alignment="nw" color="#0072B2"><m>\text{horizontal}</m></label>
+<label at="st-tilt-label" anchor="(4.6,3.5)" alignment="e"><m>\theta</m></label>
+<label at="st-normal-angle-label" anchor="(3.5,4.95)" alignment="n"><m>\theta</m></label>
+</coordinates>
+
+<annotations>
+<annotation ref="figure" text="A side view of the roof, cut by the vertical plane through the top of the dome and the point P 0. The grey curve is the roof, falling away from its top on the z axis. The panel is a thick dark blue segment tangent to the roof at P 0. A dashed blue horizontal line starts at P 0, and the angle theta between it and the panel is the tilt. A blue arrow k points straight up from P 0 and a red arrow, the upward normal 1 comma negative 3 comma 4, is perpendicular to the panel. The angle between these two arrows is the same angle theta, about 38 degrees.">
+  <annotation ref="st-roof" text="The roof in this slice, the curve z equals 5 minus r squared over 8, where r is the horizontal distance from the top of the dome."/>
+  <annotation ref="st-panel" text="The solar panel seen edge on, a thick dark blue segment tangent to the roof at P 0."/>
+  <annotation ref="st-horizontal" text="A dashed horizontal line through P 0."/>
+  <annotation ref="st-tilt" text="The tilt theta of the panel, the angle between the panel and the horizontal line."/>
+  <annotation ref="st-right" text="A right-angle mark at P 0, between the panel and its upward normal."/>
+  <annotation ref="st-k" text="The vertical unit vector k, drawn in blue, pointing straight up from P 0."/>
+  <annotation ref="st-normal" text="The upward normal to the panel, the vector 1 comma negative 3 comma 4, drawn in red, perpendicular to the panel."/>
+  <annotation ref="st-normal-angle" text="The angle between the upward normal and the vertical vector k. It equals the tilt theta, since the normal is perpendicular to the panel and k is perpendicular to the horizontal."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+
 <p>
 This is nearly the best place on the roof for it. A fixed solar panel
 in the northern hemisphere collects the most energy over a year when it
