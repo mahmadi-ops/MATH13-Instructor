@@ -49,8 +49,9 @@
   subsections: a solar panel on a domed roof (tangent plane, normal vector,
   the direction the panel faces and its tilt) after the paraboloid example,
   and the height of a tree from a distance and an angle (linearization as an
-  error estimate) after the linearization example.  Their figures are
-  Asymptote.  Part B of the solar panel solution has two PreFigure diagrams
+  error estimate) after the linearization example.  The solar panel
+  figure is Asymptote (a dome that can be turned on the web) and the tree
+  figure is PreFigure.  Part B of the solar panel solution has two PreFigure diagrams
   as well (instructor request): the roof from above, for the direction the
   panel faces, and a side view, for its tilt.
 -->
@@ -1806,30 +1807,38 @@ the tree, making the angle theta with the horizontal line. The height
 of the treetop above the horizontal line is labeled h.
 </p>
 </description>
-<asymptote label="asymptote-tp-tree-height"><![CDATA[
-size(6.5cm,0);
-real d=30, h=30, eye=1.7;
-pair E=(0,0), F=(d,0), T=(d,h);
-pen aux=gray(0.35)+linewidth(0.7pt);
+<prefigure xmlns="https://prefigure.org" label="prefigure-tp-tree-height">
+<diagram dimensions="(450,355)" margins="10">
+<coordinates bbox="(-5,-3.5,40,32)">
+<line at="th-ground" endpoints="((-4,-1.7),(37,-1.7))" stroke="#5A4020" thickness="2.5"/>
+<rectangle at="th-trunk" lower-left="(29.4,-1.7)" dimensions="(1.2,6.7)" fill="#73502A" stroke="none"/>
+<polygon at="th-tree" points="((25,4),(35,4),(30,30))" closed="yes" fill="#33803F" stroke="none"/>
+<line at="th-observer" endpoints="((0,-1.7),(0,-0.45))" stroke="black" thickness="2.5"/>
+<line at="th-eye-level" endpoints="((0,0),(30,0))" stroke="#595959" thickness="1.5" dash="5 4"/>
+<line at="th-sight" endpoints="((0,0),(30,30))" stroke="#D55E00" thickness="3"/>
+<angle-marker at="th-theta" points="((30,0),(0,0),(30,30))" radius="40" clear-background="no">
+<m>\theta</m>
+</angle-marker>
+<line at="th-ext-bottom" endpoints="((30,0),(36.6,0))" stroke="#595959" thickness="1" dash="2 4"/>
+<line at="th-ext-top" endpoints="((30,30),(36.6,30))" stroke="#595959" thickness="1" dash="2 4"/>
+<line at="th-height" endpoints="((36,0),(36,30))" arrows="2" stroke="#595959" thickness="2"/>
+<point at="th-eye" p="(0,0)" fill="black" radius="5"/>
+<label at="th-h" anchor="(36.6,15)" alignment="e"><m>h</m></label>
+<label at="th-d" anchor="(15,0.3)" alignment="n"><m>d</m></label>
+</coordinates>
 
-// the ground, the tree and the observer
-draw((-4,-eye)--(d+7,-eye),rgb(0.35,0.25,0.12)+linewidth(1.2pt));
-fill(box((d-0.6,-eye),(d+0.6,5)),rgb(0.45,0.30,0.14));
-fill((d-5,4)--(d+5,4)--T--cycle,rgb(0.20,0.50,0.25));
-draw((0,-eye)--(0,-0.45),black+linewidth(1.2pt));
-fill(circle(E,0.45),black);
-
-// eye level, the line of sight and the height above eye level
-draw(E--F,aux+linetype(new real[] {4,3}));
-draw(E--T,rgb("D55E00")+linewidth(1.4pt));
-draw((d+6,0)--(d+6,h),aux,Arrows(4pt));
-draw(F--(d+6.6,0),aux+linetype(new real[] {1,3}));
-draw(T--(d+6.6,h),aux+linetype(new real[] {1,3}));
-label("$h$",(d+7.6,h/2));
-label("$d$",(d/2,0),N);
-draw(arc(E,5,0,45),aux);
-label("$\theta$",E+7*dir(22.5));
-]]></asymptote>
+<annotations>
+<annotation ref="figure" text="An observer on the left and a tree on the right. A dashed line at eye level runs from the observer's eye to the tree, a distance d. The line of sight, drawn in orange, rises from the eye to the top of the tree at the angle theta above the eye-level line. The height of the treetop above eye level is h. The eye-level line, the tree and the line of sight form a right triangle, so h equals d times the tangent of theta.">
+  <annotation ref="th-eye" text="The observer's eye, where the angle of elevation is measured."/>
+  <annotation ref="th-eye-level" text="The eye-level line, a horizontal dashed line of length d from the eye to the tree."/>
+  <annotation ref="th-sight" text="The line of sight from the eye to the top of the tree, drawn in orange."/>
+  <annotation ref="th-theta" text="The angle of elevation theta, between the eye-level line and the line of sight."/>
+  <annotation ref="th-height" text="The height h of the treetop above eye level, marked beside the tree."/>
+  <annotation ref="th-tree" text="The tree, drawn in green on a brown trunk."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
 </image>
 </figure>
 </statement>

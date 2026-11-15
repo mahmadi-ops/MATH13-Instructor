@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-tp-tree-height-figure" speech2="An observer on the left and a tree on the right. A dashed line at eye level runs from the observer's eye to the tree, a distance d. The line of sight, drawn in orange, rises from the eye to the top of the tree at the angle theta above the eye-level line. The height of the treetop above eye level is h. The eye-level line, the tree and the line of sight form a right triangle, so h equals d times the tangent of theta.">
+      <grouped>prefigure-tp-tree-height-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-tp-tree-height-th-eye</active>
+        <active>prefigure-tp-tree-height-th-eye-level</active>
+        <active>prefigure-tp-tree-height-th-sight</active>
+        <active>prefigure-tp-tree-height-th-theta</active>
+        <active>prefigure-tp-tree-height-th-height</active>
+        <active>prefigure-tp-tree-height-th-tree</active>
+      </children>
+      <components>
+        <active>prefigure-tp-tree-height-th-eye</active>
+        <active>prefigure-tp-tree-height-th-eye-level</active>
+        <active>prefigure-tp-tree-height-th-sight</active>
+        <active>prefigure-tp-tree-height-th-theta</active>
+        <active>prefigure-tp-tree-height-th-height</active>
+        <active>prefigure-tp-tree-height-th-tree</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-tp-tree-height-th-eye" speech2="The observer's eye, where the angle of elevation is measured.">
+      <active>prefigure-tp-tree-height-th-eye</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-tp-tree-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-tree-height-th-eye-level" speech2="The eye-level line, a horizontal dashed line of length d from the eye to the tree.">
+      <active>prefigure-tp-tree-height-th-eye-level</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-tp-tree-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-tree-height-th-sight" speech2="The line of sight from the eye to the top of the tree, drawn in orange.">
+      <active>prefigure-tp-tree-height-th-sight</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-tp-tree-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-tree-height-th-theta" speech2="The angle of elevation theta, between the eye-level line and the line of sight.">
+      <active>prefigure-tp-tree-height-th-theta</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-tp-tree-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-tree-height-th-height" speech2="The height h of the treetop above eye level, marked beside the tree.">
+      <active>prefigure-tp-tree-height-th-height</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-tp-tree-height-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-tree-height-th-tree" speech2="The tree, drawn in green on a brown trunk.">
+      <active>prefigure-tp-tree-height-th-tree</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-tp-tree-height-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
