@@ -825,6 +825,257 @@ tangent to the constraint circle, while an intermediate level curve
 
 </subsubsection>
 
+<!-- ================================================================ -->
+<!-- Two real-life examples (instructor request, Nov 2026); the two
+     figures are Asymptote. -->
+<subsubsection xml:id="sec-lagrange-applications">
+<title>Two Applications</title>
+
+<p>
+We close the two-variable examples with two problems from outside the
+classroom: one from a sawmill, and one from the beach that turns out to
+be a law of optics.
+</p>
+
+<example xml:id="example-lagrange-beam">
+<title>The Strongest Beam Cut from a Log</title>
+<statement>
+<p>
+A sawmill cuts a rectangular beam from a round log <m>12</m> inches in
+diameter. The strength of a beam, that is, the load it can carry before
+it breaks in bending, is proportional to its width times the square of
+its depth:
+<md>
+S = k\,w\,h^2,
+</md>
+where the constant <m>k \gt 0</m> depends only on the wood. What width
+<m>w</m> and depth <m>h</m> give the strongest beam?
+</p>
+
+<figure xml:id="fig-lagrange-beam">
+<caption>
+The end of the log, with the beam cut from it. The corners of the beam
+lie on the edge of the log, so its diagonal is a diameter.
+</caption>
+<image width="45%">
+<shortdescription>A circle with a rectangle inscribed in it, of width w and depth h, and a dashed diagonal of length 12 inches.</shortdescription>
+<description>
+<p>
+A circle, the end of a log, with a rectangle inscribed in it, the beam.
+The rectangle is taller than it is wide: its horizontal side is labeled
+w and its vertical side h. A dashed diagonal of the rectangle passes
+through the center of the circle and is labeled 12 inches.
+</p>
+</description>
+<asymptote label="asymptote-lagrange-beam"><![CDATA[
+size(6cm,0);
+real R=6, w=4sqrt(3), h=4sqrt(6);
+pen wood=rgb(0.95,0.87,0.72), ring=rgb(0.87,0.76,0.58);
+pen beam=rgb(0.84,0.66,0.42), edge=rgb(0.42,0.27,0.10);
+
+// the end of the log, with a few growth rings
+filldraw(circle((0,0),R),wood,edge+linewidth(1.2pt));
+for(real r=1.2; r < R; r += 1.2) draw(circle((0,0),r),ring+linewidth(0.5pt));
+
+// the beam, and its diagonal, which is a diameter of the log
+filldraw(box((-w/2,-h/2),(w/2,h/2)),beam,edge+linewidth(1.4pt));
+draw((-w/2,-h/2)--(w/2,h/2),edge+linewidth(0.9pt)+linetype(new real[] {4,3}));
+label("$12$ in",(-1.45,0.95));
+label("$w$",(0,-h/2),S);
+label("$h$",(w/2,0),E);
+]]></asymptote>
+</image>
+</figure>
+</statement>
+<solution>
+<p>
+The largest beam has its four corners on the edge of the log, so its
+diagonal is a diameter (<xref ref="fig-lagrange-beam"/>) and
+<m>w^2 + h^2 = 12^2</m>. Since <m>k</m> is a positive constant, the
+strongest beam is the one that maximizes <m>f(w,h) = wh^2</m> subject to
+<md>
+g(w,h) = w^2 + h^2 - 144 = 0,
+</md>
+with <m>w \gt 0</m> and <m>h \gt 0</m>.
+</p>
+<p>
+We compute the gradients:
+<md>
+<mrow>\nabla f \amp= h^2\,\hat{\imath} + 2wh\,\hat{\jmath}</mrow>
+<mrow>\nabla g \amp= 2w\,\hat{\imath} + 2h\,\hat{\jmath}.</mrow>
+</md>
+The equation <m>\nabla f = \lambda\,\nabla g</m> of
+<xref ref="eq-lagrange-method"/> gives
+<md>
+<mrow>h^2 \amp= 2\lambda w,</mrow>
+<mrow>2wh \amp= 2\lambda h.</mrow>
+</md>
+Because <m>h \neq 0</m>, the second equation says <m>\lambda = w</m>,
+and then the first says <m>h^2 = 2w^2</m>. Substituting into the
+constraint gives <m>3w^2 = 144</m>, so
+<md>
+<mrow>w \amp= 4\sqrt 3 \approx 6.93 \text{ in},</mrow>
+<mrow>h \amp= \sqrt 2\, w = 4\sqrt 6 \approx 9.80 \text{ in}.</mrow>
+</md>
+</p>
+<p>
+This is the maximum. Along the quarter circle <m>w^2 + h^2 = 144</m>
+the function <m>f</m> is positive, and it falls to <m>0</m> at both
+ends, where the beam has no width or no depth. So its greatest value is
+attained in between, at the only point the method found.
+</p>
+<p>
+Notice that <m>h/w = \sqrt 2</m> whatever the diameter of the log: the
+strongest beam is always about <m>1.41</m> times as deep as it is wide.
+It is not the square beam, even though the square beam contains the most
+wood. For this log the square beam has side <m>6\sqrt 2 \approx 8.49</m>
+inches and <m>wh^2 \approx 611</m>, against <m>wh^2 \approx 665</m> for
+the beam found above, which is about <m>9\%</m> stronger.
+</p>
+</solution>
+</example>
+
+<example xml:id="example-lagrange-lifeguard">
+<title>The Lifeguard's Path and the Law of Refraction</title>
+<statement>
+<p>
+A lifeguard at <m>A</m>, standing <m>a</m> meters from the water's edge,
+sees a swimmer in trouble at <m>B</m>, which is <m>b</m> meters out from
+the shore and <m>d</m> meters down the beach. She runs at speed
+<m>v_1</m> on the sand and swims at the slower speed <m>v_2</m>. Show
+that on the fastest route, the angles <m>\theta_1</m> and
+<m>\theta_2</m> that the run and the swim make with the perpendicular to
+the shoreline satisfy
+<md>
+\frac{\sin\theta_1}{v_1} = \frac{\sin\theta_2}{v_2}.
+</md>
+</p>
+
+<figure xml:id="fig-lagrange-lifeguard">
+<caption>
+The fastest route from the lifeguard at <m>A</m> to the swimmer at
+<m>B</m>, drawn to scale for <m>a = 20</m>, <m>b = 30</m> and
+<m>d = 60</m> meters, with <m>v_1 = 6</m> and <m>v_2 = 2</m> meters per
+second.
+</caption>
+<image width="75%">
+<shortdescription>A path from a point A on the sand to a point B in the water, bending at the shoreline, with the angles it makes with the perpendicular to the shoreline.</shortdescription>
+<description>
+<p>
+A horizontal shoreline separates the sand, below, from the water, above.
+The lifeguard is at the point A on the sand, a distance a from the
+shoreline, and the swimmer at the point B in the water, a distance b
+from it. A route runs in a straight line from A to a point P on the
+shoreline and then in a straight line from P to B. Measured along the
+shoreline, P is a distance x from the point opposite A and a distance y
+from the point opposite B. A dashed line through P is perpendicular to
+the shoreline. The run makes a large angle, theta 1, with it, and the
+swim a small angle, theta 2.
+</p>
+</description>
+<asymptote label="asymptote-lagrange-lifeguard"><![CDATA[
+size(9cm,0);
+real a=20, b=30, d=60, x=50.2;
+pair A=(0,-a), B=(d,b), P=(x,0), A0=(0,0), B0=(d,0);
+real L=-9, Rt=71;
+pen sand=rgb(0.96,0.91,0.78), water=rgb(0.82,0.91,0.97);
+pen route=rgb("D55E00")+linewidth(1.6pt);
+pen aux=gray(0.35)+linewidth(0.7pt);
+
+fill(box((L,-a-6),(Rt,0)),sand);
+fill(box((L,0),(Rt,b+6)),water);
+draw((L,0)--(Rt,0),rgb("0072B2")+linewidth(1.2pt));
+label("sand: speed $v_1$",(Rt,-a-2.6),W);
+label("water: speed $v_2$",(L,b+2.6),E);
+
+// the perpendicular to the shoreline at P, and the two right triangles
+draw((x,-16)--(x,19),aux+linetype(new real[] {4,3}));
+draw(A--A0,aux+linetype(new real[] {1,3}));
+draw(B--B0,aux+linetype(new real[] {1,3}));
+label("$a$",(A+A0)/2,W);
+label("$b$",(B+B0)/2,E);
+label("$x$",(A0+P)/2,N);
+label("$y$",(P+B0)/2,S);
+for(pair T : new pair[] {A0,B0}) draw((T.x,-0.9)--(T.x,0.9),aux);
+
+// the route
+draw(A--P,route,MidArrow(6pt));
+draw(P--B,route,Arrow(6pt,Relative(0.78)));
+
+// the angles with the perpendicular
+real t1=degrees(A-P), t2=degrees(B-P);
+draw(arc(P,8,t1,270),aux);
+label("$\theta_1$",P+11.5*dir((t1+270)/2));
+draw(arc(P,12,t2,90),aux);
+label("$\theta_2$",P+(-3.4,13));
+
+dot(A); dot(B); dot(P);
+label("$A$",A,SW);
+label("$B$",B,NE);
+label("$P$",P,NW);
+]]></asymptote>
+</image>
+</figure>
+</statement>
+<solution>
+<p>
+Let <m>x</m> be the distance along the shore that she covers while
+running and <m>y</m> the distance along the shore that she covers while
+swimming, as in <xref ref="fig-lagrange-lifeguard"/>. The two must add
+up to <m>d</m>, and each leg of the route is the hypotenuse of a right
+triangle. So we minimize the travel time
+<md>
+<mrow>T(x,y) \amp= \frac{\sqrt{a^2 + x^2}}{v_1}</mrow>
+<mrow>\amp\qquad + \frac{\sqrt{b^2 + y^2}}{v_2}</mrow>
+</md>
+subject to the constraint
+<md>
+g(x,y) = x + y - d = 0.
+</md>
+</p>
+<p>
+Here <m>\nabla g = \hat{\imath} + \hat{\jmath}</m>, so the equation
+<m>\nabla T = \lambda\,\nabla g</m> of <xref ref="eq-lagrange-method"/>
+says that both partial derivatives of <m>T</m> are equal to
+<m>\lambda</m>:
+<md>
+<mrow>\frac{x}{v_1\sqrt{a^2 + x^2}} \amp= \lambda,</mrow>
+<mrow>\frac{y}{v_2\sqrt{b^2 + y^2}} \amp= \lambda.</mrow>
+</md>
+In the two right triangles of the figure,
+<md>
+<mrow>\sin\theta_1 \amp= \frac{x}{\sqrt{a^2 + x^2}},</mrow>
+<mrow>\sin\theta_2 \amp= \frac{y}{\sqrt{b^2 + y^2}},</mrow>
+</md>
+so the two equations say exactly that
+<md>
+\frac{\sin\theta_1}{v_1} = \lambda = \frac{\sin\theta_2}{v_2}.
+</md>
+A fastest route does exist, because <m>T</m> grows without bound as the
+point <m>P</m> where she enters the water moves far down the beach in
+either direction; so it is at a point where this condition holds.
+</p>
+<p>
+Since <m>v_2 \lt v_1</m>, the condition forces
+<m>\theta_2 \lt \theta_1</m>: she should not head straight for the
+swimmer, but run farther along the sand, where she is fast, and shorten
+the swim. For the numbers of <xref ref="fig-lagrange-lifeguard"/>,
+solving the condition numerically gives <m>x \approx 50</m> meters. She
+enters the water only about <m>10</m> meters short of the point opposite
+the swimmer and arrives in <m>24.8</m> seconds, almost <m>4</m> seconds
+sooner than along the straight line from <m>A</m> to <m>B</m>.
+</p>
+<p>
+Light obeys the same rule. Passing from air into water, where it travels
+more slowly, a ray of light follows the path of least time, and the equation above
+is <term>Snell's law</term> of refraction. It is the reason a straw
+looks bent in a glass of water.
+</p>
+</solution>
+</example>
+
+</subsubsection>
+
 </subsection>
 
 <!-- ================================================================ -->
