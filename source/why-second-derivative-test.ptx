@@ -23,7 +23,7 @@ that appear in it are derived in detail below.
 <caption>
 Slicing a surface through a critical point in a rotating unit
 direction <m>\mathbf{u}</m>. The second directional derivative
-<m>D^2_{\mathbf{u}}f</m> is the curvature of the slice: one sign for
+<m>D^2_{\mathbf{u}}f</m> is the curvature of the slice curve: one sign for
 all directions gives a local extremum, both signs give a saddle point,
 and completing the square shows that the discriminant
 <m>H = f_{xx}f_{yy} - f_{xy}^2</m> decides between the two.
