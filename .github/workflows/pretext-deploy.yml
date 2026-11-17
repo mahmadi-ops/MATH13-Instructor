@@ -70,6 +70,24 @@ jobs:
       - name: install deps
         run: pip install -r requirements.txt --break-system-packages
 
+      # Runestone's webpack_static_imports.xml, which every web build downloads,
+      # began opening with an XML declaration that names its encoding (November
+      # 2026). PreTeXt 2.44 passes that file to lxml as a str, which lxml refuses,
+      # so the build stopped with "Unicode strings with encoding declaration are
+      # not supported". PreTeXt 2.56.2 fixed it by parsing the bytes instead; this
+      # step makes the same one-line change to the installed copy, the one the
+      # `pretext` command runs, and changes nothing once requirements.txt pins a
+      # version with the fix.
+      - name: patch PreTeXt to read the Runestone services file
+        run: |
+          py="$(sed -n '1s/^#!//p' "$(command -v pretext)")"
+          f="$($py -c 'import importlib.util, os; print(os.path.join(os.path.dirname(importlib.util.find_spec("pretext").origin), "core", "pretext.py"))')"
+          sed -i 's/services = ET\.fromstring(services_xml)$/services = ET.fromstring(services_xml.encode("utf-8"))/' "$f"
+          if grep -n 'ET\.fromstring(services_xml)$' "$f"; then
+            echo "PreTeXt still parses the Runestone services file as a str: $f" >&2
+            exit 1
+          fi
+
       - name: initialize prefigure
         run: prefig init
 
