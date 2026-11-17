@@ -427,6 +427,36 @@ The next subsection shows a critical point that is neither a local
 maximum nor a local minimum.
 </p>
 
+<p>
+The critical points of this subsection all have counterparts for a
+function of one variable: the bottom of <m>y = x^2</m>, the top of
+<m>y = -x^2</m>, and the corner of <m>y = \lvert x \rvert</m>, where
+the derivative does not exist. <xref ref="fig-critical-1d-2d-video"/>
+sets the curves and the surfaces side by side, and ends with a look
+ahead at the saddle point of the next subsection, which has no
+counterpart in one variable.
+</p>
+
+<figure xml:id="fig-critical-1d-2d-video">
+<caption>
+Critical points of a curve <m>y = f(x)</m> beside those of a surface
+<m>z = f(x,y)</m>, for the examples of this section: the minimum of
+<m>y = x^2</m> and of <m>z = x^2 + y^2</m>, the maximum of
+<m>y = -x^2</m> and of <m>z = -x^2 - y^2</m>, and the corner of
+<m>y = \lvert x \rvert</m> and the tip of the cone
+<m>z = \sqrt{x^2 + y^2}</m>; in each pair the curve is the slice
+<m>y = 0</m> of the surface. The saddle <m>z = y^2/3 - x^2/3</m> bends
+down along the <m>x</m>-axis and up along the <m>y</m>-axis. A curve has
+only one direction through the point, so it bends one way only, and the
+saddle has no one-variable counterpart; <m>y = x^3</m>, which is neither
+a maximum nor a minimum at <m>0</m>, does not bend there at all.
+</caption>
+<video xml:id="video-critical-1d-2d"
+       source="videos/critical_points_1d_vs_2d_1080p.mp4"
+       preview="videos/previews/critical_points_1d_vs_2d_1080p.jpg"
+       width="70%" aspect="16:9"/>
+</figure>
+
 
 </subsection>
 
