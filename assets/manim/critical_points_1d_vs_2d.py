@@ -77,6 +77,56 @@ def W3(x, y, z):
     return O3 + np.array([XY * x, XY * y, ZS[0] * z + ZOFF[0]])
 
 
+# ---- small pictures for the summary table -----------------------------------
+def _view(phi=PHI, th=THETA):
+    right = np.array([-np.sin(th), np.cos(th), 0.0])
+    up = np.array([-np.cos(phi) * np.cos(th), -np.cos(phi) * np.sin(th), np.sin(phi)])
+    d = np.array([np.sin(phi) * np.cos(th), np.sin(phi) * np.sin(th), np.cos(phi)])
+    return right, up, d
+
+
+def mini_surface(f, kind, colors, width=1.7, height=1.08):
+    """A small shaded surface, projected like the 3D scenes (depth-sorted)."""
+    right, up, d = _view()
+    light = d + 0.6 * up
+    light = light / np.linalg.norm(light)
+    if kind == "polar":
+        P = lambda u, v: np.array([u * np.cos(v), u * np.sin(v), 1.0 * f(u, v)])
+        us, vs = np.linspace(0, 1.0, 7), np.linspace(0, TAU, 29)
+    else:
+        P = lambda u, v: np.array([u, v, 1.0 * f(u, v)])
+        us, vs = np.linspace(-1, 1, 11), np.linspace(-1, 1, 11)
+    faces = []
+    for i in range(len(us) - 1):
+        for j in range(len(vs) - 1):
+            q = [P(us[i], vs[j]), P(us[i + 1], vs[j]), P(us[i + 1], vs[j + 1]), P(us[i], vs[j + 1])]
+            n = np.cross(q[1] - q[0], q[3] - q[0])
+            nn = np.linalg.norm(n)
+            if nn < 1e-9:
+                n = np.cross(q[2] - q[1], q[3] - q[1]); nn = np.linalg.norm(n)
+            shade = 0.45 + 0.55 * abs(n @ light) / max(nn, 1e-9)
+            depth = np.mean([p @ d for p in q])
+            pts = [np.array([p @ right, p @ up, 0.0]) for p in q]
+            base = colors[(i + j) % 2]
+            faces.append((depth, Polygon(*pts, stroke_color=BLACK, stroke_width=0.4,
+                                         fill_color=interpolate_color(BLACK, ManimColor(base), shade),
+                                         fill_opacity=1.0)))
+    faces.sort(key=lambda t: t[0])
+    g = VGroup(*[p for _, p in faces])
+    g.scale_to_fit_width(width)
+    if g.height > height:
+        g.scale_to_fit_height(height)
+    return g
+
+
+def mini_curve(f, color, w=1.45, h=1.0):
+    ax = Axes(x_range=[-1.15, 1.15], y_range=[-1.2, 1.2], x_length=w, y_length=h, tips=False,
+              axis_config=dict(color=GREY_C, stroke_width=1.5, include_ticks=False))
+    c = ax.plot(f, x_range=[-1.05, 1.05], color=color, stroke_width=3.5)
+    dot = Dot(ax.c2p(0, 0), radius=0.045, color=WHITE)
+    return VGroup(ax, c, dot)
+
+
 # ---- the 2D picture ---------------------------------------------------------
 LEFT_O = np.array([-3.75, -0.15, 0.0])
 
@@ -427,35 +477,39 @@ class CriticalPoints1D2D(ThreeDScene):
     # ------------------------------------------------------------- G
     def summary(self):
         self.flat_view()
-        head = T(r"\textbf{Critical points: one variable and two variables}", 44).to_edge(UP, buff=0.6)
+        head = T(r"\textbf{Critical points: one variable and two variables}", 44).to_edge(UP, buff=0.45)
         rows = [
-            (r"", r"\textbf{one variable}", r"\textbf{two variables}", WHITE),
-            (r"local minimum", r"$y = x^2$", r"$z = x^2 + y^2$", MIN_C),
-            (r"local maximum", r"$y = -x^2$", r"$z = -x^2 - y^2$", MAX_C),
-            (r"no derivative", r"$y = \lvert x \rvert$, a corner", r"$z = \sqrt{x^2+y^2}$, a tip", CORNER_C),
-            (r"saddle point", r"none", r"$z = \tfrac{y^2}{3} - \tfrac{x^2}{3}$", SAD_C),
+            (r"local minimum", r"$y = x^2$", r"$z = x^2 + y^2$", MIN_C,
+             lambda x: x * x, lambda r, t: r * r, "polar", SURF, CURVE_C),
+            (r"local maximum", r"$y = -x^2$", r"$z = -x^2 - y^2$", MAX_C,
+             lambda x: -x * x, lambda r, t: -r * r, "polar", SURF, CURVE_C),
+            (r"no derivative", r"$y = \lvert x \rvert$, a corner", r"$z = \sqrt{x^2+y^2}$, a tip", CORNER_C,
+             lambda x: abs(x), lambda r, t: r, "polar", CONE, CORNER_C),
+            (r"saddle point", r"none", r"$z = \tfrac{y^2}{3} - \tfrac{x^2}{3}$", SAD_C,
+             None, lambda x, y: (y * y - x * x) / 1.5, "square", SADDLE, None),
         ]
-        xs = [-4.3, -0.6, 3.6]
+        X_LAB, X_EQ1, X_G1, X_EQ2, X_G2 = -5.6, -3.05, -0.75, 1.85, 4.95
+        hdr = VGroup(T(r"\textbf{one variable}", 32, CURVE_C).move_to([(X_EQ1 + X_G1) / 2, 2.45, 0]),
+                     T(r"\textbf{two variables}", 32, CURVE_C).move_to([(X_EQ2 + X_G2) / 2, 2.45, 0]))
+        rule = Line([-6.6, 2.1, 0], [6.6, 2.1, 0], color=GREY_D, stroke_width=1.5)
         grid = VGroup()
-        y = 1.9
-        for i, (a, b, c, col) in enumerate(rows):
-            cells = VGroup(T(a if a else r"\phantom{x}", 32, col),
-                           T(b, 32, WHITE if i else CURVE_C),
-                           T(c, 32, WHITE if i else CURVE_C))
-            for cell, x in zip(cells, xs):
-                cell.move_to([x, y, 0])
-            if i == 4:
-                cells[1].set_color(DOWN_C)
+        y = 1.38
+        for (lab, e1, e2, col, f1, f2, kind, cols, ccol) in rows:
+            cells = VGroup(T(lab, 32, col).move_to([X_LAB, y, 0]),
+                           T(e1, 32, DOWN_C if f1 is None else WHITE).move_to([X_EQ1, y, 0]),
+                           T(e2, 32).move_to([X_EQ2, y, 0]))
+            if f1 is not None:
+                cells.add(mini_curve(f1, ccol).move_to([X_G1, y, 0]))
+            cells.add(mini_surface(f2, kind, cols).move_to([X_G2, y, 0]))
             grid.add(cells)
-            y -= 0.95
-        lines = VGroup(Line([-6.0, 1.45, 0], [6.0, 1.45, 0], color=GREY_D, stroke_width=1.5))
+            y -= 1.22
         foot = T(r"A saddle needs two directions to bend in opposite ways; \;one variable has only one.", 30, DIM)
-        foot.to_edge(DOWN, buff=0.7)
-        self.play(FadeIn(head), FadeIn(grid[0]), Create(lines), run_time=1.0)
-        for r in grid[1:]:
-            self.play(FadeIn(r), run_time=0.7)
+        foot.to_edge(DOWN, buff=0.35)
+        self.play(FadeIn(head), FadeIn(hdr), Create(rule), run_time=1.0)
+        for r in grid:
+            self.play(FadeIn(r), run_time=0.8)
         self.play(FadeIn(foot), run_time=0.8)
-        self.wait(W(6.0))
+        self.wait(W(7.0))
         self.play(*[FadeOut(m) for m in self.mobjects], run_time=1.0)
 
     def construct(self):
