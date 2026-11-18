@@ -820,6 +820,139 @@ d = \frac{\left|\overrightarrow{PS}\cdot\overrightarrow{n}\right|}{\|\overrighta
 </p>
 </solution>
 </example>
+
+<example xml:id="example-planes-distance-shortest">
+<title>Shortest distance from a point to a plane</title>
+<statement>
+<p>
+Find the shortest distance from the point <m>S(1,0,-2)</m> to the plane
+<m>x + 2y + z = 4</m>.
+</p>
+</statement>
+<solution>
+<p>
+We need a point <m>P</m> on the plane. We choose <m>x = y = 0</m>,
+which when substituted into the equation of the plane
+<m>x + 2y + z = 4</m>, gives <m>z = 4</m>. Hence, we have a point
+<m>P(0,0,4)</m> on the plane. We then compute the vector
+<m>\overrightarrow{PS} = \langle 1,0,-6\rangle</m>. We also extract
+the normal vector <m>\overrightarrow{n} = \langle 1,2,1\rangle</m>,
+<m>\|\overrightarrow{n}\| = \sqrt{6}</m> from the equation of the plane,
+which is in the standard form <xref ref="eq-planes-standard"/>.
+<md>
+\overrightarrow{PS}\cdot\overrightarrow{n} = 1 + 0 - 6 = -5
+</md>
+Substituting into <xref ref="eq-planes-distance"/> gives
+<md>
+d = \frac{\left|\overrightarrow{PS}\cdot\overrightarrow{n}\right|}{\|\overrightarrow{n}\|}
+= \frac{|-5|}{\sqrt{6}} = \frac{5}{\sqrt{6}} = \frac{5}{6}\sqrt{6}
+</md>
+</p>
+
+<p>
+The dot product came out negative because <m>S</m> lies on the side of
+the plane opposite to <m>\overrightarrow{n}</m>, as
+<xref ref="fig-planes-distance-example"/> shows; the absolute value in
+<xref ref="eq-planes-distance"/> takes care of the sign.
+</p>
+
+<figure xml:id="fig-planes-distance-example">
+<caption>
+The plane <m>x + 2y + z = 4</m>, drawn to scale and seen nearly edge
+on, with its normal vector <m>\overrightarrow{n}</m> pointing up. The
+point <m>S(1,0,-2)</m> lies below the plane, on the side opposite to
+<m>\overrightarrow{n}</m>. The dashed segment from <m>S</m> meets the
+plane at a right angle at <m>Q</m>, and its length is the distance
+<m>d = \frac{5}{\sqrt{6}}</m>.
+</caption>
+<image width="82%">
+<shortdescription>The plane x plus 2 y plus z equals 4 seen nearly edge on, with the points P on it and S below it, the vector P S, the normal vector n at P, and the perpendicular from S to the plane meeting it at Q.</shortdescription>
+<description><p>
+A light blue patch of the plane x plus 2 y plus z equals 4, seen nearly
+edge on. At the point P (0, 0, 4) on the plane, a blue normal vector n
+equal to (1, 2, 1) points up, away from the plane. A green arrow, the
+vector P S, runs from P down to the point S (1, 0, negative 2), which
+lies below the plane, on the side opposite to n. A red dashed segment
+rises from S to the point Q (11 sixths, 5 thirds, negative 7 sixths) on
+the plane, meeting the plane at a right angle, marked by a small square;
+its length is the distance d equals 5 over the square root of 6. A grey
+dashed segment on the plane joins P to Q.
+</p></description>
+<asymptote label="asymptote-planes-distance-example"><![CDATA[
+import three;
+usepackage("amsmath");
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,8cm);
+
+// The plane x + 2y + z = 4, the point S(1,0,-2) below it, the point
+// P(0,0,4) of the plane used in the formula, and the foot Q of the
+// perpendicular from S, all to scale.
+triple n=(1,2,1);
+triple nh=unit(n);
+triple P=(0,0,4), S=(1,0,-2), Q=(11/6,5/3,-7/6);
+triple u=unit(Q-P);            // along the plane, from P towards Q
+triple v=cross(nh,u);          // along the plane, across
+triple C=(P+Q)/2;
+
+// view the plane nearly edge on, with the normal pointing up the page
+currentprojection=orthographic(camera=C+6.0*v+2.6*nh+0.8*u,up=nh,target=C);
+
+pen planePen=rgb("58C4DD");
+pen nPen=rgb("2B6CB0")+linewidth(1.6pt);
+pen psPen=rgb("4FA84F")+linewidth(1.6pt);
+pen dPen=rgb("E04B4B")+linewidth(1.2pt);
+
+// the plane, as a patch around P and Q
+real su=3.9, sv=1.9;
+triple c1=C-su*u-sv*v, c2=C+su*u-sv*v, c3=C+su*u+sv*v, c4=C-su*u+sv*v;
+draw(surface(c1--c2--c3--c4--cycle),surfacepen=planePen+opacity(0.25),
+     meshpen=nullpen);
+draw(c1--c2--c3--c4--cycle,planePen*0.7+linewidth(0.6pt));
+label("$x+2y+z=4$",c2,SW,planePen*0.6);
+
+// P to the foot Q, along the plane
+draw(P--Q,gray(0.4)+linewidth(0.9pt)+linetype("5 4"));
+// the perpendicular from S to the plane: its length is the distance d
+draw(S--Q,dPen+linetype("5 4"));
+// right-angle mark at Q, between the perpendicular and the line QP
+real m=0.32;
+triple a=unit(P-Q), b=unit(S-Q);
+draw(Q+m*a--Q+m*a+m*b--Q+m*b,dPen+linewidth(0.8pt));
+label("$d=\dfrac{5}{\sqrt6}$",S+0.3*(Q-S),W,dPen);
+
+// the vector PS and the normal vector n at P
+draw(P--S,psPen,Arrow3(size=10pt));
+label("$\overrightarrow{PS}$",P+0.5*(S-P),SE,psPen);
+draw(P--P+n,nPen,Arrow3(size=10pt));
+label("$\overrightarrow{n}=\langle 1,2,1\rangle$",P+n,N,nPen);
+
+// the three points
+dot(P,linewidth(5pt));
+label("$P(0,0,4)$",P,NW);
+dot(S,linewidth(5pt));
+label("$S(1,0,-2)$",S,S);
+dot(Q,dPen+linewidth(5pt));
+label("$Q\left(\frac{11}{6},\frac{5}{3},-\frac{7}{6}\right)$",Q,NE,dPen);
+]]></asymptote>
+</image>
+</figure>
+
+<p>
+We can also find the point <m>Q</m> of the plane closest to <m>S</m>,
+the foot of the perpendicular from <m>S</m>. Since
+<m>\overrightarrow{PS} = \overrightarrow{PQ} + \overrightarrow{QS}</m>, with
+<m>\overrightarrow{PQ}</m> in the plane and <m>\overrightarrow{QS}</m> along
+<m>\overrightarrow{n}</m>, we have
+<m>\overrightarrow{QS} = \operatorname{proj}_{\overrightarrow{n}}\overrightarrow{PS}</m>, so
+<md>
+<mrow>Q \amp= S - \frac{\overrightarrow{PS}\cdot\overrightarrow{n}}{\|\overrightarrow{n}\|^2}\,\overrightarrow{n}
+= (1,0,-2) + \frac{5}{6}\,\langle 1,2,1\rangle</mrow>
+<mrow>\amp= \left(\frac{11}{6},\ \frac{5}{3},\ -\frac{7}{6}\right).</mrow>
+</md>
+</p>
+</solution>
+</example>
 </subsection>
 
 </section>
