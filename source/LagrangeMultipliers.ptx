@@ -392,14 +392,6 @@ of <m>\lambda</m> itself: it is an auxiliary unknown that we eliminate
 along the way while solving for the coordinates of the candidate points.
 </p>
 
-<p>
-For functions of three variables <m>f(x,y,z)</m> and <m>g(x,y,z)</m>
-the method is the same, with the variable <m>z</m> added: the equations
-<m>\nabla f = \lambda\,\nabla g</m> and <m>g(x,y,z) = 0</m> give four
-equations in the four unknowns <m>x</m>, <m>y</m>, <m>z</m>, and
-<m>\lambda</m>. This is the form used in <xref ref="sec-lagrange-three-variables"/>.
-</p>
-
 </subsubsection>
 
 </subsection>
@@ -1119,6 +1111,41 @@ looks bent in a glass of water.
 <subsection xml:id="sec-lagrange-three-variables">
 <title>Examples: Functions of Three Variables</title>
 
+<introduction>
+<p>
+As we saw at the end of <xref ref="sec-lagrange-collinear"/>, the reasoning behind
+the method carries over to functions of three variables: the constraint
+<m>g(x,y,z) = 0</m> is then a level surface of <m>g</m>,
+<m>\nabla g</m> is perpendicular to it, and at a constrained extremum
+<m>\nabla f</m> has no component tangent to it. So the method reads the
+same way, with the variable <m>z</m> added.
+</p>
+
+<theorem xml:id="thm-lagrange-three-variables">
+<title>The Method of Lagrange Multipliers in Three Variables</title>
+<statement>
+<p>
+Let <m>f(x,y,z)</m> and <m>g(x,y,z)</m> be differentiable functions. To
+find the local maximum and minimum values of <m>f</m> subject to the
+constraint <m>g(x,y,z) = 0</m>, find the values of <m>x</m>, <m>y</m>,
+<m>z</m>, and <m>\lambda</m> that simultaneously satisfy the equations
+<md xml:id="eq-lagrange-method-3" number="yes">
+\begin{aligned}
+\amp \nabla f = \lambda\, \nabla g \quad \text{and} \\
+\amp g(x,y,z) = 0.
+\end{aligned}
+</md>
+</p>
+</statement>
+</theorem>
+
+<p>
+The vector equation <m>\nabla f = \lambda\,\nabla g</m> now has three
+components, so together with the constraint it gives four equations in
+the four unknowns <m>x</m>, <m>y</m>, <m>z</m>, and <m>\lambda</m>.
+</p>
+</introduction>
+
 <!-- ================================================================ -->
 <subsubsection xml:id="sec-lagrange-example-distance">
 <title>Shortest Distance to a Plane</title>
@@ -1512,9 +1539,8 @@ and likewise for <m>\nabla g</m>. Reading
 </md>
 which together with <m>g = 0</m> is a system of <m>n+1</m> equations in
 the <m>n+1</m> unknowns <m>x_1, x_2, \ldots, x_n, \lambda</m>. For
-<m>n = 2</m> this is exactly
-<xref ref="eq-lagrange-method"/>, and for <m>n = 3</m> it is its
-three-variable form. The bookkeeping grows, but the strategy
+<m>n = 2</m> and <m>n = 3</m> this is exactly
+<xref ref="eq-lagrange-method"/> and <xref ref="eq-lagrange-method-3"/>. The bookkeeping grows, but the strategy
 does not: eliminate <m>\lambda</m>, solve for the candidate points, and
 then compare the values of <m>f</m> there.
 </p>
