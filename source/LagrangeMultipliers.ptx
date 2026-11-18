@@ -1113,12 +1113,13 @@ looks bent in a glass of water.
 
 <introduction>
 <p>
-As we saw at the end of <xref ref="sec-lagrange-collinear"/>, the reasoning behind
-the method carries over to functions of three variables: the constraint
-<m>g(x,y,z) = 0</m> is then a level surface of <m>g</m>,
-<m>\nabla g</m> is perpendicular to it, and at a constrained extremum
-<m>\nabla f</m> has no component tangent to it. So the method reads the
-same way, with the variable <m>z</m> added.
+The method works the same way for functions of three variables, with the
+variable <m>z</m> added. Why it works is explained at the end of
+<xref ref="sec-lagrange-collinear"/>: the constraint <m>g(x,y,z) = 0</m> is
+then a level surface of <m>g</m>, <m>\nabla g</m> is perpendicular to it,
+and at a constrained extremum <m>\nabla f</m> has no component tangent
+to it. The same reasoning, for any number of variables, is at the end of
+this section, in <xref ref="sec-lagrange-n-variables"/>.
 </p>
 
 <theorem xml:id="thm-lagrange-three-variables">
@@ -1151,12 +1152,15 @@ the four unknowns <m>x</m>, <m>y</m>, <m>z</m>, and <m>\lambda</m>.
 <title>Shortest Distance to a Plane</title>
 
 <p>
-In <xref ref="example-shortest-distance"/> we found the shortest
-distance from a point to a plane by substituting the equation of the
-plane into the distance function and minimizing the resulting function
-of two variables with the second derivative test. In the next example we
-solve the same problem with Lagrange multipliers, and then once more
-using the normal vector to the plane.
+This problem has come up twice before. In <xref ref="example-shortest-distance"/>
+we found the shortest distance from a point to a plane by substituting
+the equation of the plane into the distance function and minimizing the
+resulting function of two variables with the second derivative test. And
+<xref ref="sec-planes-distance"/> gives the distance from a point to a plane
+directly, by projecting onto the normal vector of the plane, in the
+formula <xref ref="eq-planes-distance"/>. In the next example we solve the
+same problem with Lagrange multipliers, and then once more using the
+normal vector to the plane.
 </p>
 
 <example xml:id="example-lagrange-distance">
