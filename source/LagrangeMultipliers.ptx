@@ -368,18 +368,16 @@ component tangent to the surface, so once again <m>\nabla f</m> and
 <title>The Method of Lagrange Multipliers</title>
 <statement>
 <p>
-Let <m>f(x,y,z)</m> and <m>g(x,y,z)</m> be differentiable functions. To
+Let <m>f(x,y)</m> and <m>g(x,y)</m> be differentiable functions. To
 find the local maximum and minimum values of <m>f</m> subject to the
-constraint <m>g(x,y,z) = 0</m>, find the values of <m>x</m>, <m>y</m>,
-<m>z</m>, and <m>\lambda</m> that simultaneously satisfy the equations
+constraint <m>g(x,y) = 0</m>, find the values of <m>x</m>, <m>y</m>,
+and <m>\lambda</m> that simultaneously satisfy the equations
 <md xml:id="eq-lagrange-method" number="yes">
 \begin{aligned}
 \amp \nabla f = \lambda\, \nabla g \quad \text{and} \\
-\amp g(x,y,z) = 0.
+\amp g(x,y) = 0.
 \end{aligned}
 </md>
-For functions of two variables <m>f(x,y)</m> and <m>g(x,y)</m>, the same
-equations apply, with the variable <m>z</m> omitted.
 </p>
 </statement>
 </theorem>
@@ -388,12 +386,18 @@ equations apply, with the variable <m>z</m> omitted.
 The number <m>\lambda</m> is called a <term>Lagrange multiplier</term>.
 The equation <m>\nabla f = \lambda\,\nabla g</m> is a vector equation,
 so it holds component by component; together with the constraint it
-gives four equations in the four unknowns <m>x</m>, <m>y</m>, <m>z</m>,
-<m>\lambda</m> (three equations in <m>x</m>, <m>y</m>, <m>\lambda</m>
-for functions of two variables). Notice that we are usually not
-interested in the value of <m>\lambda</m> itself: it is an auxiliary
-unknown that we eliminate along the way while solving for the
-coordinates of the candidate points.
+gives three equations in the three unknowns <m>x</m>, <m>y</m>, and
+<m>\lambda</m>. Notice that we are usually not interested in the value
+of <m>\lambda</m> itself: it is an auxiliary unknown that we eliminate
+along the way while solving for the coordinates of the candidate points.
+</p>
+
+<p>
+For functions of three variables <m>f(x,y,z)</m> and <m>g(x,y,z)</m>
+the method is the same, with the variable <m>z</m> added: the equations
+<m>\nabla f = \lambda\,\nabla g</m> and <m>g(x,y,z) = 0</m> give four
+equations in the four unknowns <m>x</m>, <m>y</m>, <m>z</m>, and
+<m>\lambda</m>. This is the form used in <xref ref="sec-lagrange-three-variables"/>.
 </p>
 
 </subsubsection>
@@ -1508,8 +1512,9 @@ and likewise for <m>\nabla g</m>. Reading
 </md>
 which together with <m>g = 0</m> is a system of <m>n+1</m> equations in
 the <m>n+1</m> unknowns <m>x_1, x_2, \ldots, x_n, \lambda</m>. For
-<m>n = 2</m> and <m>n = 3</m> this is exactly
-<xref ref="eq-lagrange-method"/>. The bookkeeping grows, but the strategy
+<m>n = 2</m> this is exactly
+<xref ref="eq-lagrange-method"/>, and for <m>n = 3</m> it is its
+three-variable form. The bookkeeping grows, but the strategy
 does not: eliminate <m>\lambda</m>, solve for the candidate points, and
 then compare the values of <m>f</m> there.
 </p>
