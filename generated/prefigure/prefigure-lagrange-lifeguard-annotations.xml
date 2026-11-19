@@ -1,0 +1,84 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-lagrange-lifeguard-figure" speech2="A horizontal shoreline separates the sand, below, from the water, above. The lifeguard is at the point A on the sand, a distance a from the shoreline, and the swimmer at the point B in the water, a distance b from it. The route, drawn in orange, runs straight from A to a point P on the shoreline and then straight from P to B. Along the shoreline, P is a distance x from the point opposite A and a distance y from the point opposite B. A dashed line through P is perpendicular to the shoreline. The run makes a large angle, theta 1, with it, and the swim a small angle, theta 2.">
+      <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-lagrange-lifeguard-lg-shore</active>
+        <active>prefigure-lagrange-lifeguard-lg-A</active>
+        <active>prefigure-lagrange-lifeguard-lg-B</active>
+        <active>prefigure-lagrange-lifeguard-lg-run</active>
+        <active>prefigure-lagrange-lifeguard-lg-swim</active>
+        <active>prefigure-lagrange-lifeguard-lg-normal</active>
+        <active>prefigure-lagrange-lifeguard-lg-theta1</active>
+        <active>prefigure-lagrange-lifeguard-lg-theta2</active>
+      </children>
+      <components>
+        <active>prefigure-lagrange-lifeguard-lg-shore</active>
+        <active>prefigure-lagrange-lifeguard-lg-A</active>
+        <active>prefigure-lagrange-lifeguard-lg-B</active>
+        <active>prefigure-lagrange-lifeguard-lg-run</active>
+        <active>prefigure-lagrange-lifeguard-lg-swim</active>
+        <active>prefigure-lagrange-lifeguard-lg-normal</active>
+        <active>prefigure-lagrange-lifeguard-lg-theta1</active>
+        <active>prefigure-lagrange-lifeguard-lg-theta2</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-shore" speech2="The shoreline. She runs at speed v 1 on the sand below it and swims at the slower speed v 2 in the water above it.">
+      <active>prefigure-lagrange-lifeguard-lg-shore</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-A" speech2="The lifeguard's starting point A on the sand, a distance a from the shoreline.">
+      <active>prefigure-lagrange-lifeguard-lg-A</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-B" speech2="The swimmer at the point B in the water, a distance b from the shoreline.">
+      <active>prefigure-lagrange-lifeguard-lg-B</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-run" speech2="The run, from A to the point P on the shoreline, covering a distance x along the shore.">
+      <active>prefigure-lagrange-lifeguard-lg-run</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-swim" speech2="The swim, from P to B, covering a distance y along the shore.">
+      <active>prefigure-lagrange-lifeguard-lg-swim</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-normal" speech2="The dashed line through P perpendicular to the shoreline, from which both angles are measured.">
+      <active>prefigure-lagrange-lifeguard-lg-normal</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-theta1" speech2="The angle theta 1 between the run and the perpendicular. It is large, since she runs far along the sand.">
+      <active>prefigure-lagrange-lifeguard-lg-theta1</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-lifeguard-lg-theta2" speech2="The angle theta 2 between the swim and the perpendicular. It is small, since she swims nearly straight out.">
+      <active>prefigure-lagrange-lifeguard-lg-theta2</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-lagrange-lifeguard-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

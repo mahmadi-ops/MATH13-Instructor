@@ -1,0 +1,289 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-cr-doppler-quantities-figure" width="508" height="278" viewBox="0 0 508 278">
+  <defs>
+    <clipPath id="prefigure-cr-doppler-quantities-__clipPath-0">
+      <rect x="14.0" y="14.0" width="480.0" height="250.0"/>
+    </clipPath>
+    <clipPath id="prefigure-cr-doppler-quantities-__clipPath-1">
+      <rect x="14.0" y="14.0" width="480.0" height="250.0"/>
+    </clipPath>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-hD55E00" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#D55E00" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-hD55E00-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-h009E73" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-h009E73-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-h8B1A4A" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="9.8" refY="6.0">
+      <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#8B1A4A" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-h8B1A4A-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="11.8" refY="8.0">
+      <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="2.5" refY="4.0">
+      <g transform="rotate(180, 4.5, 4.0)">
+        <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="4.5" refY="6.0">
+      <g transform="rotate(180, 6.5, 6.0)">
+        <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-3_None_24_60-hD55E00" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="3.6999999999999993" refY="6.0">
+      <g transform="rotate(180, 6.75, 6.0)">
+        <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#D55E00" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-3_None_24_60-hD55E00-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="5.699999999999999" refY="8.0">
+      <g transform="rotate(180, 8.75, 8.0)">
+        <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-3_None_24_60-h009E73" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="3.6999999999999993" refY="6.0">
+      <g transform="rotate(180, 6.75, 6.0)">
+        <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#009E73" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-3_None_24_60-h009E73-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="5.699999999999999" refY="8.0">
+      <g transform="rotate(180, 8.75, 8.0)">
+        <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-3_None_24_60-h8B1A4A" markerWidth="13.5" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="3.6999999999999993" refY="6.0">
+      <g transform="rotate(180, 6.75, 6.0)">
+        <path d="M 13.5 6.0L 0.0 12.0L 2.6 7.5L 2.6 4.5L 0.0 0.0Z" fill="#8B1A4A" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="prefigure-cr-doppler-quantities-arrow-head-start-3_None_24_60-h8B1A4A-outline" markerWidth="17.5" markerHeight="16.0" markerUnits="userSpaceOnUse" orient="auto" refX="5.699999999999999" refY="8.0">
+      <g transform="rotate(180, 8.75, 8.0)">
+        <path d="M 16.3 9.8 L 2.8 15.8 A 2 2 0 0 1 0.0 14.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 16.3 6.2 A 2 2 0 0 1 16.3 9.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+  </defs>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-mean" x1="53.2" y1="127.3" x2="464.6" y2="127.3" stroke="#7F7F7F" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <path id="prefigure-cr-doppler-quantities-dop-pos-wave" stroke="#0072B2" stroke-width="3" fill="none" d="M 53.2 189.8 L 57.3 189.2 L 61.4 187.6 L 65.5 184.9 L 69.6 181.3 L 73.8 176.7 L 77.9 171.2 L 82.0 165.0 L 86.1 158.1 L 90.2 150.7 L 94.3 142.8 L 98.4 134.7 L 102.6 126.5 L 106.7 118.3 L 110.8 110.2 L 114.9 102.5 L 119.0 95.1 L 123.1 88.4 L 127.2 82.3 L 131.4 76.9 L 135.5 72.5 L 139.6 69.0 L 143.7 66.6 L 147.8 65.1 L 151.9 64.8 L 156.0 65.6 L 160.2 67.4 L 164.3 70.2 L 168.4 74.1 L 172.5 78.9 L 176.6 84.5 L 180.7 90.9 L 184.8 97.9 L 189.0 105.4 L 193.1 113.3 L 197.2 121.4 L 201.3 129.6 L 205.4 137.8 L 209.5 145.8 L 213.6 153.5 L 217.8 160.8 L 221.9 167.4 L 226.0 173.4 L 230.1 178.5 L 234.2 182.8 L 238.3 186.1 L 242.4 188.4 L 246.6 189.6 L 250.7 189.7 L 254.8 188.7 L 258.9 186.7 L 263.0 183.7 L 267.1 179.6 L 271.2 174.7 L 275.4 168.9 L 279.5 162.4 L 283.6 155.3 L 287.7 147.7 L 291.8 139.8 L 295.9 131.6 L 300.0 123.4 L 304.2 115.2 L 308.3 107.2 L 312.4 99.6 L 316.5 92.5 L 320.6 85.9 L 324.7 80.1 L 328.8 75.2 L 333.0 71.1 L 337.1 68.0 L 341.2 65.9 L 345.3 64.9 L 349.4 65.0 L 353.5 66.1 L 357.6 68.3 L 361.8 71.6 L 365.9 75.8 L 370.0 80.9 L 374.1 86.8 L 378.2 93.5 L 382.3 100.7 L 386.4 108.3 L 390.6 116.3 L 394.7 124.5 L 398.8 132.8 L 402.9 140.9 L 407.0 148.8 L 411.1 156.4 L 415.2 163.4 L 419.4 169.8 L 423.5 175.4 L 427.6 180.3 L 431.7 184.2 L 435.8 187.1 L 439.9 188.9 L 444.0 189.8 L 448.2 189.5 L 452.3 188.1 L 456.4 185.7 L 460.5 182.2 L 464.6 177.8" clip-path="url(#prefigure-cr-doppler-quantities-__clipPath-1)"/>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-axis" x1="53.2" y1="244.5" x2="467.1" y2="244.5" stroke="black" stroke-width="2" fill="none" marker-end="url(#prefigure-cr-doppler-quantities-arrow-head-end-2_None_24_60-black)"/>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-axis-lab" transform="translate(476.0,244.5) translate(0.0,-4.1)">
+    <g id="prefigure-cr-doppler-quantities-__g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.184px" width="8.488px" height="8.184px" role="img" focusable="false" viewBox="0 -442 469 452" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-2-TEX-I-1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="s">
+              <use data-c="1D460" xlink:href="#prefigure-cr-doppler-quantities-MJX-2-TEX-I-1D460"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <circle id="prefigure-cr-doppler-quantities-dop-pos-origin" cx="53.2" cy="244.5" r="4" stroke="black" stroke-width="2" fill="black"/>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-origin-lab" transform="translate(45.3,252.4) translate(-9.0,-0.0)">
+    <g id="prefigure-cr-doppler-quantities-__g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px" width="9.048px" height="12.456px" role="img" focusable="false" viewBox="0 -666 500 688" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-3-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mn" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="0">
+              <use data-c="30" xlink:href="#prefigure-cr-doppler-quantities-MJX-3-TEX-N-30"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-xb-span" x1="53.2" y1="211.7" x2="220.9" y2="211.7" stroke="#D55E00" stroke-width="3" fill="none" marker-end="url(#prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-hD55E00)"/>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-xb-lab" transform="translate(138.9,203.0) translate(-19.0,-18.1)">
+    <g id="prefigure-cr-doppler-quantities-__g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px; color:#D55E00" width="37.960px" height="18.096px" role="img" focusable="false" viewBox="0 -750 2097.3 1000" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-4-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-4-TEX-I-1D44F" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-4-TEX-N-2061" d=""/>
+          <path id="prefigure-cr-doppler-quantities-MJX-4-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-4-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-4-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-annotation="clearspeak:simple" data-semantic-id="8" data-semantic-children="2,6" data-semantic-content="7,0" data-semantic-speech="x Subscript b Baseline left parenthesis t right parenthesis">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="simple function" data-semantic-id="2" data-semantic-children="0,1" data-semantic-parent="8" data-semantic-speech="x Subscript b Baseline">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-operator="appl" data-semantic-speech="x" data-semantic-prefix="Base">
+                <use data-c="1D465" xlink:href="#prefigure-cr-doppler-quantities-MJX-4-TEX-I-1D465"/>
+              </g>
+              <g data-mml-node="mi" transform="translate(605,-150) scale(0.707)" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="b" data-semantic-prefix="Subscript">
+                <use data-c="1D44F" xlink:href="#prefigure-cr-doppler-quantities-MJX-4-TEX-I-1D44F"/>
+              </g>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="7" data-semantic-parent="8" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(958.3,0)">
+              <use data-c="2061" xlink:href="#prefigure-cr-doppler-quantities-MJX-4-TEX-N-2061"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="6" data-semantic-children="4" data-semantic-content="3,5" data-semantic-parent="8" data-semantic-speech="left parenthesis t right parenthesis" transform="translate(958.3,0)">
+              <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="3" data-semantic-parent="6" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                <use data-c="28" xlink:href="#prefigure-cr-doppler-quantities-MJX-4-TEX-N-28"/>
+              </g>
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="6" data-semantic-speech="t" transform="translate(389,0)">
+                <use data-c="1D461" xlink:href="#prefigure-cr-doppler-quantities-MJX-4-TEX-I-1D461"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="5" data-semantic-parent="6" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(750,0)">
+                <use data-c="29" xlink:href="#prefigure-cr-doppler-quantities-MJX-4-TEX-N-29"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-xc-span" x1="53.2" y1="235.1" x2="343.4" y2="235.1" stroke="#009E73" stroke-width="3" fill="none" marker-end="url(#prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-h009E73)"/>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-xc-lab" transform="translate(285.8,226.4) translate(-19.0,-18.1)">
+    <g id="prefigure-cr-doppler-quantities-__g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px; color:#009E73" width="38.016px" height="18.096px" role="img" focusable="false" viewBox="0 -750 2100.2 1000" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-5-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-5-TEX-I-1D450" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-5-TEX-N-2061" d=""/>
+          <path id="prefigure-cr-doppler-quantities-MJX-5-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-5-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-5-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-annotation="clearspeak:simple" data-semantic-id="8" data-semantic-children="2,6" data-semantic-content="7,0" data-semantic-speech="x Subscript c Baseline left parenthesis t right parenthesis">
+            <g data-mml-node="msub" data-semantic-type="subscript" data-semantic-role="simple function" data-semantic-id="2" data-semantic-children="0,1" data-semantic-parent="8" data-semantic-speech="x Subscript c Baseline">
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="2" data-semantic-operator="appl" data-semantic-speech="x" data-semantic-prefix="Base">
+                <use data-c="1D465" xlink:href="#prefigure-cr-doppler-quantities-MJX-5-TEX-I-1D465"/>
+              </g>
+              <g data-mml-node="mi" transform="translate(605,-150) scale(0.707)" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="1" data-semantic-parent="2" data-semantic-speech="c" data-semantic-prefix="Subscript">
+                <use data-c="1D450" xlink:href="#prefigure-cr-doppler-quantities-MJX-5-TEX-I-1D450"/>
+              </g>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="7" data-semantic-parent="8" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(961.2,0)">
+              <use data-c="2061" xlink:href="#prefigure-cr-doppler-quantities-MJX-5-TEX-N-2061"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="6" data-semantic-children="4" data-semantic-content="3,5" data-semantic-parent="8" data-semantic-speech="left parenthesis t right parenthesis" transform="translate(961.2,0)">
+              <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="3" data-semantic-parent="6" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                <use data-c="28" xlink:href="#prefigure-cr-doppler-quantities-MJX-5-TEX-N-28"/>
+              </g>
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="4" data-semantic-parent="6" data-semantic-speech="t" transform="translate(389,0)">
+                <use data-c="1D461" xlink:href="#prefigure-cr-doppler-quantities-MJX-5-TEX-I-1D461"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="5" data-semantic-parent="6" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(750,0)">
+                <use data-c="29" xlink:href="#prefigure-cr-doppler-quantities-MJX-5-TEX-N-29"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-xb-guide" x1="224.6" y1="244.5" x2="224.6" y2="171.5" stroke="#D55E00" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-xc-guide" x1="347.1" y1="244.5" x2="347.1" y2="64.8" stroke="#009E73" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <circle id="prefigure-cr-doppler-quantities-dop-pos-boat-sample" cx="224.6" cy="171.5" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-cr-doppler-quantities-dop-pos-crest" cx="347.1" cy="64.8" r="4" stroke="black" stroke-width="2" fill="#009E73"/>
+  <line id="prefigure-cr-doppler-quantities-dop-pos-height" x1="224.6" y1="127.3" x2="224.6" y2="167.8" stroke="#8B1A4A" stroke-width="3" fill="none" marker-end="url(#prefigure-cr-doppler-quantities-arrow-head-end-3_None_24_60-h8B1A4A)"/>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-height-lab" transform="translate(213.3,149.2) translate(-33.6,-9.0)">
+    <g id="prefigure-cr-doppler-quantities-__g-4">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -4.528px; color:#8B1A4A" width="33.576px" height="18.096px" role="img" focusable="false" viewBox="0 -750 1855 1000" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-6-TEX-I-1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-6-TEX-N-2061" d=""/>
+          <path id="prefigure-cr-doppler-quantities-MJX-6-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-6-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-6-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="appl" data-semantic-role="simple function" data-semantic-annotation="clearspeak:simple" data-semantic-id="6" data-semantic-children="0,4" data-semantic-content="5,0" data-semantic-speech="w left parenthesis t right parenthesis">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="simple function" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="6" data-semantic-operator="appl" data-semantic-speech="w">
+              <use data-c="1D464" xlink:href="#prefigure-cr-doppler-quantities-MJX-6-TEX-I-1D464"/>
+            </g>
+            <g data-mml-node="mo" data-semantic-type="punctuation" data-semantic-role="application" data-semantic-id="5" data-semantic-parent="6" data-semantic-added="true" data-semantic-operator="appl" data-semantic-speech="of" transform="translate(716,0)">
+              <use data-c="2061" xlink:href="#prefigure-cr-doppler-quantities-MJX-6-TEX-N-2061"/>
+            </g>
+            <g data-mml-node="mrow" data-semantic-type="fenced" data-semantic-role="leftright" data-semantic-id="4" data-semantic-children="2" data-semantic-content="1,3" data-semantic-parent="6" data-semantic-speech="left parenthesis t right parenthesis" transform="translate(716,0)">
+              <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="open" data-semantic-id="1" data-semantic-parent="4" data-semantic-operator="fenced" data-semantic-speech="left parenthesis">
+                <use data-c="28" xlink:href="#prefigure-cr-doppler-quantities-MJX-6-TEX-N-28"/>
+              </g>
+              <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="2" data-semantic-parent="4" data-semantic-speech="t" transform="translate(389,0)">
+                <use data-c="1D461" xlink:href="#prefigure-cr-doppler-quantities-MJX-6-TEX-I-1D461"/>
+              </g>
+              <g data-mml-node="mo" data-semantic-type="fence" data-semantic-role="close" data-semantic-id="3" data-semantic-parent="4" data-semantic-operator="fenced" data-semantic-speech="right parenthesis" transform="translate(750,0)">
+                <use data-c="29" xlink:href="#prefigure-cr-doppler-quantities-MJX-6-TEX-N-29"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-boat-text" transform="translate(237.4,172.6) translate(0.0,-6.4)">
+    <g id="prefigure-cr-doppler-quantities-__g-5">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#D55E00" width="35.200px" height="12.760px" role="img" focusable="false" viewBox="0 -694 1945 705" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-7-TEX-N-62" d="M307 -11Q234 -11 168 55L158 37Q156 34 153 28T147 17T143 10L138 1L118 0H98V298Q98 599 97 603Q94 622 83 628T38 637H20V660Q20 683 22 683L32 684Q42 685 61 686T98 688Q115 689 135 690T165 693T176 694H179V543Q179 391 180 391L183 394Q186 397 192 401T207 411T228 421T254 431T286 439T323 442Q401 442 461 379T522 216Q522 115 458 52T307 -11ZM182 98Q182 97 187 90T196 79T206 67T218 55T233 44T250 35T271 29T295 26Q330 26 363 46T412 113Q424 148 424 212Q424 287 412 323Q385 405 300 405Q270 405 239 390T188 347L182 339V98Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-7-TEX-N-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-7-TEX-N-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-7-TEX-N-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="unknown" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-speech="boat">
+              <use data-c="62" xlink:href="#prefigure-cr-doppler-quantities-MJX-7-TEX-N-62"/>
+              <use data-c="6F" xlink:href="#prefigure-cr-doppler-quantities-MJX-7-TEX-N-6F" transform="translate(556,0)"/>
+              <use data-c="61" xlink:href="#prefigure-cr-doppler-quantities-MJX-7-TEX-N-61" transform="translate(1056,0)"/>
+              <use data-c="74" xlink:href="#prefigure-cr-doppler-quantities-MJX-7-TEX-N-74" transform="translate(1556,0)"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-cr-doppler-quantities-dop-pos-crest-text" transform="translate(356.0,53.1) translate(0.0,-6.4)">
+    <g id="prefigure-cr-doppler-quantities-__g-6">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.200px; color:#009E73" width="103.280px" height="12.760px" role="img" focusable="false" viewBox="0 -694 5706 705" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-20" d=""/>
+          <path id="prefigure-cr-doppler-quantities-MJX-8-TEX-N-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="unknown" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="0" data-semantic-speech="selected crest">
+              <use data-c="73" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-73"/>
+              <use data-c="65" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-65" transform="translate(394,0)"/>
+              <use data-c="6C" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-6C" transform="translate(838,0)"/>
+              <use data-c="65" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-65" transform="translate(1116,0)"/>
+              <use data-c="63" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-63" transform="translate(1560,0)"/>
+              <use data-c="74" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-74" transform="translate(2004,0)"/>
+              <use data-c="65" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-65" transform="translate(2393,0)"/>
+              <use data-c="64" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-64" transform="translate(2837,0)"/>
+              <use data-c="20" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-20" transform="translate(3393,0)"/>
+              <use data-c="63" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-63" transform="translate(3643,0)"/>
+              <use data-c="72" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-72" transform="translate(4087,0)"/>
+              <use data-c="65" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-65" transform="translate(4479,0)"/>
+              <use data-c="73" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-73" transform="translate(4923,0)"/>
+              <use data-c="74" xlink:href="#prefigure-cr-doppler-quantities-MJX-8-TEX-N-74" transform="translate(5317,0)"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>

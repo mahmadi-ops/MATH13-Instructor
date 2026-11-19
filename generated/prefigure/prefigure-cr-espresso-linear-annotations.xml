@@ -1,0 +1,63 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-espresso-linear-figure" speech2="A sketch of the concentration C of t near t equals 20, with its tangent line L of t at t equals 20. The estimate for C of 22 is read off the tangent line.">
+      <grouped>prefigure-cr-espresso-linear-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-espresso-linear-curve</active>
+        <active>prefigure-cr-espresso-linear-tangent</active>
+        <active>prefigure-cr-espresso-linear-base</active>
+        <active>prefigure-cr-espresso-linear-estimate</active>
+        <active>prefigure-cr-espresso-linear-axes</active>
+      </children>
+      <components>
+        <active>prefigure-cr-espresso-linear-curve</active>
+        <active>prefigure-cr-espresso-linear-tangent</active>
+        <active>prefigure-cr-espresso-linear-base</active>
+        <active>prefigure-cr-espresso-linear-estimate</active>
+        <active>prefigure-cr-espresso-linear-axes</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-espresso-linear-curve" speech2="The graph of C of t, drawn in blue. Only its value and slope at t equals 20 are known, so this curve is a sketch." sonify="yes">
+      <active>prefigure-cr-espresso-linear-curve</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-espresso-linear-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-cr-espresso-linear-curve</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-cr-espresso-linear-tangent" speech2="The tangent line L of t equals 0.10 minus 0.001 times t minus 20, drawn in orange." sonify="yes">
+      <active>prefigure-cr-espresso-linear-tangent</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-espresso-linear-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-cr-espresso-linear-tangent</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-cr-espresso-linear-base" speech2="The point t equals 20, C equals 0.10, where the curve and its tangent line touch.">
+      <active>prefigure-cr-espresso-linear-base</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-espresso-linear-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-espresso-linear-estimate" speech2="At t equals 22 the tangent line is at 0.098, the estimate. The curve is a little away from it; the short vertical gap is the error of the linear approximation.">
+      <active>prefigure-cr-espresso-linear-estimate</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-espresso-linear-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-espresso-linear-axes" speech2="The horizontal axis is time t in seconds, with 18, 20 and 22 marked. The vertical axis is the concentration C in grams per milliliter, with 0.098, 0.100 and 0.102 marked.">
+      <active>prefigure-cr-espresso-linear-axes</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-espresso-linear-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

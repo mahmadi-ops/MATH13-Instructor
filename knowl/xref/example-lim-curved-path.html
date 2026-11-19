@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Straight Lines Are Not Enough.</span>
+</h2>
+<div class="para logical">
+<div class="para">Evaluate the following limit, or show that it does not exist.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{(x,y)\to(1,2)} \frac{(x-1)^2(y-2)^3}{(x-1)^4+(y-2)^6}.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-lim-curved-path-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Direct substitution gives <span class="process-math">\(\frac{0}{0}\text{,}\)</span> and this time nothing cancels. To keep the algebra short, write <span class="process-math">\(u = x - 1\)</span> and <span class="process-math">\(v = y - 2\text{.}\)</span> Then <span class="process-math">\((x,y)\to(1,2)\)</span> exactly when <span class="process-math">\((u,v)\to(0,0)\text{,}\)</span> and the function becomes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = \frac{u^2v^3}{u^4+v^6}.
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-lim-curved-path-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Let us first approach <span class="process-math">\((1,2)\)</span> along straight lines. Along the vertical line <span class="process-math">\(x = 1\)</span> we have <span class="process-math">\(u = 0\text{,}\)</span> so <span class="process-math">\(f(x,y) = 0\text{.}\)</span> Every other line through <span class="process-math">\((1,2)\)</span> is <span class="process-math">\(y - 2 = m(x-1)\text{,}\)</span> that is, <span class="process-math">\(v = mu\)</span> with <span class="process-math">\(m \in \R\text{,}\)</span> and along it (with <span class="process-math">\(u \neq 0\)</span>)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = \frac{u^2\,m^3u^3}{u^4+m^6u^6} = \frac{m^3u}{1+m^6u^2},
+\end{equation*}
+</div>
+<div class="para">which tends to <span class="process-math">\(0\)</span> as <span class="process-math">\(u \to 0\text{.}\)</span> So <span class="process-math">\(f(x,y) \to 0\)</span> as <span class="process-math">\((x,y) \to (1,2)\)</span> along every straight line through <span class="process-math">\((1,2)\text{.}\)</span>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-lim-curved-path-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Straight lines are not the only paths, however. The two terms of the denominator are equal when <span class="process-math">\(u^4 = v^6\text{,}\)</span> that is, when <span class="process-math">\(u^2 = v^3\text{,}\)</span> so consider the curve <span class="process-math">\((x-1)^2 = (y-2)^3\text{.}\)</span> It can be traced as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x = 1 + t^3, \qquad y = 2 + t^2, \qquad t \to 0,
+\end{equation*}
+</div>
+<div class="para">for which <span class="process-math">\(u = t^3\)</span> and <span class="process-math">\(v = t^2\text{.}\)</span> Along it, for <span class="process-math">\(t \neq 0\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(x,y) = \frac{t^6\cdot t^6}{t^{12}+t^{12}} = \frac{1}{2},
+\end{equation*}
+</div>
+<div class="para">and hence <span class="process-math">\(f(x,y) \to \frac12\)</span> as <span class="process-math">\((x,y) \to (1,2)\)</span> along this curve. The function approaches <span class="process-math">\(0\)</span> along every straight line but <span class="process-math">\(\frac12\)</span> along this curve, so the limit does not exist.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-lim-curved-path-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 4.2.13.1"><a tabindex="-1" href="#example-lim-curved-path-3" title="Copy heading and permalink for Solution 4.2.13.1" aria-label="Copy heading and permalink for Solution 4.2.13.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 4.2.13: Straight Lines Are Not Enough"><a tabindex="-1" href="#example-lim-curved-path" title="Copy heading and permalink for Example 4.2.13: Straight Lines Are Not Enough" aria-label="Copy heading and permalink for Example 4.2.13: Straight Lines Are Not Enough">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="sec-lim-two-variable.html#example-lim-curved-path">In Context</a></span>
+</body>
+</html>

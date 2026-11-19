@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-hiker-split-figure" speech2="A top view of the hiker's terrain. Shaded contour bands in the upper right mark higher ground. The hiker's actual motion is a dashed diagonal arrow from point A to point C. It is split into a blue arrow due east from A to B, labelled east delta x, followed by an orange arrow due north from B to C, labelled north delta y.">
+      <grouped>prefigure-cr-hiker-split-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-hiker-split-hs-contours</active>
+        <active>prefigure-cr-hiker-split-hs-diagonal</active>
+        <active>prefigure-cr-hiker-split-hs-east</active>
+        <active>prefigure-cr-hiker-split-hs-north</active>
+        <active>prefigure-cr-hiker-split-hs-compass</active>
+      </children>
+      <components>
+        <active>prefigure-cr-hiker-split-hs-contours</active>
+        <active>prefigure-cr-hiker-split-hs-diagonal</active>
+        <active>prefigure-cr-hiker-split-hs-east</active>
+        <active>prefigure-cr-hiker-split-hs-north</active>
+        <active>prefigure-cr-hiker-split-hs-compass</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-split-hs-contours" speech2="Schematic contour bands; the ground rises toward the upper right corner.">
+      <active>prefigure-cr-hiker-split-hs-contours</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-split-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-split-hs-diagonal" speech2="The actual diagonal motion from A to C, drawn dashed.">
+      <active>prefigure-cr-hiker-split-hs-diagonal</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-split-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-split-hs-east" speech2="The eastward stage, from A to B, a displacement delta x. It contributes about f x times delta x to the change in elevation." sonify="no">
+      <active>prefigure-cr-hiker-split-hs-east</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-split-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-split-hs-north" speech2="The northward stage, from B to C, a displacement delta y. It contributes about f y times delta y to the change in elevation." sonify="no">
+      <active>prefigure-cr-hiker-split-hs-north</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-split-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-hiker-split-hs-compass" speech2="Compass arrows: east points right and north points up.">
+      <active>prefigure-cr-hiker-split-hs-compass</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-hiker-split-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

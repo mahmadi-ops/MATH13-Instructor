@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="prefigure-rope-trees-figure" viewBox="0 0 344 324">
+  <defs>
+    <clipPath id="prefigure-rope-trees-__clipPath-0">
+      <rect x="12.0" y="12.0" width="320.0" height="300.0"/>
+    </clipPath>
+    <clipPath id="prefigure-rope-trees-__clipPath-1">
+      <rect x="12.0" y="12.0" width="320.0" height="300.0"/>
+    </clipPath>
+  </defs>
+  <line id="prefigure-rope-trees-rt-ground" x1="12.0" y1="284.6" x2="332.0" y2="284.6" stroke="#7F7F7F" stroke-width="1.5" fill="none"/>
+  <line id="prefigure-rope-trees-rt-dim" x1="57.7" y1="296.0" x2="286.3" y2="296.0" stroke="#7F7F7F" stroke-width="1" fill="none"/>
+  <line id="prefigure-rope-trees-rt-dim-l" x1="57.7" y1="300.6" x2="57.7" y2="291.4" stroke="#7F7F7F" stroke-width="1" fill="none"/>
+  <line id="prefigure-rope-trees-rt-dim-r" x1="286.3" y1="300.6" x2="286.3" y2="291.4" stroke="#7F7F7F" stroke-width="1" fill="none"/>
+  <g id="prefigure-rope-trees-rt-dim-lab" transform="translate(172.0,302.3) translate(-22.1,-0.0)">
+    <g id="prefigure-rope-trees-__g-0">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.400px; color:#7F7F7F" width="44.256px" height="13.160px" role="img" focusable="false" viewBox="0 -705 2445 727" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-rope-trees-MJX-2-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/>
+          <path id="prefigure-rope-trees-MJX-2-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"/>
+          <path id="prefigure-rope-trees-MJX-2-TEX-N-A0" d=""/>
+          <path id="prefigure-rope-trees-MJX-2-TEX-N-66" d="M273 0Q255 3 146 3Q43 3 34 0H26V46H42Q70 46 91 49Q99 52 103 60Q104 62 104 224V385H33V431H104V497L105 564L107 574Q126 639 171 668T266 704Q267 704 275 704T289 705Q330 702 351 679T372 627Q372 604 358 590T321 576T284 590T270 627Q270 647 288 667H284Q280 668 273 668Q245 668 223 647T189 592Q183 572 182 497V431H293V385H185V225Q185 63 186 61T189 57T194 54T199 51T206 49T213 48T222 47T231 47T241 46T251 46H282V0H273Z"/>
+          <path id="prefigure-rope-trees-MJX-2-TEX-N-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math" data-semantic-type="punctuated" data-semantic-role="text" data-semantic-annotation="clearspeak:unit" data-semantic-id="3" data-semantic-children="0,1" data-semantic-collapsed="(3 (c 2) 0 1)" data-semantic-speech="100 ft">
+            <g data-mml-node="mn" data-semantic-type="number" data-semantic-role="integer" data-semantic-font="normal" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-parent="3" data-semantic-speech="100">
+              <use data-c="31" xlink:href="#prefigure-rope-trees-MJX-2-TEX-N-31"/>
+              <use data-c="30" xlink:href="#prefigure-rope-trees-MJX-2-TEX-N-30" transform="translate(500,0)"/>
+              <use data-c="30" xlink:href="#prefigure-rope-trees-MJX-2-TEX-N-30" transform="translate(1000,0)"/>
+            </g>
+            <g data-mml-node="mtext" data-semantic-type="text" data-semantic-role="unknown" data-semantic-font="normal" data-semantic-annotation="clearspeak:unit" data-semantic-id="1" data-semantic-parent="3" data-semantic-speech="ft" transform="translate(1500,0)">
+              <use data-c="A0" xlink:href="#prefigure-rope-trees-MJX-2-TEX-N-A0"/>
+              <use data-c="66" xlink:href="#prefigure-rope-trees-MJX-2-TEX-N-66" transform="translate(250,0)"/>
+              <use data-c="74" xlink:href="#prefigure-rope-trees-MJX-2-TEX-N-74" transform="translate(556,0)"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <line id="prefigure-rope-trees-rt-tree1" x1="57.7" y1="284.6" x2="57.7" y2="42.3" stroke="#8B5A2B" stroke-width="5" fill="none"/>
+  <path id="prefigure-rope-trees-rt-top1" d="M 72.6 30.9 L 72.5 29.9 L 72.5 29.0 L 72.3 28.1 L 72.1 27.2 L 71.8 26.3 L 71.5 25.4 L 71.2 24.5 L 70.7 23.7 L 70.3 22.9 L 69.7 22.1 L 69.2 21.4 L 68.5 20.7 L 67.9 20.0 L 67.2 19.4 L 66.4 18.8 L 65.7 18.3 L 64.9 17.8 L 64.0 17.4 L 63.2 17.0 L 62.3 16.7 L 61.4 16.5 L 60.5 16.3 L 59.6 16.1 L 58.6 16.0 L 57.7 16.0 L 56.8 16.0 L 55.9 16.1 L 54.9 16.3 L 54.0 16.5 L 53.1 16.7 L 52.2 17.0 L 51.4 17.4 L 50.6 17.8 L 49.8 18.3 L 49.0 18.8 L 48.2 19.4 L 47.5 20.0 L 46.9 20.7 L 46.3 21.4 L 45.7 22.1 L 45.2 22.9 L 44.7 23.7 L 44.3 24.5 L 43.9 25.4 L 43.6 26.3 L 43.3 27.2 L 43.1 28.1 L 43.0 29.0 L 42.9 29.9 L 42.9 30.9 L 42.9 31.8 L 43.0 32.7 L 43.1 33.6 L 43.3 34.6 L 43.6 35.4 L 43.9 36.3 L 44.3 37.2 L 44.7 38.0 L 45.2 38.8 L 45.7 39.6 L 46.3 40.3 L 46.9 41.0 L 47.5 41.7 L 48.2 42.3 L 49.0 42.9 L 49.8 43.4 L 50.6 43.9 L 51.4 44.3 L 52.2 44.7 L 53.1 45.0 L 54.0 45.2 L 54.9 45.5 L 55.9 45.6 L 56.8 45.7 L 57.7 45.7 L 58.6 45.7 L 59.6 45.6 L 60.5 45.5 L 61.4 45.2 L 62.3 45.0 L 63.2 44.7 L 64.0 44.3 L 64.9 43.9 L 65.7 43.4 L 66.4 42.9 L 67.2 42.3 L 67.9 41.7 L 68.5 41.0 L 69.2 40.3 L 69.7 39.6 L 70.3 38.8 L 70.7 38.0 L 71.2 37.2 L 71.5 36.3 L 71.8 35.4 L 72.1 34.6 L 72.3 33.6 L 72.5 32.7 L 72.5 31.8 Z" stroke="#4F8F4B" stroke-width="1" fill="#8FCB8A"/>
+  <line id="prefigure-rope-trees-rt-tree2" x1="286.3" y1="284.6" x2="286.3" y2="142.9" stroke="#8B5A2B" stroke-width="5" fill="none"/>
+  <path id="prefigure-rope-trees-rt-top2" d="M 301.1 131.4 L 301.1 130.5 L 301.0 129.6 L 300.9 128.6 L 300.7 127.7 L 300.4 126.8 L 300.1 126.0 L 299.7 125.1 L 299.3 124.3 L 298.8 123.5 L 298.3 122.7 L 297.7 122.0 L 297.1 121.3 L 296.5 120.6 L 295.8 120.0 L 295.0 119.4 L 294.2 118.9 L 293.4 118.4 L 292.6 118.0 L 291.8 117.6 L 290.9 117.3 L 290.0 117.0 L 289.1 116.8 L 288.1 116.7 L 287.2 116.6 L 286.3 116.6 L 285.4 116.6 L 284.4 116.7 L 283.5 116.8 L 282.6 117.0 L 281.7 117.3 L 280.8 117.6 L 280.0 118.0 L 279.1 118.4 L 278.3 118.9 L 277.6 119.4 L 276.8 120.0 L 276.1 120.6 L 275.5 121.3 L 274.8 122.0 L 274.3 122.7 L 273.7 123.5 L 273.3 124.3 L 272.8 125.1 L 272.5 126.0 L 272.2 126.8 L 271.9 127.7 L 271.7 128.6 L 271.5 129.6 L 271.5 130.5 L 271.4 131.4 L 271.5 132.4 L 271.5 133.3 L 271.7 134.2 L 271.9 135.1 L 272.2 136.0 L 272.5 136.9 L 272.8 137.8 L 273.3 138.6 L 273.7 139.4 L 274.3 140.2 L 274.8 140.9 L 275.5 141.6 L 276.1 142.3 L 276.8 142.9 L 277.6 143.4 L 278.3 144.0 L 279.1 144.4 L 280.0 144.9 L 280.8 145.2 L 281.7 145.6 L 282.6 145.8 L 283.5 146.0 L 284.4 146.2 L 285.4 146.3 L 286.3 146.3 L 287.2 146.3 L 288.1 146.2 L 289.1 146.0 L 290.0 145.8 L 290.9 145.6 L 291.8 145.2 L 292.6 144.9 L 293.4 144.4 L 294.2 144.0 L 295.0 143.4 L 295.8 142.9 L 296.5 142.3 L 297.1 141.6 L 297.7 140.9 L 298.3 140.2 L 298.8 139.4 L 299.3 138.6 L 299.7 137.8 L 300.1 136.9 L 300.4 136.0 L 300.7 135.1 L 300.9 134.2 L 301.0 133.3 L 301.1 132.4 Z" stroke="#4F8F4B" stroke-width="1" fill="#8FCB8A"/>
+  <line id="prefigure-rope-trees-rt-rope1a" x1="57.7" y1="56.0" x2="81.9" y2="113.1" stroke="#555555" stroke-width="1.5" fill="none"/>
+  <line id="prefigure-rope-trees-rt-rope1b" x1="81.9" y1="113.1" x2="286.3" y2="170.3" stroke="#555555" stroke-width="1.5" fill="none"/>
+  <line id="prefigure-rope-trees-rt-rope2a" x1="57.7" y1="56.0" x2="169.2" y2="166.7" stroke="#555555" stroke-width="1.5" fill="none"/>
+  <line id="prefigure-rope-trees-rt-rope2b" x1="169.2" y1="166.7" x2="286.3" y2="170.3" stroke="#555555" stroke-width="1.5" fill="none"/>
+  <line id="prefigure-rope-trees-rt-rope3a" x1="57.7" y1="56.0" x2="258.1" y2="189.0" stroke="#555555" stroke-width="1.5" fill="none"/>
+  <line id="prefigure-rope-trees-rt-rope3b" x1="258.1" y1="189.0" x2="286.3" y2="170.3" stroke="#555555" stroke-width="1.5" fill="none"/>
+  <path id="prefigure-rope-trees-rt-path" d="M 57.9 87.3 L 59.1 88.9 L 60.3 90.6 L 61.6 92.3 L 63.0 94.0 L 64.4 95.7 L 65.9 97.4 L 67.5 99.1 L 69.1 100.8 L 70.7 102.6 L 72.5 104.3 L 74.2 106.1 L 76.0 107.8 L 77.9 109.6 L 79.8 111.3 L 81.8 113.1 L 83.8 114.8 L 85.9 116.6 L 88.0 118.3 L 90.2 120.1 L 92.4 121.8 L 94.6 123.6 L 96.9 125.3 L 99.2 127.1 L 101.6 128.8 L 104.0 130.5 L 106.4 132.2 L 108.9 133.9 L 111.4 135.6 L 113.9 137.2 L 116.5 138.9 L 119.1 140.6 L 121.8 142.2 L 124.4 143.8 L 127.1 145.4 L 129.8 147.0 L 132.5 148.5 L 135.3 150.1 L 138.1 151.6 L 140.8 153.1 L 143.6 154.6 L 146.5 156.1 L 149.3 157.5 L 152.2 158.9 L 155.0 160.3 L 157.9 161.7 L 160.8 163.0 L 163.6 164.3 L 166.5 165.6 L 169.4 166.8 L 172.3 168.1 L 175.2 169.3 L 178.1 170.4 L 181.0 171.6 L 183.8 172.7 L 186.7 173.7 L 189.6 174.8 L 192.4 175.8 L 195.3 176.8 L 198.1 177.7 L 200.9 178.6 L 203.7 179.5 L 206.5 180.3 L 209.3 181.1 L 212.0 181.9 L 214.7 182.6 L 217.5 183.3 L 220.1 183.9 L 222.8 184.5 L 225.4 185.1 L 228.0 185.6 L 230.6 186.1 L 233.1 186.6 L 235.6 187.0 L 238.1 187.4 L 240.5 187.7 L 242.9 188.0 L 245.3 188.3 L 247.6 188.5 L 249.9 188.7 L 252.1 188.8 L 254.3 188.9 L 256.4 188.9 L 258.5 189.0 L 260.6 188.9 L 262.6 188.9 L 264.6 188.7 L 266.5 188.6 L 268.3 188.4 L 270.1 188.2 L 271.9 187.9 L 273.6 187.6 L 275.2 187.2 L 276.8 186.8 L 278.4 186.4 L 279.8 185.9 L 281.3 185.4 L 282.6 184.9 L 283.9 184.3 L 285.2 183.7 L 286.4 183.0" stroke="#0072B2" stroke-width="3" fill="none" clip-path="url(#prefigure-rope-trees-__clipPath-1)"/>
+  <circle id="prefigure-rope-trees-rt-A" cx="57.7" cy="56.0" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-rope-trees-rt-B" cx="286.3" cy="170.3" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-rope-trees-rt-P1" cx="81.9" cy="113.1" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-rope-trees-rt-P2" cx="169.2" cy="166.7" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <circle id="prefigure-rope-trees-rt-P3" cx="258.1" cy="189.0" r="4" stroke="black" stroke-width="2" fill="#D55E00"/>
+  <g id="prefigure-rope-trees-rt-A-lab" transform="translate(45.7,56.0) translate(-13.6,-6.5)">
+    <g id="prefigure-rope-trees-__g-1">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:#D55E00" width="13.576px" height="12.960px" role="img" focusable="false" viewBox="0 -716 750 716" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-rope-trees-MJX-3-TEX-I-1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper A">
+              <use data-c="1D434" xlink:href="#prefigure-rope-trees-MJX-3-TEX-I-1D434"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-rope-trees-rt-B-lab" transform="translate(298.3,170.3) translate(0.0,-6.2)">
+    <g id="prefigure-rope-trees-__g-2">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:#D55E00" width="13.736px" height="12.360px" role="img" focusable="false" viewBox="0 -683 759 683" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-rope-trees-MJX-4-TEX-I-1D435" d="M231 637Q204 637 199 638T194 649Q194 676 205 682Q206 683 335 683Q594 683 608 681Q671 671 713 636T756 544Q756 480 698 429T565 360L555 357Q619 348 660 311T702 219Q702 146 630 78T453 1Q446 0 242 0Q42 0 39 2Q35 5 35 10Q35 17 37 24Q42 43 47 45Q51 46 62 46H68Q95 46 128 49Q142 52 147 61Q150 65 219 339T288 628Q288 635 231 637ZM649 544Q649 574 634 600T585 634Q578 636 493 637Q473 637 451 637T416 636H403Q388 635 384 626Q382 622 352 506Q352 503 351 500L320 374H401Q482 374 494 376Q554 386 601 434T649 544ZM595 229Q595 273 572 302T512 336Q506 337 429 337Q311 337 310 336Q310 334 293 263T258 122L240 52Q240 48 252 48T333 46Q422 46 429 47Q491 54 543 105T595 229Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper B">
+              <use data-c="1D435" xlink:href="#prefigure-rope-trees-MJX-4-TEX-I-1D435"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+  <g id="prefigure-rope-trees-rt-P-lab" transform="translate(169.2,177.7) translate(-6.8,-0.0)">
+    <g id="prefigure-rope-trees-__g-3">
+      <svg xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: 0.000px; color:#D55E00" width="13.592px" height="12.360px" role="img" focusable="false" viewBox="0 -683 751 683" x="0.0" y="0.0">
+        <defs>
+          <path id="prefigure-rope-trees-MJX-5-TEX-I-1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"/>
+        </defs>
+        <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">
+          <g data-mml-node="math">
+            <g data-mml-node="mi" data-semantic-type="identifier" data-semantic-role="latinletter" data-semantic-font="italic" data-semantic-annotation="clearspeak:simple" data-semantic-id="0" data-semantic-speech="upper P">
+              <use data-c="1D443" xlink:href="#prefigure-rope-trees-MJX-5-TEX-I-1D443"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </g>
+  </g>
+</svg>
