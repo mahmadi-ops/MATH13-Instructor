@@ -643,7 +643,11 @@ centered at <m>(1,2)</m>. Along the line <m>y = x+1</m> the gradient
 <title>True or False</title>
 <statement correct="yes">
 <p>
-<m>D_{\hat{\imath} + \hat{\jmath}}\,f(x,y) = f_x + f_y</m>.
+Let
+<m>\hat{u} = \frac{1}{\sqrt 2}\,\hat{\imath} + \frac{1}{\sqrt 2}\,\hat{\jmath}</m>
+be the unit vector in the direction of
+<m>\hat{\imath} + \hat{\jmath}</m>. Then
+<m>D_{\hat{u}}\,f(x,y) = \dfrac{f_x + f_y}{\sqrt 2}</m>.
 </p>
 <p>
 Justify your answer fully: give a proof if the statement is true, or a
@@ -653,12 +657,15 @@ counterexample if it is false.
 <feedback>
 <p>
 Since
-<m>\hat{\imath} + \hat{\jmath} = \langle 1, 1\rangle</m>,
+<m>\hat{u} = \left\langle \frac{1}{\sqrt 2}, \frac{1}{\sqrt 2}\right\rangle</m>
+is a unit vector,
 <md>
-D_{\hat{\imath} + \hat{\jmath}}\,f(x,y)
-= \nabla f(x,y) \cdot \langle 1, 1\rangle
-= f_x + f_y.
+D_{\hat{u}}\,f(x,y)
+= \nabla f(x,y) \cdot \left\langle \frac{1}{\sqrt 2}, \frac{1}{\sqrt 2}\right\rangle
+= \frac{f_x + f_y}{\sqrt 2}.
 </md>
+The direction has to be a unit vector: the vector
+<m>\hat{\imath} + \hat{\jmath}</m> itself has length <m>\sqrt 2</m>.
 </p>
 </feedback>
 </exercise>
