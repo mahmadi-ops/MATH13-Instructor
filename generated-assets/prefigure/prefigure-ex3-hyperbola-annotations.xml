@@ -1,0 +1,51 @@
+<diagram>
+  <annotations language="en">
+    <annotation id="prefigure-ex3-hyperbola-figure" speech2="The hyperbola x squared over 4 minus y squared over 9 equals 1, opening left and right, with its vertices, its foci and its two asymptotes.">
+      <grouped>prefigure-ex3-hyperbola-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-ex3-hyperbola-hyperbola</active>
+        <active>prefigure-ex3-hyperbola-asymptotes</active>
+        <active>prefigure-ex3-hyperbola-vertices</active>
+        <active>prefigure-ex3-hyperbola-foci</active>
+      </children>
+      <components>
+        <active>prefigure-ex3-hyperbola-hyperbola</active>
+        <active>prefigure-ex3-hyperbola-asymptotes</active>
+        <active>prefigure-ex3-hyperbola-vertices</active>
+        <active>prefigure-ex3-hyperbola-foci</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-ex3-hyperbola-hyperbola" speech2="The two blue branches of the hyperbola, one opening to the right from the vertex 2 comma 0 and one opening to the left from the vertex minus 2 comma 0." sonify="yes">
+      <active>prefigure-ex3-hyperbola-hyperbola</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-ex3-hyperbola-figure</grouped>
+      </parents>
+      <sonification>
+        <ACTIVE>prefigure-ex3-hyperbola-hyperbola</ACTIVE>
+      </sonification>
+    </annotation>
+    <annotation id="prefigure-ex3-hyperbola-asymptotes" speech2="The two dashed asymptotes through the origin, the lines y equals three halves x and y equals minus three halves x, which the branches approach.">
+      <active>prefigure-ex3-hyperbola-asymptotes</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-ex3-hyperbola-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-ex3-hyperbola-vertices" speech2="The vertices at 2 comma 0 and minus 2 comma 0, where each branch crosses the x axis.">
+      <active>prefigure-ex3-hyperbola-vertices</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-ex3-hyperbola-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-ex3-hyperbola-foci" speech2="The foci F 1 at minus the square root of 13 comma 0 and F 2 at the square root of 13 comma 0, marked in red on the x axis, beyond the vertices.">
+      <active>prefigure-ex3-hyperbola-foci</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-ex3-hyperbola-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

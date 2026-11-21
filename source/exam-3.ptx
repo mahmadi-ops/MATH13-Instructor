@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Exam 3 (Fall 2026), with solutions.
+
+  Transcribed from the instructor's solutions, MATH13-Exam3-Fall2026-Solutions:
+  the instructions, the key's note on how full its solutions are, the five
+  problems and the two optional bonus problems with their solutions, and the
+  answers at a glance, which stay at the end so that they do not give the
+  problems away. The page headers were left out. The exam had no formula
+  sheet. The two sketches in the solutions are redrawn at the instructor's
+  request: the hyperboloid of two sheets of Problem 4 in Asymptote (3D) and
+  the hyperbola of Problem 7 in PreFigure (2D).
+
+  M13-Skeletal-Notes and MATH13-Skeletal-Instructor hold the same file with
+  the topic links in the introduction and the link to the Mixed Derivative
+  Theorem in Problem 5 pointed at the skeletal notes' ids. Keep the copies
+  identical apart from those links.
+-->
+<worksheet xml:id="worksheet-exam-3" xmlns:xi="http://www.w3.org/2001/XInclude">
+<title>Exam 3</title>
+
+<introduction>
+<p>
+Exam 3 of this quarter (Fall 2026), with solutions. These were the
+instructions on the exam:
+</p>
+
+<p>
+<ul>
+<li><p>You have <alert>65 minutes</alert>. The exam has 5 problems and is worth <alert>20 points</alert>. Problems 6 and 7 are <alert>optional bonus problems</alert>, worth 6 additional points in total.</p></li>
+<li><p>This is a closed-book exam. No aids of your own are permitted: no formula sheets, notes, phones, tablets, smart watches, or similar. <alert>Calculators of any kind are not permitted.</alert></p></li>
+<li><p>Write your work in a neat and organized format and <alert>fully justify every step</alert>. An answer without supporting work may receive little or no credit.</p></li>
+<li><p>Give exact answers. Decimal approximations are not required.</p></li>
+<li><p>If you need more room, use the blank page at the end of the booklet and say so on the page of the problem.</p></li>
+<li><p>Any violation of academic integrity, such as the use of AI, calculators, etc., may result in receiving an F and being reported to the Office of Student Life.</p></li>
+</ul>
+</p>
+
+<p>
+The solutions below are fuller than what is expected on the exam. The items
+marked <q>check</q> are sanity checks, not required steps.
+</p>
+
+<p>
+The topics it covers, with links to the notes:
+</p>
+
+<p>
+<ul>
+<li><p><xref ref="chapter-limits-continuity" text="title"/></p></li>
+<li><p><xref ref="chapter-partial-derivatives" text="title"/></p></li>
+<li><p><xref ref="chapter-chain-rule" text="title"/></p></li>
+<li><p><xref ref="section-directional-derivatives" text="title"/></p></li>
+<li><p><xref ref="section-quadric-surfaces" text="title"/></p></li>
+<li><p><xref ref="chapter-lines-planes" text="title"/> (bonus)</p></li>
+<li><p><xref ref="section-conics" text="title"/> (bonus)</p></li>
+</ul>
+</p>
+</introduction>
+
+<!-- ===================== Problem 1 ===================== -->
+<exercise xml:id="ex3-p1">
+<title>6 points</title>
+<introduction>
+<p>
+Evaluate each of the following limits, or show that the limit does not
+exist.
+</p>
+</introduction>
+
+<task xml:id="ex3-p1-a">
+<statement>
+<p>
+<m>\displaystyle \lim_{(x,y)\to(0,0)} \frac{xy + y^3}{x^2 + y^2}</m>
+(3 points)
+</p>
+</statement>
+<solution>
+<p>
+The limit <alert>does not exist</alert>. Let
+<m>f(x,y) = \dfrac{xy + y^3}{x^2 + y^2}</m> and approach the origin along
+two different paths.
+</p>
+<p>
+<em>Along the <m>y</m>-axis</em> (<m>x = 0</m>, <m>y \to 0</m>):
+<md>
+f(0,y) = \frac{0 + y^3}{0 + y^2} = y \;\longrightarrow\; 0.
+</md>
+</p>
+<p>
+<em>Along the line <m>y = x</m></em> (<m>x \to 0</m>):
+<md>
+f(x,x) = \frac{x^2 + x^3}{x^2 + x^2} = \frac{x^2(1+x)}{2x^2}
+= \frac{1+x}{2} \;\longrightarrow\; \frac12.
+</md>
+</p>
+<p>
+The two paths give two different values (<m>0 \ne \frac12</m>), so by the
+two-path test the limit does not exist.
+</p>
+</solution>
+</task>
+
+<task xml:id="ex3-p1-b">
+<statement>
+<p>
+<m>\displaystyle \lim_{(x,y)\to(1,1)} \frac{x^2 - xy}{x^2 - y^2}</m>
+(3 points)
+</p>
+</statement>
+<solution>
+<p>
+Substituting <m>(1,1)</m> gives <m>\frac00</m>, so we simplify first. The
+function is defined where <m>x^2 \ne y^2</m>, that is, away from the lines
+<m>y = x</m> and <m>y = -x</m>. Factor the numerator and the denominator:
+<md>
+\frac{x^2 - xy}{x^2 - y^2} = \frac{x\,(x-y)}{(x-y)(x+y)} = \frac{x}{x+y}
+</md>
+at every point of the domain, since <m>x - y \ne 0</m> there. The function
+<m>\dfrac{x}{x+y}</m> is continuous at <m>(1,1)</m>, because its denominator
+is <m>2 \ne 0</m> there, so
+<md>
+\lim_{(x,y)\to(1,1)} \frac{x^2 - xy}{x^2 - y^2}
+= \lim_{(x,y)\to(1,1)} \frac{x}{x+y} = \frac{1}{1+1} = \boxed{\frac12}.
+</md>
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 2 ===================== -->
+<exercise xml:id="ex3-p2">
+<title>4 points</title>
+<statement>
+<p>
+Let <m>z = e^{x^2 y}</m>, where <m>x(u,v) = \sqrt{uv}</m> and
+<m>y(u,v) = \dfrac{1}{v}</m>. Compute <m>\dfrac{\partial z}{\partial v}</m>.
+</p>
+<p>
+<alert>Your final answer must be fully simplified.</alert>
+</p>
+</statement>
+<solution>
+<p>
+By the chain rule,
+<md>
+\frac{\partial z}{\partial v}
+= \frac{\partial z}{\partial x}\,\frac{\partial x}{\partial v}
++ \frac{\partial z}{\partial y}\,\frac{\partial y}{\partial v}.
+</md>
+The four partial derivatives are
+<md>
+<mrow>\frac{\partial z}{\partial x} \amp = 2xy\,e^{x^2 y}, \amp
+\frac{\partial z}{\partial y} \amp = x^2 e^{x^2 y},</mrow>
+<mrow>\frac{\partial x}{\partial v} \amp = \frac{u}{2\sqrt{uv}}, \amp
+\frac{\partial y}{\partial v} \amp = -\frac{1}{v^2}.</mrow>
+</md>
+Therefore
+<md>
+\frac{\partial z}{\partial v}
+= \left(2xy\,e^{x^2 y}\right)\frac{u}{2\sqrt{uv}}
++ \left(x^2 e^{x^2 y}\right)\left(-\frac{1}{v^2}\right).
+</md>
+Now write everything in terms of <m>u</m> and <m>v</m>. Since
+<m>x^2 y = uv\cdot\frac1v = u</m>, we have <m>e^{x^2 y} = e^u</m>, and
+<md>
+<mrow>\frac{\partial z}{\partial v}
+\amp = \left(2\sqrt{uv}\cdot\frac1v\cdot e^u\right)\frac{u}{2\sqrt{uv}}
+- \frac{uv}{v^2}\,e^u</mrow>
+<mrow>\amp = \frac{u}{v}\,e^u - \frac{u}{v}\,e^u = \boxed{0}.</mrow>
+</md>
+</p>
+<p>
+<em>Check:</em> <m>x^2 y = u</m>, so <m>z = e^u</m> does not depend on
+<m>v</m> at all, which agrees with <m>\partial z/\partial v = 0</m>. (An
+answer that is correct but left unsimplified, for example
+<m>\frac{u}{v}e^u - \frac{uv}{v^2}e^u</m>, is not complete.)
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Problem 3 ===================== -->
+<exercise xml:id="ex3-p3">
+<title>5 points</title>
+<statement>
+<p>
+Find the directional derivative of <m>f(x,y) = x^2 y + y^2</m> at the point
+<m>(-1,-1)</m> in the direction of the unit vector
+<m>\hat{u} = \left\langle \frac{1}{\sqrt2}, \frac{1}{\sqrt2}\right\rangle</m>.
+</p>
+</statement>
+<solution>
+<p>
+<em>The direction.</em> The direction
+<m>\hat{u} = \left\langle \frac{1}{\sqrt2}, \frac{1}{\sqrt2}\right\rangle</m>
+is given, and it is already a unit vector:
+<m>\|\hat{u}\| = \sqrt{\frac12 + \frac12} = 1</m>. So no normalization is
+needed.
+</p>
+<p>
+<em>The gradient.</em> The partial derivatives are
+<md>
+f_x = 2xy, \qquad f_y = x^2 + 2y.
+</md>
+At <m>P_0(-1,-1)</m>,
+<md>
+<mrow>f_x(-1,-1) \amp = 2(-1)(-1) = 2, \qquad f_y(-1,-1) = 1 - 2 = -1,</mrow>
+<mrow>\text{so}\quad \left(\nabla f\right)_{P_0} \amp = \langle 2, -1\rangle.</mrow>
+</md>
+</p>
+<p>
+<em>The directional derivative.</em>
+<md>
+<mrow>\left(D_{\hat{u}} f\right)_{P_0}
+\amp = \left(\nabla f\right)_{P_0}\cdot\hat{u}
+= \langle 2,-1\rangle\cdot\left\langle \frac{1}{\sqrt2}, \frac{1}{\sqrt2}\right\rangle</mrow>
+<mrow>\amp = \frac{2-1}{\sqrt2}
+= \boxed{\frac{1}{\sqrt2} = \frac{\sqrt2}{2}}.</mrow>
+</md>
+</p>
+</solution>
+</exercise>
+
+<!-- ===================== Problem 4 ===================== -->
+<exercise xml:id="ex3-p4">
+<title>3 points</title>
+<statement>
+<p>
+Identify and sketch the surface corresponding to the following equation:
+<md>
+z^2 + y^2 - x^2 + 1 = 0.
+</md>
+</p>
+</statement>
+<solution>
+<p>
+Rewrite the equation in standard form:
+<md>
+x^2 - y^2 - z^2 = 1.
+</md>
+One squared term is positive and two are negative, and the right-hand side
+is <m>1</m>. Look at the traces:
+<ul>
+<li><p><m>z = 0</m>: <m>x^2 - y^2 = 1</m>, a hyperbola in the <m>xy</m>-plane opening along the <m>x</m>-axis;</p></li>
+<li><p><m>y = 0</m>: <m>x^2 - z^2 = 1</m>, a hyperbola in the <m>xz</m>-plane opening along the <m>x</m>-axis;</p></li>
+<li><p><m>x = c</m>: <m>y^2 + z^2 = c^2 - 1</m>. This is empty when <m>|c| \lt 1</m>, a single point when <m>c = \pm 1</m>, and a circle of radius <m>\sqrt{c^2 - 1}</m> when <m>|c| \gt 1</m>.</p></li>
+</ul>
+</p>
+<p>
+There are no points of the surface with <m>-1 \lt x \lt 1</m>, so the
+surface comes in two separate pieces. It is a <alert>hyperboloid of two
+sheets</alert> whose axis is the <m>x</m>-axis, with vertices
+<m>(\pm 1, 0, 0)</m>. Its cross-sections perpendicular to the
+<m>x</m>-axis are circles.
+</p>
+<figure xml:id="fig-ex3-hyperboloid">
+<caption>The hyperboloid of two sheets <m>x^2 - y^2 - z^2 = 1</m>: two bowls
+opening along the positive and the negative <m>x</m>-axis, with vertices
+<m>(\pm 1, 0, 0)</m>.</caption>
+<image width="70%">
+<shortdescription>A hyperboloid of two sheets along the x axis: two bowls opening away from the origin, with vertices (1,0,0) and (minus 1,0,0).</shortdescription>
+<description>
+<p>
+Three-dimensional axes with the x axis pointing toward the viewer and to the
+right. A blue bowl opens along the positive x axis from its vertex at
+(1,0,0), and a second blue bowl opens along the negative x axis from its
+vertex at (minus 1,0,0). Their circular rims face away from the origin, and
+there is no surface between the two vertices.
+</p>
+</description>
+<asymptote label="asymptote-ex3-hyperboloid"><![CDATA[
+// The hyperboloid of two sheets x^2 - y^2 - z^2 = 1, axis along the x-axis,
+// vertices (1,0,0) and (-1,0,0); each sheet is parametrized as
+// (+-cosh s, sinh s cos t, sinh s sin t), 0 <= s <= 1.35.
+import graph3;
+// Keep HTML interactive; use vector rendering only for print output.
+if(settings.outformat != "html") settings.render=0;
+size(12cm,7cm);
+currentprojection=orthographic(camera=(2.2,-7,2.6),up=Z);
+currentlight=light(gray(0.6),specularfactor=0.2,(2,-5,6),(-2,-4,3));
+pen ax=gray(0.25)+linewidth(0.6pt);
+real smax=1.25;
+
+triple sheet(pair q, real sgn) {
+  return (sgn*cosh(q.x), sinh(q.x)*cos(q.y), sinh(q.x)*sin(q.y));
+}
+triple right(pair q) { return sheet(q, 1); }
+triple left(pair q) { return sheet(q, -1); }
+pen face=rgb(0.33,0.5,0.85)+opacity(0.75);
+pen mesh=rgb(0.12,0.22,0.5)+linewidth(0.3pt);
+draw(surface(right, (0,0), (smax,2pi), 10, 28, Spline), surfacepen=face, meshpen=mesh);
+draw(surface(left, (0,0), (smax,2pi), 10, 28, Spline), surfacepen=face, meshpen=mesh);
+
+draw(Label("$x$",1),(-3.0,0,0)--(3.3,0,0),ax,Arrow3);
+draw(Label("$y$",1),(0,-1.4,0)--(0,2.4,0),ax,Arrow3);
+draw(Label("$z$",1),(0,0,-1.9)--(0,0,2.4),ax,Arrow3);
+
+dot((1,0,0), black+linewidth(4pt));
+dot((-1,0,0), black+linewidth(4pt));
+// the vertex labels sit below the sheets, joined to the vertices by leader lines
+pen lead=black+linewidth(0.5pt);
+draw((1,0,0)--(1.15,0,-1.7), lead);
+draw((-1,0,0)--(-1.15,0,-1.7), lead);
+label("$(1,0,0)$", (1.15,0,-1.7), S);
+label("$(-1,0,0)$", (-1.15,0,-1.7), S);
+]]></asymptote>
+</image>
+</figure>
+</solution>
+</exercise>
+
+<!-- ===================== Problem 5 ===================== -->
+<exercise xml:id="ex3-p5">
+<title>2 points</title>
+<statement>
+<p>
+Decide whether the statement below is true or false. Clearly justify your
+answer: a correct answer with an incorrect or unclear justification will
+not earn credit.
+</p>
+<p>
+<alert>True or False?</alert> There exists a function <m>f(x,y)</m> such
+that
+<md>
+f_x(x,y) = y \qquad\text{and}\qquad f_y(x,y) = x^2
+</md>
+at every point <m>(x,y)</m> of the plane.
+</p>
+<p>
+(Assume that <m>f</m> and its partial derivatives <m>f_x</m>,
+<m>f_y</m>, <m>f_{xy}</m> and <m>f_{yx}</m> are defined and continuous at
+every point of the <m>xy</m>-plane.)
+</p>
+</statement>
+<solution>
+<p>
+<alert>False.</alert> Suppose such a function <m>f</m> existed. Then
+<md>
+f_{xy} = \frac{\partial}{\partial y}\left(f_x\right)
+= \frac{\partial}{\partial y}(y) = 1
+\qquad\text{and}\qquad
+f_{yx} = \frac{\partial}{\partial x}\left(f_y\right)
+= \frac{\partial}{\partial x}\left(x^2\right) = 2x.
+</md>
+By assumption <m>f</m>, <m>f_x</m>, <m>f_y</m>, <m>f_{xy}</m> and
+<m>f_{yx}</m> are defined and continuous at every point of the plane, so the
+Mixed Derivative Theorem (Clairaut's Theorem,
+<xref ref="thm-mixed-derivative"/>) applies at every point
+<m>(a,b)</m> and gives
+<md>
+f_{xy}(a,b) = f_{yx}(a,b), \qquad\text{that is,}\qquad 1 = 2a
+\quad\text{for every } a.
+</md>
+This is false (for example, at the origin it says <m>1 = 0</m>). The
+contradiction shows that no such function exists.
+</p>
+</solution>
+</exercise>
+
+<p>
+<alert>Problems 6 and 7 are optional bonus problems. Together they are
+worth 6 points.</alert>
+</p>
+
+<!-- ===================== Problem 6 (bonus) ===================== -->
+<exercise xml:id="ex3-p6">
+<title>Bonus, 4 points</title>
+<introduction>
+<p>
+Consider the two planes
+<md>
+\mathcal P_1:\ x + 2y + 2z = 3
+\qquad\text{and}\qquad
+\mathcal P_2:\ 2x - 2y + z = 3,
+</md>
+and let <m>L</m> be their line of intersection.
+</p>
+</introduction>
+
+<task xml:id="ex3-p6-a">
+<statement>
+<p>
+Use the dot product to show that the two planes are perpendicular.
+(1 point)
+</p>
+</statement>
+<solution>
+<p>
+The coefficients of <m>x</m>, <m>y</m>, <m>z</m> give the normal vectors
+<m>\vec n_1 = \langle 1,2,2\rangle</m> and
+<m>\vec n_2 = \langle 2,-2,1\rangle</m>. Two planes are perpendicular
+exactly when their normal vectors are perpendicular, and
+<md>
+\vec n_1\cdot\vec n_2 = (1)(2) + (2)(-2) + (2)(1) = 2 - 4 + 2 = 0,
+</md>
+so <m>\vec n_1 \perp \vec n_2</m> and the planes are perpendicular.
+</p>
+</solution>
+</task>
+
+<task xml:id="ex3-p6-b">
+<statement>
+<p>
+Use the cross product to find a vector that is parallel to the line
+<m>L</m>. (1 point)
+</p>
+</statement>
+<solution>
+<p>
+The line <m>L</m> lies in both planes, so its direction is perpendicular to
+both normal vectors. Such a vector is
+<md>
+<mrow>\vec n_1\times\vec n_2
+\amp = \begin{vmatrix} \hat\imath \amp \hat\jmath \amp \hat k \\ 1 \amp 2 \amp 2 \\ 2 \amp -2 \amp 1 \end{vmatrix}
+= (2+4)\,\hat\imath - (1-4)\,\hat\jmath + (-2-4)\,\hat k</mrow>
+<mrow>\amp = \langle 6,3,-6\rangle = 3\,\langle 2,1,-2\rangle.</mrow>
+</md>
+Any non-zero multiple works; we use <m>\vec d = \langle 2,1,-2\rangle</m>
+(<em>check:</em> <m>\vec d\cdot\vec n_1 = 2 + 2 - 4 = 0</m> and
+<m>\vec d\cdot\vec n_2 = 4 - 2 - 2 = 0</m>).
+</p>
+</solution>
+</task>
+
+<task xml:id="ex3-p6-c">
+<statement>
+<p>
+The point <m>A(1,0,1)</m> lies on both planes. Find parametric equations of
+<m>L</m>, and an equation of the plane through the origin that is
+perpendicular to <m>L</m>. (2 points)
+</p>
+</statement>
+<solution>
+<p>
+The line <m>L</m> passes through <m>A(1,0,1)</m> and is parallel to
+<m>\vec d = \langle 2,1,-2\rangle</m>:
+<md>
+\boxed{x(t) = 1 + 2t, \quad y(t) = t, \quad z(t) = 1 - 2t, \quad t \in \mathbb R.}
+</md>
+(<em>Check:</em> <m>(1+2t) + 2t + 2(1-2t) = 3</m> and
+<m>2(1+2t) - 2t + (1-2t) = 3</m> for every <m>t</m>.)
+</p>
+<p>
+A plane perpendicular to <m>L</m> has the direction vector of <m>L</m> as
+its normal vector, so <m>\vec n = \langle 2,1,-2\rangle</m>. Passing through
+the origin,
+<md>
+2(x-0) + 1(y-0) - 2(z-0) = 0, \qquad\text{that is,}\qquad
+\boxed{2x + y - 2z = 0.}
+</md>
+</p>
+</solution>
+</task>
+</exercise>
+
+<!-- ===================== Problem 7 (bonus) ===================== -->
+<exercise xml:id="ex3-p7">
+<title>Bonus, 2 points</title>
+<statement>
+<p>
+A hyperbola has vertices <m>(-2,0)</m> and <m>(2,0)</m>, and its asymptotes
+are the lines <m>y = \pm\frac32 x</m>. Find the equation of the hyperbola
+and its foci.
+</p>
+</statement>
+<solution>
+<p>
+The vertices lie on the <m>x</m>-axis and the center is the origin, so the
+hyperbola opens left and right and has the form
+<md>
+\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1,
+</md>
+with vertices <m>(\pm a, 0)</m>, asymptotes <m>y = \pm\frac{b}{a}x</m>, and
+foci <m>(\pm c, 0)</m> where <m>c^2 = a^2 + b^2</m>. The vertices give
+<m>a = 2</m>, and the asymptotes give <m>\frac{b}{a} = \frac32</m>, so
+<m>b = \frac32\cdot 2 = 3</m>. The hyperbola is
+<md>
+\boxed{\frac{x^2}{4} - \frac{y^2}{9} = 1}
+\qquad \left(\text{equivalently } 9x^2 - 4y^2 = 36\right).
+</md>
+For the foci, <m>c^2 = a^2 + b^2 = 4 + 9 = 13</m>, so <m>c = \sqrt{13}</m>
+and the foci are
+<md>
+\boxed{\left(-\sqrt{13}, 0\right) \text{ and } \left(\sqrt{13}, 0\right)}.
+</md>
+</p>
+<figure xml:id="fig-ex3-hyperbola">
+<caption>The hyperbola <m>\frac{x^2}{4} - \frac{y^2}{9} = 1</m> with its
+vertices <m>(\pm 2, 0)</m>, its foci <m>F_{1,2} = \left(\mp\sqrt{13}, 0\right)</m>
+and its asymptotes <m>y = \pm\frac32 x</m>.</caption>
+<image width="55%">
+<prefigure xmlns="https://prefigure.org" label="prefigure-ex3-hyperbola">
+<diagram dimensions="(420,360)" margins="8">
+<definition>H(x,y) = x^2/4 - y^2/9</definition>
+<definition>cc = sqrt(13)</definition>
+<coordinates bbox="(-5.4, -5.6, 5.4, 5.6)">
+<axes xlabel="x" ylabel="y" decorations="no" arrows="1"/>
+<group at="asymptotes">
+<line p1="(0,0)" p2="(2,3)" stroke="gray" thickness="1" dash="5 4" infinite="yes"/>
+<line p1="(0,0)" p2="(2,-3)" stroke="gray" thickness="1" dash="5 4" infinite="yes"/>
+</group>
+<implicit-curve at="hyperbola" function="H" k="1" stroke="blue" thickness="2.5"/>
+<label at="asym-label-r" anchor="(3.4,5.1)" alignment="w" offset="(-10,0)"><m>y=\tfrac32 x</m></label>
+<label at="asym-label-l" anchor="(3.4,-5.1)" alignment="w" offset="(-10,0)"><m>y=-\tfrac32 x</m></label>
+<group at="vertices">
+<point p="(2,0)" fill="black" size="3"/>
+<point p="(-2,0)" fill="black" size="3"/>
+</group>
+<label at="v1-label" anchor="(2,0)" alignment="sw" offset="(-3,-3)"><m>2</m></label>
+<label at="v2-label" anchor="(-2,0)" alignment="se" offset="(3,-3)"><m>-2</m></label>
+<group at="foci">
+<point p="(cc,0)" fill="red" size="3"/>
+<point p="(-cc,0)" fill="red" size="3"/>
+</group>
+<label at="f2-label" anchor="(cc,0)" alignment="s" offset="(0,-8)"><m>F_2</m></label>
+<label at="f1-label" anchor="(-cc,0)" alignment="s" offset="(0,-8)"><m>F_1</m></label>
+</coordinates>
+<annotations>
+<annotation ref="figure" text="The hyperbola x squared over 4 minus y squared over 9 equals 1, opening left and right, with its vertices, its foci and its two asymptotes.">
+  <annotation ref="hyperbola" text="The two blue branches of the hyperbola, one opening to the right from the vertex 2 comma 0 and one opening to the left from the vertex minus 2 comma 0." sonify="yes"/>
+  <annotation ref="asymptotes" text="The two dashed asymptotes through the origin, the lines y equals three halves x and y equals minus three halves x, which the branches approach."/>
+  <annotation ref="vertices" text="The vertices at 2 comma 0 and minus 2 comma 0, where each branch crosses the x axis."/>
+  <annotation ref="foci" text="The foci F 1 at minus the square root of 13 comma 0 and F 2 at the square root of 13 comma 0, marked in red on the x axis, beyond the vertices."/>
+</annotation>
+</annotations>
+</diagram>
+</prefigure>
+</image>
+</figure>
+</solution>
+</exercise>
+
+<!-- ===================== Answers at a glance ===================== -->
+<assemblage xml:id="ex3-answers">
+<title>Answers at a glance</title>
+<p>
+<ol marker="1.">
+<li><p>(a) The limit does not exist: it is <m>0</m> along <m>x = 0</m> and <m>\frac12</m> along <m>y = x</m>; (b) <m>\frac12</m>.</p></li>
+<li><p><m>\dfrac{\partial z}{\partial v} = 0</m>.</p></li>
+<li><p><m>\left(D_{\hat{u}} f\right)_{(-1,-1)} = \frac{1}{\sqrt2} = \frac{\sqrt2}{2}</m>, with <m>\nabla f(-1,-1) = \langle 2,-1\rangle</m>.</p></li>
+<li><p><m>x^2 - y^2 - z^2 = 1</m>: a hyperboloid of two sheets along the <m>x</m>-axis, with vertices <m>(\pm 1, 0, 0)</m>.</p></li>
+<li><p>False: <m>f_{xy} = 1</m> but <m>f_{yx} = 2x</m>, which contradicts the Mixed Derivative Theorem.</p></li>
+<li><p>(bonus) (a) <m>\vec n_1\cdot\vec n_2 = 0</m>; (b) <m>\vec n_1\times\vec n_2 = \langle 6,3,-6\rangle</m>, parallel to <m>\langle 2,1,-2\rangle</m>; (c) <m>x = 1 + 2t</m>, <m>y = t</m>, <m>z = 1 - 2t</m>, and the plane <m>2x + y - 2z = 0</m>.</p></li>
+<li><p>(bonus) <m>\frac{x^2}{4} - \frac{y^2}{9} = 1</m>, with foci <m>\left(\pm\sqrt{13}, 0\right)</m>.</p></li>
+</ol>
+</p>
+</assemblage>
+
+</worksheet>

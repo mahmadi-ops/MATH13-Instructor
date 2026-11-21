@@ -3,8 +3,8 @@
 
 <introduction>
 <p>
-The ten assignments, the four review problem sets, two sample past exams, and
-Exams 1 and 2, in one place. Worked solutions appear beneath each problem
+The ten assignments, the four review problem sets, three sample past exams,
+and Exams 1, 2 and 3, in one place. Worked solutions appear beneath each problem
 once the assignment's due date has passed; solutions for the review sets are
 posted the same way.
 </p>
@@ -68,6 +68,10 @@ posted the same way.
 <!-- ================= Sample Past Exam 3 ================= -->
 <!-- The six questions of a past third midterm, a seventh on tangent planes, with worked solutions. -->
 <xi:include href="sample-past-exam-3.ptx"/>
+
+<!-- ================= Exam 3 ================= -->
+<!-- This quarter's Exam 3, five problems and two bonus problems, with solutions. -->
+<xi:include href="exam-3.ptx"/>
 
 <!-- ================= Assignment 10 ================= -->
 <xi:include href="assignment-10-extreme-values-lagrange.ptx"/>
