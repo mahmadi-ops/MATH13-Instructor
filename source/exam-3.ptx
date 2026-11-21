@@ -172,9 +172,7 @@ Now write everything in terms of <m>u</m> and <m>v</m>. Since
 </p>
 <p>
 <em>Check:</em> <m>x^2 y = u</m>, so <m>z = e^u</m> does not depend on
-<m>v</m> at all, which agrees with <m>\partial z/\partial v = 0</m>. (An
-answer that is correct but left unsimplified, for example
-<m>\frac{u}{v}e^u - \frac{uv}{v^2}e^u</m>, is not complete.)
+<m>v</m> at all, which agrees with <m>\partial z/\partial v = 0</m>.
 </p>
 </solution>
 </exercise>
@@ -315,8 +313,7 @@ label("$(-1,0,0)$", (-1.15,0,-1.7), S);
 <statement>
 <p>
 Decide whether the statement below is true or false. Clearly justify your
-answer: a correct answer with an incorrect or unclear justification will
-not earn credit.
+answer.
 </p>
 <p>
 <alert>True or False?</alert> There exists a function <m>f(x,y)</m> such
