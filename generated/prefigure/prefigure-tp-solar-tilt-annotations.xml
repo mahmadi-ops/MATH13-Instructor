@@ -1,0 +1,84 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-tp-solar-tilt-figure" speech2="A side view of the roof, cut by the vertical plane through the top of the dome and the point P 0. The grey curve is the roof, falling away from its top on the z axis. The panel is a thick dark blue segment tangent to the roof at P 0. A dashed blue horizontal line starts at P 0, and the angle theta between it and the panel is the tilt. A blue arrow k points straight up from P 0 and a red arrow, the upward normal 1 comma negative 3 comma 4, is perpendicular to the panel. The angle between these two arrows is the same angle theta, about 38 degrees.">
+      <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-tp-solar-tilt-st-roof</active>
+        <active>prefigure-tp-solar-tilt-st-panel</active>
+        <active>prefigure-tp-solar-tilt-st-horizontal</active>
+        <active>prefigure-tp-solar-tilt-st-tilt</active>
+        <active>prefigure-tp-solar-tilt-st-right</active>
+        <active>prefigure-tp-solar-tilt-st-k</active>
+        <active>prefigure-tp-solar-tilt-st-normal</active>
+        <active>prefigure-tp-solar-tilt-st-normal-angle</active>
+      </children>
+      <components>
+        <active>prefigure-tp-solar-tilt-st-roof</active>
+        <active>prefigure-tp-solar-tilt-st-panel</active>
+        <active>prefigure-tp-solar-tilt-st-horizontal</active>
+        <active>prefigure-tp-solar-tilt-st-tilt</active>
+        <active>prefigure-tp-solar-tilt-st-right</active>
+        <active>prefigure-tp-solar-tilt-st-k</active>
+        <active>prefigure-tp-solar-tilt-st-normal</active>
+        <active>prefigure-tp-solar-tilt-st-normal-angle</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-roof" speech2="The roof in this slice, the curve z equals 5 minus r squared over 8, where r is the horizontal distance from the top of the dome.">
+      <active>prefigure-tp-solar-tilt-st-roof</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-panel" speech2="The solar panel seen edge on, a thick dark blue segment tangent to the roof at P 0.">
+      <active>prefigure-tp-solar-tilt-st-panel</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-horizontal" speech2="A dashed horizontal line through P 0.">
+      <active>prefigure-tp-solar-tilt-st-horizontal</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-tilt" speech2="The tilt theta of the panel, the angle between the panel and the horizontal line.">
+      <active>prefigure-tp-solar-tilt-st-tilt</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-right" speech2="A right-angle mark at P 0, between the panel and its upward normal.">
+      <active>prefigure-tp-solar-tilt-st-right</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-k" speech2="The vertical unit vector k, drawn in blue, pointing straight up from P 0.">
+      <active>prefigure-tp-solar-tilt-st-k</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-normal" speech2="The upward normal to the panel, the vector 1 comma negative 3 comma 4, drawn in red, perpendicular to the panel.">
+      <active>prefigure-tp-solar-tilt-st-normal</active>
+      <position>7</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-tp-solar-tilt-st-normal-angle" speech2="The angle between the upward normal and the vertical vector k. It equals the tilt theta, since the normal is perpendicular to the panel and k is perpendicular to the horizontal.">
+      <active>prefigure-tp-solar-tilt-st-normal-angle</active>
+      <position>8</position>
+      <parents>
+        <grouped>prefigure-tp-solar-tilt-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-doppler-quantities-figure" speech2="A blue sinusoidal water profile above a common horizontal position axis. An orange arrow from the origin to the boat marks x sub b of t, and a green arrow from the same origin to a selected crest marks x sub c of t. A dark red vertical arrow from the mean water level to the surface at the boat marks w of t.">
+      <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-doppler-quantities-dop-pos-xb-span</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-xc-span</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-height</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-wave</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-boat-sample</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-crest</active>
+      </children>
+      <components>
+        <active>prefigure-cr-doppler-quantities-dop-pos-xb-span</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-xc-span</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-height</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-wave</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-boat-sample</active>
+        <active>prefigure-cr-doppler-quantities-dop-pos-crest</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-quantities-dop-pos-xb-span" speech2="The orange horizontal distance x sub b of t from the origin to the boat.">
+      <active>prefigure-cr-doppler-quantities-dop-pos-xb-span</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-quantities-dop-pos-xc-span" speech2="The green horizontal distance x sub c of t from the same origin to the selected crest.">
+      <active>prefigure-cr-doppler-quantities-dop-pos-xc-span</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-quantities-dop-pos-height" speech2="The vertical signed height w of t, measured from the mean water level to the water surface at the boat.">
+      <active>prefigure-cr-doppler-quantities-dop-pos-height</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-quantities-dop-pos-wave" speech2="A snapshot of the sinusoidal water surface.">
+      <active>prefigure-cr-doppler-quantities-dop-pos-wave</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-quantities-dop-pos-boat-sample" speech2="The point on the water surface sampled by the boat.">
+      <active>prefigure-cr-doppler-quantities-dop-pos-boat-sample</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-quantities-dop-pos-crest" speech2="The selected wave crest.">
+      <active>prefigure-cr-doppler-quantities-dop-pos-crest</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-quantities-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

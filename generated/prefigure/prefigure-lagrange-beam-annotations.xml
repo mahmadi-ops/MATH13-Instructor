@@ -1,0 +1,39 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-lagrange-beam-figure" speech2="The end of a round log, a circle with growth rings, with a rectangular beam cut from it. The beam is taller than it is wide: its horizontal side is labeled w and its vertical side h. All four corners of the beam lie on the edge of the log, so the dashed diagonal of the beam passes through the center of the log and is a diameter, 12 inches long.">
+      <grouped>prefigure-lagrange-beam-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-lagrange-beam-lb-log</active>
+        <active>prefigure-lagrange-beam-lb-beam</active>
+        <active>prefigure-lagrange-beam-lb-diagonal</active>
+      </children>
+      <components>
+        <active>prefigure-lagrange-beam-lb-log</active>
+        <active>prefigure-lagrange-beam-lb-beam</active>
+        <active>prefigure-lagrange-beam-lb-diagonal</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-lagrange-beam-lb-log" speech2="The end of the log, a circle of diameter 12 inches.">
+      <active>prefigure-lagrange-beam-lb-log</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-lagrange-beam-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-beam-lb-beam" speech2="The beam, a rectangle of width w and depth h with its four corners on the edge of the log.">
+      <active>prefigure-lagrange-beam-lb-beam</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-lagrange-beam-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-lagrange-beam-lb-diagonal" speech2="The diagonal of the beam, drawn dashed. It is a diameter of the log, so it is 12 inches long and w squared plus h squared equals 144.">
+      <active>prefigure-lagrange-beam-lb-diagonal</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-lagrange-beam-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

@@ -1,0 +1,66 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-rope-ellipse-figure" speech2="An ellipse tilted so that its long axis runs from the upper left down to the lower right, with its two foci marked A and B at the places where the rope is tied to the trees. The lower arc of the ellipse between the two faint tree trunks is drawn solid in blue; the rest of the ellipse is dashed gray. A point P on the solid arc is joined to A and to B by two green segments, the two straight pieces of the rope.">
+      <grouped>prefigure-rope-ellipse-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-rope-ellipse-re-path</active>
+        <active>prefigure-rope-ellipse-re-rest1</active>
+        <active>prefigure-rope-ellipse-re-A</active>
+        <active>prefigure-rope-ellipse-re-B</active>
+        <active>prefigure-rope-ellipse-re-AP</active>
+        <active>prefigure-rope-ellipse-re-PB</active>
+      </children>
+      <components>
+        <active>prefigure-rope-ellipse-re-path</active>
+        <active>prefigure-rope-ellipse-re-rest1</active>
+        <active>prefigure-rope-ellipse-re-A</active>
+        <active>prefigure-rope-ellipse-re-B</active>
+        <active>prefigure-rope-ellipse-re-AP</active>
+        <active>prefigure-rope-ellipse-re-PB</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-rope-ellipse-re-path" speech2="The solid blue arc: the part of the ellipse the bottle actually travels, between the two trees.">
+      <active>prefigure-rope-ellipse-re-path</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-rope-ellipse-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-ellipse-re-rest1" speech2="The dashed rest of the ellipse, which the bottle never reaches.">
+      <active>prefigure-rope-ellipse-re-rest1</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-rope-ellipse-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-ellipse-re-A" speech2="The focus A, where the rope is tied to the first tree.">
+      <active>prefigure-rope-ellipse-re-A</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-rope-ellipse-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-ellipse-re-B" speech2="The focus B, where the rope is tied to the second tree.">
+      <active>prefigure-rope-ellipse-re-B</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-rope-ellipse-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-ellipse-re-AP" speech2="The green segment from A to P, one straight piece of the rope.">
+      <active>prefigure-rope-ellipse-re-AP</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-rope-ellipse-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-rope-ellipse-re-PB" speech2="The green segment from P to B, the other piece; the two lengths add up to one hundred and twenty feet.">
+      <active>prefigure-rope-ellipse-re-PB</active>
+      <position>6</position>
+      <parents>
+        <grouped>prefigure-rope-ellipse-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>

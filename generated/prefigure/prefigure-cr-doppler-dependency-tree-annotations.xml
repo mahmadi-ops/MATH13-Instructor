@@ -1,0 +1,57 @@
+<diagram>
+  <annotations>
+    <annotation id="prefigure-cr-doppler-dependency-tree-figure" speech2="A diamond-shaped dependency tree. The water height w equals f of x sub b and x sub c at the top. Orange and green intermediate nodes x sub b and x sub c lie in the middle, and time t lies at the bottom. The branches carry the two partial derivatives and the velocities v and k.">
+      <grouped>prefigure-cr-doppler-dependency-tree-figure</grouped>
+      <position>1</position>
+      <children>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-w-xb</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-xb-t</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-w-xc</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-xc-t</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-t</active>
+      </children>
+      <components>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-w-xb</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-xb-t</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-w-xc</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-xc-t</active>
+        <active>prefigure-cr-doppler-dependency-tree-dop-tree-t</active>
+      </components>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-dependency-tree-dop-tree-w-xb" speech2="The branch from w to the boat position carries partial f with respect to x sub b.">
+      <active>prefigure-cr-doppler-dependency-tree-dop-tree-w-xb</active>
+      <position>1</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-dependency-tree-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-dependency-tree-dop-tree-xb-t" speech2="The branch from the boat position to time carries d x sub b over d t, equal to v.">
+      <active>prefigure-cr-doppler-dependency-tree-dop-tree-xb-t</active>
+      <position>2</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-dependency-tree-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-dependency-tree-dop-tree-w-xc" speech2="The branch from w to the selected crest position carries partial f with respect to x sub c.">
+      <active>prefigure-cr-doppler-dependency-tree-dop-tree-w-xc</active>
+      <position>3</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-dependency-tree-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-dependency-tree-dop-tree-xc-t" speech2="The branch from the selected crest position to time carries d x sub c over d t, equal to k.">
+      <active>prefigure-cr-doppler-dependency-tree-dop-tree-xc-t</active>
+      <position>4</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-dependency-tree-figure</grouped>
+      </parents>
+    </annotation>
+    <annotation id="prefigure-cr-doppler-dependency-tree-dop-tree-t" speech2="Both paths end at the independent variable t.">
+      <active>prefigure-cr-doppler-dependency-tree-dop-tree-t</active>
+      <position>5</position>
+      <parents>
+        <grouped>prefigure-cr-doppler-dependency-tree-figure</grouped>
+      </parents>
+    </annotation>
+  </annotations>
+</diagram>
