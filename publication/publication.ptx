@@ -83,6 +83,9 @@
     <!-- and links that the PDF prints for videos and interactives from it;    -->
     <!-- without it they held bare page names that a phone cannot open.        -->
     <baseurl href="https://mahmadi-ops.github.io/MATH13-Instructor/"/>
+    <!-- Google Analytics 4 (anonymous visit counts).  One property covers   -->
+    <!-- every book on mahmadi-ops.github.io; reports split them by path.    -->
+    <analytics google-gst="G-HLPGGP7XJ2"/>
     <!-- "maximum" renders every cross-reference to a numbered object as a  -->
     <!-- knowl that opens in place and carries an "in context" link, on the  -->
     <!-- same page as well as across pages; references to divisions stay     -->
